@@ -1,5 +1,5 @@
 import { IsEnum, IsNotEmpty, IsString, MaxLength } from "class-validator";
-import { document_type } from "prisma/generated/prisma/enums";
+import { Document_type } from "prisma/generated/prisma/enums";
 
 export class CreateDocumentDto {
 
@@ -9,8 +9,8 @@ export class CreateDocumentDto {
     title: string;
 
     @IsNotEmpty()
-    @IsEnum(document_type)
-    type: document_type;
+    @IsEnum(Document_type)
+    type: Document_type;
 
     @IsString()
     @MaxLength(500)

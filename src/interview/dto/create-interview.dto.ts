@@ -1,5 +1,5 @@
 import { IsDate, IsEnum, IsNotEmpty, IsOptional, IsString } from "class-validator";
-import { interview_interview_type } from "prisma/generated/prisma/client";
+import { Interview_interview_type } from "prisma/generated/prisma/client";
 
 export class CreateInterviewDto {
 
@@ -9,8 +9,8 @@ export class CreateInterviewDto {
 
     @IsNotEmpty()
     @IsString()
-    @IsEnum(interview_interview_type)
-    interview_type: interview_interview_type
+    @IsEnum(Interview_interview_type)
+    interview_type: Interview_interview_type
 
     @IsNotEmpty()
     @IsOptional()

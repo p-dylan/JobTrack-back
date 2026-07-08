@@ -2,14 +2,14 @@ import { Controller, Get, Post, Body, Patch, Param, Delete, ParseIntPipe } from 
 import { RoleService } from './role.service';
 import { CreateRoleDto } from './dto/create-role.dto';
 import { UpdateRoleDto } from './dto/update-role.dto';
-import { role } from 'prisma/generated/prisma/client';
+import { Role } from 'prisma/generated/prisma/client';
 
 @Controller('role')
 export class RoleController {
   constructor(private readonly roleService: RoleService) {}
 
   @Post()
-  async create(@Body() body: CreateRoleDto): Promise<{data: {role: role}; message: string}> {
+  async create(@Body() body: CreateRoleDto): Promise<{data: {role: Role}; message: string}> {
    const role = await this.roleService.create(body);
     return {data: {role}, message: 'role create successfull'};
   }

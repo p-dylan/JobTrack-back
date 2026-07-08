@@ -1,9 +1,9 @@
 import { IsEnum, IsNotEmpty, IsString } from "class-validator";
-import { application_status } from "prisma/generated/prisma/enums";
+import { Application_status } from "prisma/generated/prisma/enums";
 
 export class CreateApplicationDto {
 
     @IsNotEmpty()
-    @IsEnum(application_status)
-    status: application_status;
+    @IsEnum(Application_status)
+    status: Application_status;
 }

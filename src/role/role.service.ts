@@ -2,7 +2,8 @@ import { ConflictException, Injectable, NotFoundException } from '@nestjs/common
 import { CreateRoleDto } from './dto/create-role.dto';
 import { UpdateRoleDto } from './dto/update-role.dto';
 import { PrismaService } from 'prisma/prisma.service';
-import { role } from 'prisma/generated/prisma/client';
+import { Role } from 'prisma/generated/prisma/client';
+
 
 @Injectable()
 export class RoleService {
@@ -12,11 +13,11 @@ export class RoleService {
     return this.prisma.role.create({data: dto});
   }
 
-  findAll() {
-    return `This action returns all role`;
+  findAll(): Promise<Role[]> {
+    return this.prisma.role.findMany();
   }
 
-  async findOne(id: number): Promise<role> {
+  async findOne(id: number): Promise<Role> {
       const role = await this.prisma.role.findUnique({ where: { id } });
       if (!role) throw new NotFoundException(`role with id: ${id} not found`);
       return role;
@@ -26,7 +27,7 @@ export class RoleService {
     return `This action updates a #${id} role`;
   }
 
-  async delete(id: number): Promise<role> {
+  async delete(id: number): Promise<Role> {
     await this.findOne(id);
     const usersWithRole = await this.prisma.user.count({
       where: { role_id: id },

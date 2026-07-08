@@ -4,7 +4,7 @@
 // biome-ignore-all lint: generated file
 // @ts-nocheck 
 /*
- * This file exports the `employment` model and its related types.
+ * This file exports the `Employment` model and its related types.
  *
  * 🟢 You can import this file directly.
  */
@@ -13,10 +13,10 @@ import type * as $Enums from "../enums.js"
 import type * as Prisma from "../internal/prismaNamespace.js"
 
 /**
- * Model employment
+ * Model Employment
  * 
  */
-export type employmentModel = runtime.Types.Result.DefaultSelection<Prisma.$employmentPayload>
+export type EmploymentModel = runtime.Types.Result.DefaultSelection<Prisma.$EmploymentPayload>
 
 export type AggregateEmployment = {
   _count: EmploymentCountAggregateOutputType | null
@@ -117,37 +117,37 @@ export type EmploymentCountAggregateInputType = {
 
 export type EmploymentAggregateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Filter which employment to aggregate.
+   * Filter which Employment to aggregate.
    */
-  where?: Prisma.employmentWhereInput
+  where?: Prisma.EmploymentWhereInput
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
    * 
-   * Determine the order of employments to fetch.
+   * Determine the order of Employments to fetch.
    */
-  orderBy?: Prisma.employmentOrderByWithRelationInput | Prisma.employmentOrderByWithRelationInput[]
+  orderBy?: Prisma.EmploymentOrderByWithRelationInput | Prisma.EmploymentOrderByWithRelationInput[]
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
    * 
    * Sets the start position
    */
-  cursor?: Prisma.employmentWhereUniqueInput
+  cursor?: Prisma.EmploymentWhereUniqueInput
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
    * 
-   * Take `±n` employments from the position of the cursor.
+   * Take `±n` Employments from the position of the cursor.
    */
   take?: number
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
    * 
-   * Skip the first `n` employments.
+   * Skip the first `n` Employments.
    */
   skip?: number
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
    * 
-   * Count returned employments
+   * Count returned Employments
   **/
   _count?: true | EmploymentCountAggregateInputType
   /**
@@ -187,11 +187,11 @@ export type GetEmploymentAggregateType<T extends EmploymentAggregateArgs> = {
 
 
 
-export type employmentGroupByArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  where?: Prisma.employmentWhereInput
-  orderBy?: Prisma.employmentOrderByWithAggregationInput | Prisma.employmentOrderByWithAggregationInput[]
+export type EmploymentGroupByArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.EmploymentWhereInput
+  orderBy?: Prisma.EmploymentOrderByWithAggregationInput | Prisma.EmploymentOrderByWithAggregationInput[]
   by: Prisma.EmploymentScalarFieldEnum[] | Prisma.EmploymentScalarFieldEnum
-  having?: Prisma.employmentScalarWhereWithAggregatesInput
+  having?: Prisma.EmploymentScalarWhereWithAggregatesInput
   take?: number
   skip?: number
   _count?: EmploymentCountAggregateInputType | true
@@ -217,7 +217,7 @@ export type EmploymentGroupByOutputType = {
   _max: EmploymentMaxAggregateOutputType | null
 }
 
-export type GetEmploymentGroupByPayload<T extends employmentGroupByArgs> = Prisma.PrismaPromise<
+export type GetEmploymentGroupByPayload<T extends EmploymentGroupByArgs> = Prisma.PrismaPromise<
   Array<
     Prisma.PickEnumerable<EmploymentGroupByOutputType, T['by']> &
       {
@@ -232,23 +232,23 @@ export type GetEmploymentGroupByPayload<T extends employmentGroupByArgs> = Prism
 
 
 
-export type employmentWhereInput = {
-  AND?: Prisma.employmentWhereInput | Prisma.employmentWhereInput[]
-  OR?: Prisma.employmentWhereInput[]
-  NOT?: Prisma.employmentWhereInput | Prisma.employmentWhereInput[]
-  user_id?: Prisma.IntFilter<"employment"> | number
-  company_id?: Prisma.IntFilter<"employment"> | number
-  job_title?: Prisma.StringFilter<"employment"> | string
-  start_date?: Prisma.DateTimeFilter<"employment"> | Date | string
-  end_date?: Prisma.DateTimeNullableFilter<"employment"> | Date | string | null
-  is_current?: Prisma.BoolFilter<"employment"> | boolean
-  created_at?: Prisma.DateTimeFilter<"employment"> | Date | string
-  updated_at?: Prisma.DateTimeFilter<"employment"> | Date | string
-  company?: Prisma.XOR<Prisma.CompanyScalarRelationFilter, Prisma.companyWhereInput>
-  user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.userWhereInput>
+export type EmploymentWhereInput = {
+  AND?: Prisma.EmploymentWhereInput | Prisma.EmploymentWhereInput[]
+  OR?: Prisma.EmploymentWhereInput[]
+  NOT?: Prisma.EmploymentWhereInput | Prisma.EmploymentWhereInput[]
+  user_id?: Prisma.IntFilter<"Employment"> | number
+  company_id?: Prisma.IntFilter<"Employment"> | number
+  job_title?: Prisma.StringFilter<"Employment"> | string
+  start_date?: Prisma.DateTimeFilter<"Employment"> | Date | string
+  end_date?: Prisma.DateTimeNullableFilter<"Employment"> | Date | string | null
+  is_current?: Prisma.BoolFilter<"Employment"> | boolean
+  created_at?: Prisma.DateTimeFilter<"Employment"> | Date | string
+  updated_at?: Prisma.DateTimeFilter<"Employment"> | Date | string
+  company?: Prisma.XOR<Prisma.CompanyScalarRelationFilter, Prisma.CompanyWhereInput>
+  user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
 }
 
-export type employmentOrderByWithRelationInput = {
+export type EmploymentOrderByWithRelationInput = {
   user_id?: Prisma.SortOrder
   company_id?: Prisma.SortOrder
   job_title?: Prisma.SortOrder
@@ -257,29 +257,29 @@ export type employmentOrderByWithRelationInput = {
   is_current?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
   updated_at?: Prisma.SortOrder
-  company?: Prisma.companyOrderByWithRelationInput
-  user?: Prisma.userOrderByWithRelationInput
-  _relevance?: Prisma.employmentOrderByRelevanceInput
+  company?: Prisma.CompanyOrderByWithRelationInput
+  user?: Prisma.UserOrderByWithRelationInput
+  _relevance?: Prisma.EmploymentOrderByRelevanceInput
 }
 
-export type employmentWhereUniqueInput = Prisma.AtLeast<{
-  user_id_company_id?: Prisma.employmentUser_idCompany_idCompoundUniqueInput
-  AND?: Prisma.employmentWhereInput | Prisma.employmentWhereInput[]
-  OR?: Prisma.employmentWhereInput[]
-  NOT?: Prisma.employmentWhereInput | Prisma.employmentWhereInput[]
-  user_id?: Prisma.IntFilter<"employment"> | number
-  company_id?: Prisma.IntFilter<"employment"> | number
-  job_title?: Prisma.StringFilter<"employment"> | string
-  start_date?: Prisma.DateTimeFilter<"employment"> | Date | string
-  end_date?: Prisma.DateTimeNullableFilter<"employment"> | Date | string | null
-  is_current?: Prisma.BoolFilter<"employment"> | boolean
-  created_at?: Prisma.DateTimeFilter<"employment"> | Date | string
-  updated_at?: Prisma.DateTimeFilter<"employment"> | Date | string
-  company?: Prisma.XOR<Prisma.CompanyScalarRelationFilter, Prisma.companyWhereInput>
-  user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.userWhereInput>
+export type EmploymentWhereUniqueInput = Prisma.AtLeast<{
+  user_id_company_id?: Prisma.EmploymentUser_idCompany_idCompoundUniqueInput
+  AND?: Prisma.EmploymentWhereInput | Prisma.EmploymentWhereInput[]
+  OR?: Prisma.EmploymentWhereInput[]
+  NOT?: Prisma.EmploymentWhereInput | Prisma.EmploymentWhereInput[]
+  user_id?: Prisma.IntFilter<"Employment"> | number
+  company_id?: Prisma.IntFilter<"Employment"> | number
+  job_title?: Prisma.StringFilter<"Employment"> | string
+  start_date?: Prisma.DateTimeFilter<"Employment"> | Date | string
+  end_date?: Prisma.DateTimeNullableFilter<"Employment"> | Date | string | null
+  is_current?: Prisma.BoolFilter<"Employment"> | boolean
+  created_at?: Prisma.DateTimeFilter<"Employment"> | Date | string
+  updated_at?: Prisma.DateTimeFilter<"Employment"> | Date | string
+  company?: Prisma.XOR<Prisma.CompanyScalarRelationFilter, Prisma.CompanyWhereInput>
+  user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
 }, "user_id_company_id">
 
-export type employmentOrderByWithAggregationInput = {
+export type EmploymentOrderByWithAggregationInput = {
   user_id?: Prisma.SortOrder
   company_id?: Prisma.SortOrder
   job_title?: Prisma.SortOrder
@@ -288,39 +288,39 @@ export type employmentOrderByWithAggregationInput = {
   is_current?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
   updated_at?: Prisma.SortOrder
-  _count?: Prisma.employmentCountOrderByAggregateInput
-  _avg?: Prisma.employmentAvgOrderByAggregateInput
-  _max?: Prisma.employmentMaxOrderByAggregateInput
-  _min?: Prisma.employmentMinOrderByAggregateInput
-  _sum?: Prisma.employmentSumOrderByAggregateInput
+  _count?: Prisma.EmploymentCountOrderByAggregateInput
+  _avg?: Prisma.EmploymentAvgOrderByAggregateInput
+  _max?: Prisma.EmploymentMaxOrderByAggregateInput
+  _min?: Prisma.EmploymentMinOrderByAggregateInput
+  _sum?: Prisma.EmploymentSumOrderByAggregateInput
 }
 
-export type employmentScalarWhereWithAggregatesInput = {
-  AND?: Prisma.employmentScalarWhereWithAggregatesInput | Prisma.employmentScalarWhereWithAggregatesInput[]
-  OR?: Prisma.employmentScalarWhereWithAggregatesInput[]
-  NOT?: Prisma.employmentScalarWhereWithAggregatesInput | Prisma.employmentScalarWhereWithAggregatesInput[]
-  user_id?: Prisma.IntWithAggregatesFilter<"employment"> | number
-  company_id?: Prisma.IntWithAggregatesFilter<"employment"> | number
-  job_title?: Prisma.StringWithAggregatesFilter<"employment"> | string
-  start_date?: Prisma.DateTimeWithAggregatesFilter<"employment"> | Date | string
-  end_date?: Prisma.DateTimeNullableWithAggregatesFilter<"employment"> | Date | string | null
-  is_current?: Prisma.BoolWithAggregatesFilter<"employment"> | boolean
-  created_at?: Prisma.DateTimeWithAggregatesFilter<"employment"> | Date | string
-  updated_at?: Prisma.DateTimeWithAggregatesFilter<"employment"> | Date | string
+export type EmploymentScalarWhereWithAggregatesInput = {
+  AND?: Prisma.EmploymentScalarWhereWithAggregatesInput | Prisma.EmploymentScalarWhereWithAggregatesInput[]
+  OR?: Prisma.EmploymentScalarWhereWithAggregatesInput[]
+  NOT?: Prisma.EmploymentScalarWhereWithAggregatesInput | Prisma.EmploymentScalarWhereWithAggregatesInput[]
+  user_id?: Prisma.IntWithAggregatesFilter<"Employment"> | number
+  company_id?: Prisma.IntWithAggregatesFilter<"Employment"> | number
+  job_title?: Prisma.StringWithAggregatesFilter<"Employment"> | string
+  start_date?: Prisma.DateTimeWithAggregatesFilter<"Employment"> | Date | string
+  end_date?: Prisma.DateTimeNullableWithAggregatesFilter<"Employment"> | Date | string | null
+  is_current?: Prisma.BoolWithAggregatesFilter<"Employment"> | boolean
+  created_at?: Prisma.DateTimeWithAggregatesFilter<"Employment"> | Date | string
+  updated_at?: Prisma.DateTimeWithAggregatesFilter<"Employment"> | Date | string
 }
 
-export type employmentCreateInput = {
+export type EmploymentCreateInput = {
   job_title: string
   start_date: Date | string
   end_date?: Date | string | null
   is_current?: boolean
   created_at?: Date | string
   updated_at?: Date | string
-  company: Prisma.companyCreateNestedOneWithoutEmploymentInput
-  user: Prisma.userCreateNestedOneWithoutEmploymentInput
+  company: Prisma.CompanyCreateNestedOneWithoutEmploymentInput
+  user: Prisma.UserCreateNestedOneWithoutEmploymentInput
 }
 
-export type employmentUncheckedCreateInput = {
+export type EmploymentUncheckedCreateInput = {
   user_id: number
   company_id: number
   job_title: string
@@ -331,18 +331,18 @@ export type employmentUncheckedCreateInput = {
   updated_at?: Date | string
 }
 
-export type employmentUpdateInput = {
+export type EmploymentUpdateInput = {
   job_title?: Prisma.StringFieldUpdateOperationsInput | string
   start_date?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   end_date?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   is_current?: Prisma.BoolFieldUpdateOperationsInput | boolean
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  company?: Prisma.companyUpdateOneRequiredWithoutEmploymentNestedInput
-  user?: Prisma.userUpdateOneRequiredWithoutEmploymentNestedInput
+  company?: Prisma.CompanyUpdateOneRequiredWithoutEmploymentNestedInput
+  user?: Prisma.UserUpdateOneRequiredWithoutEmploymentNestedInput
 }
 
-export type employmentUncheckedUpdateInput = {
+export type EmploymentUncheckedUpdateInput = {
   user_id?: Prisma.IntFieldUpdateOperationsInput | number
   company_id?: Prisma.IntFieldUpdateOperationsInput | number
   job_title?: Prisma.StringFieldUpdateOperationsInput | string
@@ -353,7 +353,7 @@ export type employmentUncheckedUpdateInput = {
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
-export type employmentCreateManyInput = {
+export type EmploymentCreateManyInput = {
   user_id: number
   company_id: number
   job_title: string
@@ -364,7 +364,7 @@ export type employmentCreateManyInput = {
   updated_at?: Date | string
 }
 
-export type employmentUpdateManyMutationInput = {
+export type EmploymentUpdateManyMutationInput = {
   job_title?: Prisma.StringFieldUpdateOperationsInput | string
   start_date?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   end_date?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -373,7 +373,7 @@ export type employmentUpdateManyMutationInput = {
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
-export type employmentUncheckedUpdateManyInput = {
+export type EmploymentUncheckedUpdateManyInput = {
   user_id?: Prisma.IntFieldUpdateOperationsInput | number
   company_id?: Prisma.IntFieldUpdateOperationsInput | number
   job_title?: Prisma.StringFieldUpdateOperationsInput | string
@@ -385,27 +385,27 @@ export type employmentUncheckedUpdateManyInput = {
 }
 
 export type EmploymentListRelationFilter = {
-  every?: Prisma.employmentWhereInput
-  some?: Prisma.employmentWhereInput
-  none?: Prisma.employmentWhereInput
+  every?: Prisma.EmploymentWhereInput
+  some?: Prisma.EmploymentWhereInput
+  none?: Prisma.EmploymentWhereInput
 }
 
-export type employmentOrderByRelationAggregateInput = {
+export type EmploymentOrderByRelationAggregateInput = {
   _count?: Prisma.SortOrder
 }
 
-export type employmentOrderByRelevanceInput = {
-  fields: Prisma.employmentOrderByRelevanceFieldEnum | Prisma.employmentOrderByRelevanceFieldEnum[]
+export type EmploymentOrderByRelevanceInput = {
+  fields: Prisma.EmploymentOrderByRelevanceFieldEnum | Prisma.EmploymentOrderByRelevanceFieldEnum[]
   sort: Prisma.SortOrder
   search: string
 }
 
-export type employmentUser_idCompany_idCompoundUniqueInput = {
+export type EmploymentUser_idCompany_idCompoundUniqueInput = {
   user_id: number
   company_id: number
 }
 
-export type employmentCountOrderByAggregateInput = {
+export type EmploymentCountOrderByAggregateInput = {
   user_id?: Prisma.SortOrder
   company_id?: Prisma.SortOrder
   job_title?: Prisma.SortOrder
@@ -416,23 +416,12 @@ export type employmentCountOrderByAggregateInput = {
   updated_at?: Prisma.SortOrder
 }
 
-export type employmentAvgOrderByAggregateInput = {
+export type EmploymentAvgOrderByAggregateInput = {
   user_id?: Prisma.SortOrder
   company_id?: Prisma.SortOrder
 }
 
-export type employmentMaxOrderByAggregateInput = {
-  user_id?: Prisma.SortOrder
-  company_id?: Prisma.SortOrder
-  job_title?: Prisma.SortOrder
-  start_date?: Prisma.SortOrder
-  end_date?: Prisma.SortOrder
-  is_current?: Prisma.SortOrder
-  created_at?: Prisma.SortOrder
-  updated_at?: Prisma.SortOrder
-}
-
-export type employmentMinOrderByAggregateInput = {
+export type EmploymentMaxOrderByAggregateInput = {
   user_id?: Prisma.SortOrder
   company_id?: Prisma.SortOrder
   job_title?: Prisma.SortOrder
@@ -443,110 +432,121 @@ export type employmentMinOrderByAggregateInput = {
   updated_at?: Prisma.SortOrder
 }
 
-export type employmentSumOrderByAggregateInput = {
+export type EmploymentMinOrderByAggregateInput = {
+  user_id?: Prisma.SortOrder
+  company_id?: Prisma.SortOrder
+  job_title?: Prisma.SortOrder
+  start_date?: Prisma.SortOrder
+  end_date?: Prisma.SortOrder
+  is_current?: Prisma.SortOrder
+  created_at?: Prisma.SortOrder
+  updated_at?: Prisma.SortOrder
+}
+
+export type EmploymentSumOrderByAggregateInput = {
   user_id?: Prisma.SortOrder
   company_id?: Prisma.SortOrder
 }
 
-export type employmentCreateNestedManyWithoutCompanyInput = {
-  create?: Prisma.XOR<Prisma.employmentCreateWithoutCompanyInput, Prisma.employmentUncheckedCreateWithoutCompanyInput> | Prisma.employmentCreateWithoutCompanyInput[] | Prisma.employmentUncheckedCreateWithoutCompanyInput[]
-  connectOrCreate?: Prisma.employmentCreateOrConnectWithoutCompanyInput | Prisma.employmentCreateOrConnectWithoutCompanyInput[]
-  createMany?: Prisma.employmentCreateManyCompanyInputEnvelope
-  connect?: Prisma.employmentWhereUniqueInput | Prisma.employmentWhereUniqueInput[]
+export type EmploymentCreateNestedManyWithoutCompanyInput = {
+  create?: Prisma.XOR<Prisma.EmploymentCreateWithoutCompanyInput, Prisma.EmploymentUncheckedCreateWithoutCompanyInput> | Prisma.EmploymentCreateWithoutCompanyInput[] | Prisma.EmploymentUncheckedCreateWithoutCompanyInput[]
+  connectOrCreate?: Prisma.EmploymentCreateOrConnectWithoutCompanyInput | Prisma.EmploymentCreateOrConnectWithoutCompanyInput[]
+  createMany?: Prisma.EmploymentCreateManyCompanyInputEnvelope
+  connect?: Prisma.EmploymentWhereUniqueInput | Prisma.EmploymentWhereUniqueInput[]
 }
 
-export type employmentUncheckedCreateNestedManyWithoutCompanyInput = {
-  create?: Prisma.XOR<Prisma.employmentCreateWithoutCompanyInput, Prisma.employmentUncheckedCreateWithoutCompanyInput> | Prisma.employmentCreateWithoutCompanyInput[] | Prisma.employmentUncheckedCreateWithoutCompanyInput[]
-  connectOrCreate?: Prisma.employmentCreateOrConnectWithoutCompanyInput | Prisma.employmentCreateOrConnectWithoutCompanyInput[]
-  createMany?: Prisma.employmentCreateManyCompanyInputEnvelope
-  connect?: Prisma.employmentWhereUniqueInput | Prisma.employmentWhereUniqueInput[]
+export type EmploymentUncheckedCreateNestedManyWithoutCompanyInput = {
+  create?: Prisma.XOR<Prisma.EmploymentCreateWithoutCompanyInput, Prisma.EmploymentUncheckedCreateWithoutCompanyInput> | Prisma.EmploymentCreateWithoutCompanyInput[] | Prisma.EmploymentUncheckedCreateWithoutCompanyInput[]
+  connectOrCreate?: Prisma.EmploymentCreateOrConnectWithoutCompanyInput | Prisma.EmploymentCreateOrConnectWithoutCompanyInput[]
+  createMany?: Prisma.EmploymentCreateManyCompanyInputEnvelope
+  connect?: Prisma.EmploymentWhereUniqueInput | Prisma.EmploymentWhereUniqueInput[]
 }
 
-export type employmentUpdateManyWithoutCompanyNestedInput = {
-  create?: Prisma.XOR<Prisma.employmentCreateWithoutCompanyInput, Prisma.employmentUncheckedCreateWithoutCompanyInput> | Prisma.employmentCreateWithoutCompanyInput[] | Prisma.employmentUncheckedCreateWithoutCompanyInput[]
-  connectOrCreate?: Prisma.employmentCreateOrConnectWithoutCompanyInput | Prisma.employmentCreateOrConnectWithoutCompanyInput[]
-  upsert?: Prisma.employmentUpsertWithWhereUniqueWithoutCompanyInput | Prisma.employmentUpsertWithWhereUniqueWithoutCompanyInput[]
-  createMany?: Prisma.employmentCreateManyCompanyInputEnvelope
-  set?: Prisma.employmentWhereUniqueInput | Prisma.employmentWhereUniqueInput[]
-  disconnect?: Prisma.employmentWhereUniqueInput | Prisma.employmentWhereUniqueInput[]
-  delete?: Prisma.employmentWhereUniqueInput | Prisma.employmentWhereUniqueInput[]
-  connect?: Prisma.employmentWhereUniqueInput | Prisma.employmentWhereUniqueInput[]
-  update?: Prisma.employmentUpdateWithWhereUniqueWithoutCompanyInput | Prisma.employmentUpdateWithWhereUniqueWithoutCompanyInput[]
-  updateMany?: Prisma.employmentUpdateManyWithWhereWithoutCompanyInput | Prisma.employmentUpdateManyWithWhereWithoutCompanyInput[]
-  deleteMany?: Prisma.employmentScalarWhereInput | Prisma.employmentScalarWhereInput[]
+export type EmploymentUpdateManyWithoutCompanyNestedInput = {
+  create?: Prisma.XOR<Prisma.EmploymentCreateWithoutCompanyInput, Prisma.EmploymentUncheckedCreateWithoutCompanyInput> | Prisma.EmploymentCreateWithoutCompanyInput[] | Prisma.EmploymentUncheckedCreateWithoutCompanyInput[]
+  connectOrCreate?: Prisma.EmploymentCreateOrConnectWithoutCompanyInput | Prisma.EmploymentCreateOrConnectWithoutCompanyInput[]
+  upsert?: Prisma.EmploymentUpsertWithWhereUniqueWithoutCompanyInput | Prisma.EmploymentUpsertWithWhereUniqueWithoutCompanyInput[]
+  createMany?: Prisma.EmploymentCreateManyCompanyInputEnvelope
+  set?: Prisma.EmploymentWhereUniqueInput | Prisma.EmploymentWhereUniqueInput[]
+  disconnect?: Prisma.EmploymentWhereUniqueInput | Prisma.EmploymentWhereUniqueInput[]
+  delete?: Prisma.EmploymentWhereUniqueInput | Prisma.EmploymentWhereUniqueInput[]
+  connect?: Prisma.EmploymentWhereUniqueInput | Prisma.EmploymentWhereUniqueInput[]
+  update?: Prisma.EmploymentUpdateWithWhereUniqueWithoutCompanyInput | Prisma.EmploymentUpdateWithWhereUniqueWithoutCompanyInput[]
+  updateMany?: Prisma.EmploymentUpdateManyWithWhereWithoutCompanyInput | Prisma.EmploymentUpdateManyWithWhereWithoutCompanyInput[]
+  deleteMany?: Prisma.EmploymentScalarWhereInput | Prisma.EmploymentScalarWhereInput[]
 }
 
-export type employmentUncheckedUpdateManyWithoutCompanyNestedInput = {
-  create?: Prisma.XOR<Prisma.employmentCreateWithoutCompanyInput, Prisma.employmentUncheckedCreateWithoutCompanyInput> | Prisma.employmentCreateWithoutCompanyInput[] | Prisma.employmentUncheckedCreateWithoutCompanyInput[]
-  connectOrCreate?: Prisma.employmentCreateOrConnectWithoutCompanyInput | Prisma.employmentCreateOrConnectWithoutCompanyInput[]
-  upsert?: Prisma.employmentUpsertWithWhereUniqueWithoutCompanyInput | Prisma.employmentUpsertWithWhereUniqueWithoutCompanyInput[]
-  createMany?: Prisma.employmentCreateManyCompanyInputEnvelope
-  set?: Prisma.employmentWhereUniqueInput | Prisma.employmentWhereUniqueInput[]
-  disconnect?: Prisma.employmentWhereUniqueInput | Prisma.employmentWhereUniqueInput[]
-  delete?: Prisma.employmentWhereUniqueInput | Prisma.employmentWhereUniqueInput[]
-  connect?: Prisma.employmentWhereUniqueInput | Prisma.employmentWhereUniqueInput[]
-  update?: Prisma.employmentUpdateWithWhereUniqueWithoutCompanyInput | Prisma.employmentUpdateWithWhereUniqueWithoutCompanyInput[]
-  updateMany?: Prisma.employmentUpdateManyWithWhereWithoutCompanyInput | Prisma.employmentUpdateManyWithWhereWithoutCompanyInput[]
-  deleteMany?: Prisma.employmentScalarWhereInput | Prisma.employmentScalarWhereInput[]
+export type EmploymentUncheckedUpdateManyWithoutCompanyNestedInput = {
+  create?: Prisma.XOR<Prisma.EmploymentCreateWithoutCompanyInput, Prisma.EmploymentUncheckedCreateWithoutCompanyInput> | Prisma.EmploymentCreateWithoutCompanyInput[] | Prisma.EmploymentUncheckedCreateWithoutCompanyInput[]
+  connectOrCreate?: Prisma.EmploymentCreateOrConnectWithoutCompanyInput | Prisma.EmploymentCreateOrConnectWithoutCompanyInput[]
+  upsert?: Prisma.EmploymentUpsertWithWhereUniqueWithoutCompanyInput | Prisma.EmploymentUpsertWithWhereUniqueWithoutCompanyInput[]
+  createMany?: Prisma.EmploymentCreateManyCompanyInputEnvelope
+  set?: Prisma.EmploymentWhereUniqueInput | Prisma.EmploymentWhereUniqueInput[]
+  disconnect?: Prisma.EmploymentWhereUniqueInput | Prisma.EmploymentWhereUniqueInput[]
+  delete?: Prisma.EmploymentWhereUniqueInput | Prisma.EmploymentWhereUniqueInput[]
+  connect?: Prisma.EmploymentWhereUniqueInput | Prisma.EmploymentWhereUniqueInput[]
+  update?: Prisma.EmploymentUpdateWithWhereUniqueWithoutCompanyInput | Prisma.EmploymentUpdateWithWhereUniqueWithoutCompanyInput[]
+  updateMany?: Prisma.EmploymentUpdateManyWithWhereWithoutCompanyInput | Prisma.EmploymentUpdateManyWithWhereWithoutCompanyInput[]
+  deleteMany?: Prisma.EmploymentScalarWhereInput | Prisma.EmploymentScalarWhereInput[]
 }
 
 export type NullableDateTimeFieldUpdateOperationsInput = {
   set?: Date | string | null
 }
 
-export type employmentCreateNestedManyWithoutUserInput = {
-  create?: Prisma.XOR<Prisma.employmentCreateWithoutUserInput, Prisma.employmentUncheckedCreateWithoutUserInput> | Prisma.employmentCreateWithoutUserInput[] | Prisma.employmentUncheckedCreateWithoutUserInput[]
-  connectOrCreate?: Prisma.employmentCreateOrConnectWithoutUserInput | Prisma.employmentCreateOrConnectWithoutUserInput[]
-  createMany?: Prisma.employmentCreateManyUserInputEnvelope
-  connect?: Prisma.employmentWhereUniqueInput | Prisma.employmentWhereUniqueInput[]
+export type EmploymentCreateNestedManyWithoutUserInput = {
+  create?: Prisma.XOR<Prisma.EmploymentCreateWithoutUserInput, Prisma.EmploymentUncheckedCreateWithoutUserInput> | Prisma.EmploymentCreateWithoutUserInput[] | Prisma.EmploymentUncheckedCreateWithoutUserInput[]
+  connectOrCreate?: Prisma.EmploymentCreateOrConnectWithoutUserInput | Prisma.EmploymentCreateOrConnectWithoutUserInput[]
+  createMany?: Prisma.EmploymentCreateManyUserInputEnvelope
+  connect?: Prisma.EmploymentWhereUniqueInput | Prisma.EmploymentWhereUniqueInput[]
 }
 
-export type employmentUncheckedCreateNestedManyWithoutUserInput = {
-  create?: Prisma.XOR<Prisma.employmentCreateWithoutUserInput, Prisma.employmentUncheckedCreateWithoutUserInput> | Prisma.employmentCreateWithoutUserInput[] | Prisma.employmentUncheckedCreateWithoutUserInput[]
-  connectOrCreate?: Prisma.employmentCreateOrConnectWithoutUserInput | Prisma.employmentCreateOrConnectWithoutUserInput[]
-  createMany?: Prisma.employmentCreateManyUserInputEnvelope
-  connect?: Prisma.employmentWhereUniqueInput | Prisma.employmentWhereUniqueInput[]
+export type EmploymentUncheckedCreateNestedManyWithoutUserInput = {
+  create?: Prisma.XOR<Prisma.EmploymentCreateWithoutUserInput, Prisma.EmploymentUncheckedCreateWithoutUserInput> | Prisma.EmploymentCreateWithoutUserInput[] | Prisma.EmploymentUncheckedCreateWithoutUserInput[]
+  connectOrCreate?: Prisma.EmploymentCreateOrConnectWithoutUserInput | Prisma.EmploymentCreateOrConnectWithoutUserInput[]
+  createMany?: Prisma.EmploymentCreateManyUserInputEnvelope
+  connect?: Prisma.EmploymentWhereUniqueInput | Prisma.EmploymentWhereUniqueInput[]
 }
 
-export type employmentUpdateManyWithoutUserNestedInput = {
-  create?: Prisma.XOR<Prisma.employmentCreateWithoutUserInput, Prisma.employmentUncheckedCreateWithoutUserInput> | Prisma.employmentCreateWithoutUserInput[] | Prisma.employmentUncheckedCreateWithoutUserInput[]
-  connectOrCreate?: Prisma.employmentCreateOrConnectWithoutUserInput | Prisma.employmentCreateOrConnectWithoutUserInput[]
-  upsert?: Prisma.employmentUpsertWithWhereUniqueWithoutUserInput | Prisma.employmentUpsertWithWhereUniqueWithoutUserInput[]
-  createMany?: Prisma.employmentCreateManyUserInputEnvelope
-  set?: Prisma.employmentWhereUniqueInput | Prisma.employmentWhereUniqueInput[]
-  disconnect?: Prisma.employmentWhereUniqueInput | Prisma.employmentWhereUniqueInput[]
-  delete?: Prisma.employmentWhereUniqueInput | Prisma.employmentWhereUniqueInput[]
-  connect?: Prisma.employmentWhereUniqueInput | Prisma.employmentWhereUniqueInput[]
-  update?: Prisma.employmentUpdateWithWhereUniqueWithoutUserInput | Prisma.employmentUpdateWithWhereUniqueWithoutUserInput[]
-  updateMany?: Prisma.employmentUpdateManyWithWhereWithoutUserInput | Prisma.employmentUpdateManyWithWhereWithoutUserInput[]
-  deleteMany?: Prisma.employmentScalarWhereInput | Prisma.employmentScalarWhereInput[]
+export type EmploymentUpdateManyWithoutUserNestedInput = {
+  create?: Prisma.XOR<Prisma.EmploymentCreateWithoutUserInput, Prisma.EmploymentUncheckedCreateWithoutUserInput> | Prisma.EmploymentCreateWithoutUserInput[] | Prisma.EmploymentUncheckedCreateWithoutUserInput[]
+  connectOrCreate?: Prisma.EmploymentCreateOrConnectWithoutUserInput | Prisma.EmploymentCreateOrConnectWithoutUserInput[]
+  upsert?: Prisma.EmploymentUpsertWithWhereUniqueWithoutUserInput | Prisma.EmploymentUpsertWithWhereUniqueWithoutUserInput[]
+  createMany?: Prisma.EmploymentCreateManyUserInputEnvelope
+  set?: Prisma.EmploymentWhereUniqueInput | Prisma.EmploymentWhereUniqueInput[]
+  disconnect?: Prisma.EmploymentWhereUniqueInput | Prisma.EmploymentWhereUniqueInput[]
+  delete?: Prisma.EmploymentWhereUniqueInput | Prisma.EmploymentWhereUniqueInput[]
+  connect?: Prisma.EmploymentWhereUniqueInput | Prisma.EmploymentWhereUniqueInput[]
+  update?: Prisma.EmploymentUpdateWithWhereUniqueWithoutUserInput | Prisma.EmploymentUpdateWithWhereUniqueWithoutUserInput[]
+  updateMany?: Prisma.EmploymentUpdateManyWithWhereWithoutUserInput | Prisma.EmploymentUpdateManyWithWhereWithoutUserInput[]
+  deleteMany?: Prisma.EmploymentScalarWhereInput | Prisma.EmploymentScalarWhereInput[]
 }
 
-export type employmentUncheckedUpdateManyWithoutUserNestedInput = {
-  create?: Prisma.XOR<Prisma.employmentCreateWithoutUserInput, Prisma.employmentUncheckedCreateWithoutUserInput> | Prisma.employmentCreateWithoutUserInput[] | Prisma.employmentUncheckedCreateWithoutUserInput[]
-  connectOrCreate?: Prisma.employmentCreateOrConnectWithoutUserInput | Prisma.employmentCreateOrConnectWithoutUserInput[]
-  upsert?: Prisma.employmentUpsertWithWhereUniqueWithoutUserInput | Prisma.employmentUpsertWithWhereUniqueWithoutUserInput[]
-  createMany?: Prisma.employmentCreateManyUserInputEnvelope
-  set?: Prisma.employmentWhereUniqueInput | Prisma.employmentWhereUniqueInput[]
-  disconnect?: Prisma.employmentWhereUniqueInput | Prisma.employmentWhereUniqueInput[]
-  delete?: Prisma.employmentWhereUniqueInput | Prisma.employmentWhereUniqueInput[]
-  connect?: Prisma.employmentWhereUniqueInput | Prisma.employmentWhereUniqueInput[]
-  update?: Prisma.employmentUpdateWithWhereUniqueWithoutUserInput | Prisma.employmentUpdateWithWhereUniqueWithoutUserInput[]
-  updateMany?: Prisma.employmentUpdateManyWithWhereWithoutUserInput | Prisma.employmentUpdateManyWithWhereWithoutUserInput[]
-  deleteMany?: Prisma.employmentScalarWhereInput | Prisma.employmentScalarWhereInput[]
+export type EmploymentUncheckedUpdateManyWithoutUserNestedInput = {
+  create?: Prisma.XOR<Prisma.EmploymentCreateWithoutUserInput, Prisma.EmploymentUncheckedCreateWithoutUserInput> | Prisma.EmploymentCreateWithoutUserInput[] | Prisma.EmploymentUncheckedCreateWithoutUserInput[]
+  connectOrCreate?: Prisma.EmploymentCreateOrConnectWithoutUserInput | Prisma.EmploymentCreateOrConnectWithoutUserInput[]
+  upsert?: Prisma.EmploymentUpsertWithWhereUniqueWithoutUserInput | Prisma.EmploymentUpsertWithWhereUniqueWithoutUserInput[]
+  createMany?: Prisma.EmploymentCreateManyUserInputEnvelope
+  set?: Prisma.EmploymentWhereUniqueInput | Prisma.EmploymentWhereUniqueInput[]
+  disconnect?: Prisma.EmploymentWhereUniqueInput | Prisma.EmploymentWhereUniqueInput[]
+  delete?: Prisma.EmploymentWhereUniqueInput | Prisma.EmploymentWhereUniqueInput[]
+  connect?: Prisma.EmploymentWhereUniqueInput | Prisma.EmploymentWhereUniqueInput[]
+  update?: Prisma.EmploymentUpdateWithWhereUniqueWithoutUserInput | Prisma.EmploymentUpdateWithWhereUniqueWithoutUserInput[]
+  updateMany?: Prisma.EmploymentUpdateManyWithWhereWithoutUserInput | Prisma.EmploymentUpdateManyWithWhereWithoutUserInput[]
+  deleteMany?: Prisma.EmploymentScalarWhereInput | Prisma.EmploymentScalarWhereInput[]
 }
 
-export type employmentCreateWithoutCompanyInput = {
+export type EmploymentCreateWithoutCompanyInput = {
   job_title: string
   start_date: Date | string
   end_date?: Date | string | null
   is_current?: boolean
   created_at?: Date | string
   updated_at?: Date | string
-  user: Prisma.userCreateNestedOneWithoutEmploymentInput
+  user: Prisma.UserCreateNestedOneWithoutEmploymentInput
 }
 
-export type employmentUncheckedCreateWithoutCompanyInput = {
+export type EmploymentUncheckedCreateWithoutCompanyInput = {
   user_id: number
   job_title: string
   start_date: Date | string
@@ -556,57 +556,57 @@ export type employmentUncheckedCreateWithoutCompanyInput = {
   updated_at?: Date | string
 }
 
-export type employmentCreateOrConnectWithoutCompanyInput = {
-  where: Prisma.employmentWhereUniqueInput
-  create: Prisma.XOR<Prisma.employmentCreateWithoutCompanyInput, Prisma.employmentUncheckedCreateWithoutCompanyInput>
+export type EmploymentCreateOrConnectWithoutCompanyInput = {
+  where: Prisma.EmploymentWhereUniqueInput
+  create: Prisma.XOR<Prisma.EmploymentCreateWithoutCompanyInput, Prisma.EmploymentUncheckedCreateWithoutCompanyInput>
 }
 
-export type employmentCreateManyCompanyInputEnvelope = {
-  data: Prisma.employmentCreateManyCompanyInput | Prisma.employmentCreateManyCompanyInput[]
+export type EmploymentCreateManyCompanyInputEnvelope = {
+  data: Prisma.EmploymentCreateManyCompanyInput | Prisma.EmploymentCreateManyCompanyInput[]
   skipDuplicates?: boolean
 }
 
-export type employmentUpsertWithWhereUniqueWithoutCompanyInput = {
-  where: Prisma.employmentWhereUniqueInput
-  update: Prisma.XOR<Prisma.employmentUpdateWithoutCompanyInput, Prisma.employmentUncheckedUpdateWithoutCompanyInput>
-  create: Prisma.XOR<Prisma.employmentCreateWithoutCompanyInput, Prisma.employmentUncheckedCreateWithoutCompanyInput>
+export type EmploymentUpsertWithWhereUniqueWithoutCompanyInput = {
+  where: Prisma.EmploymentWhereUniqueInput
+  update: Prisma.XOR<Prisma.EmploymentUpdateWithoutCompanyInput, Prisma.EmploymentUncheckedUpdateWithoutCompanyInput>
+  create: Prisma.XOR<Prisma.EmploymentCreateWithoutCompanyInput, Prisma.EmploymentUncheckedCreateWithoutCompanyInput>
 }
 
-export type employmentUpdateWithWhereUniqueWithoutCompanyInput = {
-  where: Prisma.employmentWhereUniqueInput
-  data: Prisma.XOR<Prisma.employmentUpdateWithoutCompanyInput, Prisma.employmentUncheckedUpdateWithoutCompanyInput>
+export type EmploymentUpdateWithWhereUniqueWithoutCompanyInput = {
+  where: Prisma.EmploymentWhereUniqueInput
+  data: Prisma.XOR<Prisma.EmploymentUpdateWithoutCompanyInput, Prisma.EmploymentUncheckedUpdateWithoutCompanyInput>
 }
 
-export type employmentUpdateManyWithWhereWithoutCompanyInput = {
-  where: Prisma.employmentScalarWhereInput
-  data: Prisma.XOR<Prisma.employmentUpdateManyMutationInput, Prisma.employmentUncheckedUpdateManyWithoutCompanyInput>
+export type EmploymentUpdateManyWithWhereWithoutCompanyInput = {
+  where: Prisma.EmploymentScalarWhereInput
+  data: Prisma.XOR<Prisma.EmploymentUpdateManyMutationInput, Prisma.EmploymentUncheckedUpdateManyWithoutCompanyInput>
 }
 
-export type employmentScalarWhereInput = {
-  AND?: Prisma.employmentScalarWhereInput | Prisma.employmentScalarWhereInput[]
-  OR?: Prisma.employmentScalarWhereInput[]
-  NOT?: Prisma.employmentScalarWhereInput | Prisma.employmentScalarWhereInput[]
-  user_id?: Prisma.IntFilter<"employment"> | number
-  company_id?: Prisma.IntFilter<"employment"> | number
-  job_title?: Prisma.StringFilter<"employment"> | string
-  start_date?: Prisma.DateTimeFilter<"employment"> | Date | string
-  end_date?: Prisma.DateTimeNullableFilter<"employment"> | Date | string | null
-  is_current?: Prisma.BoolFilter<"employment"> | boolean
-  created_at?: Prisma.DateTimeFilter<"employment"> | Date | string
-  updated_at?: Prisma.DateTimeFilter<"employment"> | Date | string
+export type EmploymentScalarWhereInput = {
+  AND?: Prisma.EmploymentScalarWhereInput | Prisma.EmploymentScalarWhereInput[]
+  OR?: Prisma.EmploymentScalarWhereInput[]
+  NOT?: Prisma.EmploymentScalarWhereInput | Prisma.EmploymentScalarWhereInput[]
+  user_id?: Prisma.IntFilter<"Employment"> | number
+  company_id?: Prisma.IntFilter<"Employment"> | number
+  job_title?: Prisma.StringFilter<"Employment"> | string
+  start_date?: Prisma.DateTimeFilter<"Employment"> | Date | string
+  end_date?: Prisma.DateTimeNullableFilter<"Employment"> | Date | string | null
+  is_current?: Prisma.BoolFilter<"Employment"> | boolean
+  created_at?: Prisma.DateTimeFilter<"Employment"> | Date | string
+  updated_at?: Prisma.DateTimeFilter<"Employment"> | Date | string
 }
 
-export type employmentCreateWithoutUserInput = {
+export type EmploymentCreateWithoutUserInput = {
   job_title: string
   start_date: Date | string
   end_date?: Date | string | null
   is_current?: boolean
   created_at?: Date | string
   updated_at?: Date | string
-  company: Prisma.companyCreateNestedOneWithoutEmploymentInput
+  company: Prisma.CompanyCreateNestedOneWithoutEmploymentInput
 }
 
-export type employmentUncheckedCreateWithoutUserInput = {
+export type EmploymentUncheckedCreateWithoutUserInput = {
   company_id: number
   job_title: string
   start_date: Date | string
@@ -616,33 +616,33 @@ export type employmentUncheckedCreateWithoutUserInput = {
   updated_at?: Date | string
 }
 
-export type employmentCreateOrConnectWithoutUserInput = {
-  where: Prisma.employmentWhereUniqueInput
-  create: Prisma.XOR<Prisma.employmentCreateWithoutUserInput, Prisma.employmentUncheckedCreateWithoutUserInput>
+export type EmploymentCreateOrConnectWithoutUserInput = {
+  where: Prisma.EmploymentWhereUniqueInput
+  create: Prisma.XOR<Prisma.EmploymentCreateWithoutUserInput, Prisma.EmploymentUncheckedCreateWithoutUserInput>
 }
 
-export type employmentCreateManyUserInputEnvelope = {
-  data: Prisma.employmentCreateManyUserInput | Prisma.employmentCreateManyUserInput[]
+export type EmploymentCreateManyUserInputEnvelope = {
+  data: Prisma.EmploymentCreateManyUserInput | Prisma.EmploymentCreateManyUserInput[]
   skipDuplicates?: boolean
 }
 
-export type employmentUpsertWithWhereUniqueWithoutUserInput = {
-  where: Prisma.employmentWhereUniqueInput
-  update: Prisma.XOR<Prisma.employmentUpdateWithoutUserInput, Prisma.employmentUncheckedUpdateWithoutUserInput>
-  create: Prisma.XOR<Prisma.employmentCreateWithoutUserInput, Prisma.employmentUncheckedCreateWithoutUserInput>
+export type EmploymentUpsertWithWhereUniqueWithoutUserInput = {
+  where: Prisma.EmploymentWhereUniqueInput
+  update: Prisma.XOR<Prisma.EmploymentUpdateWithoutUserInput, Prisma.EmploymentUncheckedUpdateWithoutUserInput>
+  create: Prisma.XOR<Prisma.EmploymentCreateWithoutUserInput, Prisma.EmploymentUncheckedCreateWithoutUserInput>
 }
 
-export type employmentUpdateWithWhereUniqueWithoutUserInput = {
-  where: Prisma.employmentWhereUniqueInput
-  data: Prisma.XOR<Prisma.employmentUpdateWithoutUserInput, Prisma.employmentUncheckedUpdateWithoutUserInput>
+export type EmploymentUpdateWithWhereUniqueWithoutUserInput = {
+  where: Prisma.EmploymentWhereUniqueInput
+  data: Prisma.XOR<Prisma.EmploymentUpdateWithoutUserInput, Prisma.EmploymentUncheckedUpdateWithoutUserInput>
 }
 
-export type employmentUpdateManyWithWhereWithoutUserInput = {
-  where: Prisma.employmentScalarWhereInput
-  data: Prisma.XOR<Prisma.employmentUpdateManyMutationInput, Prisma.employmentUncheckedUpdateManyWithoutUserInput>
+export type EmploymentUpdateManyWithWhereWithoutUserInput = {
+  where: Prisma.EmploymentScalarWhereInput
+  data: Prisma.XOR<Prisma.EmploymentUpdateManyMutationInput, Prisma.EmploymentUncheckedUpdateManyWithoutUserInput>
 }
 
-export type employmentCreateManyCompanyInput = {
+export type EmploymentCreateManyCompanyInput = {
   user_id: number
   job_title: string
   start_date: Date | string
@@ -652,17 +652,17 @@ export type employmentCreateManyCompanyInput = {
   updated_at?: Date | string
 }
 
-export type employmentUpdateWithoutCompanyInput = {
+export type EmploymentUpdateWithoutCompanyInput = {
   job_title?: Prisma.StringFieldUpdateOperationsInput | string
   start_date?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   end_date?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   is_current?: Prisma.BoolFieldUpdateOperationsInput | boolean
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  user?: Prisma.userUpdateOneRequiredWithoutEmploymentNestedInput
+  user?: Prisma.UserUpdateOneRequiredWithoutEmploymentNestedInput
 }
 
-export type employmentUncheckedUpdateWithoutCompanyInput = {
+export type EmploymentUncheckedUpdateWithoutCompanyInput = {
   user_id?: Prisma.IntFieldUpdateOperationsInput | number
   job_title?: Prisma.StringFieldUpdateOperationsInput | string
   start_date?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -672,7 +672,7 @@ export type employmentUncheckedUpdateWithoutCompanyInput = {
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
-export type employmentUncheckedUpdateManyWithoutCompanyInput = {
+export type EmploymentUncheckedUpdateManyWithoutCompanyInput = {
   user_id?: Prisma.IntFieldUpdateOperationsInput | number
   job_title?: Prisma.StringFieldUpdateOperationsInput | string
   start_date?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -682,7 +682,7 @@ export type employmentUncheckedUpdateManyWithoutCompanyInput = {
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
-export type employmentCreateManyUserInput = {
+export type EmploymentCreateManyUserInput = {
   company_id: number
   job_title: string
   start_date: Date | string
@@ -692,17 +692,17 @@ export type employmentCreateManyUserInput = {
   updated_at?: Date | string
 }
 
-export type employmentUpdateWithoutUserInput = {
+export type EmploymentUpdateWithoutUserInput = {
   job_title?: Prisma.StringFieldUpdateOperationsInput | string
   start_date?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   end_date?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   is_current?: Prisma.BoolFieldUpdateOperationsInput | boolean
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  company?: Prisma.companyUpdateOneRequiredWithoutEmploymentNestedInput
+  company?: Prisma.CompanyUpdateOneRequiredWithoutEmploymentNestedInput
 }
 
-export type employmentUncheckedUpdateWithoutUserInput = {
+export type EmploymentUncheckedUpdateWithoutUserInput = {
   company_id?: Prisma.IntFieldUpdateOperationsInput | number
   job_title?: Prisma.StringFieldUpdateOperationsInput | string
   start_date?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -712,7 +712,7 @@ export type employmentUncheckedUpdateWithoutUserInput = {
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
-export type employmentUncheckedUpdateManyWithoutUserInput = {
+export type EmploymentUncheckedUpdateManyWithoutUserInput = {
   company_id?: Prisma.IntFieldUpdateOperationsInput | number
   job_title?: Prisma.StringFieldUpdateOperationsInput | string
   start_date?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -724,7 +724,7 @@ export type employmentUncheckedUpdateManyWithoutUserInput = {
 
 
 
-export type employmentSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
+export type EmploymentSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   user_id?: boolean
   company_id?: boolean
   job_title?: boolean
@@ -733,13 +733,13 @@ export type employmentSelect<ExtArgs extends runtime.Types.Extensions.InternalAr
   is_current?: boolean
   created_at?: boolean
   updated_at?: boolean
-  company?: boolean | Prisma.companyDefaultArgs<ExtArgs>
-  user?: boolean | Prisma.userDefaultArgs<ExtArgs>
+  company?: boolean | Prisma.CompanyDefaultArgs<ExtArgs>
+  user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["employment"]>
 
 
 
-export type employmentSelectScalar = {
+export type EmploymentSelectScalar = {
   user_id?: boolean
   company_id?: boolean
   job_title?: boolean
@@ -750,17 +750,17 @@ export type employmentSelectScalar = {
   updated_at?: boolean
 }
 
-export type employmentOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"user_id" | "company_id" | "job_title" | "start_date" | "end_date" | "is_current" | "created_at" | "updated_at", ExtArgs["result"]["employment"]>
-export type employmentInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  company?: boolean | Prisma.companyDefaultArgs<ExtArgs>
-  user?: boolean | Prisma.userDefaultArgs<ExtArgs>
+export type EmploymentOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"user_id" | "company_id" | "job_title" | "start_date" | "end_date" | "is_current" | "created_at" | "updated_at", ExtArgs["result"]["employment"]>
+export type EmploymentInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  company?: boolean | Prisma.CompanyDefaultArgs<ExtArgs>
+  user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
 }
 
-export type $employmentPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  name: "employment"
+export type $EmploymentPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  name: "Employment"
   objects: {
-    company: Prisma.$companyPayload<ExtArgs>
-    user: Prisma.$userPayload<ExtArgs>
+    company: Prisma.$CompanyPayload<ExtArgs>
+    user: Prisma.$UserPayload<ExtArgs>
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     user_id: number
@@ -775,18 +775,18 @@ export type $employmentPayload<ExtArgs extends runtime.Types.Extensions.Internal
   composites: {}
 }
 
-export type employmentGetPayload<S extends boolean | null | undefined | employmentDefaultArgs> = runtime.Types.Result.GetResult<Prisma.$employmentPayload, S>
+export type EmploymentGetPayload<S extends boolean | null | undefined | EmploymentDefaultArgs> = runtime.Types.Result.GetResult<Prisma.$EmploymentPayload, S>
 
-export type employmentCountArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> =
-  Omit<employmentFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+export type EmploymentCountArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> =
+  Omit<EmploymentFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
     select?: EmploymentCountAggregateInputType | true
   }
 
-export interface employmentDelegate<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> {
-  [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['employment'], meta: { name: 'employment' } }
+export interface EmploymentDelegate<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+  [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Employment'], meta: { name: 'Employment' } }
   /**
    * Find zero or one Employment that matches the filter.
-   * @param {employmentFindUniqueArgs} args - Arguments to find a Employment
+   * @param {EmploymentFindUniqueArgs} args - Arguments to find a Employment
    * @example
    * // Get one Employment
    * const employment = await prisma.employment.findUnique({
@@ -795,12 +795,12 @@ export interface employmentDelegate<ExtArgs extends runtime.Types.Extensions.Int
    *   }
    * })
    */
-  findUnique<T extends employmentFindUniqueArgs>(args: Prisma.SelectSubset<T, employmentFindUniqueArgs<ExtArgs>>): Prisma.Prisma__employmentClient<runtime.Types.Result.GetResult<Prisma.$employmentPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+  findUnique<T extends EmploymentFindUniqueArgs>(args: Prisma.SelectSubset<T, EmploymentFindUniqueArgs<ExtArgs>>): Prisma.Prisma__EmploymentClient<runtime.Types.Result.GetResult<Prisma.$EmploymentPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
   /**
    * Find one Employment that matches the filter or throw an error with `error.code='P2025'`
    * if no matches were found.
-   * @param {employmentFindUniqueOrThrowArgs} args - Arguments to find a Employment
+   * @param {EmploymentFindUniqueOrThrowArgs} args - Arguments to find a Employment
    * @example
    * // Get one Employment
    * const employment = await prisma.employment.findUniqueOrThrow({
@@ -809,13 +809,13 @@ export interface employmentDelegate<ExtArgs extends runtime.Types.Extensions.Int
    *   }
    * })
    */
-  findUniqueOrThrow<T extends employmentFindUniqueOrThrowArgs>(args: Prisma.SelectSubset<T, employmentFindUniqueOrThrowArgs<ExtArgs>>): Prisma.Prisma__employmentClient<runtime.Types.Result.GetResult<Prisma.$employmentPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+  findUniqueOrThrow<T extends EmploymentFindUniqueOrThrowArgs>(args: Prisma.SelectSubset<T, EmploymentFindUniqueOrThrowArgs<ExtArgs>>): Prisma.Prisma__EmploymentClient<runtime.Types.Result.GetResult<Prisma.$EmploymentPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
   /**
    * Find the first Employment that matches the filter.
    * Note, that providing `undefined` is treated as the value not being there.
    * Read more here: https://pris.ly/d/null-undefined
-   * @param {employmentFindFirstArgs} args - Arguments to find a Employment
+   * @param {EmploymentFindFirstArgs} args - Arguments to find a Employment
    * @example
    * // Get one Employment
    * const employment = await prisma.employment.findFirst({
@@ -824,14 +824,14 @@ export interface employmentDelegate<ExtArgs extends runtime.Types.Extensions.Int
    *   }
    * })
    */
-  findFirst<T extends employmentFindFirstArgs>(args?: Prisma.SelectSubset<T, employmentFindFirstArgs<ExtArgs>>): Prisma.Prisma__employmentClient<runtime.Types.Result.GetResult<Prisma.$employmentPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+  findFirst<T extends EmploymentFindFirstArgs>(args?: Prisma.SelectSubset<T, EmploymentFindFirstArgs<ExtArgs>>): Prisma.Prisma__EmploymentClient<runtime.Types.Result.GetResult<Prisma.$EmploymentPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
   /**
    * Find the first Employment that matches the filter or
    * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
    * Note, that providing `undefined` is treated as the value not being there.
    * Read more here: https://pris.ly/d/null-undefined
-   * @param {employmentFindFirstOrThrowArgs} args - Arguments to find a Employment
+   * @param {EmploymentFindFirstOrThrowArgs} args - Arguments to find a Employment
    * @example
    * // Get one Employment
    * const employment = await prisma.employment.findFirstOrThrow({
@@ -840,13 +840,13 @@ export interface employmentDelegate<ExtArgs extends runtime.Types.Extensions.Int
    *   }
    * })
    */
-  findFirstOrThrow<T extends employmentFindFirstOrThrowArgs>(args?: Prisma.SelectSubset<T, employmentFindFirstOrThrowArgs<ExtArgs>>): Prisma.Prisma__employmentClient<runtime.Types.Result.GetResult<Prisma.$employmentPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+  findFirstOrThrow<T extends EmploymentFindFirstOrThrowArgs>(args?: Prisma.SelectSubset<T, EmploymentFindFirstOrThrowArgs<ExtArgs>>): Prisma.Prisma__EmploymentClient<runtime.Types.Result.GetResult<Prisma.$EmploymentPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
   /**
    * Find zero or more Employments that matches the filter.
    * Note, that providing `undefined` is treated as the value not being there.
    * Read more here: https://pris.ly/d/null-undefined
-   * @param {employmentFindManyArgs} args - Arguments to filter and select certain fields only.
+   * @param {EmploymentFindManyArgs} args - Arguments to filter and select certain fields only.
    * @example
    * // Get all Employments
    * const employments = await prisma.employment.findMany()
@@ -858,11 +858,11 @@ export interface employmentDelegate<ExtArgs extends runtime.Types.Extensions.Int
    * const employmentWithUser_idOnly = await prisma.employment.findMany({ select: { user_id: true } })
    * 
    */
-  findMany<T extends employmentFindManyArgs>(args?: Prisma.SelectSubset<T, employmentFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$employmentPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+  findMany<T extends EmploymentFindManyArgs>(args?: Prisma.SelectSubset<T, EmploymentFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$EmploymentPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
 
   /**
    * Create a Employment.
-   * @param {employmentCreateArgs} args - Arguments to create a Employment.
+   * @param {EmploymentCreateArgs} args - Arguments to create a Employment.
    * @example
    * // Create one Employment
    * const Employment = await prisma.employment.create({
@@ -872,11 +872,11 @@ export interface employmentDelegate<ExtArgs extends runtime.Types.Extensions.Int
    * })
    * 
    */
-  create<T extends employmentCreateArgs>(args: Prisma.SelectSubset<T, employmentCreateArgs<ExtArgs>>): Prisma.Prisma__employmentClient<runtime.Types.Result.GetResult<Prisma.$employmentPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+  create<T extends EmploymentCreateArgs>(args: Prisma.SelectSubset<T, EmploymentCreateArgs<ExtArgs>>): Prisma.Prisma__EmploymentClient<runtime.Types.Result.GetResult<Prisma.$EmploymentPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
   /**
    * Create many Employments.
-   * @param {employmentCreateManyArgs} args - Arguments to create many Employments.
+   * @param {EmploymentCreateManyArgs} args - Arguments to create many Employments.
    * @example
    * // Create many Employments
    * const employment = await prisma.employment.createMany({
@@ -886,11 +886,11 @@ export interface employmentDelegate<ExtArgs extends runtime.Types.Extensions.Int
    * })
    *     
    */
-  createMany<T extends employmentCreateManyArgs>(args?: Prisma.SelectSubset<T, employmentCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>
+  createMany<T extends EmploymentCreateManyArgs>(args?: Prisma.SelectSubset<T, EmploymentCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>
 
   /**
    * Delete a Employment.
-   * @param {employmentDeleteArgs} args - Arguments to delete one Employment.
+   * @param {EmploymentDeleteArgs} args - Arguments to delete one Employment.
    * @example
    * // Delete one Employment
    * const Employment = await prisma.employment.delete({
@@ -900,11 +900,11 @@ export interface employmentDelegate<ExtArgs extends runtime.Types.Extensions.Int
    * })
    * 
    */
-  delete<T extends employmentDeleteArgs>(args: Prisma.SelectSubset<T, employmentDeleteArgs<ExtArgs>>): Prisma.Prisma__employmentClient<runtime.Types.Result.GetResult<Prisma.$employmentPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+  delete<T extends EmploymentDeleteArgs>(args: Prisma.SelectSubset<T, EmploymentDeleteArgs<ExtArgs>>): Prisma.Prisma__EmploymentClient<runtime.Types.Result.GetResult<Prisma.$EmploymentPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
   /**
    * Update one Employment.
-   * @param {employmentUpdateArgs} args - Arguments to update one Employment.
+   * @param {EmploymentUpdateArgs} args - Arguments to update one Employment.
    * @example
    * // Update one Employment
    * const employment = await prisma.employment.update({
@@ -917,11 +917,11 @@ export interface employmentDelegate<ExtArgs extends runtime.Types.Extensions.Int
    * })
    * 
    */
-  update<T extends employmentUpdateArgs>(args: Prisma.SelectSubset<T, employmentUpdateArgs<ExtArgs>>): Prisma.Prisma__employmentClient<runtime.Types.Result.GetResult<Prisma.$employmentPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+  update<T extends EmploymentUpdateArgs>(args: Prisma.SelectSubset<T, EmploymentUpdateArgs<ExtArgs>>): Prisma.Prisma__EmploymentClient<runtime.Types.Result.GetResult<Prisma.$EmploymentPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
   /**
    * Delete zero or more Employments.
-   * @param {employmentDeleteManyArgs} args - Arguments to filter Employments to delete.
+   * @param {EmploymentDeleteManyArgs} args - Arguments to filter Employments to delete.
    * @example
    * // Delete a few Employments
    * const { count } = await prisma.employment.deleteMany({
@@ -931,13 +931,13 @@ export interface employmentDelegate<ExtArgs extends runtime.Types.Extensions.Int
    * })
    * 
    */
-  deleteMany<T extends employmentDeleteManyArgs>(args?: Prisma.SelectSubset<T, employmentDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>
+  deleteMany<T extends EmploymentDeleteManyArgs>(args?: Prisma.SelectSubset<T, EmploymentDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>
 
   /**
    * Update zero or more Employments.
    * Note, that providing `undefined` is treated as the value not being there.
    * Read more here: https://pris.ly/d/null-undefined
-   * @param {employmentUpdateManyArgs} args - Arguments to update one or more rows.
+   * @param {EmploymentUpdateManyArgs} args - Arguments to update one or more rows.
    * @example
    * // Update many Employments
    * const employment = await prisma.employment.updateMany({
@@ -950,11 +950,11 @@ export interface employmentDelegate<ExtArgs extends runtime.Types.Extensions.Int
    * })
    * 
    */
-  updateMany<T extends employmentUpdateManyArgs>(args: Prisma.SelectSubset<T, employmentUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>
+  updateMany<T extends EmploymentUpdateManyArgs>(args: Prisma.SelectSubset<T, EmploymentUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>
 
   /**
    * Create or update one Employment.
-   * @param {employmentUpsertArgs} args - Arguments to update or create a Employment.
+   * @param {EmploymentUpsertArgs} args - Arguments to update or create a Employment.
    * @example
    * // Update or create a Employment
    * const employment = await prisma.employment.upsert({
@@ -969,14 +969,14 @@ export interface employmentDelegate<ExtArgs extends runtime.Types.Extensions.Int
    *   }
    * })
    */
-  upsert<T extends employmentUpsertArgs>(args: Prisma.SelectSubset<T, employmentUpsertArgs<ExtArgs>>): Prisma.Prisma__employmentClient<runtime.Types.Result.GetResult<Prisma.$employmentPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+  upsert<T extends EmploymentUpsertArgs>(args: Prisma.SelectSubset<T, EmploymentUpsertArgs<ExtArgs>>): Prisma.Prisma__EmploymentClient<runtime.Types.Result.GetResult<Prisma.$EmploymentPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
 
   /**
    * Count the number of Employments.
    * Note, that providing `undefined` is treated as the value not being there.
    * Read more here: https://pris.ly/d/null-undefined
-   * @param {employmentCountArgs} args - Arguments to filter Employments to count.
+   * @param {EmploymentCountArgs} args - Arguments to filter Employments to count.
    * @example
    * // Count the number of Employments
    * const count = await prisma.employment.count({
@@ -985,8 +985,8 @@ export interface employmentDelegate<ExtArgs extends runtime.Types.Extensions.Int
    *   }
    * })
   **/
-  count<T extends employmentCountArgs>(
-    args?: Prisma.Subset<T, employmentCountArgs>,
+  count<T extends EmploymentCountArgs>(
+    args?: Prisma.Subset<T, EmploymentCountArgs>,
   ): Prisma.PrismaPromise<
     T extends runtime.Types.Utils.Record<'select', any>
       ? T['select'] extends true
@@ -1025,7 +1025,7 @@ export interface employmentDelegate<ExtArgs extends runtime.Types.Extensions.Int
    * Group by Employment.
    * Note, that providing `undefined` is treated as the value not being there.
    * Read more here: https://pris.ly/d/null-undefined
-   * @param {employmentGroupByArgs} args - Group by arguments.
+   * @param {EmploymentGroupByArgs} args - Group by arguments.
    * @example
    * // Group by city, order by createdAt, get count
    * const result = await prisma.user.groupBy({
@@ -1040,14 +1040,14 @@ export interface employmentDelegate<ExtArgs extends runtime.Types.Extensions.Int
    * 
   **/
   groupBy<
-    T extends employmentGroupByArgs,
+    T extends EmploymentGroupByArgs,
     HasSelectOrTake extends Prisma.Or<
       Prisma.Extends<'skip', Prisma.Keys<T>>,
       Prisma.Extends<'take', Prisma.Keys<T>>
     >,
     OrderByArg extends Prisma.True extends HasSelectOrTake
-      ? { orderBy: employmentGroupByArgs['orderBy'] }
-      : { orderBy?: employmentGroupByArgs['orderBy'] },
+      ? { orderBy: EmploymentGroupByArgs['orderBy'] }
+      : { orderBy?: EmploymentGroupByArgs['orderBy'] },
     OrderFields extends Prisma.ExcludeUnderscoreKeys<Prisma.Keys<Prisma.MaybeTupleToUnion<T['orderBy']>>>,
     ByFields extends Prisma.MaybeTupleToUnion<T['by']>,
     ByValid extends Prisma.Has<ByFields, OrderFields>,
@@ -1096,23 +1096,23 @@ export interface employmentDelegate<ExtArgs extends runtime.Types.Extensions.Int
           ? never
           : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
       }[OrderFields]
-  >(args: Prisma.SubsetIntersection<T, employmentGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetEmploymentGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  >(args: Prisma.SubsetIntersection<T, EmploymentGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetEmploymentGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
 /**
- * Fields of the employment model
+ * Fields of the Employment model
  */
-readonly fields: employmentFieldRefs;
+readonly fields: EmploymentFieldRefs;
 }
 
 /**
- * The delegate class that acts as a "Promise-like" for employment.
+ * The delegate class that acts as a "Promise-like" for Employment.
  * Why is this prefixed with `Prisma__`?
  * Because we want to prevent naming conflicts as mentioned in
  * https://github.com/prisma/prisma-client-js/issues/707
  */
-export interface Prisma__employmentClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+export interface Prisma__EmploymentClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
-  company<T extends Prisma.companyDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.companyDefaultArgs<ExtArgs>>): Prisma.Prisma__companyClient<runtime.Types.Result.GetResult<Prisma.$companyPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
-  user<T extends Prisma.userDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.userDefaultArgs<ExtArgs>>): Prisma.Prisma__userClient<runtime.Types.Result.GetResult<Prisma.$userPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+  company<T extends Prisma.CompanyDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.CompanyDefaultArgs<ExtArgs>>): Prisma.Prisma__CompanyClient<runtime.Types.Result.GetResult<Prisma.$CompanyPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+  user<T extends Prisma.UserDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.UserDefaultArgs<ExtArgs>>): Prisma.Prisma__UserClient<runtime.Types.Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1139,378 +1139,378 @@ export interface Prisma__employmentClient<T, Null = never, ExtArgs extends runti
 
 
 /**
- * Fields of the employment model
+ * Fields of the Employment model
  */
-export interface employmentFieldRefs {
-  readonly user_id: Prisma.FieldRef<"employment", 'Int'>
-  readonly company_id: Prisma.FieldRef<"employment", 'Int'>
-  readonly job_title: Prisma.FieldRef<"employment", 'String'>
-  readonly start_date: Prisma.FieldRef<"employment", 'DateTime'>
-  readonly end_date: Prisma.FieldRef<"employment", 'DateTime'>
-  readonly is_current: Prisma.FieldRef<"employment", 'Boolean'>
-  readonly created_at: Prisma.FieldRef<"employment", 'DateTime'>
-  readonly updated_at: Prisma.FieldRef<"employment", 'DateTime'>
+export interface EmploymentFieldRefs {
+  readonly user_id: Prisma.FieldRef<"Employment", 'Int'>
+  readonly company_id: Prisma.FieldRef<"Employment", 'Int'>
+  readonly job_title: Prisma.FieldRef<"Employment", 'String'>
+  readonly start_date: Prisma.FieldRef<"Employment", 'DateTime'>
+  readonly end_date: Prisma.FieldRef<"Employment", 'DateTime'>
+  readonly is_current: Prisma.FieldRef<"Employment", 'Boolean'>
+  readonly created_at: Prisma.FieldRef<"Employment", 'DateTime'>
+  readonly updated_at: Prisma.FieldRef<"Employment", 'DateTime'>
 }
     
 
 // Custom InputTypes
 /**
- * employment findUnique
+ * Employment findUnique
  */
-export type employmentFindUniqueArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type EmploymentFindUniqueArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the employment
+   * Select specific fields to fetch from the Employment
    */
-  select?: Prisma.employmentSelect<ExtArgs> | null
+  select?: Prisma.EmploymentSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the employment
+   * Omit specific fields from the Employment
    */
-  omit?: Prisma.employmentOmit<ExtArgs> | null
+  omit?: Prisma.EmploymentOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.employmentInclude<ExtArgs> | null
+  include?: Prisma.EmploymentInclude<ExtArgs> | null
   /**
-   * Filter, which employment to fetch.
+   * Filter, which Employment to fetch.
    */
-  where: Prisma.employmentWhereUniqueInput
+  where: Prisma.EmploymentWhereUniqueInput
 }
 
 /**
- * employment findUniqueOrThrow
+ * Employment findUniqueOrThrow
  */
-export type employmentFindUniqueOrThrowArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type EmploymentFindUniqueOrThrowArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the employment
+   * Select specific fields to fetch from the Employment
    */
-  select?: Prisma.employmentSelect<ExtArgs> | null
+  select?: Prisma.EmploymentSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the employment
+   * Omit specific fields from the Employment
    */
-  omit?: Prisma.employmentOmit<ExtArgs> | null
+  omit?: Prisma.EmploymentOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.employmentInclude<ExtArgs> | null
+  include?: Prisma.EmploymentInclude<ExtArgs> | null
   /**
-   * Filter, which employment to fetch.
+   * Filter, which Employment to fetch.
    */
-  where: Prisma.employmentWhereUniqueInput
+  where: Prisma.EmploymentWhereUniqueInput
 }
 
 /**
- * employment findFirst
+ * Employment findFirst
  */
-export type employmentFindFirstArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type EmploymentFindFirstArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the employment
+   * Select specific fields to fetch from the Employment
    */
-  select?: Prisma.employmentSelect<ExtArgs> | null
+  select?: Prisma.EmploymentSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the employment
+   * Omit specific fields from the Employment
    */
-  omit?: Prisma.employmentOmit<ExtArgs> | null
+  omit?: Prisma.EmploymentOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.employmentInclude<ExtArgs> | null
+  include?: Prisma.EmploymentInclude<ExtArgs> | null
   /**
-   * Filter, which employment to fetch.
+   * Filter, which Employment to fetch.
    */
-  where?: Prisma.employmentWhereInput
+  where?: Prisma.EmploymentWhereInput
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
    * 
-   * Determine the order of employments to fetch.
+   * Determine the order of Employments to fetch.
    */
-  orderBy?: Prisma.employmentOrderByWithRelationInput | Prisma.employmentOrderByWithRelationInput[]
+  orderBy?: Prisma.EmploymentOrderByWithRelationInput | Prisma.EmploymentOrderByWithRelationInput[]
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
    * 
-   * Sets the position for searching for employments.
+   * Sets the position for searching for Employments.
    */
-  cursor?: Prisma.employmentWhereUniqueInput
+  cursor?: Prisma.EmploymentWhereUniqueInput
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
    * 
-   * Take `±n` employments from the position of the cursor.
+   * Take `±n` Employments from the position of the cursor.
    */
   take?: number
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
    * 
-   * Skip the first `n` employments.
+   * Skip the first `n` Employments.
    */
   skip?: number
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
    * 
-   * Filter by unique combinations of employments.
+   * Filter by unique combinations of Employments.
    */
   distinct?: Prisma.EmploymentScalarFieldEnum | Prisma.EmploymentScalarFieldEnum[]
 }
 
 /**
- * employment findFirstOrThrow
+ * Employment findFirstOrThrow
  */
-export type employmentFindFirstOrThrowArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type EmploymentFindFirstOrThrowArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the employment
+   * Select specific fields to fetch from the Employment
    */
-  select?: Prisma.employmentSelect<ExtArgs> | null
+  select?: Prisma.EmploymentSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the employment
+   * Omit specific fields from the Employment
    */
-  omit?: Prisma.employmentOmit<ExtArgs> | null
+  omit?: Prisma.EmploymentOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.employmentInclude<ExtArgs> | null
+  include?: Prisma.EmploymentInclude<ExtArgs> | null
   /**
-   * Filter, which employment to fetch.
+   * Filter, which Employment to fetch.
    */
-  where?: Prisma.employmentWhereInput
+  where?: Prisma.EmploymentWhereInput
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
    * 
-   * Determine the order of employments to fetch.
+   * Determine the order of Employments to fetch.
    */
-  orderBy?: Prisma.employmentOrderByWithRelationInput | Prisma.employmentOrderByWithRelationInput[]
+  orderBy?: Prisma.EmploymentOrderByWithRelationInput | Prisma.EmploymentOrderByWithRelationInput[]
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
    * 
-   * Sets the position for searching for employments.
+   * Sets the position for searching for Employments.
    */
-  cursor?: Prisma.employmentWhereUniqueInput
+  cursor?: Prisma.EmploymentWhereUniqueInput
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
    * 
-   * Take `±n` employments from the position of the cursor.
+   * Take `±n` Employments from the position of the cursor.
    */
   take?: number
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
    * 
-   * Skip the first `n` employments.
+   * Skip the first `n` Employments.
    */
   skip?: number
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
    * 
-   * Filter by unique combinations of employments.
+   * Filter by unique combinations of Employments.
    */
   distinct?: Prisma.EmploymentScalarFieldEnum | Prisma.EmploymentScalarFieldEnum[]
 }
 
 /**
- * employment findMany
+ * Employment findMany
  */
-export type employmentFindManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type EmploymentFindManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the employment
+   * Select specific fields to fetch from the Employment
    */
-  select?: Prisma.employmentSelect<ExtArgs> | null
+  select?: Prisma.EmploymentSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the employment
+   * Omit specific fields from the Employment
    */
-  omit?: Prisma.employmentOmit<ExtArgs> | null
+  omit?: Prisma.EmploymentOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.employmentInclude<ExtArgs> | null
+  include?: Prisma.EmploymentInclude<ExtArgs> | null
   /**
-   * Filter, which employments to fetch.
+   * Filter, which Employments to fetch.
    */
-  where?: Prisma.employmentWhereInput
+  where?: Prisma.EmploymentWhereInput
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
    * 
-   * Determine the order of employments to fetch.
+   * Determine the order of Employments to fetch.
    */
-  orderBy?: Prisma.employmentOrderByWithRelationInput | Prisma.employmentOrderByWithRelationInput[]
+  orderBy?: Prisma.EmploymentOrderByWithRelationInput | Prisma.EmploymentOrderByWithRelationInput[]
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
    * 
-   * Sets the position for listing employments.
+   * Sets the position for listing Employments.
    */
-  cursor?: Prisma.employmentWhereUniqueInput
+  cursor?: Prisma.EmploymentWhereUniqueInput
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
    * 
-   * Take `±n` employments from the position of the cursor.
+   * Take `±n` Employments from the position of the cursor.
    */
   take?: number
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
    * 
-   * Skip the first `n` employments.
+   * Skip the first `n` Employments.
    */
   skip?: number
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
    * 
-   * Filter by unique combinations of employments.
+   * Filter by unique combinations of Employments.
    */
   distinct?: Prisma.EmploymentScalarFieldEnum | Prisma.EmploymentScalarFieldEnum[]
 }
 
 /**
- * employment create
+ * Employment create
  */
-export type employmentCreateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type EmploymentCreateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the employment
+   * Select specific fields to fetch from the Employment
    */
-  select?: Prisma.employmentSelect<ExtArgs> | null
+  select?: Prisma.EmploymentSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the employment
+   * Omit specific fields from the Employment
    */
-  omit?: Prisma.employmentOmit<ExtArgs> | null
+  omit?: Prisma.EmploymentOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.employmentInclude<ExtArgs> | null
+  include?: Prisma.EmploymentInclude<ExtArgs> | null
   /**
-   * The data needed to create a employment.
+   * The data needed to create a Employment.
    */
-  data: Prisma.XOR<Prisma.employmentCreateInput, Prisma.employmentUncheckedCreateInput>
+  data: Prisma.XOR<Prisma.EmploymentCreateInput, Prisma.EmploymentUncheckedCreateInput>
 }
 
 /**
- * employment createMany
+ * Employment createMany
  */
-export type employmentCreateManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type EmploymentCreateManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * The data used to create many employments.
+   * The data used to create many Employments.
    */
-  data: Prisma.employmentCreateManyInput | Prisma.employmentCreateManyInput[]
+  data: Prisma.EmploymentCreateManyInput | Prisma.EmploymentCreateManyInput[]
   skipDuplicates?: boolean
 }
 
 /**
- * employment update
+ * Employment update
  */
-export type employmentUpdateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type EmploymentUpdateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the employment
+   * Select specific fields to fetch from the Employment
    */
-  select?: Prisma.employmentSelect<ExtArgs> | null
+  select?: Prisma.EmploymentSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the employment
+   * Omit specific fields from the Employment
    */
-  omit?: Prisma.employmentOmit<ExtArgs> | null
+  omit?: Prisma.EmploymentOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.employmentInclude<ExtArgs> | null
+  include?: Prisma.EmploymentInclude<ExtArgs> | null
   /**
-   * The data needed to update a employment.
+   * The data needed to update a Employment.
    */
-  data: Prisma.XOR<Prisma.employmentUpdateInput, Prisma.employmentUncheckedUpdateInput>
+  data: Prisma.XOR<Prisma.EmploymentUpdateInput, Prisma.EmploymentUncheckedUpdateInput>
   /**
-   * Choose, which employment to update.
+   * Choose, which Employment to update.
    */
-  where: Prisma.employmentWhereUniqueInput
+  where: Prisma.EmploymentWhereUniqueInput
 }
 
 /**
- * employment updateMany
+ * Employment updateMany
  */
-export type employmentUpdateManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type EmploymentUpdateManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * The data used to update employments.
+   * The data used to update Employments.
    */
-  data: Prisma.XOR<Prisma.employmentUpdateManyMutationInput, Prisma.employmentUncheckedUpdateManyInput>
+  data: Prisma.XOR<Prisma.EmploymentUpdateManyMutationInput, Prisma.EmploymentUncheckedUpdateManyInput>
   /**
-   * Filter which employments to update
+   * Filter which Employments to update
    */
-  where?: Prisma.employmentWhereInput
+  where?: Prisma.EmploymentWhereInput
   /**
-   * Limit how many employments to update.
+   * Limit how many Employments to update.
    */
   limit?: number
 }
 
 /**
- * employment upsert
+ * Employment upsert
  */
-export type employmentUpsertArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type EmploymentUpsertArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the employment
+   * Select specific fields to fetch from the Employment
    */
-  select?: Prisma.employmentSelect<ExtArgs> | null
+  select?: Prisma.EmploymentSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the employment
+   * Omit specific fields from the Employment
    */
-  omit?: Prisma.employmentOmit<ExtArgs> | null
+  omit?: Prisma.EmploymentOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.employmentInclude<ExtArgs> | null
+  include?: Prisma.EmploymentInclude<ExtArgs> | null
   /**
-   * The filter to search for the employment to update in case it exists.
+   * The filter to search for the Employment to update in case it exists.
    */
-  where: Prisma.employmentWhereUniqueInput
+  where: Prisma.EmploymentWhereUniqueInput
   /**
-   * In case the employment found by the `where` argument doesn't exist, create a new employment with this data.
+   * In case the Employment found by the `where` argument doesn't exist, create a new Employment with this data.
    */
-  create: Prisma.XOR<Prisma.employmentCreateInput, Prisma.employmentUncheckedCreateInput>
+  create: Prisma.XOR<Prisma.EmploymentCreateInput, Prisma.EmploymentUncheckedCreateInput>
   /**
-   * In case the employment was found with the provided `where` argument, update it with this data.
+   * In case the Employment was found with the provided `where` argument, update it with this data.
    */
-  update: Prisma.XOR<Prisma.employmentUpdateInput, Prisma.employmentUncheckedUpdateInput>
+  update: Prisma.XOR<Prisma.EmploymentUpdateInput, Prisma.EmploymentUncheckedUpdateInput>
 }
 
 /**
- * employment delete
+ * Employment delete
  */
-export type employmentDeleteArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type EmploymentDeleteArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the employment
+   * Select specific fields to fetch from the Employment
    */
-  select?: Prisma.employmentSelect<ExtArgs> | null
+  select?: Prisma.EmploymentSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the employment
+   * Omit specific fields from the Employment
    */
-  omit?: Prisma.employmentOmit<ExtArgs> | null
+  omit?: Prisma.EmploymentOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.employmentInclude<ExtArgs> | null
+  include?: Prisma.EmploymentInclude<ExtArgs> | null
   /**
-   * Filter which employment to delete.
+   * Filter which Employment to delete.
    */
-  where: Prisma.employmentWhereUniqueInput
+  where: Prisma.EmploymentWhereUniqueInput
 }
 
 /**
- * employment deleteMany
+ * Employment deleteMany
  */
-export type employmentDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type EmploymentDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Filter which employments to delete
+   * Filter which Employments to delete
    */
-  where?: Prisma.employmentWhereInput
+  where?: Prisma.EmploymentWhereInput
   /**
-   * Limit how many employments to delete.
+   * Limit how many Employments to delete.
    */
   limit?: number
 }
 
 /**
- * employment without action
+ * Employment without action
  */
-export type employmentDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type EmploymentDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the employment
+   * Select specific fields to fetch from the Employment
    */
-  select?: Prisma.employmentSelect<ExtArgs> | null
+  select?: Prisma.EmploymentSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the employment
+   * Omit specific fields from the Employment
    */
-  omit?: Prisma.employmentOmit<ExtArgs> | null
+  omit?: Prisma.EmploymentOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.employmentInclude<ExtArgs> | null
+  include?: Prisma.EmploymentInclude<ExtArgs> | null
 }

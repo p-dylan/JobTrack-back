@@ -4,7 +4,7 @@
 // biome-ignore-all lint: generated file
 // @ts-nocheck 
 /*
- * This file exports the `interview` model and its related types.
+ * This file exports the `Interview` model and its related types.
  *
  * 🟢 You can import this file directly.
  */
@@ -13,10 +13,10 @@ import type * as $Enums from "../enums.js"
 import type * as Prisma from "../internal/prismaNamespace.js"
 
 /**
- * Model interview
+ * Model Interview
  * 
  */
-export type interviewModel = runtime.Types.Result.DefaultSelection<Prisma.$interviewPayload>
+export type InterviewModel = runtime.Types.Result.DefaultSelection<Prisma.$InterviewPayload>
 
 export type AggregateInterview = {
   _count: InterviewCountAggregateOutputType | null
@@ -39,7 +39,7 @@ export type InterviewSumAggregateOutputType = {
 export type InterviewMinAggregateOutputType = {
   id: number | null
   application_id: number | null
-  interview_type: $Enums.interview_interview_type | null
+  interview_type: $Enums.Interview_interview_type | null
   scheduled_at: Date | null
   notes: string | null
   created_at: Date | null
@@ -49,7 +49,7 @@ export type InterviewMinAggregateOutputType = {
 export type InterviewMaxAggregateOutputType = {
   id: number | null
   application_id: number | null
-  interview_type: $Enums.interview_interview_type | null
+  interview_type: $Enums.Interview_interview_type | null
   scheduled_at: Date | null
   notes: string | null
   created_at: Date | null
@@ -111,37 +111,37 @@ export type InterviewCountAggregateInputType = {
 
 export type InterviewAggregateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Filter which interview to aggregate.
+   * Filter which Interview to aggregate.
    */
-  where?: Prisma.interviewWhereInput
+  where?: Prisma.InterviewWhereInput
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
    * 
-   * Determine the order of interviews to fetch.
+   * Determine the order of Interviews to fetch.
    */
-  orderBy?: Prisma.interviewOrderByWithRelationInput | Prisma.interviewOrderByWithRelationInput[]
+  orderBy?: Prisma.InterviewOrderByWithRelationInput | Prisma.InterviewOrderByWithRelationInput[]
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
    * 
    * Sets the start position
    */
-  cursor?: Prisma.interviewWhereUniqueInput
+  cursor?: Prisma.InterviewWhereUniqueInput
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
    * 
-   * Take `±n` interviews from the position of the cursor.
+   * Take `±n` Interviews from the position of the cursor.
    */
   take?: number
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
    * 
-   * Skip the first `n` interviews.
+   * Skip the first `n` Interviews.
    */
   skip?: number
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
    * 
-   * Count returned interviews
+   * Count returned Interviews
   **/
   _count?: true | InterviewCountAggregateInputType
   /**
@@ -181,11 +181,11 @@ export type GetInterviewAggregateType<T extends InterviewAggregateArgs> = {
 
 
 
-export type interviewGroupByArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  where?: Prisma.interviewWhereInput
-  orderBy?: Prisma.interviewOrderByWithAggregationInput | Prisma.interviewOrderByWithAggregationInput[]
+export type InterviewGroupByArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.InterviewWhereInput
+  orderBy?: Prisma.InterviewOrderByWithAggregationInput | Prisma.InterviewOrderByWithAggregationInput[]
   by: Prisma.InterviewScalarFieldEnum[] | Prisma.InterviewScalarFieldEnum
-  having?: Prisma.interviewScalarWhereWithAggregatesInput
+  having?: Prisma.InterviewScalarWhereWithAggregatesInput
   take?: number
   skip?: number
   _count?: InterviewCountAggregateInputType | true
@@ -198,7 +198,7 @@ export type interviewGroupByArgs<ExtArgs extends runtime.Types.Extensions.Intern
 export type InterviewGroupByOutputType = {
   id: number
   application_id: number
-  interview_type: $Enums.interview_interview_type
+  interview_type: $Enums.Interview_interview_type
   scheduled_at: Date
   notes: string | null
   created_at: Date
@@ -210,7 +210,7 @@ export type InterviewGroupByOutputType = {
   _max: InterviewMaxAggregateOutputType | null
 }
 
-export type GetInterviewGroupByPayload<T extends interviewGroupByArgs> = Prisma.PrismaPromise<
+export type GetInterviewGroupByPayload<T extends InterviewGroupByArgs> = Prisma.PrismaPromise<
   Array<
     Prisma.PickEnumerable<InterviewGroupByOutputType, T['by']> &
       {
@@ -225,21 +225,21 @@ export type GetInterviewGroupByPayload<T extends interviewGroupByArgs> = Prisma.
 
 
 
-export type interviewWhereInput = {
-  AND?: Prisma.interviewWhereInput | Prisma.interviewWhereInput[]
-  OR?: Prisma.interviewWhereInput[]
-  NOT?: Prisma.interviewWhereInput | Prisma.interviewWhereInput[]
-  id?: Prisma.IntFilter<"interview"> | number
-  application_id?: Prisma.IntFilter<"interview"> | number
-  interview_type?: Prisma.Enuminterview_interview_typeFilter<"interview"> | $Enums.interview_interview_type
-  scheduled_at?: Prisma.DateTimeFilter<"interview"> | Date | string
-  notes?: Prisma.StringNullableFilter<"interview"> | string | null
-  created_at?: Prisma.DateTimeFilter<"interview"> | Date | string
-  updated_at?: Prisma.DateTimeFilter<"interview"> | Date | string
-  application?: Prisma.XOR<Prisma.ApplicationScalarRelationFilter, Prisma.applicationWhereInput>
+export type InterviewWhereInput = {
+  AND?: Prisma.InterviewWhereInput | Prisma.InterviewWhereInput[]
+  OR?: Prisma.InterviewWhereInput[]
+  NOT?: Prisma.InterviewWhereInput | Prisma.InterviewWhereInput[]
+  id?: Prisma.IntFilter<"Interview"> | number
+  application_id?: Prisma.IntFilter<"Interview"> | number
+  interview_type?: Prisma.EnumInterview_interview_typeFilter<"Interview"> | $Enums.Interview_interview_type
+  scheduled_at?: Prisma.DateTimeFilter<"Interview"> | Date | string
+  notes?: Prisma.StringNullableFilter<"Interview"> | string | null
+  created_at?: Prisma.DateTimeFilter<"Interview"> | Date | string
+  updated_at?: Prisma.DateTimeFilter<"Interview"> | Date | string
+  application?: Prisma.XOR<Prisma.ApplicationScalarRelationFilter, Prisma.ApplicationWhereInput>
 }
 
-export type interviewOrderByWithRelationInput = {
+export type InterviewOrderByWithRelationInput = {
   id?: Prisma.SortOrder
   application_id?: Prisma.SortOrder
   interview_type?: Prisma.SortOrder
@@ -247,25 +247,25 @@ export type interviewOrderByWithRelationInput = {
   notes?: Prisma.SortOrderInput | Prisma.SortOrder
   created_at?: Prisma.SortOrder
   updated_at?: Prisma.SortOrder
-  application?: Prisma.applicationOrderByWithRelationInput
-  _relevance?: Prisma.interviewOrderByRelevanceInput
+  application?: Prisma.ApplicationOrderByWithRelationInput
+  _relevance?: Prisma.InterviewOrderByRelevanceInput
 }
 
-export type interviewWhereUniqueInput = Prisma.AtLeast<{
+export type InterviewWhereUniqueInput = Prisma.AtLeast<{
   id?: number
-  AND?: Prisma.interviewWhereInput | Prisma.interviewWhereInput[]
-  OR?: Prisma.interviewWhereInput[]
-  NOT?: Prisma.interviewWhereInput | Prisma.interviewWhereInput[]
-  application_id?: Prisma.IntFilter<"interview"> | number
-  interview_type?: Prisma.Enuminterview_interview_typeFilter<"interview"> | $Enums.interview_interview_type
-  scheduled_at?: Prisma.DateTimeFilter<"interview"> | Date | string
-  notes?: Prisma.StringNullableFilter<"interview"> | string | null
-  created_at?: Prisma.DateTimeFilter<"interview"> | Date | string
-  updated_at?: Prisma.DateTimeFilter<"interview"> | Date | string
-  application?: Prisma.XOR<Prisma.ApplicationScalarRelationFilter, Prisma.applicationWhereInput>
+  AND?: Prisma.InterviewWhereInput | Prisma.InterviewWhereInput[]
+  OR?: Prisma.InterviewWhereInput[]
+  NOT?: Prisma.InterviewWhereInput | Prisma.InterviewWhereInput[]
+  application_id?: Prisma.IntFilter<"Interview"> | number
+  interview_type?: Prisma.EnumInterview_interview_typeFilter<"Interview"> | $Enums.Interview_interview_type
+  scheduled_at?: Prisma.DateTimeFilter<"Interview"> | Date | string
+  notes?: Prisma.StringNullableFilter<"Interview"> | string | null
+  created_at?: Prisma.DateTimeFilter<"Interview"> | Date | string
+  updated_at?: Prisma.DateTimeFilter<"Interview"> | Date | string
+  application?: Prisma.XOR<Prisma.ApplicationScalarRelationFilter, Prisma.ApplicationWhereInput>
 }, "id" | "id">
 
-export type interviewOrderByWithAggregationInput = {
+export type InterviewOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
   application_id?: Prisma.SortOrder
   interview_type?: Prisma.SortOrder
@@ -273,86 +273,86 @@ export type interviewOrderByWithAggregationInput = {
   notes?: Prisma.SortOrderInput | Prisma.SortOrder
   created_at?: Prisma.SortOrder
   updated_at?: Prisma.SortOrder
-  _count?: Prisma.interviewCountOrderByAggregateInput
-  _avg?: Prisma.interviewAvgOrderByAggregateInput
-  _max?: Prisma.interviewMaxOrderByAggregateInput
-  _min?: Prisma.interviewMinOrderByAggregateInput
-  _sum?: Prisma.interviewSumOrderByAggregateInput
+  _count?: Prisma.InterviewCountOrderByAggregateInput
+  _avg?: Prisma.InterviewAvgOrderByAggregateInput
+  _max?: Prisma.InterviewMaxOrderByAggregateInput
+  _min?: Prisma.InterviewMinOrderByAggregateInput
+  _sum?: Prisma.InterviewSumOrderByAggregateInput
 }
 
-export type interviewScalarWhereWithAggregatesInput = {
-  AND?: Prisma.interviewScalarWhereWithAggregatesInput | Prisma.interviewScalarWhereWithAggregatesInput[]
-  OR?: Prisma.interviewScalarWhereWithAggregatesInput[]
-  NOT?: Prisma.interviewScalarWhereWithAggregatesInput | Prisma.interviewScalarWhereWithAggregatesInput[]
-  id?: Prisma.IntWithAggregatesFilter<"interview"> | number
-  application_id?: Prisma.IntWithAggregatesFilter<"interview"> | number
-  interview_type?: Prisma.Enuminterview_interview_typeWithAggregatesFilter<"interview"> | $Enums.interview_interview_type
-  scheduled_at?: Prisma.DateTimeWithAggregatesFilter<"interview"> | Date | string
-  notes?: Prisma.StringNullableWithAggregatesFilter<"interview"> | string | null
-  created_at?: Prisma.DateTimeWithAggregatesFilter<"interview"> | Date | string
-  updated_at?: Prisma.DateTimeWithAggregatesFilter<"interview"> | Date | string
+export type InterviewScalarWhereWithAggregatesInput = {
+  AND?: Prisma.InterviewScalarWhereWithAggregatesInput | Prisma.InterviewScalarWhereWithAggregatesInput[]
+  OR?: Prisma.InterviewScalarWhereWithAggregatesInput[]
+  NOT?: Prisma.InterviewScalarWhereWithAggregatesInput | Prisma.InterviewScalarWhereWithAggregatesInput[]
+  id?: Prisma.IntWithAggregatesFilter<"Interview"> | number
+  application_id?: Prisma.IntWithAggregatesFilter<"Interview"> | number
+  interview_type?: Prisma.EnumInterview_interview_typeWithAggregatesFilter<"Interview"> | $Enums.Interview_interview_type
+  scheduled_at?: Prisma.DateTimeWithAggregatesFilter<"Interview"> | Date | string
+  notes?: Prisma.StringNullableWithAggregatesFilter<"Interview"> | string | null
+  created_at?: Prisma.DateTimeWithAggregatesFilter<"Interview"> | Date | string
+  updated_at?: Prisma.DateTimeWithAggregatesFilter<"Interview"> | Date | string
 }
 
-export type interviewCreateInput = {
-  interview_type: $Enums.interview_interview_type
+export type InterviewCreateInput = {
+  interview_type: $Enums.Interview_interview_type
   scheduled_at: Date | string
   notes?: string | null
   created_at?: Date | string
   updated_at?: Date | string
-  application: Prisma.applicationCreateNestedOneWithoutInterviewInput
+  application: Prisma.ApplicationCreateNestedOneWithoutInterviewInput
 }
 
-export type interviewUncheckedCreateInput = {
+export type InterviewUncheckedCreateInput = {
   id?: number
   application_id: number
-  interview_type: $Enums.interview_interview_type
+  interview_type: $Enums.Interview_interview_type
   scheduled_at: Date | string
   notes?: string | null
   created_at?: Date | string
   updated_at?: Date | string
 }
 
-export type interviewUpdateInput = {
-  interview_type?: Prisma.Enuminterview_interview_typeFieldUpdateOperationsInput | $Enums.interview_interview_type
+export type InterviewUpdateInput = {
+  interview_type?: Prisma.EnumInterview_interview_typeFieldUpdateOperationsInput | $Enums.Interview_interview_type
   scheduled_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  application?: Prisma.applicationUpdateOneRequiredWithoutInterviewNestedInput
+  application?: Prisma.ApplicationUpdateOneRequiredWithoutInterviewNestedInput
 }
 
-export type interviewUncheckedUpdateInput = {
+export type InterviewUncheckedUpdateInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   application_id?: Prisma.IntFieldUpdateOperationsInput | number
-  interview_type?: Prisma.Enuminterview_interview_typeFieldUpdateOperationsInput | $Enums.interview_interview_type
+  interview_type?: Prisma.EnumInterview_interview_typeFieldUpdateOperationsInput | $Enums.Interview_interview_type
   scheduled_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
-export type interviewCreateManyInput = {
+export type InterviewCreateManyInput = {
   id?: number
   application_id: number
-  interview_type: $Enums.interview_interview_type
+  interview_type: $Enums.Interview_interview_type
   scheduled_at: Date | string
   notes?: string | null
   created_at?: Date | string
   updated_at?: Date | string
 }
 
-export type interviewUpdateManyMutationInput = {
-  interview_type?: Prisma.Enuminterview_interview_typeFieldUpdateOperationsInput | $Enums.interview_interview_type
+export type InterviewUpdateManyMutationInput = {
+  interview_type?: Prisma.EnumInterview_interview_typeFieldUpdateOperationsInput | $Enums.Interview_interview_type
   scheduled_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
-export type interviewUncheckedUpdateManyInput = {
+export type InterviewUncheckedUpdateManyInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   application_id?: Prisma.IntFieldUpdateOperationsInput | number
-  interview_type?: Prisma.Enuminterview_interview_typeFieldUpdateOperationsInput | $Enums.interview_interview_type
+  interview_type?: Prisma.EnumInterview_interview_typeFieldUpdateOperationsInput | $Enums.Interview_interview_type
   scheduled_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -360,22 +360,22 @@ export type interviewUncheckedUpdateManyInput = {
 }
 
 export type InterviewListRelationFilter = {
-  every?: Prisma.interviewWhereInput
-  some?: Prisma.interviewWhereInput
-  none?: Prisma.interviewWhereInput
+  every?: Prisma.InterviewWhereInput
+  some?: Prisma.InterviewWhereInput
+  none?: Prisma.InterviewWhereInput
 }
 
-export type interviewOrderByRelationAggregateInput = {
+export type InterviewOrderByRelationAggregateInput = {
   _count?: Prisma.SortOrder
 }
 
-export type interviewOrderByRelevanceInput = {
-  fields: Prisma.interviewOrderByRelevanceFieldEnum | Prisma.interviewOrderByRelevanceFieldEnum[]
+export type InterviewOrderByRelevanceInput = {
+  fields: Prisma.InterviewOrderByRelevanceFieldEnum | Prisma.InterviewOrderByRelevanceFieldEnum[]
   sort: Prisma.SortOrder
   search: string
 }
 
-export type interviewCountOrderByAggregateInput = {
+export type InterviewCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
   application_id?: Prisma.SortOrder
   interview_type?: Prisma.SortOrder
@@ -385,22 +385,12 @@ export type interviewCountOrderByAggregateInput = {
   updated_at?: Prisma.SortOrder
 }
 
-export type interviewAvgOrderByAggregateInput = {
+export type InterviewAvgOrderByAggregateInput = {
   id?: Prisma.SortOrder
   application_id?: Prisma.SortOrder
 }
 
-export type interviewMaxOrderByAggregateInput = {
-  id?: Prisma.SortOrder
-  application_id?: Prisma.SortOrder
-  interview_type?: Prisma.SortOrder
-  scheduled_at?: Prisma.SortOrder
-  notes?: Prisma.SortOrder
-  created_at?: Prisma.SortOrder
-  updated_at?: Prisma.SortOrder
-}
-
-export type interviewMinOrderByAggregateInput = {
+export type InterviewMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
   application_id?: Prisma.SortOrder
   interview_type?: Prisma.SortOrder
@@ -410,142 +400,152 @@ export type interviewMinOrderByAggregateInput = {
   updated_at?: Prisma.SortOrder
 }
 
-export type interviewSumOrderByAggregateInput = {
+export type InterviewMinOrderByAggregateInput = {
+  id?: Prisma.SortOrder
+  application_id?: Prisma.SortOrder
+  interview_type?: Prisma.SortOrder
+  scheduled_at?: Prisma.SortOrder
+  notes?: Prisma.SortOrder
+  created_at?: Prisma.SortOrder
+  updated_at?: Prisma.SortOrder
+}
+
+export type InterviewSumOrderByAggregateInput = {
   id?: Prisma.SortOrder
   application_id?: Prisma.SortOrder
 }
 
-export type interviewCreateNestedManyWithoutApplicationInput = {
-  create?: Prisma.XOR<Prisma.interviewCreateWithoutApplicationInput, Prisma.interviewUncheckedCreateWithoutApplicationInput> | Prisma.interviewCreateWithoutApplicationInput[] | Prisma.interviewUncheckedCreateWithoutApplicationInput[]
-  connectOrCreate?: Prisma.interviewCreateOrConnectWithoutApplicationInput | Prisma.interviewCreateOrConnectWithoutApplicationInput[]
-  createMany?: Prisma.interviewCreateManyApplicationInputEnvelope
-  connect?: Prisma.interviewWhereUniqueInput | Prisma.interviewWhereUniqueInput[]
+export type InterviewCreateNestedManyWithoutApplicationInput = {
+  create?: Prisma.XOR<Prisma.InterviewCreateWithoutApplicationInput, Prisma.InterviewUncheckedCreateWithoutApplicationInput> | Prisma.InterviewCreateWithoutApplicationInput[] | Prisma.InterviewUncheckedCreateWithoutApplicationInput[]
+  connectOrCreate?: Prisma.InterviewCreateOrConnectWithoutApplicationInput | Prisma.InterviewCreateOrConnectWithoutApplicationInput[]
+  createMany?: Prisma.InterviewCreateManyApplicationInputEnvelope
+  connect?: Prisma.InterviewWhereUniqueInput | Prisma.InterviewWhereUniqueInput[]
 }
 
-export type interviewUncheckedCreateNestedManyWithoutApplicationInput = {
-  create?: Prisma.XOR<Prisma.interviewCreateWithoutApplicationInput, Prisma.interviewUncheckedCreateWithoutApplicationInput> | Prisma.interviewCreateWithoutApplicationInput[] | Prisma.interviewUncheckedCreateWithoutApplicationInput[]
-  connectOrCreate?: Prisma.interviewCreateOrConnectWithoutApplicationInput | Prisma.interviewCreateOrConnectWithoutApplicationInput[]
-  createMany?: Prisma.interviewCreateManyApplicationInputEnvelope
-  connect?: Prisma.interviewWhereUniqueInput | Prisma.interviewWhereUniqueInput[]
+export type InterviewUncheckedCreateNestedManyWithoutApplicationInput = {
+  create?: Prisma.XOR<Prisma.InterviewCreateWithoutApplicationInput, Prisma.InterviewUncheckedCreateWithoutApplicationInput> | Prisma.InterviewCreateWithoutApplicationInput[] | Prisma.InterviewUncheckedCreateWithoutApplicationInput[]
+  connectOrCreate?: Prisma.InterviewCreateOrConnectWithoutApplicationInput | Prisma.InterviewCreateOrConnectWithoutApplicationInput[]
+  createMany?: Prisma.InterviewCreateManyApplicationInputEnvelope
+  connect?: Prisma.InterviewWhereUniqueInput | Prisma.InterviewWhereUniqueInput[]
 }
 
-export type interviewUpdateManyWithoutApplicationNestedInput = {
-  create?: Prisma.XOR<Prisma.interviewCreateWithoutApplicationInput, Prisma.interviewUncheckedCreateWithoutApplicationInput> | Prisma.interviewCreateWithoutApplicationInput[] | Prisma.interviewUncheckedCreateWithoutApplicationInput[]
-  connectOrCreate?: Prisma.interviewCreateOrConnectWithoutApplicationInput | Prisma.interviewCreateOrConnectWithoutApplicationInput[]
-  upsert?: Prisma.interviewUpsertWithWhereUniqueWithoutApplicationInput | Prisma.interviewUpsertWithWhereUniqueWithoutApplicationInput[]
-  createMany?: Prisma.interviewCreateManyApplicationInputEnvelope
-  set?: Prisma.interviewWhereUniqueInput | Prisma.interviewWhereUniqueInput[]
-  disconnect?: Prisma.interviewWhereUniqueInput | Prisma.interviewWhereUniqueInput[]
-  delete?: Prisma.interviewWhereUniqueInput | Prisma.interviewWhereUniqueInput[]
-  connect?: Prisma.interviewWhereUniqueInput | Prisma.interviewWhereUniqueInput[]
-  update?: Prisma.interviewUpdateWithWhereUniqueWithoutApplicationInput | Prisma.interviewUpdateWithWhereUniqueWithoutApplicationInput[]
-  updateMany?: Prisma.interviewUpdateManyWithWhereWithoutApplicationInput | Prisma.interviewUpdateManyWithWhereWithoutApplicationInput[]
-  deleteMany?: Prisma.interviewScalarWhereInput | Prisma.interviewScalarWhereInput[]
+export type InterviewUpdateManyWithoutApplicationNestedInput = {
+  create?: Prisma.XOR<Prisma.InterviewCreateWithoutApplicationInput, Prisma.InterviewUncheckedCreateWithoutApplicationInput> | Prisma.InterviewCreateWithoutApplicationInput[] | Prisma.InterviewUncheckedCreateWithoutApplicationInput[]
+  connectOrCreate?: Prisma.InterviewCreateOrConnectWithoutApplicationInput | Prisma.InterviewCreateOrConnectWithoutApplicationInput[]
+  upsert?: Prisma.InterviewUpsertWithWhereUniqueWithoutApplicationInput | Prisma.InterviewUpsertWithWhereUniqueWithoutApplicationInput[]
+  createMany?: Prisma.InterviewCreateManyApplicationInputEnvelope
+  set?: Prisma.InterviewWhereUniqueInput | Prisma.InterviewWhereUniqueInput[]
+  disconnect?: Prisma.InterviewWhereUniqueInput | Prisma.InterviewWhereUniqueInput[]
+  delete?: Prisma.InterviewWhereUniqueInput | Prisma.InterviewWhereUniqueInput[]
+  connect?: Prisma.InterviewWhereUniqueInput | Prisma.InterviewWhereUniqueInput[]
+  update?: Prisma.InterviewUpdateWithWhereUniqueWithoutApplicationInput | Prisma.InterviewUpdateWithWhereUniqueWithoutApplicationInput[]
+  updateMany?: Prisma.InterviewUpdateManyWithWhereWithoutApplicationInput | Prisma.InterviewUpdateManyWithWhereWithoutApplicationInput[]
+  deleteMany?: Prisma.InterviewScalarWhereInput | Prisma.InterviewScalarWhereInput[]
 }
 
-export type interviewUncheckedUpdateManyWithoutApplicationNestedInput = {
-  create?: Prisma.XOR<Prisma.interviewCreateWithoutApplicationInput, Prisma.interviewUncheckedCreateWithoutApplicationInput> | Prisma.interviewCreateWithoutApplicationInput[] | Prisma.interviewUncheckedCreateWithoutApplicationInput[]
-  connectOrCreate?: Prisma.interviewCreateOrConnectWithoutApplicationInput | Prisma.interviewCreateOrConnectWithoutApplicationInput[]
-  upsert?: Prisma.interviewUpsertWithWhereUniqueWithoutApplicationInput | Prisma.interviewUpsertWithWhereUniqueWithoutApplicationInput[]
-  createMany?: Prisma.interviewCreateManyApplicationInputEnvelope
-  set?: Prisma.interviewWhereUniqueInput | Prisma.interviewWhereUniqueInput[]
-  disconnect?: Prisma.interviewWhereUniqueInput | Prisma.interviewWhereUniqueInput[]
-  delete?: Prisma.interviewWhereUniqueInput | Prisma.interviewWhereUniqueInput[]
-  connect?: Prisma.interviewWhereUniqueInput | Prisma.interviewWhereUniqueInput[]
-  update?: Prisma.interviewUpdateWithWhereUniqueWithoutApplicationInput | Prisma.interviewUpdateWithWhereUniqueWithoutApplicationInput[]
-  updateMany?: Prisma.interviewUpdateManyWithWhereWithoutApplicationInput | Prisma.interviewUpdateManyWithWhereWithoutApplicationInput[]
-  deleteMany?: Prisma.interviewScalarWhereInput | Prisma.interviewScalarWhereInput[]
+export type InterviewUncheckedUpdateManyWithoutApplicationNestedInput = {
+  create?: Prisma.XOR<Prisma.InterviewCreateWithoutApplicationInput, Prisma.InterviewUncheckedCreateWithoutApplicationInput> | Prisma.InterviewCreateWithoutApplicationInput[] | Prisma.InterviewUncheckedCreateWithoutApplicationInput[]
+  connectOrCreate?: Prisma.InterviewCreateOrConnectWithoutApplicationInput | Prisma.InterviewCreateOrConnectWithoutApplicationInput[]
+  upsert?: Prisma.InterviewUpsertWithWhereUniqueWithoutApplicationInput | Prisma.InterviewUpsertWithWhereUniqueWithoutApplicationInput[]
+  createMany?: Prisma.InterviewCreateManyApplicationInputEnvelope
+  set?: Prisma.InterviewWhereUniqueInput | Prisma.InterviewWhereUniqueInput[]
+  disconnect?: Prisma.InterviewWhereUniqueInput | Prisma.InterviewWhereUniqueInput[]
+  delete?: Prisma.InterviewWhereUniqueInput | Prisma.InterviewWhereUniqueInput[]
+  connect?: Prisma.InterviewWhereUniqueInput | Prisma.InterviewWhereUniqueInput[]
+  update?: Prisma.InterviewUpdateWithWhereUniqueWithoutApplicationInput | Prisma.InterviewUpdateWithWhereUniqueWithoutApplicationInput[]
+  updateMany?: Prisma.InterviewUpdateManyWithWhereWithoutApplicationInput | Prisma.InterviewUpdateManyWithWhereWithoutApplicationInput[]
+  deleteMany?: Prisma.InterviewScalarWhereInput | Prisma.InterviewScalarWhereInput[]
 }
 
-export type Enuminterview_interview_typeFieldUpdateOperationsInput = {
-  set?: $Enums.interview_interview_type
+export type EnumInterview_interview_typeFieldUpdateOperationsInput = {
+  set?: $Enums.Interview_interview_type
 }
 
-export type interviewCreateWithoutApplicationInput = {
-  interview_type: $Enums.interview_interview_type
+export type InterviewCreateWithoutApplicationInput = {
+  interview_type: $Enums.Interview_interview_type
   scheduled_at: Date | string
   notes?: string | null
   created_at?: Date | string
   updated_at?: Date | string
 }
 
-export type interviewUncheckedCreateWithoutApplicationInput = {
+export type InterviewUncheckedCreateWithoutApplicationInput = {
   id?: number
-  interview_type: $Enums.interview_interview_type
+  interview_type: $Enums.Interview_interview_type
   scheduled_at: Date | string
   notes?: string | null
   created_at?: Date | string
   updated_at?: Date | string
 }
 
-export type interviewCreateOrConnectWithoutApplicationInput = {
-  where: Prisma.interviewWhereUniqueInput
-  create: Prisma.XOR<Prisma.interviewCreateWithoutApplicationInput, Prisma.interviewUncheckedCreateWithoutApplicationInput>
+export type InterviewCreateOrConnectWithoutApplicationInput = {
+  where: Prisma.InterviewWhereUniqueInput
+  create: Prisma.XOR<Prisma.InterviewCreateWithoutApplicationInput, Prisma.InterviewUncheckedCreateWithoutApplicationInput>
 }
 
-export type interviewCreateManyApplicationInputEnvelope = {
-  data: Prisma.interviewCreateManyApplicationInput | Prisma.interviewCreateManyApplicationInput[]
+export type InterviewCreateManyApplicationInputEnvelope = {
+  data: Prisma.InterviewCreateManyApplicationInput | Prisma.InterviewCreateManyApplicationInput[]
   skipDuplicates?: boolean
 }
 
-export type interviewUpsertWithWhereUniqueWithoutApplicationInput = {
-  where: Prisma.interviewWhereUniqueInput
-  update: Prisma.XOR<Prisma.interviewUpdateWithoutApplicationInput, Prisma.interviewUncheckedUpdateWithoutApplicationInput>
-  create: Prisma.XOR<Prisma.interviewCreateWithoutApplicationInput, Prisma.interviewUncheckedCreateWithoutApplicationInput>
+export type InterviewUpsertWithWhereUniqueWithoutApplicationInput = {
+  where: Prisma.InterviewWhereUniqueInput
+  update: Prisma.XOR<Prisma.InterviewUpdateWithoutApplicationInput, Prisma.InterviewUncheckedUpdateWithoutApplicationInput>
+  create: Prisma.XOR<Prisma.InterviewCreateWithoutApplicationInput, Prisma.InterviewUncheckedCreateWithoutApplicationInput>
 }
 
-export type interviewUpdateWithWhereUniqueWithoutApplicationInput = {
-  where: Prisma.interviewWhereUniqueInput
-  data: Prisma.XOR<Prisma.interviewUpdateWithoutApplicationInput, Prisma.interviewUncheckedUpdateWithoutApplicationInput>
+export type InterviewUpdateWithWhereUniqueWithoutApplicationInput = {
+  where: Prisma.InterviewWhereUniqueInput
+  data: Prisma.XOR<Prisma.InterviewUpdateWithoutApplicationInput, Prisma.InterviewUncheckedUpdateWithoutApplicationInput>
 }
 
-export type interviewUpdateManyWithWhereWithoutApplicationInput = {
-  where: Prisma.interviewScalarWhereInput
-  data: Prisma.XOR<Prisma.interviewUpdateManyMutationInput, Prisma.interviewUncheckedUpdateManyWithoutApplicationInput>
+export type InterviewUpdateManyWithWhereWithoutApplicationInput = {
+  where: Prisma.InterviewScalarWhereInput
+  data: Prisma.XOR<Prisma.InterviewUpdateManyMutationInput, Prisma.InterviewUncheckedUpdateManyWithoutApplicationInput>
 }
 
-export type interviewScalarWhereInput = {
-  AND?: Prisma.interviewScalarWhereInput | Prisma.interviewScalarWhereInput[]
-  OR?: Prisma.interviewScalarWhereInput[]
-  NOT?: Prisma.interviewScalarWhereInput | Prisma.interviewScalarWhereInput[]
-  id?: Prisma.IntFilter<"interview"> | number
-  application_id?: Prisma.IntFilter<"interview"> | number
-  interview_type?: Prisma.Enuminterview_interview_typeFilter<"interview"> | $Enums.interview_interview_type
-  scheduled_at?: Prisma.DateTimeFilter<"interview"> | Date | string
-  notes?: Prisma.StringNullableFilter<"interview"> | string | null
-  created_at?: Prisma.DateTimeFilter<"interview"> | Date | string
-  updated_at?: Prisma.DateTimeFilter<"interview"> | Date | string
+export type InterviewScalarWhereInput = {
+  AND?: Prisma.InterviewScalarWhereInput | Prisma.InterviewScalarWhereInput[]
+  OR?: Prisma.InterviewScalarWhereInput[]
+  NOT?: Prisma.InterviewScalarWhereInput | Prisma.InterviewScalarWhereInput[]
+  id?: Prisma.IntFilter<"Interview"> | number
+  application_id?: Prisma.IntFilter<"Interview"> | number
+  interview_type?: Prisma.EnumInterview_interview_typeFilter<"Interview"> | $Enums.Interview_interview_type
+  scheduled_at?: Prisma.DateTimeFilter<"Interview"> | Date | string
+  notes?: Prisma.StringNullableFilter<"Interview"> | string | null
+  created_at?: Prisma.DateTimeFilter<"Interview"> | Date | string
+  updated_at?: Prisma.DateTimeFilter<"Interview"> | Date | string
 }
 
-export type interviewCreateManyApplicationInput = {
+export type InterviewCreateManyApplicationInput = {
   id?: number
-  interview_type: $Enums.interview_interview_type
+  interview_type: $Enums.Interview_interview_type
   scheduled_at: Date | string
   notes?: string | null
   created_at?: Date | string
   updated_at?: Date | string
 }
 
-export type interviewUpdateWithoutApplicationInput = {
-  interview_type?: Prisma.Enuminterview_interview_typeFieldUpdateOperationsInput | $Enums.interview_interview_type
+export type InterviewUpdateWithoutApplicationInput = {
+  interview_type?: Prisma.EnumInterview_interview_typeFieldUpdateOperationsInput | $Enums.Interview_interview_type
   scheduled_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
-export type interviewUncheckedUpdateWithoutApplicationInput = {
+export type InterviewUncheckedUpdateWithoutApplicationInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  interview_type?: Prisma.Enuminterview_interview_typeFieldUpdateOperationsInput | $Enums.interview_interview_type
+  interview_type?: Prisma.EnumInterview_interview_typeFieldUpdateOperationsInput | $Enums.Interview_interview_type
   scheduled_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
-export type interviewUncheckedUpdateManyWithoutApplicationInput = {
+export type InterviewUncheckedUpdateManyWithoutApplicationInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  interview_type?: Prisma.Enuminterview_interview_typeFieldUpdateOperationsInput | $Enums.interview_interview_type
+  interview_type?: Prisma.EnumInterview_interview_typeFieldUpdateOperationsInput | $Enums.Interview_interview_type
   scheduled_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -554,7 +554,7 @@ export type interviewUncheckedUpdateManyWithoutApplicationInput = {
 
 
 
-export type interviewSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
+export type InterviewSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   application_id?: boolean
   interview_type?: boolean
@@ -562,12 +562,12 @@ export type interviewSelect<ExtArgs extends runtime.Types.Extensions.InternalArg
   notes?: boolean
   created_at?: boolean
   updated_at?: boolean
-  application?: boolean | Prisma.applicationDefaultArgs<ExtArgs>
+  application?: boolean | Prisma.ApplicationDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["interview"]>
 
 
 
-export type interviewSelectScalar = {
+export type InterviewSelectScalar = {
   id?: boolean
   application_id?: boolean
   interview_type?: boolean
@@ -577,20 +577,20 @@ export type interviewSelectScalar = {
   updated_at?: boolean
 }
 
-export type interviewOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "application_id" | "interview_type" | "scheduled_at" | "notes" | "created_at" | "updated_at", ExtArgs["result"]["interview"]>
-export type interviewInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  application?: boolean | Prisma.applicationDefaultArgs<ExtArgs>
+export type InterviewOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "application_id" | "interview_type" | "scheduled_at" | "notes" | "created_at" | "updated_at", ExtArgs["result"]["interview"]>
+export type InterviewInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  application?: boolean | Prisma.ApplicationDefaultArgs<ExtArgs>
 }
 
-export type $interviewPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  name: "interview"
+export type $InterviewPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  name: "Interview"
   objects: {
-    application: Prisma.$applicationPayload<ExtArgs>
+    application: Prisma.$ApplicationPayload<ExtArgs>
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: number
     application_id: number
-    interview_type: $Enums.interview_interview_type
+    interview_type: $Enums.Interview_interview_type
     scheduled_at: Date
     notes: string | null
     created_at: Date
@@ -599,18 +599,18 @@ export type $interviewPayload<ExtArgs extends runtime.Types.Extensions.InternalA
   composites: {}
 }
 
-export type interviewGetPayload<S extends boolean | null | undefined | interviewDefaultArgs> = runtime.Types.Result.GetResult<Prisma.$interviewPayload, S>
+export type InterviewGetPayload<S extends boolean | null | undefined | InterviewDefaultArgs> = runtime.Types.Result.GetResult<Prisma.$InterviewPayload, S>
 
-export type interviewCountArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> =
-  Omit<interviewFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+export type InterviewCountArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> =
+  Omit<InterviewFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
     select?: InterviewCountAggregateInputType | true
   }
 
-export interface interviewDelegate<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> {
-  [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['interview'], meta: { name: 'interview' } }
+export interface InterviewDelegate<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+  [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Interview'], meta: { name: 'Interview' } }
   /**
    * Find zero or one Interview that matches the filter.
-   * @param {interviewFindUniqueArgs} args - Arguments to find a Interview
+   * @param {InterviewFindUniqueArgs} args - Arguments to find a Interview
    * @example
    * // Get one Interview
    * const interview = await prisma.interview.findUnique({
@@ -619,12 +619,12 @@ export interface interviewDelegate<ExtArgs extends runtime.Types.Extensions.Inte
    *   }
    * })
    */
-  findUnique<T extends interviewFindUniqueArgs>(args: Prisma.SelectSubset<T, interviewFindUniqueArgs<ExtArgs>>): Prisma.Prisma__interviewClient<runtime.Types.Result.GetResult<Prisma.$interviewPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+  findUnique<T extends InterviewFindUniqueArgs>(args: Prisma.SelectSubset<T, InterviewFindUniqueArgs<ExtArgs>>): Prisma.Prisma__InterviewClient<runtime.Types.Result.GetResult<Prisma.$InterviewPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
   /**
    * Find one Interview that matches the filter or throw an error with `error.code='P2025'`
    * if no matches were found.
-   * @param {interviewFindUniqueOrThrowArgs} args - Arguments to find a Interview
+   * @param {InterviewFindUniqueOrThrowArgs} args - Arguments to find a Interview
    * @example
    * // Get one Interview
    * const interview = await prisma.interview.findUniqueOrThrow({
@@ -633,13 +633,13 @@ export interface interviewDelegate<ExtArgs extends runtime.Types.Extensions.Inte
    *   }
    * })
    */
-  findUniqueOrThrow<T extends interviewFindUniqueOrThrowArgs>(args: Prisma.SelectSubset<T, interviewFindUniqueOrThrowArgs<ExtArgs>>): Prisma.Prisma__interviewClient<runtime.Types.Result.GetResult<Prisma.$interviewPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+  findUniqueOrThrow<T extends InterviewFindUniqueOrThrowArgs>(args: Prisma.SelectSubset<T, InterviewFindUniqueOrThrowArgs<ExtArgs>>): Prisma.Prisma__InterviewClient<runtime.Types.Result.GetResult<Prisma.$InterviewPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
   /**
    * Find the first Interview that matches the filter.
    * Note, that providing `undefined` is treated as the value not being there.
    * Read more here: https://pris.ly/d/null-undefined
-   * @param {interviewFindFirstArgs} args - Arguments to find a Interview
+   * @param {InterviewFindFirstArgs} args - Arguments to find a Interview
    * @example
    * // Get one Interview
    * const interview = await prisma.interview.findFirst({
@@ -648,14 +648,14 @@ export interface interviewDelegate<ExtArgs extends runtime.Types.Extensions.Inte
    *   }
    * })
    */
-  findFirst<T extends interviewFindFirstArgs>(args?: Prisma.SelectSubset<T, interviewFindFirstArgs<ExtArgs>>): Prisma.Prisma__interviewClient<runtime.Types.Result.GetResult<Prisma.$interviewPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+  findFirst<T extends InterviewFindFirstArgs>(args?: Prisma.SelectSubset<T, InterviewFindFirstArgs<ExtArgs>>): Prisma.Prisma__InterviewClient<runtime.Types.Result.GetResult<Prisma.$InterviewPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
   /**
    * Find the first Interview that matches the filter or
    * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
    * Note, that providing `undefined` is treated as the value not being there.
    * Read more here: https://pris.ly/d/null-undefined
-   * @param {interviewFindFirstOrThrowArgs} args - Arguments to find a Interview
+   * @param {InterviewFindFirstOrThrowArgs} args - Arguments to find a Interview
    * @example
    * // Get one Interview
    * const interview = await prisma.interview.findFirstOrThrow({
@@ -664,13 +664,13 @@ export interface interviewDelegate<ExtArgs extends runtime.Types.Extensions.Inte
    *   }
    * })
    */
-  findFirstOrThrow<T extends interviewFindFirstOrThrowArgs>(args?: Prisma.SelectSubset<T, interviewFindFirstOrThrowArgs<ExtArgs>>): Prisma.Prisma__interviewClient<runtime.Types.Result.GetResult<Prisma.$interviewPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+  findFirstOrThrow<T extends InterviewFindFirstOrThrowArgs>(args?: Prisma.SelectSubset<T, InterviewFindFirstOrThrowArgs<ExtArgs>>): Prisma.Prisma__InterviewClient<runtime.Types.Result.GetResult<Prisma.$InterviewPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
   /**
    * Find zero or more Interviews that matches the filter.
    * Note, that providing `undefined` is treated as the value not being there.
    * Read more here: https://pris.ly/d/null-undefined
-   * @param {interviewFindManyArgs} args - Arguments to filter and select certain fields only.
+   * @param {InterviewFindManyArgs} args - Arguments to filter and select certain fields only.
    * @example
    * // Get all Interviews
    * const interviews = await prisma.interview.findMany()
@@ -682,11 +682,11 @@ export interface interviewDelegate<ExtArgs extends runtime.Types.Extensions.Inte
    * const interviewWithIdOnly = await prisma.interview.findMany({ select: { id: true } })
    * 
    */
-  findMany<T extends interviewFindManyArgs>(args?: Prisma.SelectSubset<T, interviewFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$interviewPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+  findMany<T extends InterviewFindManyArgs>(args?: Prisma.SelectSubset<T, InterviewFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$InterviewPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
 
   /**
    * Create a Interview.
-   * @param {interviewCreateArgs} args - Arguments to create a Interview.
+   * @param {InterviewCreateArgs} args - Arguments to create a Interview.
    * @example
    * // Create one Interview
    * const Interview = await prisma.interview.create({
@@ -696,11 +696,11 @@ export interface interviewDelegate<ExtArgs extends runtime.Types.Extensions.Inte
    * })
    * 
    */
-  create<T extends interviewCreateArgs>(args: Prisma.SelectSubset<T, interviewCreateArgs<ExtArgs>>): Prisma.Prisma__interviewClient<runtime.Types.Result.GetResult<Prisma.$interviewPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+  create<T extends InterviewCreateArgs>(args: Prisma.SelectSubset<T, InterviewCreateArgs<ExtArgs>>): Prisma.Prisma__InterviewClient<runtime.Types.Result.GetResult<Prisma.$InterviewPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
   /**
    * Create many Interviews.
-   * @param {interviewCreateManyArgs} args - Arguments to create many Interviews.
+   * @param {InterviewCreateManyArgs} args - Arguments to create many Interviews.
    * @example
    * // Create many Interviews
    * const interview = await prisma.interview.createMany({
@@ -710,11 +710,11 @@ export interface interviewDelegate<ExtArgs extends runtime.Types.Extensions.Inte
    * })
    *     
    */
-  createMany<T extends interviewCreateManyArgs>(args?: Prisma.SelectSubset<T, interviewCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>
+  createMany<T extends InterviewCreateManyArgs>(args?: Prisma.SelectSubset<T, InterviewCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>
 
   /**
    * Delete a Interview.
-   * @param {interviewDeleteArgs} args - Arguments to delete one Interview.
+   * @param {InterviewDeleteArgs} args - Arguments to delete one Interview.
    * @example
    * // Delete one Interview
    * const Interview = await prisma.interview.delete({
@@ -724,11 +724,11 @@ export interface interviewDelegate<ExtArgs extends runtime.Types.Extensions.Inte
    * })
    * 
    */
-  delete<T extends interviewDeleteArgs>(args: Prisma.SelectSubset<T, interviewDeleteArgs<ExtArgs>>): Prisma.Prisma__interviewClient<runtime.Types.Result.GetResult<Prisma.$interviewPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+  delete<T extends InterviewDeleteArgs>(args: Prisma.SelectSubset<T, InterviewDeleteArgs<ExtArgs>>): Prisma.Prisma__InterviewClient<runtime.Types.Result.GetResult<Prisma.$InterviewPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
   /**
    * Update one Interview.
-   * @param {interviewUpdateArgs} args - Arguments to update one Interview.
+   * @param {InterviewUpdateArgs} args - Arguments to update one Interview.
    * @example
    * // Update one Interview
    * const interview = await prisma.interview.update({
@@ -741,11 +741,11 @@ export interface interviewDelegate<ExtArgs extends runtime.Types.Extensions.Inte
    * })
    * 
    */
-  update<T extends interviewUpdateArgs>(args: Prisma.SelectSubset<T, interviewUpdateArgs<ExtArgs>>): Prisma.Prisma__interviewClient<runtime.Types.Result.GetResult<Prisma.$interviewPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+  update<T extends InterviewUpdateArgs>(args: Prisma.SelectSubset<T, InterviewUpdateArgs<ExtArgs>>): Prisma.Prisma__InterviewClient<runtime.Types.Result.GetResult<Prisma.$InterviewPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
   /**
    * Delete zero or more Interviews.
-   * @param {interviewDeleteManyArgs} args - Arguments to filter Interviews to delete.
+   * @param {InterviewDeleteManyArgs} args - Arguments to filter Interviews to delete.
    * @example
    * // Delete a few Interviews
    * const { count } = await prisma.interview.deleteMany({
@@ -755,13 +755,13 @@ export interface interviewDelegate<ExtArgs extends runtime.Types.Extensions.Inte
    * })
    * 
    */
-  deleteMany<T extends interviewDeleteManyArgs>(args?: Prisma.SelectSubset<T, interviewDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>
+  deleteMany<T extends InterviewDeleteManyArgs>(args?: Prisma.SelectSubset<T, InterviewDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>
 
   /**
    * Update zero or more Interviews.
    * Note, that providing `undefined` is treated as the value not being there.
    * Read more here: https://pris.ly/d/null-undefined
-   * @param {interviewUpdateManyArgs} args - Arguments to update one or more rows.
+   * @param {InterviewUpdateManyArgs} args - Arguments to update one or more rows.
    * @example
    * // Update many Interviews
    * const interview = await prisma.interview.updateMany({
@@ -774,11 +774,11 @@ export interface interviewDelegate<ExtArgs extends runtime.Types.Extensions.Inte
    * })
    * 
    */
-  updateMany<T extends interviewUpdateManyArgs>(args: Prisma.SelectSubset<T, interviewUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>
+  updateMany<T extends InterviewUpdateManyArgs>(args: Prisma.SelectSubset<T, InterviewUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>
 
   /**
    * Create or update one Interview.
-   * @param {interviewUpsertArgs} args - Arguments to update or create a Interview.
+   * @param {InterviewUpsertArgs} args - Arguments to update or create a Interview.
    * @example
    * // Update or create a Interview
    * const interview = await prisma.interview.upsert({
@@ -793,14 +793,14 @@ export interface interviewDelegate<ExtArgs extends runtime.Types.Extensions.Inte
    *   }
    * })
    */
-  upsert<T extends interviewUpsertArgs>(args: Prisma.SelectSubset<T, interviewUpsertArgs<ExtArgs>>): Prisma.Prisma__interviewClient<runtime.Types.Result.GetResult<Prisma.$interviewPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+  upsert<T extends InterviewUpsertArgs>(args: Prisma.SelectSubset<T, InterviewUpsertArgs<ExtArgs>>): Prisma.Prisma__InterviewClient<runtime.Types.Result.GetResult<Prisma.$InterviewPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
 
   /**
    * Count the number of Interviews.
    * Note, that providing `undefined` is treated as the value not being there.
    * Read more here: https://pris.ly/d/null-undefined
-   * @param {interviewCountArgs} args - Arguments to filter Interviews to count.
+   * @param {InterviewCountArgs} args - Arguments to filter Interviews to count.
    * @example
    * // Count the number of Interviews
    * const count = await prisma.interview.count({
@@ -809,8 +809,8 @@ export interface interviewDelegate<ExtArgs extends runtime.Types.Extensions.Inte
    *   }
    * })
   **/
-  count<T extends interviewCountArgs>(
-    args?: Prisma.Subset<T, interviewCountArgs>,
+  count<T extends InterviewCountArgs>(
+    args?: Prisma.Subset<T, InterviewCountArgs>,
   ): Prisma.PrismaPromise<
     T extends runtime.Types.Utils.Record<'select', any>
       ? T['select'] extends true
@@ -849,7 +849,7 @@ export interface interviewDelegate<ExtArgs extends runtime.Types.Extensions.Inte
    * Group by Interview.
    * Note, that providing `undefined` is treated as the value not being there.
    * Read more here: https://pris.ly/d/null-undefined
-   * @param {interviewGroupByArgs} args - Group by arguments.
+   * @param {InterviewGroupByArgs} args - Group by arguments.
    * @example
    * // Group by city, order by createdAt, get count
    * const result = await prisma.user.groupBy({
@@ -864,14 +864,14 @@ export interface interviewDelegate<ExtArgs extends runtime.Types.Extensions.Inte
    * 
   **/
   groupBy<
-    T extends interviewGroupByArgs,
+    T extends InterviewGroupByArgs,
     HasSelectOrTake extends Prisma.Or<
       Prisma.Extends<'skip', Prisma.Keys<T>>,
       Prisma.Extends<'take', Prisma.Keys<T>>
     >,
     OrderByArg extends Prisma.True extends HasSelectOrTake
-      ? { orderBy: interviewGroupByArgs['orderBy'] }
-      : { orderBy?: interviewGroupByArgs['orderBy'] },
+      ? { orderBy: InterviewGroupByArgs['orderBy'] }
+      : { orderBy?: InterviewGroupByArgs['orderBy'] },
     OrderFields extends Prisma.ExcludeUnderscoreKeys<Prisma.Keys<Prisma.MaybeTupleToUnion<T['orderBy']>>>,
     ByFields extends Prisma.MaybeTupleToUnion<T['by']>,
     ByValid extends Prisma.Has<ByFields, OrderFields>,
@@ -920,22 +920,22 @@ export interface interviewDelegate<ExtArgs extends runtime.Types.Extensions.Inte
           ? never
           : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
       }[OrderFields]
-  >(args: Prisma.SubsetIntersection<T, interviewGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetInterviewGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  >(args: Prisma.SubsetIntersection<T, InterviewGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetInterviewGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
 /**
- * Fields of the interview model
+ * Fields of the Interview model
  */
-readonly fields: interviewFieldRefs;
+readonly fields: InterviewFieldRefs;
 }
 
 /**
- * The delegate class that acts as a "Promise-like" for interview.
+ * The delegate class that acts as a "Promise-like" for Interview.
  * Why is this prefixed with `Prisma__`?
  * Because we want to prevent naming conflicts as mentioned in
  * https://github.com/prisma/prisma-client-js/issues/707
  */
-export interface Prisma__interviewClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+export interface Prisma__InterviewClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
-  application<T extends Prisma.applicationDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.applicationDefaultArgs<ExtArgs>>): Prisma.Prisma__applicationClient<runtime.Types.Result.GetResult<Prisma.$applicationPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+  application<T extends Prisma.ApplicationDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.ApplicationDefaultArgs<ExtArgs>>): Prisma.Prisma__ApplicationClient<runtime.Types.Result.GetResult<Prisma.$ApplicationPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -962,377 +962,377 @@ export interface Prisma__interviewClient<T, Null = never, ExtArgs extends runtim
 
 
 /**
- * Fields of the interview model
+ * Fields of the Interview model
  */
-export interface interviewFieldRefs {
-  readonly id: Prisma.FieldRef<"interview", 'Int'>
-  readonly application_id: Prisma.FieldRef<"interview", 'Int'>
-  readonly interview_type: Prisma.FieldRef<"interview", 'interview_interview_type'>
-  readonly scheduled_at: Prisma.FieldRef<"interview", 'DateTime'>
-  readonly notes: Prisma.FieldRef<"interview", 'String'>
-  readonly created_at: Prisma.FieldRef<"interview", 'DateTime'>
-  readonly updated_at: Prisma.FieldRef<"interview", 'DateTime'>
+export interface InterviewFieldRefs {
+  readonly id: Prisma.FieldRef<"Interview", 'Int'>
+  readonly application_id: Prisma.FieldRef<"Interview", 'Int'>
+  readonly interview_type: Prisma.FieldRef<"Interview", 'Interview_interview_type'>
+  readonly scheduled_at: Prisma.FieldRef<"Interview", 'DateTime'>
+  readonly notes: Prisma.FieldRef<"Interview", 'String'>
+  readonly created_at: Prisma.FieldRef<"Interview", 'DateTime'>
+  readonly updated_at: Prisma.FieldRef<"Interview", 'DateTime'>
 }
     
 
 // Custom InputTypes
 /**
- * interview findUnique
+ * Interview findUnique
  */
-export type interviewFindUniqueArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type InterviewFindUniqueArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the interview
+   * Select specific fields to fetch from the Interview
    */
-  select?: Prisma.interviewSelect<ExtArgs> | null
+  select?: Prisma.InterviewSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the interview
+   * Omit specific fields from the Interview
    */
-  omit?: Prisma.interviewOmit<ExtArgs> | null
+  omit?: Prisma.InterviewOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.interviewInclude<ExtArgs> | null
+  include?: Prisma.InterviewInclude<ExtArgs> | null
   /**
-   * Filter, which interview to fetch.
+   * Filter, which Interview to fetch.
    */
-  where: Prisma.interviewWhereUniqueInput
+  where: Prisma.InterviewWhereUniqueInput
 }
 
 /**
- * interview findUniqueOrThrow
+ * Interview findUniqueOrThrow
  */
-export type interviewFindUniqueOrThrowArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type InterviewFindUniqueOrThrowArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the interview
+   * Select specific fields to fetch from the Interview
    */
-  select?: Prisma.interviewSelect<ExtArgs> | null
+  select?: Prisma.InterviewSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the interview
+   * Omit specific fields from the Interview
    */
-  omit?: Prisma.interviewOmit<ExtArgs> | null
+  omit?: Prisma.InterviewOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.interviewInclude<ExtArgs> | null
+  include?: Prisma.InterviewInclude<ExtArgs> | null
   /**
-   * Filter, which interview to fetch.
+   * Filter, which Interview to fetch.
    */
-  where: Prisma.interviewWhereUniqueInput
+  where: Prisma.InterviewWhereUniqueInput
 }
 
 /**
- * interview findFirst
+ * Interview findFirst
  */
-export type interviewFindFirstArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type InterviewFindFirstArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the interview
+   * Select specific fields to fetch from the Interview
    */
-  select?: Prisma.interviewSelect<ExtArgs> | null
+  select?: Prisma.InterviewSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the interview
+   * Omit specific fields from the Interview
    */
-  omit?: Prisma.interviewOmit<ExtArgs> | null
+  omit?: Prisma.InterviewOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.interviewInclude<ExtArgs> | null
+  include?: Prisma.InterviewInclude<ExtArgs> | null
   /**
-   * Filter, which interview to fetch.
+   * Filter, which Interview to fetch.
    */
-  where?: Prisma.interviewWhereInput
+  where?: Prisma.InterviewWhereInput
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
    * 
-   * Determine the order of interviews to fetch.
+   * Determine the order of Interviews to fetch.
    */
-  orderBy?: Prisma.interviewOrderByWithRelationInput | Prisma.interviewOrderByWithRelationInput[]
+  orderBy?: Prisma.InterviewOrderByWithRelationInput | Prisma.InterviewOrderByWithRelationInput[]
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
    * 
-   * Sets the position for searching for interviews.
+   * Sets the position for searching for Interviews.
    */
-  cursor?: Prisma.interviewWhereUniqueInput
+  cursor?: Prisma.InterviewWhereUniqueInput
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
    * 
-   * Take `±n` interviews from the position of the cursor.
+   * Take `±n` Interviews from the position of the cursor.
    */
   take?: number
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
    * 
-   * Skip the first `n` interviews.
+   * Skip the first `n` Interviews.
    */
   skip?: number
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
    * 
-   * Filter by unique combinations of interviews.
+   * Filter by unique combinations of Interviews.
    */
   distinct?: Prisma.InterviewScalarFieldEnum | Prisma.InterviewScalarFieldEnum[]
 }
 
 /**
- * interview findFirstOrThrow
+ * Interview findFirstOrThrow
  */
-export type interviewFindFirstOrThrowArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type InterviewFindFirstOrThrowArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the interview
+   * Select specific fields to fetch from the Interview
    */
-  select?: Prisma.interviewSelect<ExtArgs> | null
+  select?: Prisma.InterviewSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the interview
+   * Omit specific fields from the Interview
    */
-  omit?: Prisma.interviewOmit<ExtArgs> | null
+  omit?: Prisma.InterviewOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.interviewInclude<ExtArgs> | null
+  include?: Prisma.InterviewInclude<ExtArgs> | null
   /**
-   * Filter, which interview to fetch.
+   * Filter, which Interview to fetch.
    */
-  where?: Prisma.interviewWhereInput
+  where?: Prisma.InterviewWhereInput
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
    * 
-   * Determine the order of interviews to fetch.
+   * Determine the order of Interviews to fetch.
    */
-  orderBy?: Prisma.interviewOrderByWithRelationInput | Prisma.interviewOrderByWithRelationInput[]
+  orderBy?: Prisma.InterviewOrderByWithRelationInput | Prisma.InterviewOrderByWithRelationInput[]
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
    * 
-   * Sets the position for searching for interviews.
+   * Sets the position for searching for Interviews.
    */
-  cursor?: Prisma.interviewWhereUniqueInput
+  cursor?: Prisma.InterviewWhereUniqueInput
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
    * 
-   * Take `±n` interviews from the position of the cursor.
+   * Take `±n` Interviews from the position of the cursor.
    */
   take?: number
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
    * 
-   * Skip the first `n` interviews.
+   * Skip the first `n` Interviews.
    */
   skip?: number
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
    * 
-   * Filter by unique combinations of interviews.
+   * Filter by unique combinations of Interviews.
    */
   distinct?: Prisma.InterviewScalarFieldEnum | Prisma.InterviewScalarFieldEnum[]
 }
 
 /**
- * interview findMany
+ * Interview findMany
  */
-export type interviewFindManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type InterviewFindManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the interview
+   * Select specific fields to fetch from the Interview
    */
-  select?: Prisma.interviewSelect<ExtArgs> | null
+  select?: Prisma.InterviewSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the interview
+   * Omit specific fields from the Interview
    */
-  omit?: Prisma.interviewOmit<ExtArgs> | null
+  omit?: Prisma.InterviewOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.interviewInclude<ExtArgs> | null
+  include?: Prisma.InterviewInclude<ExtArgs> | null
   /**
-   * Filter, which interviews to fetch.
+   * Filter, which Interviews to fetch.
    */
-  where?: Prisma.interviewWhereInput
+  where?: Prisma.InterviewWhereInput
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
    * 
-   * Determine the order of interviews to fetch.
+   * Determine the order of Interviews to fetch.
    */
-  orderBy?: Prisma.interviewOrderByWithRelationInput | Prisma.interviewOrderByWithRelationInput[]
+  orderBy?: Prisma.InterviewOrderByWithRelationInput | Prisma.InterviewOrderByWithRelationInput[]
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
    * 
-   * Sets the position for listing interviews.
+   * Sets the position for listing Interviews.
    */
-  cursor?: Prisma.interviewWhereUniqueInput
+  cursor?: Prisma.InterviewWhereUniqueInput
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
    * 
-   * Take `±n` interviews from the position of the cursor.
+   * Take `±n` Interviews from the position of the cursor.
    */
   take?: number
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
    * 
-   * Skip the first `n` interviews.
+   * Skip the first `n` Interviews.
    */
   skip?: number
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
    * 
-   * Filter by unique combinations of interviews.
+   * Filter by unique combinations of Interviews.
    */
   distinct?: Prisma.InterviewScalarFieldEnum | Prisma.InterviewScalarFieldEnum[]
 }
 
 /**
- * interview create
+ * Interview create
  */
-export type interviewCreateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type InterviewCreateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the interview
+   * Select specific fields to fetch from the Interview
    */
-  select?: Prisma.interviewSelect<ExtArgs> | null
+  select?: Prisma.InterviewSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the interview
+   * Omit specific fields from the Interview
    */
-  omit?: Prisma.interviewOmit<ExtArgs> | null
+  omit?: Prisma.InterviewOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.interviewInclude<ExtArgs> | null
+  include?: Prisma.InterviewInclude<ExtArgs> | null
   /**
-   * The data needed to create a interview.
+   * The data needed to create a Interview.
    */
-  data: Prisma.XOR<Prisma.interviewCreateInput, Prisma.interviewUncheckedCreateInput>
+  data: Prisma.XOR<Prisma.InterviewCreateInput, Prisma.InterviewUncheckedCreateInput>
 }
 
 /**
- * interview createMany
+ * Interview createMany
  */
-export type interviewCreateManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type InterviewCreateManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * The data used to create many interviews.
+   * The data used to create many Interviews.
    */
-  data: Prisma.interviewCreateManyInput | Prisma.interviewCreateManyInput[]
+  data: Prisma.InterviewCreateManyInput | Prisma.InterviewCreateManyInput[]
   skipDuplicates?: boolean
 }
 
 /**
- * interview update
+ * Interview update
  */
-export type interviewUpdateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type InterviewUpdateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the interview
+   * Select specific fields to fetch from the Interview
    */
-  select?: Prisma.interviewSelect<ExtArgs> | null
+  select?: Prisma.InterviewSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the interview
+   * Omit specific fields from the Interview
    */
-  omit?: Prisma.interviewOmit<ExtArgs> | null
+  omit?: Prisma.InterviewOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.interviewInclude<ExtArgs> | null
+  include?: Prisma.InterviewInclude<ExtArgs> | null
   /**
-   * The data needed to update a interview.
+   * The data needed to update a Interview.
    */
-  data: Prisma.XOR<Prisma.interviewUpdateInput, Prisma.interviewUncheckedUpdateInput>
+  data: Prisma.XOR<Prisma.InterviewUpdateInput, Prisma.InterviewUncheckedUpdateInput>
   /**
-   * Choose, which interview to update.
+   * Choose, which Interview to update.
    */
-  where: Prisma.interviewWhereUniqueInput
+  where: Prisma.InterviewWhereUniqueInput
 }
 
 /**
- * interview updateMany
+ * Interview updateMany
  */
-export type interviewUpdateManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type InterviewUpdateManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * The data used to update interviews.
+   * The data used to update Interviews.
    */
-  data: Prisma.XOR<Prisma.interviewUpdateManyMutationInput, Prisma.interviewUncheckedUpdateManyInput>
+  data: Prisma.XOR<Prisma.InterviewUpdateManyMutationInput, Prisma.InterviewUncheckedUpdateManyInput>
   /**
-   * Filter which interviews to update
+   * Filter which Interviews to update
    */
-  where?: Prisma.interviewWhereInput
+  where?: Prisma.InterviewWhereInput
   /**
-   * Limit how many interviews to update.
+   * Limit how many Interviews to update.
    */
   limit?: number
 }
 
 /**
- * interview upsert
+ * Interview upsert
  */
-export type interviewUpsertArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type InterviewUpsertArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the interview
+   * Select specific fields to fetch from the Interview
    */
-  select?: Prisma.interviewSelect<ExtArgs> | null
+  select?: Prisma.InterviewSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the interview
+   * Omit specific fields from the Interview
    */
-  omit?: Prisma.interviewOmit<ExtArgs> | null
+  omit?: Prisma.InterviewOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.interviewInclude<ExtArgs> | null
+  include?: Prisma.InterviewInclude<ExtArgs> | null
   /**
-   * The filter to search for the interview to update in case it exists.
+   * The filter to search for the Interview to update in case it exists.
    */
-  where: Prisma.interviewWhereUniqueInput
+  where: Prisma.InterviewWhereUniqueInput
   /**
-   * In case the interview found by the `where` argument doesn't exist, create a new interview with this data.
+   * In case the Interview found by the `where` argument doesn't exist, create a new Interview with this data.
    */
-  create: Prisma.XOR<Prisma.interviewCreateInput, Prisma.interviewUncheckedCreateInput>
+  create: Prisma.XOR<Prisma.InterviewCreateInput, Prisma.InterviewUncheckedCreateInput>
   /**
-   * In case the interview was found with the provided `where` argument, update it with this data.
+   * In case the Interview was found with the provided `where` argument, update it with this data.
    */
-  update: Prisma.XOR<Prisma.interviewUpdateInput, Prisma.interviewUncheckedUpdateInput>
+  update: Prisma.XOR<Prisma.InterviewUpdateInput, Prisma.InterviewUncheckedUpdateInput>
 }
 
 /**
- * interview delete
+ * Interview delete
  */
-export type interviewDeleteArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type InterviewDeleteArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the interview
+   * Select specific fields to fetch from the Interview
    */
-  select?: Prisma.interviewSelect<ExtArgs> | null
+  select?: Prisma.InterviewSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the interview
+   * Omit specific fields from the Interview
    */
-  omit?: Prisma.interviewOmit<ExtArgs> | null
+  omit?: Prisma.InterviewOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.interviewInclude<ExtArgs> | null
+  include?: Prisma.InterviewInclude<ExtArgs> | null
   /**
-   * Filter which interview to delete.
+   * Filter which Interview to delete.
    */
-  where: Prisma.interviewWhereUniqueInput
+  where: Prisma.InterviewWhereUniqueInput
 }
 
 /**
- * interview deleteMany
+ * Interview deleteMany
  */
-export type interviewDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type InterviewDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Filter which interviews to delete
+   * Filter which Interviews to delete
    */
-  where?: Prisma.interviewWhereInput
+  where?: Prisma.InterviewWhereInput
   /**
-   * Limit how many interviews to delete.
+   * Limit how many Interviews to delete.
    */
   limit?: number
 }
 
 /**
- * interview without action
+ * Interview without action
  */
-export type interviewDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type InterviewDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the interview
+   * Select specific fields to fetch from the Interview
    */
-  select?: Prisma.interviewSelect<ExtArgs> | null
+  select?: Prisma.InterviewSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the interview
+   * Omit specific fields from the Interview
    */
-  omit?: Prisma.interviewOmit<ExtArgs> | null
+  omit?: Prisma.InterviewOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.interviewInclude<ExtArgs> | null
+  include?: Prisma.InterviewInclude<ExtArgs> | null
 }

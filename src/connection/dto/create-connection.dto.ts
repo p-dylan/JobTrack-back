@@ -1,9 +1,9 @@
 import { IsEnum, IsNotEmpty } from "class-validator";
-import { connection_status } from "prisma/generated/prisma/enums";
+import { Connection_status } from "prisma/generated/prisma/enums";
 
 export class CreateConnectionDto {
     
     @IsNotEmpty()
-    @IsEnum(connection_status)
-    status: connection_status
+    @IsEnum(Connection_status)
+    status: Connection_status
 }

@@ -1,9 +1,12 @@
 
 import { ConflictException, Injectable, NotFoundException } from '@nestjs/common';
-import { CreateUserDto } from './dto/create-user.dto';
+import { CreateUserDto, UserRole } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
-import { Prisma, user } from 'prisma/generated/prisma/client';
+import { Prisma, User } from 'prisma/generated/prisma/client';
 import { PrismaService } from 'prisma/prisma.service';
+import { UserWithoutPass } from './interface/partielUser';
+import { RegisterDto } from 'src/auth/dto/register.dto';
+
 
 
 
@@ -12,44 +15,44 @@ export class UserService {
   constructor(private readonly prisma: PrismaService) {}
 
 
-  async create(dto: CreateUserDto): Promise<user> {
+  async create(dto: RegisterDto): Promise<User> {
+    //Extract the role from the DTO; store the rest of the DTO in a `rest` object (the role is handled differently)
+    const { role, ...rest } = dto;
 
-    const isEmail = await this.prisma.user.findUnique({ where: { email: dto.email } });
-    if (isEmail) throw new ConflictException('Email already used !!!');
-    return this.prisma.user.create({ 
-      data: {
-        ...dto,
-        role: {connect: { name: dto.role}}
-      }
-      
-     });
+    try {
+      return await this.prisma.user.create({
+        //réinject l'objet reste directement dans objet data
+        data: {
+          ...rest,
+          role: {
+            connect: { name: role }, // connect à la table relationnelle
+          },
+        },
+      });
+    } catch (error) {
+      throw new NotFoundException('role name not found');
+    }
+  }
+  async countByEmail(email: string): Promise<number>{
+    return await this.prisma.user.count({where: {email}})
   }
 
-  async findOne(id: number): Promise<user> {
-    const user = await this.prisma.user.findUnique({ where: { id } });
-    if (!user) throw new NotFoundException(`User with id: ${id} not found`);
-    return user;
+  async findOneOrThrow(id: number): Promise<User> {
+    return await this.prisma.user.findUniqueOrThrow({ where: { id } });
   }
 
-  async findAll(): Promise<user[]> {
-    return this.prisma.user.findMany();
+  async findAll(): Promise<UserWithoutPass[]> {
+    return this.prisma.user.findMany({omit: {password: true}});
   }
 
-  async findByEmail(email: string): Promise<user> {
+  async findByEmailOrThrow(email: string): Promise<User> {
     return this.prisma.user.findUniqueOrThrow({ where: { email } });
   }
 
-  async update(id: number, dto: UpdateUserDto): Promise<user> {
-    await this.findOne(id);
+  async update(id: number, data: Prisma.UserUpdateInput & { role?: UserRole }): Promise<UserWithoutPass> {
+    await this.findOneOrThrow(id);
 
-    if (dto.email) {
-      const existing = await this.prisma.user.findUnique({ where: { email: dto.email } });
-      if (existing && existing.id !== id) {
-        throw new ConflictException('Cet email est déja utilisé');
-      }
-    }
-
-    const { role, ...rest } = dto;
+    const { role, ...rest } = data;
 
   return this.prisma.user.update({
     where: { id },
@@ -57,12 +60,13 @@ export class UserService {
       ...rest,
       ...(role && { role: { connect: { name: role } } }),
     },
+    omit: { password: true },
   });
   }
   
 
-  async delete(id: number): Promise<user> {
-    await this.findOne(id);
+  async delete(id: number): Promise<User> {
+    await this.findOneOrThrow(id);
     return this.prisma.user.delete({ where: { id }});
   }
 

@@ -4,7 +4,7 @@
 // biome-ignore-all lint: generated file
 // @ts-nocheck 
 /*
- * This file exports the `user` model and its related types.
+ * This file exports the `User` model and its related types.
  *
  * 🟢 You can import this file directly.
  */
@@ -13,10 +13,10 @@ import type * as $Enums from "../enums.js"
 import type * as Prisma from "../internal/prismaNamespace.js"
 
 /**
- * Model user
+ * Model User
  * 
  */
-export type userModel = runtime.Types.Result.DefaultSelection<Prisma.$userPayload>
+export type UserModel = runtime.Types.Result.DefaultSelection<Prisma.$UserPayload>
 
 export type AggregateUser = {
   _count: UserCountAggregateOutputType | null
@@ -43,6 +43,7 @@ export type UserMinAggregateOutputType = {
   last_name: string | null
   email: string | null
   password: string | null
+  refreshToken: string | null
   created_at: Date | null
   updated_at: Date | null
   deleted_at: Date | null
@@ -55,6 +56,7 @@ export type UserMaxAggregateOutputType = {
   last_name: string | null
   email: string | null
   password: string | null
+  refreshToken: string | null
   created_at: Date | null
   updated_at: Date | null
   deleted_at: Date | null
@@ -67,6 +69,7 @@ export type UserCountAggregateOutputType = {
   last_name: number
   email: number
   password: number
+  refreshToken: number
   created_at: number
   updated_at: number
   deleted_at: number
@@ -91,6 +94,7 @@ export type UserMinAggregateInputType = {
   last_name?: true
   email?: true
   password?: true
+  refreshToken?: true
   created_at?: true
   updated_at?: true
   deleted_at?: true
@@ -103,6 +107,7 @@ export type UserMaxAggregateInputType = {
   last_name?: true
   email?: true
   password?: true
+  refreshToken?: true
   created_at?: true
   updated_at?: true
   deleted_at?: true
@@ -115,6 +120,7 @@ export type UserCountAggregateInputType = {
   last_name?: true
   email?: true
   password?: true
+  refreshToken?: true
   created_at?: true
   updated_at?: true
   deleted_at?: true
@@ -123,37 +129,37 @@ export type UserCountAggregateInputType = {
 
 export type UserAggregateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Filter which user to aggregate.
+   * Filter which User to aggregate.
    */
-  where?: Prisma.userWhereInput
+  where?: Prisma.UserWhereInput
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
    * 
-   * Determine the order of users to fetch.
+   * Determine the order of Users to fetch.
    */
-  orderBy?: Prisma.userOrderByWithRelationInput | Prisma.userOrderByWithRelationInput[]
+  orderBy?: Prisma.UserOrderByWithRelationInput | Prisma.UserOrderByWithRelationInput[]
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
    * 
    * Sets the start position
    */
-  cursor?: Prisma.userWhereUniqueInput
+  cursor?: Prisma.UserWhereUniqueInput
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
    * 
-   * Take `±n` users from the position of the cursor.
+   * Take `±n` Users from the position of the cursor.
    */
   take?: number
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
    * 
-   * Skip the first `n` users.
+   * Skip the first `n` Users.
    */
   skip?: number
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
    * 
-   * Count returned users
+   * Count returned Users
   **/
   _count?: true | UserCountAggregateInputType
   /**
@@ -193,11 +199,11 @@ export type GetUserAggregateType<T extends UserAggregateArgs> = {
 
 
 
-export type userGroupByArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  where?: Prisma.userWhereInput
-  orderBy?: Prisma.userOrderByWithAggregationInput | Prisma.userOrderByWithAggregationInput[]
+export type UserGroupByArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.UserWhereInput
+  orderBy?: Prisma.UserOrderByWithAggregationInput | Prisma.UserOrderByWithAggregationInput[]
   by: Prisma.UserScalarFieldEnum[] | Prisma.UserScalarFieldEnum
-  having?: Prisma.userScalarWhereWithAggregatesInput
+  having?: Prisma.UserScalarWhereWithAggregatesInput
   take?: number
   skip?: number
   _count?: UserCountAggregateInputType | true
@@ -214,6 +220,7 @@ export type UserGroupByOutputType = {
   last_name: string
   email: string
   password: string
+  refreshToken: string | null
   created_at: Date
   updated_at: Date
   deleted_at: Date | null
@@ -224,7 +231,7 @@ export type UserGroupByOutputType = {
   _max: UserMaxAggregateOutputType | null
 }
 
-export type GetUserGroupByPayload<T extends userGroupByArgs> = Prisma.PrismaPromise<
+export type GetUserGroupByPayload<T extends UserGroupByArgs> = Prisma.PrismaPromise<
   Array<
     Prisma.PickEnumerable<UserGroupByOutputType, T['by']> &
       {
@@ -239,19 +246,20 @@ export type GetUserGroupByPayload<T extends userGroupByArgs> = Prisma.PrismaProm
 
 
 
-export type userWhereInput = {
-  AND?: Prisma.userWhereInput | Prisma.userWhereInput[]
-  OR?: Prisma.userWhereInput[]
-  NOT?: Prisma.userWhereInput | Prisma.userWhereInput[]
-  id?: Prisma.IntFilter<"user"> | number
-  role_id?: Prisma.IntFilter<"user"> | number
-  first_name?: Prisma.StringFilter<"user"> | string
-  last_name?: Prisma.StringFilter<"user"> | string
-  email?: Prisma.StringFilter<"user"> | string
-  password?: Prisma.StringFilter<"user"> | string
-  created_at?: Prisma.DateTimeFilter<"user"> | Date | string
-  updated_at?: Prisma.DateTimeFilter<"user"> | Date | string
-  deleted_at?: Prisma.DateTimeNullableFilter<"user"> | Date | string | null
+export type UserWhereInput = {
+  AND?: Prisma.UserWhereInput | Prisma.UserWhereInput[]
+  OR?: Prisma.UserWhereInput[]
+  NOT?: Prisma.UserWhereInput | Prisma.UserWhereInput[]
+  id?: Prisma.IntFilter<"User"> | number
+  role_id?: Prisma.IntFilter<"User"> | number
+  first_name?: Prisma.StringFilter<"User"> | string
+  last_name?: Prisma.StringFilter<"User"> | string
+  email?: Prisma.StringFilter<"User"> | string
+  password?: Prisma.StringFilter<"User"> | string
+  refreshToken?: Prisma.StringNullableFilter<"User"> | string | null
+  created_at?: Prisma.DateTimeFilter<"User"> | Date | string
+  updated_at?: Prisma.DateTimeFilter<"User"> | Date | string
+  deleted_at?: Prisma.DateTimeNullableFilter<"User"> | Date | string | null
   application?: Prisma.ApplicationListRelationFilter
   comment?: Prisma.CommentListRelationFilter
   company_follower?: Prisma.Company_followerListRelationFilter
@@ -262,48 +270,50 @@ export type userWhereInput = {
   message_message_sender_idTouser?: Prisma.MessageListRelationFilter
   notification?: Prisma.NotificationListRelationFilter
   publication?: Prisma.PublicationListRelationFilter
-  role?: Prisma.XOR<Prisma.RoleScalarRelationFilter, Prisma.roleWhereInput>
+  role?: Prisma.XOR<Prisma.RoleScalarRelationFilter, Prisma.RoleWhereInput>
   user_skill?: Prisma.User_skillListRelationFilter
 }
 
-export type userOrderByWithRelationInput = {
+export type UserOrderByWithRelationInput = {
   id?: Prisma.SortOrder
   role_id?: Prisma.SortOrder
   first_name?: Prisma.SortOrder
   last_name?: Prisma.SortOrder
   email?: Prisma.SortOrder
   password?: Prisma.SortOrder
+  refreshToken?: Prisma.SortOrderInput | Prisma.SortOrder
   created_at?: Prisma.SortOrder
   updated_at?: Prisma.SortOrder
   deleted_at?: Prisma.SortOrderInput | Prisma.SortOrder
-  application?: Prisma.applicationOrderByRelationAggregateInput
-  comment?: Prisma.commentOrderByRelationAggregateInput
-  company_follower?: Prisma.company_followerOrderByRelationAggregateInput
-  connection_connection_user_action_idTouser?: Prisma.connectionOrderByRelationAggregateInput
-  connection_connection_user_receiver_idTouser?: Prisma.connectionOrderByRelationAggregateInput
-  employment?: Prisma.employmentOrderByRelationAggregateInput
-  message_message_recipient_idTouser?: Prisma.messageOrderByRelationAggregateInput
-  message_message_sender_idTouser?: Prisma.messageOrderByRelationAggregateInput
-  notification?: Prisma.notificationOrderByRelationAggregateInput
-  publication?: Prisma.publicationOrderByRelationAggregateInput
-  role?: Prisma.roleOrderByWithRelationInput
-  user_skill?: Prisma.user_skillOrderByRelationAggregateInput
-  _relevance?: Prisma.userOrderByRelevanceInput
+  application?: Prisma.ApplicationOrderByRelationAggregateInput
+  comment?: Prisma.CommentOrderByRelationAggregateInput
+  company_follower?: Prisma.Company_followerOrderByRelationAggregateInput
+  connection_connection_user_action_idTouser?: Prisma.ConnectionOrderByRelationAggregateInput
+  connection_connection_user_receiver_idTouser?: Prisma.ConnectionOrderByRelationAggregateInput
+  employment?: Prisma.EmploymentOrderByRelationAggregateInput
+  message_message_recipient_idTouser?: Prisma.MessageOrderByRelationAggregateInput
+  message_message_sender_idTouser?: Prisma.MessageOrderByRelationAggregateInput
+  notification?: Prisma.NotificationOrderByRelationAggregateInput
+  publication?: Prisma.PublicationOrderByRelationAggregateInput
+  role?: Prisma.RoleOrderByWithRelationInput
+  user_skill?: Prisma.User_skillOrderByRelationAggregateInput
+  _relevance?: Prisma.UserOrderByRelevanceInput
 }
 
-export type userWhereUniqueInput = Prisma.AtLeast<{
+export type UserWhereUniqueInput = Prisma.AtLeast<{
   id?: number
   email?: string
-  AND?: Prisma.userWhereInput | Prisma.userWhereInput[]
-  OR?: Prisma.userWhereInput[]
-  NOT?: Prisma.userWhereInput | Prisma.userWhereInput[]
-  role_id?: Prisma.IntFilter<"user"> | number
-  first_name?: Prisma.StringFilter<"user"> | string
-  last_name?: Prisma.StringFilter<"user"> | string
-  password?: Prisma.StringFilter<"user"> | string
-  created_at?: Prisma.DateTimeFilter<"user"> | Date | string
-  updated_at?: Prisma.DateTimeFilter<"user"> | Date | string
-  deleted_at?: Prisma.DateTimeNullableFilter<"user"> | Date | string | null
+  AND?: Prisma.UserWhereInput | Prisma.UserWhereInput[]
+  OR?: Prisma.UserWhereInput[]
+  NOT?: Prisma.UserWhereInput | Prisma.UserWhereInput[]
+  role_id?: Prisma.IntFilter<"User"> | number
+  first_name?: Prisma.StringFilter<"User"> | string
+  last_name?: Prisma.StringFilter<"User"> | string
+  password?: Prisma.StringFilter<"User"> | string
+  refreshToken?: Prisma.StringNullableFilter<"User"> | string | null
+  created_at?: Prisma.DateTimeFilter<"User"> | Date | string
+  updated_at?: Prisma.DateTimeFilter<"User"> | Date | string
+  deleted_at?: Prisma.DateTimeNullableFilter<"User"> | Date | string | null
   application?: Prisma.ApplicationListRelationFilter
   comment?: Prisma.CommentListRelationFilter
   company_follower?: Prisma.Company_followerListRelationFilter
@@ -314,1695 +324,1758 @@ export type userWhereUniqueInput = Prisma.AtLeast<{
   message_message_sender_idTouser?: Prisma.MessageListRelationFilter
   notification?: Prisma.NotificationListRelationFilter
   publication?: Prisma.PublicationListRelationFilter
-  role?: Prisma.XOR<Prisma.RoleScalarRelationFilter, Prisma.roleWhereInput>
+  role?: Prisma.XOR<Prisma.RoleScalarRelationFilter, Prisma.RoleWhereInput>
   user_skill?: Prisma.User_skillListRelationFilter
 }, "id" | "email">
 
-export type userOrderByWithAggregationInput = {
+export type UserOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
   role_id?: Prisma.SortOrder
   first_name?: Prisma.SortOrder
   last_name?: Prisma.SortOrder
   email?: Prisma.SortOrder
   password?: Prisma.SortOrder
+  refreshToken?: Prisma.SortOrderInput | Prisma.SortOrder
   created_at?: Prisma.SortOrder
   updated_at?: Prisma.SortOrder
   deleted_at?: Prisma.SortOrderInput | Prisma.SortOrder
-  _count?: Prisma.userCountOrderByAggregateInput
-  _avg?: Prisma.userAvgOrderByAggregateInput
-  _max?: Prisma.userMaxOrderByAggregateInput
-  _min?: Prisma.userMinOrderByAggregateInput
-  _sum?: Prisma.userSumOrderByAggregateInput
+  _count?: Prisma.UserCountOrderByAggregateInput
+  _avg?: Prisma.UserAvgOrderByAggregateInput
+  _max?: Prisma.UserMaxOrderByAggregateInput
+  _min?: Prisma.UserMinOrderByAggregateInput
+  _sum?: Prisma.UserSumOrderByAggregateInput
 }
 
-export type userScalarWhereWithAggregatesInput = {
-  AND?: Prisma.userScalarWhereWithAggregatesInput | Prisma.userScalarWhereWithAggregatesInput[]
-  OR?: Prisma.userScalarWhereWithAggregatesInput[]
-  NOT?: Prisma.userScalarWhereWithAggregatesInput | Prisma.userScalarWhereWithAggregatesInput[]
-  id?: Prisma.IntWithAggregatesFilter<"user"> | number
-  role_id?: Prisma.IntWithAggregatesFilter<"user"> | number
-  first_name?: Prisma.StringWithAggregatesFilter<"user"> | string
-  last_name?: Prisma.StringWithAggregatesFilter<"user"> | string
-  email?: Prisma.StringWithAggregatesFilter<"user"> | string
-  password?: Prisma.StringWithAggregatesFilter<"user"> | string
-  created_at?: Prisma.DateTimeWithAggregatesFilter<"user"> | Date | string
-  updated_at?: Prisma.DateTimeWithAggregatesFilter<"user"> | Date | string
-  deleted_at?: Prisma.DateTimeNullableWithAggregatesFilter<"user"> | Date | string | null
+export type UserScalarWhereWithAggregatesInput = {
+  AND?: Prisma.UserScalarWhereWithAggregatesInput | Prisma.UserScalarWhereWithAggregatesInput[]
+  OR?: Prisma.UserScalarWhereWithAggregatesInput[]
+  NOT?: Prisma.UserScalarWhereWithAggregatesInput | Prisma.UserScalarWhereWithAggregatesInput[]
+  id?: Prisma.IntWithAggregatesFilter<"User"> | number
+  role_id?: Prisma.IntWithAggregatesFilter<"User"> | number
+  first_name?: Prisma.StringWithAggregatesFilter<"User"> | string
+  last_name?: Prisma.StringWithAggregatesFilter<"User"> | string
+  email?: Prisma.StringWithAggregatesFilter<"User"> | string
+  password?: Prisma.StringWithAggregatesFilter<"User"> | string
+  refreshToken?: Prisma.StringNullableWithAggregatesFilter<"User"> | string | null
+  created_at?: Prisma.DateTimeWithAggregatesFilter<"User"> | Date | string
+  updated_at?: Prisma.DateTimeWithAggregatesFilter<"User"> | Date | string
+  deleted_at?: Prisma.DateTimeNullableWithAggregatesFilter<"User"> | Date | string | null
 }
 
-export type userCreateInput = {
+export type UserCreateInput = {
   first_name: string
   last_name: string
   email: string
   password: string
+  refreshToken?: string | null
   created_at?: Date | string
   updated_at?: Date | string
   deleted_at?: Date | string | null
-  application?: Prisma.applicationCreateNestedManyWithoutUserInput
-  comment?: Prisma.commentCreateNestedManyWithoutUserInput
-  company_follower?: Prisma.company_followerCreateNestedManyWithoutUserInput
-  connection_connection_user_action_idTouser?: Prisma.connectionCreateNestedManyWithoutUser_connection_user_action_idTouserInput
-  connection_connection_user_receiver_idTouser?: Prisma.connectionCreateNestedManyWithoutUser_connection_user_receiver_idTouserInput
-  employment?: Prisma.employmentCreateNestedManyWithoutUserInput
-  message_message_recipient_idTouser?: Prisma.messageCreateNestedManyWithoutUser_message_recipient_idTouserInput
-  message_message_sender_idTouser?: Prisma.messageCreateNestedManyWithoutUser_message_sender_idTouserInput
-  notification?: Prisma.notificationCreateNestedManyWithoutUserInput
-  publication?: Prisma.publicationCreateNestedManyWithoutUserInput
-  role: Prisma.roleCreateNestedOneWithoutUserInput
-  user_skill?: Prisma.user_skillCreateNestedManyWithoutUserInput
+  application?: Prisma.ApplicationCreateNestedManyWithoutUserInput
+  comment?: Prisma.CommentCreateNestedManyWithoutUserInput
+  company_follower?: Prisma.Company_followerCreateNestedManyWithoutUserInput
+  connection_connection_user_action_idTouser?: Prisma.ConnectionCreateNestedManyWithoutUser_connection_user_action_idTouserInput
+  connection_connection_user_receiver_idTouser?: Prisma.ConnectionCreateNestedManyWithoutUser_connection_user_receiver_idTouserInput
+  employment?: Prisma.EmploymentCreateNestedManyWithoutUserInput
+  message_message_recipient_idTouser?: Prisma.MessageCreateNestedManyWithoutUser_message_recipient_idTouserInput
+  message_message_sender_idTouser?: Prisma.MessageCreateNestedManyWithoutUser_message_sender_idTouserInput
+  notification?: Prisma.NotificationCreateNestedManyWithoutUserInput
+  publication?: Prisma.PublicationCreateNestedManyWithoutUserInput
+  role: Prisma.RoleCreateNestedOneWithoutUserInput
+  user_skill?: Prisma.User_skillCreateNestedManyWithoutUserInput
 }
 
-export type userUncheckedCreateInput = {
+export type UserUncheckedCreateInput = {
   id?: number
   role_id: number
   first_name: string
   last_name: string
   email: string
   password: string
+  refreshToken?: string | null
   created_at?: Date | string
   updated_at?: Date | string
   deleted_at?: Date | string | null
-  application?: Prisma.applicationUncheckedCreateNestedManyWithoutUserInput
-  comment?: Prisma.commentUncheckedCreateNestedManyWithoutUserInput
-  company_follower?: Prisma.company_followerUncheckedCreateNestedManyWithoutUserInput
-  connection_connection_user_action_idTouser?: Prisma.connectionUncheckedCreateNestedManyWithoutUser_connection_user_action_idTouserInput
-  connection_connection_user_receiver_idTouser?: Prisma.connectionUncheckedCreateNestedManyWithoutUser_connection_user_receiver_idTouserInput
-  employment?: Prisma.employmentUncheckedCreateNestedManyWithoutUserInput
-  message_message_recipient_idTouser?: Prisma.messageUncheckedCreateNestedManyWithoutUser_message_recipient_idTouserInput
-  message_message_sender_idTouser?: Prisma.messageUncheckedCreateNestedManyWithoutUser_message_sender_idTouserInput
-  notification?: Prisma.notificationUncheckedCreateNestedManyWithoutUserInput
-  publication?: Prisma.publicationUncheckedCreateNestedManyWithoutUserInput
-  user_skill?: Prisma.user_skillUncheckedCreateNestedManyWithoutUserInput
+  application?: Prisma.ApplicationUncheckedCreateNestedManyWithoutUserInput
+  comment?: Prisma.CommentUncheckedCreateNestedManyWithoutUserInput
+  company_follower?: Prisma.Company_followerUncheckedCreateNestedManyWithoutUserInput
+  connection_connection_user_action_idTouser?: Prisma.ConnectionUncheckedCreateNestedManyWithoutUser_connection_user_action_idTouserInput
+  connection_connection_user_receiver_idTouser?: Prisma.ConnectionUncheckedCreateNestedManyWithoutUser_connection_user_receiver_idTouserInput
+  employment?: Prisma.EmploymentUncheckedCreateNestedManyWithoutUserInput
+  message_message_recipient_idTouser?: Prisma.MessageUncheckedCreateNestedManyWithoutUser_message_recipient_idTouserInput
+  message_message_sender_idTouser?: Prisma.MessageUncheckedCreateNestedManyWithoutUser_message_sender_idTouserInput
+  notification?: Prisma.NotificationUncheckedCreateNestedManyWithoutUserInput
+  publication?: Prisma.PublicationUncheckedCreateNestedManyWithoutUserInput
+  user_skill?: Prisma.User_skillUncheckedCreateNestedManyWithoutUserInput
 }
 
-export type userUpdateInput = {
+export type UserUpdateInput = {
   first_name?: Prisma.StringFieldUpdateOperationsInput | string
   last_name?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
   password?: Prisma.StringFieldUpdateOperationsInput | string
+  refreshToken?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deleted_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  application?: Prisma.applicationUpdateManyWithoutUserNestedInput
-  comment?: Prisma.commentUpdateManyWithoutUserNestedInput
-  company_follower?: Prisma.company_followerUpdateManyWithoutUserNestedInput
-  connection_connection_user_action_idTouser?: Prisma.connectionUpdateManyWithoutUser_connection_user_action_idTouserNestedInput
-  connection_connection_user_receiver_idTouser?: Prisma.connectionUpdateManyWithoutUser_connection_user_receiver_idTouserNestedInput
-  employment?: Prisma.employmentUpdateManyWithoutUserNestedInput
-  message_message_recipient_idTouser?: Prisma.messageUpdateManyWithoutUser_message_recipient_idTouserNestedInput
-  message_message_sender_idTouser?: Prisma.messageUpdateManyWithoutUser_message_sender_idTouserNestedInput
-  notification?: Prisma.notificationUpdateManyWithoutUserNestedInput
-  publication?: Prisma.publicationUpdateManyWithoutUserNestedInput
-  role?: Prisma.roleUpdateOneRequiredWithoutUserNestedInput
-  user_skill?: Prisma.user_skillUpdateManyWithoutUserNestedInput
+  application?: Prisma.ApplicationUpdateManyWithoutUserNestedInput
+  comment?: Prisma.CommentUpdateManyWithoutUserNestedInput
+  company_follower?: Prisma.Company_followerUpdateManyWithoutUserNestedInput
+  connection_connection_user_action_idTouser?: Prisma.ConnectionUpdateManyWithoutUser_connection_user_action_idTouserNestedInput
+  connection_connection_user_receiver_idTouser?: Prisma.ConnectionUpdateManyWithoutUser_connection_user_receiver_idTouserNestedInput
+  employment?: Prisma.EmploymentUpdateManyWithoutUserNestedInput
+  message_message_recipient_idTouser?: Prisma.MessageUpdateManyWithoutUser_message_recipient_idTouserNestedInput
+  message_message_sender_idTouser?: Prisma.MessageUpdateManyWithoutUser_message_sender_idTouserNestedInput
+  notification?: Prisma.NotificationUpdateManyWithoutUserNestedInput
+  publication?: Prisma.PublicationUpdateManyWithoutUserNestedInput
+  role?: Prisma.RoleUpdateOneRequiredWithoutUserNestedInput
+  user_skill?: Prisma.User_skillUpdateManyWithoutUserNestedInput
 }
 
-export type userUncheckedUpdateInput = {
+export type UserUncheckedUpdateInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   role_id?: Prisma.IntFieldUpdateOperationsInput | number
   first_name?: Prisma.StringFieldUpdateOperationsInput | string
   last_name?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
   password?: Prisma.StringFieldUpdateOperationsInput | string
+  refreshToken?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deleted_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  application?: Prisma.applicationUncheckedUpdateManyWithoutUserNestedInput
-  comment?: Prisma.commentUncheckedUpdateManyWithoutUserNestedInput
-  company_follower?: Prisma.company_followerUncheckedUpdateManyWithoutUserNestedInput
-  connection_connection_user_action_idTouser?: Prisma.connectionUncheckedUpdateManyWithoutUser_connection_user_action_idTouserNestedInput
-  connection_connection_user_receiver_idTouser?: Prisma.connectionUncheckedUpdateManyWithoutUser_connection_user_receiver_idTouserNestedInput
-  employment?: Prisma.employmentUncheckedUpdateManyWithoutUserNestedInput
-  message_message_recipient_idTouser?: Prisma.messageUncheckedUpdateManyWithoutUser_message_recipient_idTouserNestedInput
-  message_message_sender_idTouser?: Prisma.messageUncheckedUpdateManyWithoutUser_message_sender_idTouserNestedInput
-  notification?: Prisma.notificationUncheckedUpdateManyWithoutUserNestedInput
-  publication?: Prisma.publicationUncheckedUpdateManyWithoutUserNestedInput
-  user_skill?: Prisma.user_skillUncheckedUpdateManyWithoutUserNestedInput
+  application?: Prisma.ApplicationUncheckedUpdateManyWithoutUserNestedInput
+  comment?: Prisma.CommentUncheckedUpdateManyWithoutUserNestedInput
+  company_follower?: Prisma.Company_followerUncheckedUpdateManyWithoutUserNestedInput
+  connection_connection_user_action_idTouser?: Prisma.ConnectionUncheckedUpdateManyWithoutUser_connection_user_action_idTouserNestedInput
+  connection_connection_user_receiver_idTouser?: Prisma.ConnectionUncheckedUpdateManyWithoutUser_connection_user_receiver_idTouserNestedInput
+  employment?: Prisma.EmploymentUncheckedUpdateManyWithoutUserNestedInput
+  message_message_recipient_idTouser?: Prisma.MessageUncheckedUpdateManyWithoutUser_message_recipient_idTouserNestedInput
+  message_message_sender_idTouser?: Prisma.MessageUncheckedUpdateManyWithoutUser_message_sender_idTouserNestedInput
+  notification?: Prisma.NotificationUncheckedUpdateManyWithoutUserNestedInput
+  publication?: Prisma.PublicationUncheckedUpdateManyWithoutUserNestedInput
+  user_skill?: Prisma.User_skillUncheckedUpdateManyWithoutUserNestedInput
 }
 
-export type userCreateManyInput = {
+export type UserCreateManyInput = {
   id?: number
   role_id: number
   first_name: string
   last_name: string
   email: string
   password: string
+  refreshToken?: string | null
   created_at?: Date | string
   updated_at?: Date | string
   deleted_at?: Date | string | null
 }
 
-export type userUpdateManyMutationInput = {
+export type UserUpdateManyMutationInput = {
   first_name?: Prisma.StringFieldUpdateOperationsInput | string
   last_name?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
   password?: Prisma.StringFieldUpdateOperationsInput | string
+  refreshToken?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deleted_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
 }
 
-export type userUncheckedUpdateManyInput = {
+export type UserUncheckedUpdateManyInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   role_id?: Prisma.IntFieldUpdateOperationsInput | number
   first_name?: Prisma.StringFieldUpdateOperationsInput | string
   last_name?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
   password?: Prisma.StringFieldUpdateOperationsInput | string
+  refreshToken?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deleted_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
 }
 
 export type UserScalarRelationFilter = {
-  is?: Prisma.userWhereInput
-  isNot?: Prisma.userWhereInput
+  is?: Prisma.UserWhereInput
+  isNot?: Prisma.UserWhereInput
 }
 
 export type UserListRelationFilter = {
-  every?: Prisma.userWhereInput
-  some?: Prisma.userWhereInput
-  none?: Prisma.userWhereInput
+  every?: Prisma.UserWhereInput
+  some?: Prisma.UserWhereInput
+  none?: Prisma.UserWhereInput
 }
 
-export type userOrderByRelationAggregateInput = {
+export type UserOrderByRelationAggregateInput = {
   _count?: Prisma.SortOrder
 }
 
-export type userOrderByRelevanceInput = {
-  fields: Prisma.userOrderByRelevanceFieldEnum | Prisma.userOrderByRelevanceFieldEnum[]
+export type UserOrderByRelevanceInput = {
+  fields: Prisma.UserOrderByRelevanceFieldEnum | Prisma.UserOrderByRelevanceFieldEnum[]
   sort: Prisma.SortOrder
   search: string
 }
 
-export type userCountOrderByAggregateInput = {
+export type UserCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
   role_id?: Prisma.SortOrder
   first_name?: Prisma.SortOrder
   last_name?: Prisma.SortOrder
   email?: Prisma.SortOrder
   password?: Prisma.SortOrder
+  refreshToken?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
   updated_at?: Prisma.SortOrder
   deleted_at?: Prisma.SortOrder
 }
 
-export type userAvgOrderByAggregateInput = {
+export type UserAvgOrderByAggregateInput = {
   id?: Prisma.SortOrder
   role_id?: Prisma.SortOrder
 }
 
-export type userMaxOrderByAggregateInput = {
+export type UserMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
   role_id?: Prisma.SortOrder
   first_name?: Prisma.SortOrder
   last_name?: Prisma.SortOrder
   email?: Prisma.SortOrder
   password?: Prisma.SortOrder
+  refreshToken?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
   updated_at?: Prisma.SortOrder
   deleted_at?: Prisma.SortOrder
 }
 
-export type userMinOrderByAggregateInput = {
+export type UserMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
   role_id?: Prisma.SortOrder
   first_name?: Prisma.SortOrder
   last_name?: Prisma.SortOrder
   email?: Prisma.SortOrder
   password?: Prisma.SortOrder
+  refreshToken?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
   updated_at?: Prisma.SortOrder
   deleted_at?: Prisma.SortOrder
 }
 
-export type userSumOrderByAggregateInput = {
+export type UserSumOrderByAggregateInput = {
   id?: Prisma.SortOrder
   role_id?: Prisma.SortOrder
 }
 
-export type userCreateNestedOneWithoutApplicationInput = {
-  create?: Prisma.XOR<Prisma.userCreateWithoutApplicationInput, Prisma.userUncheckedCreateWithoutApplicationInput>
-  connectOrCreate?: Prisma.userCreateOrConnectWithoutApplicationInput
-  connect?: Prisma.userWhereUniqueInput
+export type UserCreateNestedOneWithoutApplicationInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutApplicationInput, Prisma.UserUncheckedCreateWithoutApplicationInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutApplicationInput
+  connect?: Prisma.UserWhereUniqueInput
 }
 
-export type userUpdateOneRequiredWithoutApplicationNestedInput = {
-  create?: Prisma.XOR<Prisma.userCreateWithoutApplicationInput, Prisma.userUncheckedCreateWithoutApplicationInput>
-  connectOrCreate?: Prisma.userCreateOrConnectWithoutApplicationInput
-  upsert?: Prisma.userUpsertWithoutApplicationInput
-  connect?: Prisma.userWhereUniqueInput
-  update?: Prisma.XOR<Prisma.XOR<Prisma.userUpdateToOneWithWhereWithoutApplicationInput, Prisma.userUpdateWithoutApplicationInput>, Prisma.userUncheckedUpdateWithoutApplicationInput>
+export type UserUpdateOneRequiredWithoutApplicationNestedInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutApplicationInput, Prisma.UserUncheckedCreateWithoutApplicationInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutApplicationInput
+  upsert?: Prisma.UserUpsertWithoutApplicationInput
+  connect?: Prisma.UserWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutApplicationInput, Prisma.UserUpdateWithoutApplicationInput>, Prisma.UserUncheckedUpdateWithoutApplicationInput>
 }
 
-export type userCreateNestedOneWithoutCommentInput = {
-  create?: Prisma.XOR<Prisma.userCreateWithoutCommentInput, Prisma.userUncheckedCreateWithoutCommentInput>
-  connectOrCreate?: Prisma.userCreateOrConnectWithoutCommentInput
-  connect?: Prisma.userWhereUniqueInput
+export type UserCreateNestedOneWithoutCommentInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutCommentInput, Prisma.UserUncheckedCreateWithoutCommentInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutCommentInput
+  connect?: Prisma.UserWhereUniqueInput
 }
 
-export type userUpdateOneRequiredWithoutCommentNestedInput = {
-  create?: Prisma.XOR<Prisma.userCreateWithoutCommentInput, Prisma.userUncheckedCreateWithoutCommentInput>
-  connectOrCreate?: Prisma.userCreateOrConnectWithoutCommentInput
-  upsert?: Prisma.userUpsertWithoutCommentInput
-  connect?: Prisma.userWhereUniqueInput
-  update?: Prisma.XOR<Prisma.XOR<Prisma.userUpdateToOneWithWhereWithoutCommentInput, Prisma.userUpdateWithoutCommentInput>, Prisma.userUncheckedUpdateWithoutCommentInput>
+export type UserUpdateOneRequiredWithoutCommentNestedInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutCommentInput, Prisma.UserUncheckedCreateWithoutCommentInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutCommentInput
+  upsert?: Prisma.UserUpsertWithoutCommentInput
+  connect?: Prisma.UserWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutCommentInput, Prisma.UserUpdateWithoutCommentInput>, Prisma.UserUncheckedUpdateWithoutCommentInput>
 }
 
-export type userCreateNestedOneWithoutCompany_followerInput = {
-  create?: Prisma.XOR<Prisma.userCreateWithoutCompany_followerInput, Prisma.userUncheckedCreateWithoutCompany_followerInput>
-  connectOrCreate?: Prisma.userCreateOrConnectWithoutCompany_followerInput
-  connect?: Prisma.userWhereUniqueInput
+export type UserCreateNestedOneWithoutCompany_followerInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutCompany_followerInput, Prisma.UserUncheckedCreateWithoutCompany_followerInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutCompany_followerInput
+  connect?: Prisma.UserWhereUniqueInput
 }
 
-export type userUpdateOneRequiredWithoutCompany_followerNestedInput = {
-  create?: Prisma.XOR<Prisma.userCreateWithoutCompany_followerInput, Prisma.userUncheckedCreateWithoutCompany_followerInput>
-  connectOrCreate?: Prisma.userCreateOrConnectWithoutCompany_followerInput
-  upsert?: Prisma.userUpsertWithoutCompany_followerInput
-  connect?: Prisma.userWhereUniqueInput
-  update?: Prisma.XOR<Prisma.XOR<Prisma.userUpdateToOneWithWhereWithoutCompany_followerInput, Prisma.userUpdateWithoutCompany_followerInput>, Prisma.userUncheckedUpdateWithoutCompany_followerInput>
+export type UserUpdateOneRequiredWithoutCompany_followerNestedInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutCompany_followerInput, Prisma.UserUncheckedCreateWithoutCompany_followerInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutCompany_followerInput
+  upsert?: Prisma.UserUpsertWithoutCompany_followerInput
+  connect?: Prisma.UserWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutCompany_followerInput, Prisma.UserUpdateWithoutCompany_followerInput>, Prisma.UserUncheckedUpdateWithoutCompany_followerInput>
 }
 
-export type userCreateNestedOneWithoutConnection_connection_user_action_idTouserInput = {
-  create?: Prisma.XOR<Prisma.userCreateWithoutConnection_connection_user_action_idTouserInput, Prisma.userUncheckedCreateWithoutConnection_connection_user_action_idTouserInput>
-  connectOrCreate?: Prisma.userCreateOrConnectWithoutConnection_connection_user_action_idTouserInput
-  connect?: Prisma.userWhereUniqueInput
+export type UserCreateNestedOneWithoutConnection_connection_user_action_idTouserInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutConnection_connection_user_action_idTouserInput, Prisma.UserUncheckedCreateWithoutConnection_connection_user_action_idTouserInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutConnection_connection_user_action_idTouserInput
+  connect?: Prisma.UserWhereUniqueInput
 }
 
-export type userCreateNestedOneWithoutConnection_connection_user_receiver_idTouserInput = {
-  create?: Prisma.XOR<Prisma.userCreateWithoutConnection_connection_user_receiver_idTouserInput, Prisma.userUncheckedCreateWithoutConnection_connection_user_receiver_idTouserInput>
-  connectOrCreate?: Prisma.userCreateOrConnectWithoutConnection_connection_user_receiver_idTouserInput
-  connect?: Prisma.userWhereUniqueInput
+export type UserCreateNestedOneWithoutConnection_connection_user_receiver_idTouserInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutConnection_connection_user_receiver_idTouserInput, Prisma.UserUncheckedCreateWithoutConnection_connection_user_receiver_idTouserInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutConnection_connection_user_receiver_idTouserInput
+  connect?: Prisma.UserWhereUniqueInput
 }
 
-export type userUpdateOneRequiredWithoutConnection_connection_user_action_idTouserNestedInput = {
-  create?: Prisma.XOR<Prisma.userCreateWithoutConnection_connection_user_action_idTouserInput, Prisma.userUncheckedCreateWithoutConnection_connection_user_action_idTouserInput>
-  connectOrCreate?: Prisma.userCreateOrConnectWithoutConnection_connection_user_action_idTouserInput
-  upsert?: Prisma.userUpsertWithoutConnection_connection_user_action_idTouserInput
-  connect?: Prisma.userWhereUniqueInput
-  update?: Prisma.XOR<Prisma.XOR<Prisma.userUpdateToOneWithWhereWithoutConnection_connection_user_action_idTouserInput, Prisma.userUpdateWithoutConnection_connection_user_action_idTouserInput>, Prisma.userUncheckedUpdateWithoutConnection_connection_user_action_idTouserInput>
+export type UserUpdateOneRequiredWithoutConnection_connection_user_action_idTouserNestedInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutConnection_connection_user_action_idTouserInput, Prisma.UserUncheckedCreateWithoutConnection_connection_user_action_idTouserInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutConnection_connection_user_action_idTouserInput
+  upsert?: Prisma.UserUpsertWithoutConnection_connection_user_action_idTouserInput
+  connect?: Prisma.UserWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutConnection_connection_user_action_idTouserInput, Prisma.UserUpdateWithoutConnection_connection_user_action_idTouserInput>, Prisma.UserUncheckedUpdateWithoutConnection_connection_user_action_idTouserInput>
 }
 
-export type userUpdateOneRequiredWithoutConnection_connection_user_receiver_idTouserNestedInput = {
-  create?: Prisma.XOR<Prisma.userCreateWithoutConnection_connection_user_receiver_idTouserInput, Prisma.userUncheckedCreateWithoutConnection_connection_user_receiver_idTouserInput>
-  connectOrCreate?: Prisma.userCreateOrConnectWithoutConnection_connection_user_receiver_idTouserInput
-  upsert?: Prisma.userUpsertWithoutConnection_connection_user_receiver_idTouserInput
-  connect?: Prisma.userWhereUniqueInput
-  update?: Prisma.XOR<Prisma.XOR<Prisma.userUpdateToOneWithWhereWithoutConnection_connection_user_receiver_idTouserInput, Prisma.userUpdateWithoutConnection_connection_user_receiver_idTouserInput>, Prisma.userUncheckedUpdateWithoutConnection_connection_user_receiver_idTouserInput>
+export type UserUpdateOneRequiredWithoutConnection_connection_user_receiver_idTouserNestedInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutConnection_connection_user_receiver_idTouserInput, Prisma.UserUncheckedCreateWithoutConnection_connection_user_receiver_idTouserInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutConnection_connection_user_receiver_idTouserInput
+  upsert?: Prisma.UserUpsertWithoutConnection_connection_user_receiver_idTouserInput
+  connect?: Prisma.UserWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutConnection_connection_user_receiver_idTouserInput, Prisma.UserUpdateWithoutConnection_connection_user_receiver_idTouserInput>, Prisma.UserUncheckedUpdateWithoutConnection_connection_user_receiver_idTouserInput>
 }
 
-export type userCreateNestedOneWithoutEmploymentInput = {
-  create?: Prisma.XOR<Prisma.userCreateWithoutEmploymentInput, Prisma.userUncheckedCreateWithoutEmploymentInput>
-  connectOrCreate?: Prisma.userCreateOrConnectWithoutEmploymentInput
-  connect?: Prisma.userWhereUniqueInput
+export type UserCreateNestedOneWithoutEmploymentInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutEmploymentInput, Prisma.UserUncheckedCreateWithoutEmploymentInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutEmploymentInput
+  connect?: Prisma.UserWhereUniqueInput
 }
 
-export type userUpdateOneRequiredWithoutEmploymentNestedInput = {
-  create?: Prisma.XOR<Prisma.userCreateWithoutEmploymentInput, Prisma.userUncheckedCreateWithoutEmploymentInput>
-  connectOrCreate?: Prisma.userCreateOrConnectWithoutEmploymentInput
-  upsert?: Prisma.userUpsertWithoutEmploymentInput
-  connect?: Prisma.userWhereUniqueInput
-  update?: Prisma.XOR<Prisma.XOR<Prisma.userUpdateToOneWithWhereWithoutEmploymentInput, Prisma.userUpdateWithoutEmploymentInput>, Prisma.userUncheckedUpdateWithoutEmploymentInput>
+export type UserUpdateOneRequiredWithoutEmploymentNestedInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutEmploymentInput, Prisma.UserUncheckedCreateWithoutEmploymentInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutEmploymentInput
+  upsert?: Prisma.UserUpsertWithoutEmploymentInput
+  connect?: Prisma.UserWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutEmploymentInput, Prisma.UserUpdateWithoutEmploymentInput>, Prisma.UserUncheckedUpdateWithoutEmploymentInput>
 }
 
-export type userCreateNestedOneWithoutMessage_message_recipient_idTouserInput = {
-  create?: Prisma.XOR<Prisma.userCreateWithoutMessage_message_recipient_idTouserInput, Prisma.userUncheckedCreateWithoutMessage_message_recipient_idTouserInput>
-  connectOrCreate?: Prisma.userCreateOrConnectWithoutMessage_message_recipient_idTouserInput
-  connect?: Prisma.userWhereUniqueInput
+export type UserCreateNestedOneWithoutMessage_message_recipient_idTouserInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutMessage_message_recipient_idTouserInput, Prisma.UserUncheckedCreateWithoutMessage_message_recipient_idTouserInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutMessage_message_recipient_idTouserInput
+  connect?: Prisma.UserWhereUniqueInput
 }
 
-export type userCreateNestedOneWithoutMessage_message_sender_idTouserInput = {
-  create?: Prisma.XOR<Prisma.userCreateWithoutMessage_message_sender_idTouserInput, Prisma.userUncheckedCreateWithoutMessage_message_sender_idTouserInput>
-  connectOrCreate?: Prisma.userCreateOrConnectWithoutMessage_message_sender_idTouserInput
-  connect?: Prisma.userWhereUniqueInput
+export type UserCreateNestedOneWithoutMessage_message_sender_idTouserInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutMessage_message_sender_idTouserInput, Prisma.UserUncheckedCreateWithoutMessage_message_sender_idTouserInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutMessage_message_sender_idTouserInput
+  connect?: Prisma.UserWhereUniqueInput
 }
 
-export type userUpdateOneRequiredWithoutMessage_message_recipient_idTouserNestedInput = {
-  create?: Prisma.XOR<Prisma.userCreateWithoutMessage_message_recipient_idTouserInput, Prisma.userUncheckedCreateWithoutMessage_message_recipient_idTouserInput>
-  connectOrCreate?: Prisma.userCreateOrConnectWithoutMessage_message_recipient_idTouserInput
-  upsert?: Prisma.userUpsertWithoutMessage_message_recipient_idTouserInput
-  connect?: Prisma.userWhereUniqueInput
-  update?: Prisma.XOR<Prisma.XOR<Prisma.userUpdateToOneWithWhereWithoutMessage_message_recipient_idTouserInput, Prisma.userUpdateWithoutMessage_message_recipient_idTouserInput>, Prisma.userUncheckedUpdateWithoutMessage_message_recipient_idTouserInput>
+export type UserUpdateOneRequiredWithoutMessage_message_recipient_idTouserNestedInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutMessage_message_recipient_idTouserInput, Prisma.UserUncheckedCreateWithoutMessage_message_recipient_idTouserInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutMessage_message_recipient_idTouserInput
+  upsert?: Prisma.UserUpsertWithoutMessage_message_recipient_idTouserInput
+  connect?: Prisma.UserWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutMessage_message_recipient_idTouserInput, Prisma.UserUpdateWithoutMessage_message_recipient_idTouserInput>, Prisma.UserUncheckedUpdateWithoutMessage_message_recipient_idTouserInput>
 }
 
-export type userUpdateOneRequiredWithoutMessage_message_sender_idTouserNestedInput = {
-  create?: Prisma.XOR<Prisma.userCreateWithoutMessage_message_sender_idTouserInput, Prisma.userUncheckedCreateWithoutMessage_message_sender_idTouserInput>
-  connectOrCreate?: Prisma.userCreateOrConnectWithoutMessage_message_sender_idTouserInput
-  upsert?: Prisma.userUpsertWithoutMessage_message_sender_idTouserInput
-  connect?: Prisma.userWhereUniqueInput
-  update?: Prisma.XOR<Prisma.XOR<Prisma.userUpdateToOneWithWhereWithoutMessage_message_sender_idTouserInput, Prisma.userUpdateWithoutMessage_message_sender_idTouserInput>, Prisma.userUncheckedUpdateWithoutMessage_message_sender_idTouserInput>
+export type UserUpdateOneRequiredWithoutMessage_message_sender_idTouserNestedInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutMessage_message_sender_idTouserInput, Prisma.UserUncheckedCreateWithoutMessage_message_sender_idTouserInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutMessage_message_sender_idTouserInput
+  upsert?: Prisma.UserUpsertWithoutMessage_message_sender_idTouserInput
+  connect?: Prisma.UserWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutMessage_message_sender_idTouserInput, Prisma.UserUpdateWithoutMessage_message_sender_idTouserInput>, Prisma.UserUncheckedUpdateWithoutMessage_message_sender_idTouserInput>
 }
 
-export type userCreateNestedOneWithoutNotificationInput = {
-  create?: Prisma.XOR<Prisma.userCreateWithoutNotificationInput, Prisma.userUncheckedCreateWithoutNotificationInput>
-  connectOrCreate?: Prisma.userCreateOrConnectWithoutNotificationInput
-  connect?: Prisma.userWhereUniqueInput
+export type UserCreateNestedOneWithoutNotificationInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutNotificationInput, Prisma.UserUncheckedCreateWithoutNotificationInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutNotificationInput
+  connect?: Prisma.UserWhereUniqueInput
 }
 
-export type userUpdateOneRequiredWithoutNotificationNestedInput = {
-  create?: Prisma.XOR<Prisma.userCreateWithoutNotificationInput, Prisma.userUncheckedCreateWithoutNotificationInput>
-  connectOrCreate?: Prisma.userCreateOrConnectWithoutNotificationInput
-  upsert?: Prisma.userUpsertWithoutNotificationInput
-  connect?: Prisma.userWhereUniqueInput
-  update?: Prisma.XOR<Prisma.XOR<Prisma.userUpdateToOneWithWhereWithoutNotificationInput, Prisma.userUpdateWithoutNotificationInput>, Prisma.userUncheckedUpdateWithoutNotificationInput>
+export type UserUpdateOneRequiredWithoutNotificationNestedInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutNotificationInput, Prisma.UserUncheckedCreateWithoutNotificationInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutNotificationInput
+  upsert?: Prisma.UserUpsertWithoutNotificationInput
+  connect?: Prisma.UserWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutNotificationInput, Prisma.UserUpdateWithoutNotificationInput>, Prisma.UserUncheckedUpdateWithoutNotificationInput>
 }
 
-export type userCreateNestedOneWithoutPublicationInput = {
-  create?: Prisma.XOR<Prisma.userCreateWithoutPublicationInput, Prisma.userUncheckedCreateWithoutPublicationInput>
-  connectOrCreate?: Prisma.userCreateOrConnectWithoutPublicationInput
-  connect?: Prisma.userWhereUniqueInput
+export type UserCreateNestedOneWithoutPublicationInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutPublicationInput, Prisma.UserUncheckedCreateWithoutPublicationInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutPublicationInput
+  connect?: Prisma.UserWhereUniqueInput
 }
 
-export type userUpdateOneRequiredWithoutPublicationNestedInput = {
-  create?: Prisma.XOR<Prisma.userCreateWithoutPublicationInput, Prisma.userUncheckedCreateWithoutPublicationInput>
-  connectOrCreate?: Prisma.userCreateOrConnectWithoutPublicationInput
-  upsert?: Prisma.userUpsertWithoutPublicationInput
-  connect?: Prisma.userWhereUniqueInput
-  update?: Prisma.XOR<Prisma.XOR<Prisma.userUpdateToOneWithWhereWithoutPublicationInput, Prisma.userUpdateWithoutPublicationInput>, Prisma.userUncheckedUpdateWithoutPublicationInput>
+export type UserUpdateOneRequiredWithoutPublicationNestedInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutPublicationInput, Prisma.UserUncheckedCreateWithoutPublicationInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutPublicationInput
+  upsert?: Prisma.UserUpsertWithoutPublicationInput
+  connect?: Prisma.UserWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutPublicationInput, Prisma.UserUpdateWithoutPublicationInput>, Prisma.UserUncheckedUpdateWithoutPublicationInput>
 }
 
-export type userCreateNestedManyWithoutRoleInput = {
-  create?: Prisma.XOR<Prisma.userCreateWithoutRoleInput, Prisma.userUncheckedCreateWithoutRoleInput> | Prisma.userCreateWithoutRoleInput[] | Prisma.userUncheckedCreateWithoutRoleInput[]
-  connectOrCreate?: Prisma.userCreateOrConnectWithoutRoleInput | Prisma.userCreateOrConnectWithoutRoleInput[]
-  createMany?: Prisma.userCreateManyRoleInputEnvelope
-  connect?: Prisma.userWhereUniqueInput | Prisma.userWhereUniqueInput[]
+export type UserCreateNestedManyWithoutRoleInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutRoleInput, Prisma.UserUncheckedCreateWithoutRoleInput> | Prisma.UserCreateWithoutRoleInput[] | Prisma.UserUncheckedCreateWithoutRoleInput[]
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutRoleInput | Prisma.UserCreateOrConnectWithoutRoleInput[]
+  createMany?: Prisma.UserCreateManyRoleInputEnvelope
+  connect?: Prisma.UserWhereUniqueInput | Prisma.UserWhereUniqueInput[]
 }
 
-export type userUncheckedCreateNestedManyWithoutRoleInput = {
-  create?: Prisma.XOR<Prisma.userCreateWithoutRoleInput, Prisma.userUncheckedCreateWithoutRoleInput> | Prisma.userCreateWithoutRoleInput[] | Prisma.userUncheckedCreateWithoutRoleInput[]
-  connectOrCreate?: Prisma.userCreateOrConnectWithoutRoleInput | Prisma.userCreateOrConnectWithoutRoleInput[]
-  createMany?: Prisma.userCreateManyRoleInputEnvelope
-  connect?: Prisma.userWhereUniqueInput | Prisma.userWhereUniqueInput[]
+export type UserUncheckedCreateNestedManyWithoutRoleInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutRoleInput, Prisma.UserUncheckedCreateWithoutRoleInput> | Prisma.UserCreateWithoutRoleInput[] | Prisma.UserUncheckedCreateWithoutRoleInput[]
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutRoleInput | Prisma.UserCreateOrConnectWithoutRoleInput[]
+  createMany?: Prisma.UserCreateManyRoleInputEnvelope
+  connect?: Prisma.UserWhereUniqueInput | Prisma.UserWhereUniqueInput[]
 }
 
-export type userUpdateManyWithoutRoleNestedInput = {
-  create?: Prisma.XOR<Prisma.userCreateWithoutRoleInput, Prisma.userUncheckedCreateWithoutRoleInput> | Prisma.userCreateWithoutRoleInput[] | Prisma.userUncheckedCreateWithoutRoleInput[]
-  connectOrCreate?: Prisma.userCreateOrConnectWithoutRoleInput | Prisma.userCreateOrConnectWithoutRoleInput[]
-  upsert?: Prisma.userUpsertWithWhereUniqueWithoutRoleInput | Prisma.userUpsertWithWhereUniqueWithoutRoleInput[]
-  createMany?: Prisma.userCreateManyRoleInputEnvelope
-  set?: Prisma.userWhereUniqueInput | Prisma.userWhereUniqueInput[]
-  disconnect?: Prisma.userWhereUniqueInput | Prisma.userWhereUniqueInput[]
-  delete?: Prisma.userWhereUniqueInput | Prisma.userWhereUniqueInput[]
-  connect?: Prisma.userWhereUniqueInput | Prisma.userWhereUniqueInput[]
-  update?: Prisma.userUpdateWithWhereUniqueWithoutRoleInput | Prisma.userUpdateWithWhereUniqueWithoutRoleInput[]
-  updateMany?: Prisma.userUpdateManyWithWhereWithoutRoleInput | Prisma.userUpdateManyWithWhereWithoutRoleInput[]
-  deleteMany?: Prisma.userScalarWhereInput | Prisma.userScalarWhereInput[]
+export type UserUpdateManyWithoutRoleNestedInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutRoleInput, Prisma.UserUncheckedCreateWithoutRoleInput> | Prisma.UserCreateWithoutRoleInput[] | Prisma.UserUncheckedCreateWithoutRoleInput[]
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutRoleInput | Prisma.UserCreateOrConnectWithoutRoleInput[]
+  upsert?: Prisma.UserUpsertWithWhereUniqueWithoutRoleInput | Prisma.UserUpsertWithWhereUniqueWithoutRoleInput[]
+  createMany?: Prisma.UserCreateManyRoleInputEnvelope
+  set?: Prisma.UserWhereUniqueInput | Prisma.UserWhereUniqueInput[]
+  disconnect?: Prisma.UserWhereUniqueInput | Prisma.UserWhereUniqueInput[]
+  delete?: Prisma.UserWhereUniqueInput | Prisma.UserWhereUniqueInput[]
+  connect?: Prisma.UserWhereUniqueInput | Prisma.UserWhereUniqueInput[]
+  update?: Prisma.UserUpdateWithWhereUniqueWithoutRoleInput | Prisma.UserUpdateWithWhereUniqueWithoutRoleInput[]
+  updateMany?: Prisma.UserUpdateManyWithWhereWithoutRoleInput | Prisma.UserUpdateManyWithWhereWithoutRoleInput[]
+  deleteMany?: Prisma.UserScalarWhereInput | Prisma.UserScalarWhereInput[]
 }
 
-export type userUncheckedUpdateManyWithoutRoleNestedInput = {
-  create?: Prisma.XOR<Prisma.userCreateWithoutRoleInput, Prisma.userUncheckedCreateWithoutRoleInput> | Prisma.userCreateWithoutRoleInput[] | Prisma.userUncheckedCreateWithoutRoleInput[]
-  connectOrCreate?: Prisma.userCreateOrConnectWithoutRoleInput | Prisma.userCreateOrConnectWithoutRoleInput[]
-  upsert?: Prisma.userUpsertWithWhereUniqueWithoutRoleInput | Prisma.userUpsertWithWhereUniqueWithoutRoleInput[]
-  createMany?: Prisma.userCreateManyRoleInputEnvelope
-  set?: Prisma.userWhereUniqueInput | Prisma.userWhereUniqueInput[]
-  disconnect?: Prisma.userWhereUniqueInput | Prisma.userWhereUniqueInput[]
-  delete?: Prisma.userWhereUniqueInput | Prisma.userWhereUniqueInput[]
-  connect?: Prisma.userWhereUniqueInput | Prisma.userWhereUniqueInput[]
-  update?: Prisma.userUpdateWithWhereUniqueWithoutRoleInput | Prisma.userUpdateWithWhereUniqueWithoutRoleInput[]
-  updateMany?: Prisma.userUpdateManyWithWhereWithoutRoleInput | Prisma.userUpdateManyWithWhereWithoutRoleInput[]
-  deleteMany?: Prisma.userScalarWhereInput | Prisma.userScalarWhereInput[]
+export type UserUncheckedUpdateManyWithoutRoleNestedInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutRoleInput, Prisma.UserUncheckedCreateWithoutRoleInput> | Prisma.UserCreateWithoutRoleInput[] | Prisma.UserUncheckedCreateWithoutRoleInput[]
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutRoleInput | Prisma.UserCreateOrConnectWithoutRoleInput[]
+  upsert?: Prisma.UserUpsertWithWhereUniqueWithoutRoleInput | Prisma.UserUpsertWithWhereUniqueWithoutRoleInput[]
+  createMany?: Prisma.UserCreateManyRoleInputEnvelope
+  set?: Prisma.UserWhereUniqueInput | Prisma.UserWhereUniqueInput[]
+  disconnect?: Prisma.UserWhereUniqueInput | Prisma.UserWhereUniqueInput[]
+  delete?: Prisma.UserWhereUniqueInput | Prisma.UserWhereUniqueInput[]
+  connect?: Prisma.UserWhereUniqueInput | Prisma.UserWhereUniqueInput[]
+  update?: Prisma.UserUpdateWithWhereUniqueWithoutRoleInput | Prisma.UserUpdateWithWhereUniqueWithoutRoleInput[]
+  updateMany?: Prisma.UserUpdateManyWithWhereWithoutRoleInput | Prisma.UserUpdateManyWithWhereWithoutRoleInput[]
+  deleteMany?: Prisma.UserScalarWhereInput | Prisma.UserScalarWhereInput[]
 }
 
-export type userCreateNestedOneWithoutUser_skillInput = {
-  create?: Prisma.XOR<Prisma.userCreateWithoutUser_skillInput, Prisma.userUncheckedCreateWithoutUser_skillInput>
-  connectOrCreate?: Prisma.userCreateOrConnectWithoutUser_skillInput
-  connect?: Prisma.userWhereUniqueInput
+export type UserCreateNestedOneWithoutUser_skillInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutUser_skillInput, Prisma.UserUncheckedCreateWithoutUser_skillInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutUser_skillInput
+  connect?: Prisma.UserWhereUniqueInput
 }
 
-export type userUpdateOneRequiredWithoutUser_skillNestedInput = {
-  create?: Prisma.XOR<Prisma.userCreateWithoutUser_skillInput, Prisma.userUncheckedCreateWithoutUser_skillInput>
-  connectOrCreate?: Prisma.userCreateOrConnectWithoutUser_skillInput
-  upsert?: Prisma.userUpsertWithoutUser_skillInput
-  connect?: Prisma.userWhereUniqueInput
-  update?: Prisma.XOR<Prisma.XOR<Prisma.userUpdateToOneWithWhereWithoutUser_skillInput, Prisma.userUpdateWithoutUser_skillInput>, Prisma.userUncheckedUpdateWithoutUser_skillInput>
+export type UserUpdateOneRequiredWithoutUser_skillNestedInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutUser_skillInput, Prisma.UserUncheckedCreateWithoutUser_skillInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutUser_skillInput
+  upsert?: Prisma.UserUpsertWithoutUser_skillInput
+  connect?: Prisma.UserWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutUser_skillInput, Prisma.UserUpdateWithoutUser_skillInput>, Prisma.UserUncheckedUpdateWithoutUser_skillInput>
 }
 
-export type userCreateWithoutApplicationInput = {
+export type UserCreateWithoutApplicationInput = {
   first_name: string
   last_name: string
   email: string
   password: string
+  refreshToken?: string | null
   created_at?: Date | string
   updated_at?: Date | string
   deleted_at?: Date | string | null
-  comment?: Prisma.commentCreateNestedManyWithoutUserInput
-  company_follower?: Prisma.company_followerCreateNestedManyWithoutUserInput
-  connection_connection_user_action_idTouser?: Prisma.connectionCreateNestedManyWithoutUser_connection_user_action_idTouserInput
-  connection_connection_user_receiver_idTouser?: Prisma.connectionCreateNestedManyWithoutUser_connection_user_receiver_idTouserInput
-  employment?: Prisma.employmentCreateNestedManyWithoutUserInput
-  message_message_recipient_idTouser?: Prisma.messageCreateNestedManyWithoutUser_message_recipient_idTouserInput
-  message_message_sender_idTouser?: Prisma.messageCreateNestedManyWithoutUser_message_sender_idTouserInput
-  notification?: Prisma.notificationCreateNestedManyWithoutUserInput
-  publication?: Prisma.publicationCreateNestedManyWithoutUserInput
-  role: Prisma.roleCreateNestedOneWithoutUserInput
-  user_skill?: Prisma.user_skillCreateNestedManyWithoutUserInput
+  comment?: Prisma.CommentCreateNestedManyWithoutUserInput
+  company_follower?: Prisma.Company_followerCreateNestedManyWithoutUserInput
+  connection_connection_user_action_idTouser?: Prisma.ConnectionCreateNestedManyWithoutUser_connection_user_action_idTouserInput
+  connection_connection_user_receiver_idTouser?: Prisma.ConnectionCreateNestedManyWithoutUser_connection_user_receiver_idTouserInput
+  employment?: Prisma.EmploymentCreateNestedManyWithoutUserInput
+  message_message_recipient_idTouser?: Prisma.MessageCreateNestedManyWithoutUser_message_recipient_idTouserInput
+  message_message_sender_idTouser?: Prisma.MessageCreateNestedManyWithoutUser_message_sender_idTouserInput
+  notification?: Prisma.NotificationCreateNestedManyWithoutUserInput
+  publication?: Prisma.PublicationCreateNestedManyWithoutUserInput
+  role: Prisma.RoleCreateNestedOneWithoutUserInput
+  user_skill?: Prisma.User_skillCreateNestedManyWithoutUserInput
 }
 
-export type userUncheckedCreateWithoutApplicationInput = {
+export type UserUncheckedCreateWithoutApplicationInput = {
   id?: number
   role_id: number
   first_name: string
   last_name: string
   email: string
   password: string
+  refreshToken?: string | null
   created_at?: Date | string
   updated_at?: Date | string
   deleted_at?: Date | string | null
-  comment?: Prisma.commentUncheckedCreateNestedManyWithoutUserInput
-  company_follower?: Prisma.company_followerUncheckedCreateNestedManyWithoutUserInput
-  connection_connection_user_action_idTouser?: Prisma.connectionUncheckedCreateNestedManyWithoutUser_connection_user_action_idTouserInput
-  connection_connection_user_receiver_idTouser?: Prisma.connectionUncheckedCreateNestedManyWithoutUser_connection_user_receiver_idTouserInput
-  employment?: Prisma.employmentUncheckedCreateNestedManyWithoutUserInput
-  message_message_recipient_idTouser?: Prisma.messageUncheckedCreateNestedManyWithoutUser_message_recipient_idTouserInput
-  message_message_sender_idTouser?: Prisma.messageUncheckedCreateNestedManyWithoutUser_message_sender_idTouserInput
-  notification?: Prisma.notificationUncheckedCreateNestedManyWithoutUserInput
-  publication?: Prisma.publicationUncheckedCreateNestedManyWithoutUserInput
-  user_skill?: Prisma.user_skillUncheckedCreateNestedManyWithoutUserInput
+  comment?: Prisma.CommentUncheckedCreateNestedManyWithoutUserInput
+  company_follower?: Prisma.Company_followerUncheckedCreateNestedManyWithoutUserInput
+  connection_connection_user_action_idTouser?: Prisma.ConnectionUncheckedCreateNestedManyWithoutUser_connection_user_action_idTouserInput
+  connection_connection_user_receiver_idTouser?: Prisma.ConnectionUncheckedCreateNestedManyWithoutUser_connection_user_receiver_idTouserInput
+  employment?: Prisma.EmploymentUncheckedCreateNestedManyWithoutUserInput
+  message_message_recipient_idTouser?: Prisma.MessageUncheckedCreateNestedManyWithoutUser_message_recipient_idTouserInput
+  message_message_sender_idTouser?: Prisma.MessageUncheckedCreateNestedManyWithoutUser_message_sender_idTouserInput
+  notification?: Prisma.NotificationUncheckedCreateNestedManyWithoutUserInput
+  publication?: Prisma.PublicationUncheckedCreateNestedManyWithoutUserInput
+  user_skill?: Prisma.User_skillUncheckedCreateNestedManyWithoutUserInput
 }
 
-export type userCreateOrConnectWithoutApplicationInput = {
-  where: Prisma.userWhereUniqueInput
-  create: Prisma.XOR<Prisma.userCreateWithoutApplicationInput, Prisma.userUncheckedCreateWithoutApplicationInput>
+export type UserCreateOrConnectWithoutApplicationInput = {
+  where: Prisma.UserWhereUniqueInput
+  create: Prisma.XOR<Prisma.UserCreateWithoutApplicationInput, Prisma.UserUncheckedCreateWithoutApplicationInput>
 }
 
-export type userUpsertWithoutApplicationInput = {
-  update: Prisma.XOR<Prisma.userUpdateWithoutApplicationInput, Prisma.userUncheckedUpdateWithoutApplicationInput>
-  create: Prisma.XOR<Prisma.userCreateWithoutApplicationInput, Prisma.userUncheckedCreateWithoutApplicationInput>
-  where?: Prisma.userWhereInput
+export type UserUpsertWithoutApplicationInput = {
+  update: Prisma.XOR<Prisma.UserUpdateWithoutApplicationInput, Prisma.UserUncheckedUpdateWithoutApplicationInput>
+  create: Prisma.XOR<Prisma.UserCreateWithoutApplicationInput, Prisma.UserUncheckedCreateWithoutApplicationInput>
+  where?: Prisma.UserWhereInput
 }
 
-export type userUpdateToOneWithWhereWithoutApplicationInput = {
-  where?: Prisma.userWhereInput
-  data: Prisma.XOR<Prisma.userUpdateWithoutApplicationInput, Prisma.userUncheckedUpdateWithoutApplicationInput>
+export type UserUpdateToOneWithWhereWithoutApplicationInput = {
+  where?: Prisma.UserWhereInput
+  data: Prisma.XOR<Prisma.UserUpdateWithoutApplicationInput, Prisma.UserUncheckedUpdateWithoutApplicationInput>
 }
 
-export type userUpdateWithoutApplicationInput = {
+export type UserUpdateWithoutApplicationInput = {
   first_name?: Prisma.StringFieldUpdateOperationsInput | string
   last_name?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
   password?: Prisma.StringFieldUpdateOperationsInput | string
+  refreshToken?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deleted_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  comment?: Prisma.commentUpdateManyWithoutUserNestedInput
-  company_follower?: Prisma.company_followerUpdateManyWithoutUserNestedInput
-  connection_connection_user_action_idTouser?: Prisma.connectionUpdateManyWithoutUser_connection_user_action_idTouserNestedInput
-  connection_connection_user_receiver_idTouser?: Prisma.connectionUpdateManyWithoutUser_connection_user_receiver_idTouserNestedInput
-  employment?: Prisma.employmentUpdateManyWithoutUserNestedInput
-  message_message_recipient_idTouser?: Prisma.messageUpdateManyWithoutUser_message_recipient_idTouserNestedInput
-  message_message_sender_idTouser?: Prisma.messageUpdateManyWithoutUser_message_sender_idTouserNestedInput
-  notification?: Prisma.notificationUpdateManyWithoutUserNestedInput
-  publication?: Prisma.publicationUpdateManyWithoutUserNestedInput
-  role?: Prisma.roleUpdateOneRequiredWithoutUserNestedInput
-  user_skill?: Prisma.user_skillUpdateManyWithoutUserNestedInput
+  comment?: Prisma.CommentUpdateManyWithoutUserNestedInput
+  company_follower?: Prisma.Company_followerUpdateManyWithoutUserNestedInput
+  connection_connection_user_action_idTouser?: Prisma.ConnectionUpdateManyWithoutUser_connection_user_action_idTouserNestedInput
+  connection_connection_user_receiver_idTouser?: Prisma.ConnectionUpdateManyWithoutUser_connection_user_receiver_idTouserNestedInput
+  employment?: Prisma.EmploymentUpdateManyWithoutUserNestedInput
+  message_message_recipient_idTouser?: Prisma.MessageUpdateManyWithoutUser_message_recipient_idTouserNestedInput
+  message_message_sender_idTouser?: Prisma.MessageUpdateManyWithoutUser_message_sender_idTouserNestedInput
+  notification?: Prisma.NotificationUpdateManyWithoutUserNestedInput
+  publication?: Prisma.PublicationUpdateManyWithoutUserNestedInput
+  role?: Prisma.RoleUpdateOneRequiredWithoutUserNestedInput
+  user_skill?: Prisma.User_skillUpdateManyWithoutUserNestedInput
 }
 
-export type userUncheckedUpdateWithoutApplicationInput = {
+export type UserUncheckedUpdateWithoutApplicationInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   role_id?: Prisma.IntFieldUpdateOperationsInput | number
   first_name?: Prisma.StringFieldUpdateOperationsInput | string
   last_name?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
   password?: Prisma.StringFieldUpdateOperationsInput | string
+  refreshToken?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deleted_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  comment?: Prisma.commentUncheckedUpdateManyWithoutUserNestedInput
-  company_follower?: Prisma.company_followerUncheckedUpdateManyWithoutUserNestedInput
-  connection_connection_user_action_idTouser?: Prisma.connectionUncheckedUpdateManyWithoutUser_connection_user_action_idTouserNestedInput
-  connection_connection_user_receiver_idTouser?: Prisma.connectionUncheckedUpdateManyWithoutUser_connection_user_receiver_idTouserNestedInput
-  employment?: Prisma.employmentUncheckedUpdateManyWithoutUserNestedInput
-  message_message_recipient_idTouser?: Prisma.messageUncheckedUpdateManyWithoutUser_message_recipient_idTouserNestedInput
-  message_message_sender_idTouser?: Prisma.messageUncheckedUpdateManyWithoutUser_message_sender_idTouserNestedInput
-  notification?: Prisma.notificationUncheckedUpdateManyWithoutUserNestedInput
-  publication?: Prisma.publicationUncheckedUpdateManyWithoutUserNestedInput
-  user_skill?: Prisma.user_skillUncheckedUpdateManyWithoutUserNestedInput
+  comment?: Prisma.CommentUncheckedUpdateManyWithoutUserNestedInput
+  company_follower?: Prisma.Company_followerUncheckedUpdateManyWithoutUserNestedInput
+  connection_connection_user_action_idTouser?: Prisma.ConnectionUncheckedUpdateManyWithoutUser_connection_user_action_idTouserNestedInput
+  connection_connection_user_receiver_idTouser?: Prisma.ConnectionUncheckedUpdateManyWithoutUser_connection_user_receiver_idTouserNestedInput
+  employment?: Prisma.EmploymentUncheckedUpdateManyWithoutUserNestedInput
+  message_message_recipient_idTouser?: Prisma.MessageUncheckedUpdateManyWithoutUser_message_recipient_idTouserNestedInput
+  message_message_sender_idTouser?: Prisma.MessageUncheckedUpdateManyWithoutUser_message_sender_idTouserNestedInput
+  notification?: Prisma.NotificationUncheckedUpdateManyWithoutUserNestedInput
+  publication?: Prisma.PublicationUncheckedUpdateManyWithoutUserNestedInput
+  user_skill?: Prisma.User_skillUncheckedUpdateManyWithoutUserNestedInput
 }
 
-export type userCreateWithoutCommentInput = {
+export type UserCreateWithoutCommentInput = {
   first_name: string
   last_name: string
   email: string
   password: string
+  refreshToken?: string | null
   created_at?: Date | string
   updated_at?: Date | string
   deleted_at?: Date | string | null
-  application?: Prisma.applicationCreateNestedManyWithoutUserInput
-  company_follower?: Prisma.company_followerCreateNestedManyWithoutUserInput
-  connection_connection_user_action_idTouser?: Prisma.connectionCreateNestedManyWithoutUser_connection_user_action_idTouserInput
-  connection_connection_user_receiver_idTouser?: Prisma.connectionCreateNestedManyWithoutUser_connection_user_receiver_idTouserInput
-  employment?: Prisma.employmentCreateNestedManyWithoutUserInput
-  message_message_recipient_idTouser?: Prisma.messageCreateNestedManyWithoutUser_message_recipient_idTouserInput
-  message_message_sender_idTouser?: Prisma.messageCreateNestedManyWithoutUser_message_sender_idTouserInput
-  notification?: Prisma.notificationCreateNestedManyWithoutUserInput
-  publication?: Prisma.publicationCreateNestedManyWithoutUserInput
-  role: Prisma.roleCreateNestedOneWithoutUserInput
-  user_skill?: Prisma.user_skillCreateNestedManyWithoutUserInput
+  application?: Prisma.ApplicationCreateNestedManyWithoutUserInput
+  company_follower?: Prisma.Company_followerCreateNestedManyWithoutUserInput
+  connection_connection_user_action_idTouser?: Prisma.ConnectionCreateNestedManyWithoutUser_connection_user_action_idTouserInput
+  connection_connection_user_receiver_idTouser?: Prisma.ConnectionCreateNestedManyWithoutUser_connection_user_receiver_idTouserInput
+  employment?: Prisma.EmploymentCreateNestedManyWithoutUserInput
+  message_message_recipient_idTouser?: Prisma.MessageCreateNestedManyWithoutUser_message_recipient_idTouserInput
+  message_message_sender_idTouser?: Prisma.MessageCreateNestedManyWithoutUser_message_sender_idTouserInput
+  notification?: Prisma.NotificationCreateNestedManyWithoutUserInput
+  publication?: Prisma.PublicationCreateNestedManyWithoutUserInput
+  role: Prisma.RoleCreateNestedOneWithoutUserInput
+  user_skill?: Prisma.User_skillCreateNestedManyWithoutUserInput
 }
 
-export type userUncheckedCreateWithoutCommentInput = {
+export type UserUncheckedCreateWithoutCommentInput = {
   id?: number
   role_id: number
   first_name: string
   last_name: string
   email: string
   password: string
+  refreshToken?: string | null
   created_at?: Date | string
   updated_at?: Date | string
   deleted_at?: Date | string | null
-  application?: Prisma.applicationUncheckedCreateNestedManyWithoutUserInput
-  company_follower?: Prisma.company_followerUncheckedCreateNestedManyWithoutUserInput
-  connection_connection_user_action_idTouser?: Prisma.connectionUncheckedCreateNestedManyWithoutUser_connection_user_action_idTouserInput
-  connection_connection_user_receiver_idTouser?: Prisma.connectionUncheckedCreateNestedManyWithoutUser_connection_user_receiver_idTouserInput
-  employment?: Prisma.employmentUncheckedCreateNestedManyWithoutUserInput
-  message_message_recipient_idTouser?: Prisma.messageUncheckedCreateNestedManyWithoutUser_message_recipient_idTouserInput
-  message_message_sender_idTouser?: Prisma.messageUncheckedCreateNestedManyWithoutUser_message_sender_idTouserInput
-  notification?: Prisma.notificationUncheckedCreateNestedManyWithoutUserInput
-  publication?: Prisma.publicationUncheckedCreateNestedManyWithoutUserInput
-  user_skill?: Prisma.user_skillUncheckedCreateNestedManyWithoutUserInput
+  application?: Prisma.ApplicationUncheckedCreateNestedManyWithoutUserInput
+  company_follower?: Prisma.Company_followerUncheckedCreateNestedManyWithoutUserInput
+  connection_connection_user_action_idTouser?: Prisma.ConnectionUncheckedCreateNestedManyWithoutUser_connection_user_action_idTouserInput
+  connection_connection_user_receiver_idTouser?: Prisma.ConnectionUncheckedCreateNestedManyWithoutUser_connection_user_receiver_idTouserInput
+  employment?: Prisma.EmploymentUncheckedCreateNestedManyWithoutUserInput
+  message_message_recipient_idTouser?: Prisma.MessageUncheckedCreateNestedManyWithoutUser_message_recipient_idTouserInput
+  message_message_sender_idTouser?: Prisma.MessageUncheckedCreateNestedManyWithoutUser_message_sender_idTouserInput
+  notification?: Prisma.NotificationUncheckedCreateNestedManyWithoutUserInput
+  publication?: Prisma.PublicationUncheckedCreateNestedManyWithoutUserInput
+  user_skill?: Prisma.User_skillUncheckedCreateNestedManyWithoutUserInput
 }
 
-export type userCreateOrConnectWithoutCommentInput = {
-  where: Prisma.userWhereUniqueInput
-  create: Prisma.XOR<Prisma.userCreateWithoutCommentInput, Prisma.userUncheckedCreateWithoutCommentInput>
+export type UserCreateOrConnectWithoutCommentInput = {
+  where: Prisma.UserWhereUniqueInput
+  create: Prisma.XOR<Prisma.UserCreateWithoutCommentInput, Prisma.UserUncheckedCreateWithoutCommentInput>
 }
 
-export type userUpsertWithoutCommentInput = {
-  update: Prisma.XOR<Prisma.userUpdateWithoutCommentInput, Prisma.userUncheckedUpdateWithoutCommentInput>
-  create: Prisma.XOR<Prisma.userCreateWithoutCommentInput, Prisma.userUncheckedCreateWithoutCommentInput>
-  where?: Prisma.userWhereInput
+export type UserUpsertWithoutCommentInput = {
+  update: Prisma.XOR<Prisma.UserUpdateWithoutCommentInput, Prisma.UserUncheckedUpdateWithoutCommentInput>
+  create: Prisma.XOR<Prisma.UserCreateWithoutCommentInput, Prisma.UserUncheckedCreateWithoutCommentInput>
+  where?: Prisma.UserWhereInput
 }
 
-export type userUpdateToOneWithWhereWithoutCommentInput = {
-  where?: Prisma.userWhereInput
-  data: Prisma.XOR<Prisma.userUpdateWithoutCommentInput, Prisma.userUncheckedUpdateWithoutCommentInput>
+export type UserUpdateToOneWithWhereWithoutCommentInput = {
+  where?: Prisma.UserWhereInput
+  data: Prisma.XOR<Prisma.UserUpdateWithoutCommentInput, Prisma.UserUncheckedUpdateWithoutCommentInput>
 }
 
-export type userUpdateWithoutCommentInput = {
+export type UserUpdateWithoutCommentInput = {
   first_name?: Prisma.StringFieldUpdateOperationsInput | string
   last_name?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
   password?: Prisma.StringFieldUpdateOperationsInput | string
+  refreshToken?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deleted_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  application?: Prisma.applicationUpdateManyWithoutUserNestedInput
-  company_follower?: Prisma.company_followerUpdateManyWithoutUserNestedInput
-  connection_connection_user_action_idTouser?: Prisma.connectionUpdateManyWithoutUser_connection_user_action_idTouserNestedInput
-  connection_connection_user_receiver_idTouser?: Prisma.connectionUpdateManyWithoutUser_connection_user_receiver_idTouserNestedInput
-  employment?: Prisma.employmentUpdateManyWithoutUserNestedInput
-  message_message_recipient_idTouser?: Prisma.messageUpdateManyWithoutUser_message_recipient_idTouserNestedInput
-  message_message_sender_idTouser?: Prisma.messageUpdateManyWithoutUser_message_sender_idTouserNestedInput
-  notification?: Prisma.notificationUpdateManyWithoutUserNestedInput
-  publication?: Prisma.publicationUpdateManyWithoutUserNestedInput
-  role?: Prisma.roleUpdateOneRequiredWithoutUserNestedInput
-  user_skill?: Prisma.user_skillUpdateManyWithoutUserNestedInput
+  application?: Prisma.ApplicationUpdateManyWithoutUserNestedInput
+  company_follower?: Prisma.Company_followerUpdateManyWithoutUserNestedInput
+  connection_connection_user_action_idTouser?: Prisma.ConnectionUpdateManyWithoutUser_connection_user_action_idTouserNestedInput
+  connection_connection_user_receiver_idTouser?: Prisma.ConnectionUpdateManyWithoutUser_connection_user_receiver_idTouserNestedInput
+  employment?: Prisma.EmploymentUpdateManyWithoutUserNestedInput
+  message_message_recipient_idTouser?: Prisma.MessageUpdateManyWithoutUser_message_recipient_idTouserNestedInput
+  message_message_sender_idTouser?: Prisma.MessageUpdateManyWithoutUser_message_sender_idTouserNestedInput
+  notification?: Prisma.NotificationUpdateManyWithoutUserNestedInput
+  publication?: Prisma.PublicationUpdateManyWithoutUserNestedInput
+  role?: Prisma.RoleUpdateOneRequiredWithoutUserNestedInput
+  user_skill?: Prisma.User_skillUpdateManyWithoutUserNestedInput
 }
 
-export type userUncheckedUpdateWithoutCommentInput = {
+export type UserUncheckedUpdateWithoutCommentInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   role_id?: Prisma.IntFieldUpdateOperationsInput | number
   first_name?: Prisma.StringFieldUpdateOperationsInput | string
   last_name?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
   password?: Prisma.StringFieldUpdateOperationsInput | string
+  refreshToken?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deleted_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  application?: Prisma.applicationUncheckedUpdateManyWithoutUserNestedInput
-  company_follower?: Prisma.company_followerUncheckedUpdateManyWithoutUserNestedInput
-  connection_connection_user_action_idTouser?: Prisma.connectionUncheckedUpdateManyWithoutUser_connection_user_action_idTouserNestedInput
-  connection_connection_user_receiver_idTouser?: Prisma.connectionUncheckedUpdateManyWithoutUser_connection_user_receiver_idTouserNestedInput
-  employment?: Prisma.employmentUncheckedUpdateManyWithoutUserNestedInput
-  message_message_recipient_idTouser?: Prisma.messageUncheckedUpdateManyWithoutUser_message_recipient_idTouserNestedInput
-  message_message_sender_idTouser?: Prisma.messageUncheckedUpdateManyWithoutUser_message_sender_idTouserNestedInput
-  notification?: Prisma.notificationUncheckedUpdateManyWithoutUserNestedInput
-  publication?: Prisma.publicationUncheckedUpdateManyWithoutUserNestedInput
-  user_skill?: Prisma.user_skillUncheckedUpdateManyWithoutUserNestedInput
+  application?: Prisma.ApplicationUncheckedUpdateManyWithoutUserNestedInput
+  company_follower?: Prisma.Company_followerUncheckedUpdateManyWithoutUserNestedInput
+  connection_connection_user_action_idTouser?: Prisma.ConnectionUncheckedUpdateManyWithoutUser_connection_user_action_idTouserNestedInput
+  connection_connection_user_receiver_idTouser?: Prisma.ConnectionUncheckedUpdateManyWithoutUser_connection_user_receiver_idTouserNestedInput
+  employment?: Prisma.EmploymentUncheckedUpdateManyWithoutUserNestedInput
+  message_message_recipient_idTouser?: Prisma.MessageUncheckedUpdateManyWithoutUser_message_recipient_idTouserNestedInput
+  message_message_sender_idTouser?: Prisma.MessageUncheckedUpdateManyWithoutUser_message_sender_idTouserNestedInput
+  notification?: Prisma.NotificationUncheckedUpdateManyWithoutUserNestedInput
+  publication?: Prisma.PublicationUncheckedUpdateManyWithoutUserNestedInput
+  user_skill?: Prisma.User_skillUncheckedUpdateManyWithoutUserNestedInput
 }
 
-export type userCreateWithoutCompany_followerInput = {
+export type UserCreateWithoutCompany_followerInput = {
   first_name: string
   last_name: string
   email: string
   password: string
+  refreshToken?: string | null
   created_at?: Date | string
   updated_at?: Date | string
   deleted_at?: Date | string | null
-  application?: Prisma.applicationCreateNestedManyWithoutUserInput
-  comment?: Prisma.commentCreateNestedManyWithoutUserInput
-  connection_connection_user_action_idTouser?: Prisma.connectionCreateNestedManyWithoutUser_connection_user_action_idTouserInput
-  connection_connection_user_receiver_idTouser?: Prisma.connectionCreateNestedManyWithoutUser_connection_user_receiver_idTouserInput
-  employment?: Prisma.employmentCreateNestedManyWithoutUserInput
-  message_message_recipient_idTouser?: Prisma.messageCreateNestedManyWithoutUser_message_recipient_idTouserInput
-  message_message_sender_idTouser?: Prisma.messageCreateNestedManyWithoutUser_message_sender_idTouserInput
-  notification?: Prisma.notificationCreateNestedManyWithoutUserInput
-  publication?: Prisma.publicationCreateNestedManyWithoutUserInput
-  role: Prisma.roleCreateNestedOneWithoutUserInput
-  user_skill?: Prisma.user_skillCreateNestedManyWithoutUserInput
+  application?: Prisma.ApplicationCreateNestedManyWithoutUserInput
+  comment?: Prisma.CommentCreateNestedManyWithoutUserInput
+  connection_connection_user_action_idTouser?: Prisma.ConnectionCreateNestedManyWithoutUser_connection_user_action_idTouserInput
+  connection_connection_user_receiver_idTouser?: Prisma.ConnectionCreateNestedManyWithoutUser_connection_user_receiver_idTouserInput
+  employment?: Prisma.EmploymentCreateNestedManyWithoutUserInput
+  message_message_recipient_idTouser?: Prisma.MessageCreateNestedManyWithoutUser_message_recipient_idTouserInput
+  message_message_sender_idTouser?: Prisma.MessageCreateNestedManyWithoutUser_message_sender_idTouserInput
+  notification?: Prisma.NotificationCreateNestedManyWithoutUserInput
+  publication?: Prisma.PublicationCreateNestedManyWithoutUserInput
+  role: Prisma.RoleCreateNestedOneWithoutUserInput
+  user_skill?: Prisma.User_skillCreateNestedManyWithoutUserInput
 }
 
-export type userUncheckedCreateWithoutCompany_followerInput = {
+export type UserUncheckedCreateWithoutCompany_followerInput = {
   id?: number
   role_id: number
   first_name: string
   last_name: string
   email: string
   password: string
+  refreshToken?: string | null
   created_at?: Date | string
   updated_at?: Date | string
   deleted_at?: Date | string | null
-  application?: Prisma.applicationUncheckedCreateNestedManyWithoutUserInput
-  comment?: Prisma.commentUncheckedCreateNestedManyWithoutUserInput
-  connection_connection_user_action_idTouser?: Prisma.connectionUncheckedCreateNestedManyWithoutUser_connection_user_action_idTouserInput
-  connection_connection_user_receiver_idTouser?: Prisma.connectionUncheckedCreateNestedManyWithoutUser_connection_user_receiver_idTouserInput
-  employment?: Prisma.employmentUncheckedCreateNestedManyWithoutUserInput
-  message_message_recipient_idTouser?: Prisma.messageUncheckedCreateNestedManyWithoutUser_message_recipient_idTouserInput
-  message_message_sender_idTouser?: Prisma.messageUncheckedCreateNestedManyWithoutUser_message_sender_idTouserInput
-  notification?: Prisma.notificationUncheckedCreateNestedManyWithoutUserInput
-  publication?: Prisma.publicationUncheckedCreateNestedManyWithoutUserInput
-  user_skill?: Prisma.user_skillUncheckedCreateNestedManyWithoutUserInput
+  application?: Prisma.ApplicationUncheckedCreateNestedManyWithoutUserInput
+  comment?: Prisma.CommentUncheckedCreateNestedManyWithoutUserInput
+  connection_connection_user_action_idTouser?: Prisma.ConnectionUncheckedCreateNestedManyWithoutUser_connection_user_action_idTouserInput
+  connection_connection_user_receiver_idTouser?: Prisma.ConnectionUncheckedCreateNestedManyWithoutUser_connection_user_receiver_idTouserInput
+  employment?: Prisma.EmploymentUncheckedCreateNestedManyWithoutUserInput
+  message_message_recipient_idTouser?: Prisma.MessageUncheckedCreateNestedManyWithoutUser_message_recipient_idTouserInput
+  message_message_sender_idTouser?: Prisma.MessageUncheckedCreateNestedManyWithoutUser_message_sender_idTouserInput
+  notification?: Prisma.NotificationUncheckedCreateNestedManyWithoutUserInput
+  publication?: Prisma.PublicationUncheckedCreateNestedManyWithoutUserInput
+  user_skill?: Prisma.User_skillUncheckedCreateNestedManyWithoutUserInput
 }
 
-export type userCreateOrConnectWithoutCompany_followerInput = {
-  where: Prisma.userWhereUniqueInput
-  create: Prisma.XOR<Prisma.userCreateWithoutCompany_followerInput, Prisma.userUncheckedCreateWithoutCompany_followerInput>
+export type UserCreateOrConnectWithoutCompany_followerInput = {
+  where: Prisma.UserWhereUniqueInput
+  create: Prisma.XOR<Prisma.UserCreateWithoutCompany_followerInput, Prisma.UserUncheckedCreateWithoutCompany_followerInput>
 }
 
-export type userUpsertWithoutCompany_followerInput = {
-  update: Prisma.XOR<Prisma.userUpdateWithoutCompany_followerInput, Prisma.userUncheckedUpdateWithoutCompany_followerInput>
-  create: Prisma.XOR<Prisma.userCreateWithoutCompany_followerInput, Prisma.userUncheckedCreateWithoutCompany_followerInput>
-  where?: Prisma.userWhereInput
+export type UserUpsertWithoutCompany_followerInput = {
+  update: Prisma.XOR<Prisma.UserUpdateWithoutCompany_followerInput, Prisma.UserUncheckedUpdateWithoutCompany_followerInput>
+  create: Prisma.XOR<Prisma.UserCreateWithoutCompany_followerInput, Prisma.UserUncheckedCreateWithoutCompany_followerInput>
+  where?: Prisma.UserWhereInput
 }
 
-export type userUpdateToOneWithWhereWithoutCompany_followerInput = {
-  where?: Prisma.userWhereInput
-  data: Prisma.XOR<Prisma.userUpdateWithoutCompany_followerInput, Prisma.userUncheckedUpdateWithoutCompany_followerInput>
+export type UserUpdateToOneWithWhereWithoutCompany_followerInput = {
+  where?: Prisma.UserWhereInput
+  data: Prisma.XOR<Prisma.UserUpdateWithoutCompany_followerInput, Prisma.UserUncheckedUpdateWithoutCompany_followerInput>
 }
 
-export type userUpdateWithoutCompany_followerInput = {
+export type UserUpdateWithoutCompany_followerInput = {
   first_name?: Prisma.StringFieldUpdateOperationsInput | string
   last_name?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
   password?: Prisma.StringFieldUpdateOperationsInput | string
+  refreshToken?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deleted_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  application?: Prisma.applicationUpdateManyWithoutUserNestedInput
-  comment?: Prisma.commentUpdateManyWithoutUserNestedInput
-  connection_connection_user_action_idTouser?: Prisma.connectionUpdateManyWithoutUser_connection_user_action_idTouserNestedInput
-  connection_connection_user_receiver_idTouser?: Prisma.connectionUpdateManyWithoutUser_connection_user_receiver_idTouserNestedInput
-  employment?: Prisma.employmentUpdateManyWithoutUserNestedInput
-  message_message_recipient_idTouser?: Prisma.messageUpdateManyWithoutUser_message_recipient_idTouserNestedInput
-  message_message_sender_idTouser?: Prisma.messageUpdateManyWithoutUser_message_sender_idTouserNestedInput
-  notification?: Prisma.notificationUpdateManyWithoutUserNestedInput
-  publication?: Prisma.publicationUpdateManyWithoutUserNestedInput
-  role?: Prisma.roleUpdateOneRequiredWithoutUserNestedInput
-  user_skill?: Prisma.user_skillUpdateManyWithoutUserNestedInput
+  application?: Prisma.ApplicationUpdateManyWithoutUserNestedInput
+  comment?: Prisma.CommentUpdateManyWithoutUserNestedInput
+  connection_connection_user_action_idTouser?: Prisma.ConnectionUpdateManyWithoutUser_connection_user_action_idTouserNestedInput
+  connection_connection_user_receiver_idTouser?: Prisma.ConnectionUpdateManyWithoutUser_connection_user_receiver_idTouserNestedInput
+  employment?: Prisma.EmploymentUpdateManyWithoutUserNestedInput
+  message_message_recipient_idTouser?: Prisma.MessageUpdateManyWithoutUser_message_recipient_idTouserNestedInput
+  message_message_sender_idTouser?: Prisma.MessageUpdateManyWithoutUser_message_sender_idTouserNestedInput
+  notification?: Prisma.NotificationUpdateManyWithoutUserNestedInput
+  publication?: Prisma.PublicationUpdateManyWithoutUserNestedInput
+  role?: Prisma.RoleUpdateOneRequiredWithoutUserNestedInput
+  user_skill?: Prisma.User_skillUpdateManyWithoutUserNestedInput
 }
 
-export type userUncheckedUpdateWithoutCompany_followerInput = {
+export type UserUncheckedUpdateWithoutCompany_followerInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   role_id?: Prisma.IntFieldUpdateOperationsInput | number
   first_name?: Prisma.StringFieldUpdateOperationsInput | string
   last_name?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
   password?: Prisma.StringFieldUpdateOperationsInput | string
+  refreshToken?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deleted_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  application?: Prisma.applicationUncheckedUpdateManyWithoutUserNestedInput
-  comment?: Prisma.commentUncheckedUpdateManyWithoutUserNestedInput
-  connection_connection_user_action_idTouser?: Prisma.connectionUncheckedUpdateManyWithoutUser_connection_user_action_idTouserNestedInput
-  connection_connection_user_receiver_idTouser?: Prisma.connectionUncheckedUpdateManyWithoutUser_connection_user_receiver_idTouserNestedInput
-  employment?: Prisma.employmentUncheckedUpdateManyWithoutUserNestedInput
-  message_message_recipient_idTouser?: Prisma.messageUncheckedUpdateManyWithoutUser_message_recipient_idTouserNestedInput
-  message_message_sender_idTouser?: Prisma.messageUncheckedUpdateManyWithoutUser_message_sender_idTouserNestedInput
-  notification?: Prisma.notificationUncheckedUpdateManyWithoutUserNestedInput
-  publication?: Prisma.publicationUncheckedUpdateManyWithoutUserNestedInput
-  user_skill?: Prisma.user_skillUncheckedUpdateManyWithoutUserNestedInput
+  application?: Prisma.ApplicationUncheckedUpdateManyWithoutUserNestedInput
+  comment?: Prisma.CommentUncheckedUpdateManyWithoutUserNestedInput
+  connection_connection_user_action_idTouser?: Prisma.ConnectionUncheckedUpdateManyWithoutUser_connection_user_action_idTouserNestedInput
+  connection_connection_user_receiver_idTouser?: Prisma.ConnectionUncheckedUpdateManyWithoutUser_connection_user_receiver_idTouserNestedInput
+  employment?: Prisma.EmploymentUncheckedUpdateManyWithoutUserNestedInput
+  message_message_recipient_idTouser?: Prisma.MessageUncheckedUpdateManyWithoutUser_message_recipient_idTouserNestedInput
+  message_message_sender_idTouser?: Prisma.MessageUncheckedUpdateManyWithoutUser_message_sender_idTouserNestedInput
+  notification?: Prisma.NotificationUncheckedUpdateManyWithoutUserNestedInput
+  publication?: Prisma.PublicationUncheckedUpdateManyWithoutUserNestedInput
+  user_skill?: Prisma.User_skillUncheckedUpdateManyWithoutUserNestedInput
 }
 
-export type userCreateWithoutConnection_connection_user_action_idTouserInput = {
+export type UserCreateWithoutConnection_connection_user_action_idTouserInput = {
   first_name: string
   last_name: string
   email: string
   password: string
+  refreshToken?: string | null
   created_at?: Date | string
   updated_at?: Date | string
   deleted_at?: Date | string | null
-  application?: Prisma.applicationCreateNestedManyWithoutUserInput
-  comment?: Prisma.commentCreateNestedManyWithoutUserInput
-  company_follower?: Prisma.company_followerCreateNestedManyWithoutUserInput
-  connection_connection_user_receiver_idTouser?: Prisma.connectionCreateNestedManyWithoutUser_connection_user_receiver_idTouserInput
-  employment?: Prisma.employmentCreateNestedManyWithoutUserInput
-  message_message_recipient_idTouser?: Prisma.messageCreateNestedManyWithoutUser_message_recipient_idTouserInput
-  message_message_sender_idTouser?: Prisma.messageCreateNestedManyWithoutUser_message_sender_idTouserInput
-  notification?: Prisma.notificationCreateNestedManyWithoutUserInput
-  publication?: Prisma.publicationCreateNestedManyWithoutUserInput
-  role: Prisma.roleCreateNestedOneWithoutUserInput
-  user_skill?: Prisma.user_skillCreateNestedManyWithoutUserInput
+  application?: Prisma.ApplicationCreateNestedManyWithoutUserInput
+  comment?: Prisma.CommentCreateNestedManyWithoutUserInput
+  company_follower?: Prisma.Company_followerCreateNestedManyWithoutUserInput
+  connection_connection_user_receiver_idTouser?: Prisma.ConnectionCreateNestedManyWithoutUser_connection_user_receiver_idTouserInput
+  employment?: Prisma.EmploymentCreateNestedManyWithoutUserInput
+  message_message_recipient_idTouser?: Prisma.MessageCreateNestedManyWithoutUser_message_recipient_idTouserInput
+  message_message_sender_idTouser?: Prisma.MessageCreateNestedManyWithoutUser_message_sender_idTouserInput
+  notification?: Prisma.NotificationCreateNestedManyWithoutUserInput
+  publication?: Prisma.PublicationCreateNestedManyWithoutUserInput
+  role: Prisma.RoleCreateNestedOneWithoutUserInput
+  user_skill?: Prisma.User_skillCreateNestedManyWithoutUserInput
 }
 
-export type userUncheckedCreateWithoutConnection_connection_user_action_idTouserInput = {
+export type UserUncheckedCreateWithoutConnection_connection_user_action_idTouserInput = {
   id?: number
   role_id: number
   first_name: string
   last_name: string
   email: string
   password: string
+  refreshToken?: string | null
   created_at?: Date | string
   updated_at?: Date | string
   deleted_at?: Date | string | null
-  application?: Prisma.applicationUncheckedCreateNestedManyWithoutUserInput
-  comment?: Prisma.commentUncheckedCreateNestedManyWithoutUserInput
-  company_follower?: Prisma.company_followerUncheckedCreateNestedManyWithoutUserInput
-  connection_connection_user_receiver_idTouser?: Prisma.connectionUncheckedCreateNestedManyWithoutUser_connection_user_receiver_idTouserInput
-  employment?: Prisma.employmentUncheckedCreateNestedManyWithoutUserInput
-  message_message_recipient_idTouser?: Prisma.messageUncheckedCreateNestedManyWithoutUser_message_recipient_idTouserInput
-  message_message_sender_idTouser?: Prisma.messageUncheckedCreateNestedManyWithoutUser_message_sender_idTouserInput
-  notification?: Prisma.notificationUncheckedCreateNestedManyWithoutUserInput
-  publication?: Prisma.publicationUncheckedCreateNestedManyWithoutUserInput
-  user_skill?: Prisma.user_skillUncheckedCreateNestedManyWithoutUserInput
+  application?: Prisma.ApplicationUncheckedCreateNestedManyWithoutUserInput
+  comment?: Prisma.CommentUncheckedCreateNestedManyWithoutUserInput
+  company_follower?: Prisma.Company_followerUncheckedCreateNestedManyWithoutUserInput
+  connection_connection_user_receiver_idTouser?: Prisma.ConnectionUncheckedCreateNestedManyWithoutUser_connection_user_receiver_idTouserInput
+  employment?: Prisma.EmploymentUncheckedCreateNestedManyWithoutUserInput
+  message_message_recipient_idTouser?: Prisma.MessageUncheckedCreateNestedManyWithoutUser_message_recipient_idTouserInput
+  message_message_sender_idTouser?: Prisma.MessageUncheckedCreateNestedManyWithoutUser_message_sender_idTouserInput
+  notification?: Prisma.NotificationUncheckedCreateNestedManyWithoutUserInput
+  publication?: Prisma.PublicationUncheckedCreateNestedManyWithoutUserInput
+  user_skill?: Prisma.User_skillUncheckedCreateNestedManyWithoutUserInput
 }
 
-export type userCreateOrConnectWithoutConnection_connection_user_action_idTouserInput = {
-  where: Prisma.userWhereUniqueInput
-  create: Prisma.XOR<Prisma.userCreateWithoutConnection_connection_user_action_idTouserInput, Prisma.userUncheckedCreateWithoutConnection_connection_user_action_idTouserInput>
+export type UserCreateOrConnectWithoutConnection_connection_user_action_idTouserInput = {
+  where: Prisma.UserWhereUniqueInput
+  create: Prisma.XOR<Prisma.UserCreateWithoutConnection_connection_user_action_idTouserInput, Prisma.UserUncheckedCreateWithoutConnection_connection_user_action_idTouserInput>
 }
 
-export type userCreateWithoutConnection_connection_user_receiver_idTouserInput = {
+export type UserCreateWithoutConnection_connection_user_receiver_idTouserInput = {
   first_name: string
   last_name: string
   email: string
   password: string
+  refreshToken?: string | null
   created_at?: Date | string
   updated_at?: Date | string
   deleted_at?: Date | string | null
-  application?: Prisma.applicationCreateNestedManyWithoutUserInput
-  comment?: Prisma.commentCreateNestedManyWithoutUserInput
-  company_follower?: Prisma.company_followerCreateNestedManyWithoutUserInput
-  connection_connection_user_action_idTouser?: Prisma.connectionCreateNestedManyWithoutUser_connection_user_action_idTouserInput
-  employment?: Prisma.employmentCreateNestedManyWithoutUserInput
-  message_message_recipient_idTouser?: Prisma.messageCreateNestedManyWithoutUser_message_recipient_idTouserInput
-  message_message_sender_idTouser?: Prisma.messageCreateNestedManyWithoutUser_message_sender_idTouserInput
-  notification?: Prisma.notificationCreateNestedManyWithoutUserInput
-  publication?: Prisma.publicationCreateNestedManyWithoutUserInput
-  role: Prisma.roleCreateNestedOneWithoutUserInput
-  user_skill?: Prisma.user_skillCreateNestedManyWithoutUserInput
+  application?: Prisma.ApplicationCreateNestedManyWithoutUserInput
+  comment?: Prisma.CommentCreateNestedManyWithoutUserInput
+  company_follower?: Prisma.Company_followerCreateNestedManyWithoutUserInput
+  connection_connection_user_action_idTouser?: Prisma.ConnectionCreateNestedManyWithoutUser_connection_user_action_idTouserInput
+  employment?: Prisma.EmploymentCreateNestedManyWithoutUserInput
+  message_message_recipient_idTouser?: Prisma.MessageCreateNestedManyWithoutUser_message_recipient_idTouserInput
+  message_message_sender_idTouser?: Prisma.MessageCreateNestedManyWithoutUser_message_sender_idTouserInput
+  notification?: Prisma.NotificationCreateNestedManyWithoutUserInput
+  publication?: Prisma.PublicationCreateNestedManyWithoutUserInput
+  role: Prisma.RoleCreateNestedOneWithoutUserInput
+  user_skill?: Prisma.User_skillCreateNestedManyWithoutUserInput
 }
 
-export type userUncheckedCreateWithoutConnection_connection_user_receiver_idTouserInput = {
+export type UserUncheckedCreateWithoutConnection_connection_user_receiver_idTouserInput = {
   id?: number
   role_id: number
   first_name: string
   last_name: string
   email: string
   password: string
+  refreshToken?: string | null
   created_at?: Date | string
   updated_at?: Date | string
   deleted_at?: Date | string | null
-  application?: Prisma.applicationUncheckedCreateNestedManyWithoutUserInput
-  comment?: Prisma.commentUncheckedCreateNestedManyWithoutUserInput
-  company_follower?: Prisma.company_followerUncheckedCreateNestedManyWithoutUserInput
-  connection_connection_user_action_idTouser?: Prisma.connectionUncheckedCreateNestedManyWithoutUser_connection_user_action_idTouserInput
-  employment?: Prisma.employmentUncheckedCreateNestedManyWithoutUserInput
-  message_message_recipient_idTouser?: Prisma.messageUncheckedCreateNestedManyWithoutUser_message_recipient_idTouserInput
-  message_message_sender_idTouser?: Prisma.messageUncheckedCreateNestedManyWithoutUser_message_sender_idTouserInput
-  notification?: Prisma.notificationUncheckedCreateNestedManyWithoutUserInput
-  publication?: Prisma.publicationUncheckedCreateNestedManyWithoutUserInput
-  user_skill?: Prisma.user_skillUncheckedCreateNestedManyWithoutUserInput
+  application?: Prisma.ApplicationUncheckedCreateNestedManyWithoutUserInput
+  comment?: Prisma.CommentUncheckedCreateNestedManyWithoutUserInput
+  company_follower?: Prisma.Company_followerUncheckedCreateNestedManyWithoutUserInput
+  connection_connection_user_action_idTouser?: Prisma.ConnectionUncheckedCreateNestedManyWithoutUser_connection_user_action_idTouserInput
+  employment?: Prisma.EmploymentUncheckedCreateNestedManyWithoutUserInput
+  message_message_recipient_idTouser?: Prisma.MessageUncheckedCreateNestedManyWithoutUser_message_recipient_idTouserInput
+  message_message_sender_idTouser?: Prisma.MessageUncheckedCreateNestedManyWithoutUser_message_sender_idTouserInput
+  notification?: Prisma.NotificationUncheckedCreateNestedManyWithoutUserInput
+  publication?: Prisma.PublicationUncheckedCreateNestedManyWithoutUserInput
+  user_skill?: Prisma.User_skillUncheckedCreateNestedManyWithoutUserInput
 }
 
-export type userCreateOrConnectWithoutConnection_connection_user_receiver_idTouserInput = {
-  where: Prisma.userWhereUniqueInput
-  create: Prisma.XOR<Prisma.userCreateWithoutConnection_connection_user_receiver_idTouserInput, Prisma.userUncheckedCreateWithoutConnection_connection_user_receiver_idTouserInput>
+export type UserCreateOrConnectWithoutConnection_connection_user_receiver_idTouserInput = {
+  where: Prisma.UserWhereUniqueInput
+  create: Prisma.XOR<Prisma.UserCreateWithoutConnection_connection_user_receiver_idTouserInput, Prisma.UserUncheckedCreateWithoutConnection_connection_user_receiver_idTouserInput>
 }
 
-export type userUpsertWithoutConnection_connection_user_action_idTouserInput = {
-  update: Prisma.XOR<Prisma.userUpdateWithoutConnection_connection_user_action_idTouserInput, Prisma.userUncheckedUpdateWithoutConnection_connection_user_action_idTouserInput>
-  create: Prisma.XOR<Prisma.userCreateWithoutConnection_connection_user_action_idTouserInput, Prisma.userUncheckedCreateWithoutConnection_connection_user_action_idTouserInput>
-  where?: Prisma.userWhereInput
+export type UserUpsertWithoutConnection_connection_user_action_idTouserInput = {
+  update: Prisma.XOR<Prisma.UserUpdateWithoutConnection_connection_user_action_idTouserInput, Prisma.UserUncheckedUpdateWithoutConnection_connection_user_action_idTouserInput>
+  create: Prisma.XOR<Prisma.UserCreateWithoutConnection_connection_user_action_idTouserInput, Prisma.UserUncheckedCreateWithoutConnection_connection_user_action_idTouserInput>
+  where?: Prisma.UserWhereInput
 }
 
-export type userUpdateToOneWithWhereWithoutConnection_connection_user_action_idTouserInput = {
-  where?: Prisma.userWhereInput
-  data: Prisma.XOR<Prisma.userUpdateWithoutConnection_connection_user_action_idTouserInput, Prisma.userUncheckedUpdateWithoutConnection_connection_user_action_idTouserInput>
+export type UserUpdateToOneWithWhereWithoutConnection_connection_user_action_idTouserInput = {
+  where?: Prisma.UserWhereInput
+  data: Prisma.XOR<Prisma.UserUpdateWithoutConnection_connection_user_action_idTouserInput, Prisma.UserUncheckedUpdateWithoutConnection_connection_user_action_idTouserInput>
 }
 
-export type userUpdateWithoutConnection_connection_user_action_idTouserInput = {
+export type UserUpdateWithoutConnection_connection_user_action_idTouserInput = {
   first_name?: Prisma.StringFieldUpdateOperationsInput | string
   last_name?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
   password?: Prisma.StringFieldUpdateOperationsInput | string
+  refreshToken?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deleted_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  application?: Prisma.applicationUpdateManyWithoutUserNestedInput
-  comment?: Prisma.commentUpdateManyWithoutUserNestedInput
-  company_follower?: Prisma.company_followerUpdateManyWithoutUserNestedInput
-  connection_connection_user_receiver_idTouser?: Prisma.connectionUpdateManyWithoutUser_connection_user_receiver_idTouserNestedInput
-  employment?: Prisma.employmentUpdateManyWithoutUserNestedInput
-  message_message_recipient_idTouser?: Prisma.messageUpdateManyWithoutUser_message_recipient_idTouserNestedInput
-  message_message_sender_idTouser?: Prisma.messageUpdateManyWithoutUser_message_sender_idTouserNestedInput
-  notification?: Prisma.notificationUpdateManyWithoutUserNestedInput
-  publication?: Prisma.publicationUpdateManyWithoutUserNestedInput
-  role?: Prisma.roleUpdateOneRequiredWithoutUserNestedInput
-  user_skill?: Prisma.user_skillUpdateManyWithoutUserNestedInput
+  application?: Prisma.ApplicationUpdateManyWithoutUserNestedInput
+  comment?: Prisma.CommentUpdateManyWithoutUserNestedInput
+  company_follower?: Prisma.Company_followerUpdateManyWithoutUserNestedInput
+  connection_connection_user_receiver_idTouser?: Prisma.ConnectionUpdateManyWithoutUser_connection_user_receiver_idTouserNestedInput
+  employment?: Prisma.EmploymentUpdateManyWithoutUserNestedInput
+  message_message_recipient_idTouser?: Prisma.MessageUpdateManyWithoutUser_message_recipient_idTouserNestedInput
+  message_message_sender_idTouser?: Prisma.MessageUpdateManyWithoutUser_message_sender_idTouserNestedInput
+  notification?: Prisma.NotificationUpdateManyWithoutUserNestedInput
+  publication?: Prisma.PublicationUpdateManyWithoutUserNestedInput
+  role?: Prisma.RoleUpdateOneRequiredWithoutUserNestedInput
+  user_skill?: Prisma.User_skillUpdateManyWithoutUserNestedInput
 }
 
-export type userUncheckedUpdateWithoutConnection_connection_user_action_idTouserInput = {
+export type UserUncheckedUpdateWithoutConnection_connection_user_action_idTouserInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   role_id?: Prisma.IntFieldUpdateOperationsInput | number
   first_name?: Prisma.StringFieldUpdateOperationsInput | string
   last_name?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
   password?: Prisma.StringFieldUpdateOperationsInput | string
+  refreshToken?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deleted_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  application?: Prisma.applicationUncheckedUpdateManyWithoutUserNestedInput
-  comment?: Prisma.commentUncheckedUpdateManyWithoutUserNestedInput
-  company_follower?: Prisma.company_followerUncheckedUpdateManyWithoutUserNestedInput
-  connection_connection_user_receiver_idTouser?: Prisma.connectionUncheckedUpdateManyWithoutUser_connection_user_receiver_idTouserNestedInput
-  employment?: Prisma.employmentUncheckedUpdateManyWithoutUserNestedInput
-  message_message_recipient_idTouser?: Prisma.messageUncheckedUpdateManyWithoutUser_message_recipient_idTouserNestedInput
-  message_message_sender_idTouser?: Prisma.messageUncheckedUpdateManyWithoutUser_message_sender_idTouserNestedInput
-  notification?: Prisma.notificationUncheckedUpdateManyWithoutUserNestedInput
-  publication?: Prisma.publicationUncheckedUpdateManyWithoutUserNestedInput
-  user_skill?: Prisma.user_skillUncheckedUpdateManyWithoutUserNestedInput
+  application?: Prisma.ApplicationUncheckedUpdateManyWithoutUserNestedInput
+  comment?: Prisma.CommentUncheckedUpdateManyWithoutUserNestedInput
+  company_follower?: Prisma.Company_followerUncheckedUpdateManyWithoutUserNestedInput
+  connection_connection_user_receiver_idTouser?: Prisma.ConnectionUncheckedUpdateManyWithoutUser_connection_user_receiver_idTouserNestedInput
+  employment?: Prisma.EmploymentUncheckedUpdateManyWithoutUserNestedInput
+  message_message_recipient_idTouser?: Prisma.MessageUncheckedUpdateManyWithoutUser_message_recipient_idTouserNestedInput
+  message_message_sender_idTouser?: Prisma.MessageUncheckedUpdateManyWithoutUser_message_sender_idTouserNestedInput
+  notification?: Prisma.NotificationUncheckedUpdateManyWithoutUserNestedInput
+  publication?: Prisma.PublicationUncheckedUpdateManyWithoutUserNestedInput
+  user_skill?: Prisma.User_skillUncheckedUpdateManyWithoutUserNestedInput
 }
 
-export type userUpsertWithoutConnection_connection_user_receiver_idTouserInput = {
-  update: Prisma.XOR<Prisma.userUpdateWithoutConnection_connection_user_receiver_idTouserInput, Prisma.userUncheckedUpdateWithoutConnection_connection_user_receiver_idTouserInput>
-  create: Prisma.XOR<Prisma.userCreateWithoutConnection_connection_user_receiver_idTouserInput, Prisma.userUncheckedCreateWithoutConnection_connection_user_receiver_idTouserInput>
-  where?: Prisma.userWhereInput
+export type UserUpsertWithoutConnection_connection_user_receiver_idTouserInput = {
+  update: Prisma.XOR<Prisma.UserUpdateWithoutConnection_connection_user_receiver_idTouserInput, Prisma.UserUncheckedUpdateWithoutConnection_connection_user_receiver_idTouserInput>
+  create: Prisma.XOR<Prisma.UserCreateWithoutConnection_connection_user_receiver_idTouserInput, Prisma.UserUncheckedCreateWithoutConnection_connection_user_receiver_idTouserInput>
+  where?: Prisma.UserWhereInput
 }
 
-export type userUpdateToOneWithWhereWithoutConnection_connection_user_receiver_idTouserInput = {
-  where?: Prisma.userWhereInput
-  data: Prisma.XOR<Prisma.userUpdateWithoutConnection_connection_user_receiver_idTouserInput, Prisma.userUncheckedUpdateWithoutConnection_connection_user_receiver_idTouserInput>
+export type UserUpdateToOneWithWhereWithoutConnection_connection_user_receiver_idTouserInput = {
+  where?: Prisma.UserWhereInput
+  data: Prisma.XOR<Prisma.UserUpdateWithoutConnection_connection_user_receiver_idTouserInput, Prisma.UserUncheckedUpdateWithoutConnection_connection_user_receiver_idTouserInput>
 }
 
-export type userUpdateWithoutConnection_connection_user_receiver_idTouserInput = {
+export type UserUpdateWithoutConnection_connection_user_receiver_idTouserInput = {
   first_name?: Prisma.StringFieldUpdateOperationsInput | string
   last_name?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
   password?: Prisma.StringFieldUpdateOperationsInput | string
+  refreshToken?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deleted_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  application?: Prisma.applicationUpdateManyWithoutUserNestedInput
-  comment?: Prisma.commentUpdateManyWithoutUserNestedInput
-  company_follower?: Prisma.company_followerUpdateManyWithoutUserNestedInput
-  connection_connection_user_action_idTouser?: Prisma.connectionUpdateManyWithoutUser_connection_user_action_idTouserNestedInput
-  employment?: Prisma.employmentUpdateManyWithoutUserNestedInput
-  message_message_recipient_idTouser?: Prisma.messageUpdateManyWithoutUser_message_recipient_idTouserNestedInput
-  message_message_sender_idTouser?: Prisma.messageUpdateManyWithoutUser_message_sender_idTouserNestedInput
-  notification?: Prisma.notificationUpdateManyWithoutUserNestedInput
-  publication?: Prisma.publicationUpdateManyWithoutUserNestedInput
-  role?: Prisma.roleUpdateOneRequiredWithoutUserNestedInput
-  user_skill?: Prisma.user_skillUpdateManyWithoutUserNestedInput
+  application?: Prisma.ApplicationUpdateManyWithoutUserNestedInput
+  comment?: Prisma.CommentUpdateManyWithoutUserNestedInput
+  company_follower?: Prisma.Company_followerUpdateManyWithoutUserNestedInput
+  connection_connection_user_action_idTouser?: Prisma.ConnectionUpdateManyWithoutUser_connection_user_action_idTouserNestedInput
+  employment?: Prisma.EmploymentUpdateManyWithoutUserNestedInput
+  message_message_recipient_idTouser?: Prisma.MessageUpdateManyWithoutUser_message_recipient_idTouserNestedInput
+  message_message_sender_idTouser?: Prisma.MessageUpdateManyWithoutUser_message_sender_idTouserNestedInput
+  notification?: Prisma.NotificationUpdateManyWithoutUserNestedInput
+  publication?: Prisma.PublicationUpdateManyWithoutUserNestedInput
+  role?: Prisma.RoleUpdateOneRequiredWithoutUserNestedInput
+  user_skill?: Prisma.User_skillUpdateManyWithoutUserNestedInput
 }
 
-export type userUncheckedUpdateWithoutConnection_connection_user_receiver_idTouserInput = {
+export type UserUncheckedUpdateWithoutConnection_connection_user_receiver_idTouserInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   role_id?: Prisma.IntFieldUpdateOperationsInput | number
   first_name?: Prisma.StringFieldUpdateOperationsInput | string
   last_name?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
   password?: Prisma.StringFieldUpdateOperationsInput | string
+  refreshToken?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deleted_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  application?: Prisma.applicationUncheckedUpdateManyWithoutUserNestedInput
-  comment?: Prisma.commentUncheckedUpdateManyWithoutUserNestedInput
-  company_follower?: Prisma.company_followerUncheckedUpdateManyWithoutUserNestedInput
-  connection_connection_user_action_idTouser?: Prisma.connectionUncheckedUpdateManyWithoutUser_connection_user_action_idTouserNestedInput
-  employment?: Prisma.employmentUncheckedUpdateManyWithoutUserNestedInput
-  message_message_recipient_idTouser?: Prisma.messageUncheckedUpdateManyWithoutUser_message_recipient_idTouserNestedInput
-  message_message_sender_idTouser?: Prisma.messageUncheckedUpdateManyWithoutUser_message_sender_idTouserNestedInput
-  notification?: Prisma.notificationUncheckedUpdateManyWithoutUserNestedInput
-  publication?: Prisma.publicationUncheckedUpdateManyWithoutUserNestedInput
-  user_skill?: Prisma.user_skillUncheckedUpdateManyWithoutUserNestedInput
+  application?: Prisma.ApplicationUncheckedUpdateManyWithoutUserNestedInput
+  comment?: Prisma.CommentUncheckedUpdateManyWithoutUserNestedInput
+  company_follower?: Prisma.Company_followerUncheckedUpdateManyWithoutUserNestedInput
+  connection_connection_user_action_idTouser?: Prisma.ConnectionUncheckedUpdateManyWithoutUser_connection_user_action_idTouserNestedInput
+  employment?: Prisma.EmploymentUncheckedUpdateManyWithoutUserNestedInput
+  message_message_recipient_idTouser?: Prisma.MessageUncheckedUpdateManyWithoutUser_message_recipient_idTouserNestedInput
+  message_message_sender_idTouser?: Prisma.MessageUncheckedUpdateManyWithoutUser_message_sender_idTouserNestedInput
+  notification?: Prisma.NotificationUncheckedUpdateManyWithoutUserNestedInput
+  publication?: Prisma.PublicationUncheckedUpdateManyWithoutUserNestedInput
+  user_skill?: Prisma.User_skillUncheckedUpdateManyWithoutUserNestedInput
 }
 
-export type userCreateWithoutEmploymentInput = {
+export type UserCreateWithoutEmploymentInput = {
   first_name: string
   last_name: string
   email: string
   password: string
+  refreshToken?: string | null
   created_at?: Date | string
   updated_at?: Date | string
   deleted_at?: Date | string | null
-  application?: Prisma.applicationCreateNestedManyWithoutUserInput
-  comment?: Prisma.commentCreateNestedManyWithoutUserInput
-  company_follower?: Prisma.company_followerCreateNestedManyWithoutUserInput
-  connection_connection_user_action_idTouser?: Prisma.connectionCreateNestedManyWithoutUser_connection_user_action_idTouserInput
-  connection_connection_user_receiver_idTouser?: Prisma.connectionCreateNestedManyWithoutUser_connection_user_receiver_idTouserInput
-  message_message_recipient_idTouser?: Prisma.messageCreateNestedManyWithoutUser_message_recipient_idTouserInput
-  message_message_sender_idTouser?: Prisma.messageCreateNestedManyWithoutUser_message_sender_idTouserInput
-  notification?: Prisma.notificationCreateNestedManyWithoutUserInput
-  publication?: Prisma.publicationCreateNestedManyWithoutUserInput
-  role: Prisma.roleCreateNestedOneWithoutUserInput
-  user_skill?: Prisma.user_skillCreateNestedManyWithoutUserInput
+  application?: Prisma.ApplicationCreateNestedManyWithoutUserInput
+  comment?: Prisma.CommentCreateNestedManyWithoutUserInput
+  company_follower?: Prisma.Company_followerCreateNestedManyWithoutUserInput
+  connection_connection_user_action_idTouser?: Prisma.ConnectionCreateNestedManyWithoutUser_connection_user_action_idTouserInput
+  connection_connection_user_receiver_idTouser?: Prisma.ConnectionCreateNestedManyWithoutUser_connection_user_receiver_idTouserInput
+  message_message_recipient_idTouser?: Prisma.MessageCreateNestedManyWithoutUser_message_recipient_idTouserInput
+  message_message_sender_idTouser?: Prisma.MessageCreateNestedManyWithoutUser_message_sender_idTouserInput
+  notification?: Prisma.NotificationCreateNestedManyWithoutUserInput
+  publication?: Prisma.PublicationCreateNestedManyWithoutUserInput
+  role: Prisma.RoleCreateNestedOneWithoutUserInput
+  user_skill?: Prisma.User_skillCreateNestedManyWithoutUserInput
 }
 
-export type userUncheckedCreateWithoutEmploymentInput = {
+export type UserUncheckedCreateWithoutEmploymentInput = {
   id?: number
   role_id: number
   first_name: string
   last_name: string
   email: string
   password: string
+  refreshToken?: string | null
   created_at?: Date | string
   updated_at?: Date | string
   deleted_at?: Date | string | null
-  application?: Prisma.applicationUncheckedCreateNestedManyWithoutUserInput
-  comment?: Prisma.commentUncheckedCreateNestedManyWithoutUserInput
-  company_follower?: Prisma.company_followerUncheckedCreateNestedManyWithoutUserInput
-  connection_connection_user_action_idTouser?: Prisma.connectionUncheckedCreateNestedManyWithoutUser_connection_user_action_idTouserInput
-  connection_connection_user_receiver_idTouser?: Prisma.connectionUncheckedCreateNestedManyWithoutUser_connection_user_receiver_idTouserInput
-  message_message_recipient_idTouser?: Prisma.messageUncheckedCreateNestedManyWithoutUser_message_recipient_idTouserInput
-  message_message_sender_idTouser?: Prisma.messageUncheckedCreateNestedManyWithoutUser_message_sender_idTouserInput
-  notification?: Prisma.notificationUncheckedCreateNestedManyWithoutUserInput
-  publication?: Prisma.publicationUncheckedCreateNestedManyWithoutUserInput
-  user_skill?: Prisma.user_skillUncheckedCreateNestedManyWithoutUserInput
+  application?: Prisma.ApplicationUncheckedCreateNestedManyWithoutUserInput
+  comment?: Prisma.CommentUncheckedCreateNestedManyWithoutUserInput
+  company_follower?: Prisma.Company_followerUncheckedCreateNestedManyWithoutUserInput
+  connection_connection_user_action_idTouser?: Prisma.ConnectionUncheckedCreateNestedManyWithoutUser_connection_user_action_idTouserInput
+  connection_connection_user_receiver_idTouser?: Prisma.ConnectionUncheckedCreateNestedManyWithoutUser_connection_user_receiver_idTouserInput
+  message_message_recipient_idTouser?: Prisma.MessageUncheckedCreateNestedManyWithoutUser_message_recipient_idTouserInput
+  message_message_sender_idTouser?: Prisma.MessageUncheckedCreateNestedManyWithoutUser_message_sender_idTouserInput
+  notification?: Prisma.NotificationUncheckedCreateNestedManyWithoutUserInput
+  publication?: Prisma.PublicationUncheckedCreateNestedManyWithoutUserInput
+  user_skill?: Prisma.User_skillUncheckedCreateNestedManyWithoutUserInput
 }
 
-export type userCreateOrConnectWithoutEmploymentInput = {
-  where: Prisma.userWhereUniqueInput
-  create: Prisma.XOR<Prisma.userCreateWithoutEmploymentInput, Prisma.userUncheckedCreateWithoutEmploymentInput>
+export type UserCreateOrConnectWithoutEmploymentInput = {
+  where: Prisma.UserWhereUniqueInput
+  create: Prisma.XOR<Prisma.UserCreateWithoutEmploymentInput, Prisma.UserUncheckedCreateWithoutEmploymentInput>
 }
 
-export type userUpsertWithoutEmploymentInput = {
-  update: Prisma.XOR<Prisma.userUpdateWithoutEmploymentInput, Prisma.userUncheckedUpdateWithoutEmploymentInput>
-  create: Prisma.XOR<Prisma.userCreateWithoutEmploymentInput, Prisma.userUncheckedCreateWithoutEmploymentInput>
-  where?: Prisma.userWhereInput
+export type UserUpsertWithoutEmploymentInput = {
+  update: Prisma.XOR<Prisma.UserUpdateWithoutEmploymentInput, Prisma.UserUncheckedUpdateWithoutEmploymentInput>
+  create: Prisma.XOR<Prisma.UserCreateWithoutEmploymentInput, Prisma.UserUncheckedCreateWithoutEmploymentInput>
+  where?: Prisma.UserWhereInput
 }
 
-export type userUpdateToOneWithWhereWithoutEmploymentInput = {
-  where?: Prisma.userWhereInput
-  data: Prisma.XOR<Prisma.userUpdateWithoutEmploymentInput, Prisma.userUncheckedUpdateWithoutEmploymentInput>
+export type UserUpdateToOneWithWhereWithoutEmploymentInput = {
+  where?: Prisma.UserWhereInput
+  data: Prisma.XOR<Prisma.UserUpdateWithoutEmploymentInput, Prisma.UserUncheckedUpdateWithoutEmploymentInput>
 }
 
-export type userUpdateWithoutEmploymentInput = {
+export type UserUpdateWithoutEmploymentInput = {
   first_name?: Prisma.StringFieldUpdateOperationsInput | string
   last_name?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
   password?: Prisma.StringFieldUpdateOperationsInput | string
+  refreshToken?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deleted_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  application?: Prisma.applicationUpdateManyWithoutUserNestedInput
-  comment?: Prisma.commentUpdateManyWithoutUserNestedInput
-  company_follower?: Prisma.company_followerUpdateManyWithoutUserNestedInput
-  connection_connection_user_action_idTouser?: Prisma.connectionUpdateManyWithoutUser_connection_user_action_idTouserNestedInput
-  connection_connection_user_receiver_idTouser?: Prisma.connectionUpdateManyWithoutUser_connection_user_receiver_idTouserNestedInput
-  message_message_recipient_idTouser?: Prisma.messageUpdateManyWithoutUser_message_recipient_idTouserNestedInput
-  message_message_sender_idTouser?: Prisma.messageUpdateManyWithoutUser_message_sender_idTouserNestedInput
-  notification?: Prisma.notificationUpdateManyWithoutUserNestedInput
-  publication?: Prisma.publicationUpdateManyWithoutUserNestedInput
-  role?: Prisma.roleUpdateOneRequiredWithoutUserNestedInput
-  user_skill?: Prisma.user_skillUpdateManyWithoutUserNestedInput
+  application?: Prisma.ApplicationUpdateManyWithoutUserNestedInput
+  comment?: Prisma.CommentUpdateManyWithoutUserNestedInput
+  company_follower?: Prisma.Company_followerUpdateManyWithoutUserNestedInput
+  connection_connection_user_action_idTouser?: Prisma.ConnectionUpdateManyWithoutUser_connection_user_action_idTouserNestedInput
+  connection_connection_user_receiver_idTouser?: Prisma.ConnectionUpdateManyWithoutUser_connection_user_receiver_idTouserNestedInput
+  message_message_recipient_idTouser?: Prisma.MessageUpdateManyWithoutUser_message_recipient_idTouserNestedInput
+  message_message_sender_idTouser?: Prisma.MessageUpdateManyWithoutUser_message_sender_idTouserNestedInput
+  notification?: Prisma.NotificationUpdateManyWithoutUserNestedInput
+  publication?: Prisma.PublicationUpdateManyWithoutUserNestedInput
+  role?: Prisma.RoleUpdateOneRequiredWithoutUserNestedInput
+  user_skill?: Prisma.User_skillUpdateManyWithoutUserNestedInput
 }
 
-export type userUncheckedUpdateWithoutEmploymentInput = {
+export type UserUncheckedUpdateWithoutEmploymentInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   role_id?: Prisma.IntFieldUpdateOperationsInput | number
   first_name?: Prisma.StringFieldUpdateOperationsInput | string
   last_name?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
   password?: Prisma.StringFieldUpdateOperationsInput | string
+  refreshToken?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deleted_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  application?: Prisma.applicationUncheckedUpdateManyWithoutUserNestedInput
-  comment?: Prisma.commentUncheckedUpdateManyWithoutUserNestedInput
-  company_follower?: Prisma.company_followerUncheckedUpdateManyWithoutUserNestedInput
-  connection_connection_user_action_idTouser?: Prisma.connectionUncheckedUpdateManyWithoutUser_connection_user_action_idTouserNestedInput
-  connection_connection_user_receiver_idTouser?: Prisma.connectionUncheckedUpdateManyWithoutUser_connection_user_receiver_idTouserNestedInput
-  message_message_recipient_idTouser?: Prisma.messageUncheckedUpdateManyWithoutUser_message_recipient_idTouserNestedInput
-  message_message_sender_idTouser?: Prisma.messageUncheckedUpdateManyWithoutUser_message_sender_idTouserNestedInput
-  notification?: Prisma.notificationUncheckedUpdateManyWithoutUserNestedInput
-  publication?: Prisma.publicationUncheckedUpdateManyWithoutUserNestedInput
-  user_skill?: Prisma.user_skillUncheckedUpdateManyWithoutUserNestedInput
+  application?: Prisma.ApplicationUncheckedUpdateManyWithoutUserNestedInput
+  comment?: Prisma.CommentUncheckedUpdateManyWithoutUserNestedInput
+  company_follower?: Prisma.Company_followerUncheckedUpdateManyWithoutUserNestedInput
+  connection_connection_user_action_idTouser?: Prisma.ConnectionUncheckedUpdateManyWithoutUser_connection_user_action_idTouserNestedInput
+  connection_connection_user_receiver_idTouser?: Prisma.ConnectionUncheckedUpdateManyWithoutUser_connection_user_receiver_idTouserNestedInput
+  message_message_recipient_idTouser?: Prisma.MessageUncheckedUpdateManyWithoutUser_message_recipient_idTouserNestedInput
+  message_message_sender_idTouser?: Prisma.MessageUncheckedUpdateManyWithoutUser_message_sender_idTouserNestedInput
+  notification?: Prisma.NotificationUncheckedUpdateManyWithoutUserNestedInput
+  publication?: Prisma.PublicationUncheckedUpdateManyWithoutUserNestedInput
+  user_skill?: Prisma.User_skillUncheckedUpdateManyWithoutUserNestedInput
 }
 
-export type userCreateWithoutMessage_message_recipient_idTouserInput = {
+export type UserCreateWithoutMessage_message_recipient_idTouserInput = {
   first_name: string
   last_name: string
   email: string
   password: string
+  refreshToken?: string | null
   created_at?: Date | string
   updated_at?: Date | string
   deleted_at?: Date | string | null
-  application?: Prisma.applicationCreateNestedManyWithoutUserInput
-  comment?: Prisma.commentCreateNestedManyWithoutUserInput
-  company_follower?: Prisma.company_followerCreateNestedManyWithoutUserInput
-  connection_connection_user_action_idTouser?: Prisma.connectionCreateNestedManyWithoutUser_connection_user_action_idTouserInput
-  connection_connection_user_receiver_idTouser?: Prisma.connectionCreateNestedManyWithoutUser_connection_user_receiver_idTouserInput
-  employment?: Prisma.employmentCreateNestedManyWithoutUserInput
-  message_message_sender_idTouser?: Prisma.messageCreateNestedManyWithoutUser_message_sender_idTouserInput
-  notification?: Prisma.notificationCreateNestedManyWithoutUserInput
-  publication?: Prisma.publicationCreateNestedManyWithoutUserInput
-  role: Prisma.roleCreateNestedOneWithoutUserInput
-  user_skill?: Prisma.user_skillCreateNestedManyWithoutUserInput
+  application?: Prisma.ApplicationCreateNestedManyWithoutUserInput
+  comment?: Prisma.CommentCreateNestedManyWithoutUserInput
+  company_follower?: Prisma.Company_followerCreateNestedManyWithoutUserInput
+  connection_connection_user_action_idTouser?: Prisma.ConnectionCreateNestedManyWithoutUser_connection_user_action_idTouserInput
+  connection_connection_user_receiver_idTouser?: Prisma.ConnectionCreateNestedManyWithoutUser_connection_user_receiver_idTouserInput
+  employment?: Prisma.EmploymentCreateNestedManyWithoutUserInput
+  message_message_sender_idTouser?: Prisma.MessageCreateNestedManyWithoutUser_message_sender_idTouserInput
+  notification?: Prisma.NotificationCreateNestedManyWithoutUserInput
+  publication?: Prisma.PublicationCreateNestedManyWithoutUserInput
+  role: Prisma.RoleCreateNestedOneWithoutUserInput
+  user_skill?: Prisma.User_skillCreateNestedManyWithoutUserInput
 }
 
-export type userUncheckedCreateWithoutMessage_message_recipient_idTouserInput = {
+export type UserUncheckedCreateWithoutMessage_message_recipient_idTouserInput = {
   id?: number
   role_id: number
   first_name: string
   last_name: string
   email: string
   password: string
+  refreshToken?: string | null
   created_at?: Date | string
   updated_at?: Date | string
   deleted_at?: Date | string | null
-  application?: Prisma.applicationUncheckedCreateNestedManyWithoutUserInput
-  comment?: Prisma.commentUncheckedCreateNestedManyWithoutUserInput
-  company_follower?: Prisma.company_followerUncheckedCreateNestedManyWithoutUserInput
-  connection_connection_user_action_idTouser?: Prisma.connectionUncheckedCreateNestedManyWithoutUser_connection_user_action_idTouserInput
-  connection_connection_user_receiver_idTouser?: Prisma.connectionUncheckedCreateNestedManyWithoutUser_connection_user_receiver_idTouserInput
-  employment?: Prisma.employmentUncheckedCreateNestedManyWithoutUserInput
-  message_message_sender_idTouser?: Prisma.messageUncheckedCreateNestedManyWithoutUser_message_sender_idTouserInput
-  notification?: Prisma.notificationUncheckedCreateNestedManyWithoutUserInput
-  publication?: Prisma.publicationUncheckedCreateNestedManyWithoutUserInput
-  user_skill?: Prisma.user_skillUncheckedCreateNestedManyWithoutUserInput
+  application?: Prisma.ApplicationUncheckedCreateNestedManyWithoutUserInput
+  comment?: Prisma.CommentUncheckedCreateNestedManyWithoutUserInput
+  company_follower?: Prisma.Company_followerUncheckedCreateNestedManyWithoutUserInput
+  connection_connection_user_action_idTouser?: Prisma.ConnectionUncheckedCreateNestedManyWithoutUser_connection_user_action_idTouserInput
+  connection_connection_user_receiver_idTouser?: Prisma.ConnectionUncheckedCreateNestedManyWithoutUser_connection_user_receiver_idTouserInput
+  employment?: Prisma.EmploymentUncheckedCreateNestedManyWithoutUserInput
+  message_message_sender_idTouser?: Prisma.MessageUncheckedCreateNestedManyWithoutUser_message_sender_idTouserInput
+  notification?: Prisma.NotificationUncheckedCreateNestedManyWithoutUserInput
+  publication?: Prisma.PublicationUncheckedCreateNestedManyWithoutUserInput
+  user_skill?: Prisma.User_skillUncheckedCreateNestedManyWithoutUserInput
 }
 
-export type userCreateOrConnectWithoutMessage_message_recipient_idTouserInput = {
-  where: Prisma.userWhereUniqueInput
-  create: Prisma.XOR<Prisma.userCreateWithoutMessage_message_recipient_idTouserInput, Prisma.userUncheckedCreateWithoutMessage_message_recipient_idTouserInput>
+export type UserCreateOrConnectWithoutMessage_message_recipient_idTouserInput = {
+  where: Prisma.UserWhereUniqueInput
+  create: Prisma.XOR<Prisma.UserCreateWithoutMessage_message_recipient_idTouserInput, Prisma.UserUncheckedCreateWithoutMessage_message_recipient_idTouserInput>
 }
 
-export type userCreateWithoutMessage_message_sender_idTouserInput = {
+export type UserCreateWithoutMessage_message_sender_idTouserInput = {
   first_name: string
   last_name: string
   email: string
   password: string
+  refreshToken?: string | null
   created_at?: Date | string
   updated_at?: Date | string
   deleted_at?: Date | string | null
-  application?: Prisma.applicationCreateNestedManyWithoutUserInput
-  comment?: Prisma.commentCreateNestedManyWithoutUserInput
-  company_follower?: Prisma.company_followerCreateNestedManyWithoutUserInput
-  connection_connection_user_action_idTouser?: Prisma.connectionCreateNestedManyWithoutUser_connection_user_action_idTouserInput
-  connection_connection_user_receiver_idTouser?: Prisma.connectionCreateNestedManyWithoutUser_connection_user_receiver_idTouserInput
-  employment?: Prisma.employmentCreateNestedManyWithoutUserInput
-  message_message_recipient_idTouser?: Prisma.messageCreateNestedManyWithoutUser_message_recipient_idTouserInput
-  notification?: Prisma.notificationCreateNestedManyWithoutUserInput
-  publication?: Prisma.publicationCreateNestedManyWithoutUserInput
-  role: Prisma.roleCreateNestedOneWithoutUserInput
-  user_skill?: Prisma.user_skillCreateNestedManyWithoutUserInput
+  application?: Prisma.ApplicationCreateNestedManyWithoutUserInput
+  comment?: Prisma.CommentCreateNestedManyWithoutUserInput
+  company_follower?: Prisma.Company_followerCreateNestedManyWithoutUserInput
+  connection_connection_user_action_idTouser?: Prisma.ConnectionCreateNestedManyWithoutUser_connection_user_action_idTouserInput
+  connection_connection_user_receiver_idTouser?: Prisma.ConnectionCreateNestedManyWithoutUser_connection_user_receiver_idTouserInput
+  employment?: Prisma.EmploymentCreateNestedManyWithoutUserInput
+  message_message_recipient_idTouser?: Prisma.MessageCreateNestedManyWithoutUser_message_recipient_idTouserInput
+  notification?: Prisma.NotificationCreateNestedManyWithoutUserInput
+  publication?: Prisma.PublicationCreateNestedManyWithoutUserInput
+  role: Prisma.RoleCreateNestedOneWithoutUserInput
+  user_skill?: Prisma.User_skillCreateNestedManyWithoutUserInput
 }
 
-export type userUncheckedCreateWithoutMessage_message_sender_idTouserInput = {
+export type UserUncheckedCreateWithoutMessage_message_sender_idTouserInput = {
   id?: number
   role_id: number
   first_name: string
   last_name: string
   email: string
   password: string
+  refreshToken?: string | null
   created_at?: Date | string
   updated_at?: Date | string
   deleted_at?: Date | string | null
-  application?: Prisma.applicationUncheckedCreateNestedManyWithoutUserInput
-  comment?: Prisma.commentUncheckedCreateNestedManyWithoutUserInput
-  company_follower?: Prisma.company_followerUncheckedCreateNestedManyWithoutUserInput
-  connection_connection_user_action_idTouser?: Prisma.connectionUncheckedCreateNestedManyWithoutUser_connection_user_action_idTouserInput
-  connection_connection_user_receiver_idTouser?: Prisma.connectionUncheckedCreateNestedManyWithoutUser_connection_user_receiver_idTouserInput
-  employment?: Prisma.employmentUncheckedCreateNestedManyWithoutUserInput
-  message_message_recipient_idTouser?: Prisma.messageUncheckedCreateNestedManyWithoutUser_message_recipient_idTouserInput
-  notification?: Prisma.notificationUncheckedCreateNestedManyWithoutUserInput
-  publication?: Prisma.publicationUncheckedCreateNestedManyWithoutUserInput
-  user_skill?: Prisma.user_skillUncheckedCreateNestedManyWithoutUserInput
+  application?: Prisma.ApplicationUncheckedCreateNestedManyWithoutUserInput
+  comment?: Prisma.CommentUncheckedCreateNestedManyWithoutUserInput
+  company_follower?: Prisma.Company_followerUncheckedCreateNestedManyWithoutUserInput
+  connection_connection_user_action_idTouser?: Prisma.ConnectionUncheckedCreateNestedManyWithoutUser_connection_user_action_idTouserInput
+  connection_connection_user_receiver_idTouser?: Prisma.ConnectionUncheckedCreateNestedManyWithoutUser_connection_user_receiver_idTouserInput
+  employment?: Prisma.EmploymentUncheckedCreateNestedManyWithoutUserInput
+  message_message_recipient_idTouser?: Prisma.MessageUncheckedCreateNestedManyWithoutUser_message_recipient_idTouserInput
+  notification?: Prisma.NotificationUncheckedCreateNestedManyWithoutUserInput
+  publication?: Prisma.PublicationUncheckedCreateNestedManyWithoutUserInput
+  user_skill?: Prisma.User_skillUncheckedCreateNestedManyWithoutUserInput
 }
 
-export type userCreateOrConnectWithoutMessage_message_sender_idTouserInput = {
-  where: Prisma.userWhereUniqueInput
-  create: Prisma.XOR<Prisma.userCreateWithoutMessage_message_sender_idTouserInput, Prisma.userUncheckedCreateWithoutMessage_message_sender_idTouserInput>
+export type UserCreateOrConnectWithoutMessage_message_sender_idTouserInput = {
+  where: Prisma.UserWhereUniqueInput
+  create: Prisma.XOR<Prisma.UserCreateWithoutMessage_message_sender_idTouserInput, Prisma.UserUncheckedCreateWithoutMessage_message_sender_idTouserInput>
 }
 
-export type userUpsertWithoutMessage_message_recipient_idTouserInput = {
-  update: Prisma.XOR<Prisma.userUpdateWithoutMessage_message_recipient_idTouserInput, Prisma.userUncheckedUpdateWithoutMessage_message_recipient_idTouserInput>
-  create: Prisma.XOR<Prisma.userCreateWithoutMessage_message_recipient_idTouserInput, Prisma.userUncheckedCreateWithoutMessage_message_recipient_idTouserInput>
-  where?: Prisma.userWhereInput
+export type UserUpsertWithoutMessage_message_recipient_idTouserInput = {
+  update: Prisma.XOR<Prisma.UserUpdateWithoutMessage_message_recipient_idTouserInput, Prisma.UserUncheckedUpdateWithoutMessage_message_recipient_idTouserInput>
+  create: Prisma.XOR<Prisma.UserCreateWithoutMessage_message_recipient_idTouserInput, Prisma.UserUncheckedCreateWithoutMessage_message_recipient_idTouserInput>
+  where?: Prisma.UserWhereInput
 }
 
-export type userUpdateToOneWithWhereWithoutMessage_message_recipient_idTouserInput = {
-  where?: Prisma.userWhereInput
-  data: Prisma.XOR<Prisma.userUpdateWithoutMessage_message_recipient_idTouserInput, Prisma.userUncheckedUpdateWithoutMessage_message_recipient_idTouserInput>
+export type UserUpdateToOneWithWhereWithoutMessage_message_recipient_idTouserInput = {
+  where?: Prisma.UserWhereInput
+  data: Prisma.XOR<Prisma.UserUpdateWithoutMessage_message_recipient_idTouserInput, Prisma.UserUncheckedUpdateWithoutMessage_message_recipient_idTouserInput>
 }
 
-export type userUpdateWithoutMessage_message_recipient_idTouserInput = {
+export type UserUpdateWithoutMessage_message_recipient_idTouserInput = {
   first_name?: Prisma.StringFieldUpdateOperationsInput | string
   last_name?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
   password?: Prisma.StringFieldUpdateOperationsInput | string
+  refreshToken?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deleted_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  application?: Prisma.applicationUpdateManyWithoutUserNestedInput
-  comment?: Prisma.commentUpdateManyWithoutUserNestedInput
-  company_follower?: Prisma.company_followerUpdateManyWithoutUserNestedInput
-  connection_connection_user_action_idTouser?: Prisma.connectionUpdateManyWithoutUser_connection_user_action_idTouserNestedInput
-  connection_connection_user_receiver_idTouser?: Prisma.connectionUpdateManyWithoutUser_connection_user_receiver_idTouserNestedInput
-  employment?: Prisma.employmentUpdateManyWithoutUserNestedInput
-  message_message_sender_idTouser?: Prisma.messageUpdateManyWithoutUser_message_sender_idTouserNestedInput
-  notification?: Prisma.notificationUpdateManyWithoutUserNestedInput
-  publication?: Prisma.publicationUpdateManyWithoutUserNestedInput
-  role?: Prisma.roleUpdateOneRequiredWithoutUserNestedInput
-  user_skill?: Prisma.user_skillUpdateManyWithoutUserNestedInput
+  application?: Prisma.ApplicationUpdateManyWithoutUserNestedInput
+  comment?: Prisma.CommentUpdateManyWithoutUserNestedInput
+  company_follower?: Prisma.Company_followerUpdateManyWithoutUserNestedInput
+  connection_connection_user_action_idTouser?: Prisma.ConnectionUpdateManyWithoutUser_connection_user_action_idTouserNestedInput
+  connection_connection_user_receiver_idTouser?: Prisma.ConnectionUpdateManyWithoutUser_connection_user_receiver_idTouserNestedInput
+  employment?: Prisma.EmploymentUpdateManyWithoutUserNestedInput
+  message_message_sender_idTouser?: Prisma.MessageUpdateManyWithoutUser_message_sender_idTouserNestedInput
+  notification?: Prisma.NotificationUpdateManyWithoutUserNestedInput
+  publication?: Prisma.PublicationUpdateManyWithoutUserNestedInput
+  role?: Prisma.RoleUpdateOneRequiredWithoutUserNestedInput
+  user_skill?: Prisma.User_skillUpdateManyWithoutUserNestedInput
 }
 
-export type userUncheckedUpdateWithoutMessage_message_recipient_idTouserInput = {
+export type UserUncheckedUpdateWithoutMessage_message_recipient_idTouserInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   role_id?: Prisma.IntFieldUpdateOperationsInput | number
   first_name?: Prisma.StringFieldUpdateOperationsInput | string
   last_name?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
   password?: Prisma.StringFieldUpdateOperationsInput | string
+  refreshToken?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deleted_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  application?: Prisma.applicationUncheckedUpdateManyWithoutUserNestedInput
-  comment?: Prisma.commentUncheckedUpdateManyWithoutUserNestedInput
-  company_follower?: Prisma.company_followerUncheckedUpdateManyWithoutUserNestedInput
-  connection_connection_user_action_idTouser?: Prisma.connectionUncheckedUpdateManyWithoutUser_connection_user_action_idTouserNestedInput
-  connection_connection_user_receiver_idTouser?: Prisma.connectionUncheckedUpdateManyWithoutUser_connection_user_receiver_idTouserNestedInput
-  employment?: Prisma.employmentUncheckedUpdateManyWithoutUserNestedInput
-  message_message_sender_idTouser?: Prisma.messageUncheckedUpdateManyWithoutUser_message_sender_idTouserNestedInput
-  notification?: Prisma.notificationUncheckedUpdateManyWithoutUserNestedInput
-  publication?: Prisma.publicationUncheckedUpdateManyWithoutUserNestedInput
-  user_skill?: Prisma.user_skillUncheckedUpdateManyWithoutUserNestedInput
+  application?: Prisma.ApplicationUncheckedUpdateManyWithoutUserNestedInput
+  comment?: Prisma.CommentUncheckedUpdateManyWithoutUserNestedInput
+  company_follower?: Prisma.Company_followerUncheckedUpdateManyWithoutUserNestedInput
+  connection_connection_user_action_idTouser?: Prisma.ConnectionUncheckedUpdateManyWithoutUser_connection_user_action_idTouserNestedInput
+  connection_connection_user_receiver_idTouser?: Prisma.ConnectionUncheckedUpdateManyWithoutUser_connection_user_receiver_idTouserNestedInput
+  employment?: Prisma.EmploymentUncheckedUpdateManyWithoutUserNestedInput
+  message_message_sender_idTouser?: Prisma.MessageUncheckedUpdateManyWithoutUser_message_sender_idTouserNestedInput
+  notification?: Prisma.NotificationUncheckedUpdateManyWithoutUserNestedInput
+  publication?: Prisma.PublicationUncheckedUpdateManyWithoutUserNestedInput
+  user_skill?: Prisma.User_skillUncheckedUpdateManyWithoutUserNestedInput
 }
 
-export type userUpsertWithoutMessage_message_sender_idTouserInput = {
-  update: Prisma.XOR<Prisma.userUpdateWithoutMessage_message_sender_idTouserInput, Prisma.userUncheckedUpdateWithoutMessage_message_sender_idTouserInput>
-  create: Prisma.XOR<Prisma.userCreateWithoutMessage_message_sender_idTouserInput, Prisma.userUncheckedCreateWithoutMessage_message_sender_idTouserInput>
-  where?: Prisma.userWhereInput
+export type UserUpsertWithoutMessage_message_sender_idTouserInput = {
+  update: Prisma.XOR<Prisma.UserUpdateWithoutMessage_message_sender_idTouserInput, Prisma.UserUncheckedUpdateWithoutMessage_message_sender_idTouserInput>
+  create: Prisma.XOR<Prisma.UserCreateWithoutMessage_message_sender_idTouserInput, Prisma.UserUncheckedCreateWithoutMessage_message_sender_idTouserInput>
+  where?: Prisma.UserWhereInput
 }
 
-export type userUpdateToOneWithWhereWithoutMessage_message_sender_idTouserInput = {
-  where?: Prisma.userWhereInput
-  data: Prisma.XOR<Prisma.userUpdateWithoutMessage_message_sender_idTouserInput, Prisma.userUncheckedUpdateWithoutMessage_message_sender_idTouserInput>
+export type UserUpdateToOneWithWhereWithoutMessage_message_sender_idTouserInput = {
+  where?: Prisma.UserWhereInput
+  data: Prisma.XOR<Prisma.UserUpdateWithoutMessage_message_sender_idTouserInput, Prisma.UserUncheckedUpdateWithoutMessage_message_sender_idTouserInput>
 }
 
-export type userUpdateWithoutMessage_message_sender_idTouserInput = {
+export type UserUpdateWithoutMessage_message_sender_idTouserInput = {
   first_name?: Prisma.StringFieldUpdateOperationsInput | string
   last_name?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
   password?: Prisma.StringFieldUpdateOperationsInput | string
+  refreshToken?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deleted_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  application?: Prisma.applicationUpdateManyWithoutUserNestedInput
-  comment?: Prisma.commentUpdateManyWithoutUserNestedInput
-  company_follower?: Prisma.company_followerUpdateManyWithoutUserNestedInput
-  connection_connection_user_action_idTouser?: Prisma.connectionUpdateManyWithoutUser_connection_user_action_idTouserNestedInput
-  connection_connection_user_receiver_idTouser?: Prisma.connectionUpdateManyWithoutUser_connection_user_receiver_idTouserNestedInput
-  employment?: Prisma.employmentUpdateManyWithoutUserNestedInput
-  message_message_recipient_idTouser?: Prisma.messageUpdateManyWithoutUser_message_recipient_idTouserNestedInput
-  notification?: Prisma.notificationUpdateManyWithoutUserNestedInput
-  publication?: Prisma.publicationUpdateManyWithoutUserNestedInput
-  role?: Prisma.roleUpdateOneRequiredWithoutUserNestedInput
-  user_skill?: Prisma.user_skillUpdateManyWithoutUserNestedInput
+  application?: Prisma.ApplicationUpdateManyWithoutUserNestedInput
+  comment?: Prisma.CommentUpdateManyWithoutUserNestedInput
+  company_follower?: Prisma.Company_followerUpdateManyWithoutUserNestedInput
+  connection_connection_user_action_idTouser?: Prisma.ConnectionUpdateManyWithoutUser_connection_user_action_idTouserNestedInput
+  connection_connection_user_receiver_idTouser?: Prisma.ConnectionUpdateManyWithoutUser_connection_user_receiver_idTouserNestedInput
+  employment?: Prisma.EmploymentUpdateManyWithoutUserNestedInput
+  message_message_recipient_idTouser?: Prisma.MessageUpdateManyWithoutUser_message_recipient_idTouserNestedInput
+  notification?: Prisma.NotificationUpdateManyWithoutUserNestedInput
+  publication?: Prisma.PublicationUpdateManyWithoutUserNestedInput
+  role?: Prisma.RoleUpdateOneRequiredWithoutUserNestedInput
+  user_skill?: Prisma.User_skillUpdateManyWithoutUserNestedInput
 }
 
-export type userUncheckedUpdateWithoutMessage_message_sender_idTouserInput = {
+export type UserUncheckedUpdateWithoutMessage_message_sender_idTouserInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   role_id?: Prisma.IntFieldUpdateOperationsInput | number
   first_name?: Prisma.StringFieldUpdateOperationsInput | string
   last_name?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
   password?: Prisma.StringFieldUpdateOperationsInput | string
+  refreshToken?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deleted_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  application?: Prisma.applicationUncheckedUpdateManyWithoutUserNestedInput
-  comment?: Prisma.commentUncheckedUpdateManyWithoutUserNestedInput
-  company_follower?: Prisma.company_followerUncheckedUpdateManyWithoutUserNestedInput
-  connection_connection_user_action_idTouser?: Prisma.connectionUncheckedUpdateManyWithoutUser_connection_user_action_idTouserNestedInput
-  connection_connection_user_receiver_idTouser?: Prisma.connectionUncheckedUpdateManyWithoutUser_connection_user_receiver_idTouserNestedInput
-  employment?: Prisma.employmentUncheckedUpdateManyWithoutUserNestedInput
-  message_message_recipient_idTouser?: Prisma.messageUncheckedUpdateManyWithoutUser_message_recipient_idTouserNestedInput
-  notification?: Prisma.notificationUncheckedUpdateManyWithoutUserNestedInput
-  publication?: Prisma.publicationUncheckedUpdateManyWithoutUserNestedInput
-  user_skill?: Prisma.user_skillUncheckedUpdateManyWithoutUserNestedInput
+  application?: Prisma.ApplicationUncheckedUpdateManyWithoutUserNestedInput
+  comment?: Prisma.CommentUncheckedUpdateManyWithoutUserNestedInput
+  company_follower?: Prisma.Company_followerUncheckedUpdateManyWithoutUserNestedInput
+  connection_connection_user_action_idTouser?: Prisma.ConnectionUncheckedUpdateManyWithoutUser_connection_user_action_idTouserNestedInput
+  connection_connection_user_receiver_idTouser?: Prisma.ConnectionUncheckedUpdateManyWithoutUser_connection_user_receiver_idTouserNestedInput
+  employment?: Prisma.EmploymentUncheckedUpdateManyWithoutUserNestedInput
+  message_message_recipient_idTouser?: Prisma.MessageUncheckedUpdateManyWithoutUser_message_recipient_idTouserNestedInput
+  notification?: Prisma.NotificationUncheckedUpdateManyWithoutUserNestedInput
+  publication?: Prisma.PublicationUncheckedUpdateManyWithoutUserNestedInput
+  user_skill?: Prisma.User_skillUncheckedUpdateManyWithoutUserNestedInput
 }
 
-export type userCreateWithoutNotificationInput = {
+export type UserCreateWithoutNotificationInput = {
   first_name: string
   last_name: string
   email: string
   password: string
+  refreshToken?: string | null
   created_at?: Date | string
   updated_at?: Date | string
   deleted_at?: Date | string | null
-  application?: Prisma.applicationCreateNestedManyWithoutUserInput
-  comment?: Prisma.commentCreateNestedManyWithoutUserInput
-  company_follower?: Prisma.company_followerCreateNestedManyWithoutUserInput
-  connection_connection_user_action_idTouser?: Prisma.connectionCreateNestedManyWithoutUser_connection_user_action_idTouserInput
-  connection_connection_user_receiver_idTouser?: Prisma.connectionCreateNestedManyWithoutUser_connection_user_receiver_idTouserInput
-  employment?: Prisma.employmentCreateNestedManyWithoutUserInput
-  message_message_recipient_idTouser?: Prisma.messageCreateNestedManyWithoutUser_message_recipient_idTouserInput
-  message_message_sender_idTouser?: Prisma.messageCreateNestedManyWithoutUser_message_sender_idTouserInput
-  publication?: Prisma.publicationCreateNestedManyWithoutUserInput
-  role: Prisma.roleCreateNestedOneWithoutUserInput
-  user_skill?: Prisma.user_skillCreateNestedManyWithoutUserInput
+  application?: Prisma.ApplicationCreateNestedManyWithoutUserInput
+  comment?: Prisma.CommentCreateNestedManyWithoutUserInput
+  company_follower?: Prisma.Company_followerCreateNestedManyWithoutUserInput
+  connection_connection_user_action_idTouser?: Prisma.ConnectionCreateNestedManyWithoutUser_connection_user_action_idTouserInput
+  connection_connection_user_receiver_idTouser?: Prisma.ConnectionCreateNestedManyWithoutUser_connection_user_receiver_idTouserInput
+  employment?: Prisma.EmploymentCreateNestedManyWithoutUserInput
+  message_message_recipient_idTouser?: Prisma.MessageCreateNestedManyWithoutUser_message_recipient_idTouserInput
+  message_message_sender_idTouser?: Prisma.MessageCreateNestedManyWithoutUser_message_sender_idTouserInput
+  publication?: Prisma.PublicationCreateNestedManyWithoutUserInput
+  role: Prisma.RoleCreateNestedOneWithoutUserInput
+  user_skill?: Prisma.User_skillCreateNestedManyWithoutUserInput
 }
 
-export type userUncheckedCreateWithoutNotificationInput = {
+export type UserUncheckedCreateWithoutNotificationInput = {
   id?: number
   role_id: number
   first_name: string
   last_name: string
   email: string
   password: string
+  refreshToken?: string | null
   created_at?: Date | string
   updated_at?: Date | string
   deleted_at?: Date | string | null
-  application?: Prisma.applicationUncheckedCreateNestedManyWithoutUserInput
-  comment?: Prisma.commentUncheckedCreateNestedManyWithoutUserInput
-  company_follower?: Prisma.company_followerUncheckedCreateNestedManyWithoutUserInput
-  connection_connection_user_action_idTouser?: Prisma.connectionUncheckedCreateNestedManyWithoutUser_connection_user_action_idTouserInput
-  connection_connection_user_receiver_idTouser?: Prisma.connectionUncheckedCreateNestedManyWithoutUser_connection_user_receiver_idTouserInput
-  employment?: Prisma.employmentUncheckedCreateNestedManyWithoutUserInput
-  message_message_recipient_idTouser?: Prisma.messageUncheckedCreateNestedManyWithoutUser_message_recipient_idTouserInput
-  message_message_sender_idTouser?: Prisma.messageUncheckedCreateNestedManyWithoutUser_message_sender_idTouserInput
-  publication?: Prisma.publicationUncheckedCreateNestedManyWithoutUserInput
-  user_skill?: Prisma.user_skillUncheckedCreateNestedManyWithoutUserInput
+  application?: Prisma.ApplicationUncheckedCreateNestedManyWithoutUserInput
+  comment?: Prisma.CommentUncheckedCreateNestedManyWithoutUserInput
+  company_follower?: Prisma.Company_followerUncheckedCreateNestedManyWithoutUserInput
+  connection_connection_user_action_idTouser?: Prisma.ConnectionUncheckedCreateNestedManyWithoutUser_connection_user_action_idTouserInput
+  connection_connection_user_receiver_idTouser?: Prisma.ConnectionUncheckedCreateNestedManyWithoutUser_connection_user_receiver_idTouserInput
+  employment?: Prisma.EmploymentUncheckedCreateNestedManyWithoutUserInput
+  message_message_recipient_idTouser?: Prisma.MessageUncheckedCreateNestedManyWithoutUser_message_recipient_idTouserInput
+  message_message_sender_idTouser?: Prisma.MessageUncheckedCreateNestedManyWithoutUser_message_sender_idTouserInput
+  publication?: Prisma.PublicationUncheckedCreateNestedManyWithoutUserInput
+  user_skill?: Prisma.User_skillUncheckedCreateNestedManyWithoutUserInput
 }
 
-export type userCreateOrConnectWithoutNotificationInput = {
-  where: Prisma.userWhereUniqueInput
-  create: Prisma.XOR<Prisma.userCreateWithoutNotificationInput, Prisma.userUncheckedCreateWithoutNotificationInput>
+export type UserCreateOrConnectWithoutNotificationInput = {
+  where: Prisma.UserWhereUniqueInput
+  create: Prisma.XOR<Prisma.UserCreateWithoutNotificationInput, Prisma.UserUncheckedCreateWithoutNotificationInput>
 }
 
-export type userUpsertWithoutNotificationInput = {
-  update: Prisma.XOR<Prisma.userUpdateWithoutNotificationInput, Prisma.userUncheckedUpdateWithoutNotificationInput>
-  create: Prisma.XOR<Prisma.userCreateWithoutNotificationInput, Prisma.userUncheckedCreateWithoutNotificationInput>
-  where?: Prisma.userWhereInput
+export type UserUpsertWithoutNotificationInput = {
+  update: Prisma.XOR<Prisma.UserUpdateWithoutNotificationInput, Prisma.UserUncheckedUpdateWithoutNotificationInput>
+  create: Prisma.XOR<Prisma.UserCreateWithoutNotificationInput, Prisma.UserUncheckedCreateWithoutNotificationInput>
+  where?: Prisma.UserWhereInput
 }
 
-export type userUpdateToOneWithWhereWithoutNotificationInput = {
-  where?: Prisma.userWhereInput
-  data: Prisma.XOR<Prisma.userUpdateWithoutNotificationInput, Prisma.userUncheckedUpdateWithoutNotificationInput>
+export type UserUpdateToOneWithWhereWithoutNotificationInput = {
+  where?: Prisma.UserWhereInput
+  data: Prisma.XOR<Prisma.UserUpdateWithoutNotificationInput, Prisma.UserUncheckedUpdateWithoutNotificationInput>
 }
 
-export type userUpdateWithoutNotificationInput = {
+export type UserUpdateWithoutNotificationInput = {
   first_name?: Prisma.StringFieldUpdateOperationsInput | string
   last_name?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
   password?: Prisma.StringFieldUpdateOperationsInput | string
+  refreshToken?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deleted_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  application?: Prisma.applicationUpdateManyWithoutUserNestedInput
-  comment?: Prisma.commentUpdateManyWithoutUserNestedInput
-  company_follower?: Prisma.company_followerUpdateManyWithoutUserNestedInput
-  connection_connection_user_action_idTouser?: Prisma.connectionUpdateManyWithoutUser_connection_user_action_idTouserNestedInput
-  connection_connection_user_receiver_idTouser?: Prisma.connectionUpdateManyWithoutUser_connection_user_receiver_idTouserNestedInput
-  employment?: Prisma.employmentUpdateManyWithoutUserNestedInput
-  message_message_recipient_idTouser?: Prisma.messageUpdateManyWithoutUser_message_recipient_idTouserNestedInput
-  message_message_sender_idTouser?: Prisma.messageUpdateManyWithoutUser_message_sender_idTouserNestedInput
-  publication?: Prisma.publicationUpdateManyWithoutUserNestedInput
-  role?: Prisma.roleUpdateOneRequiredWithoutUserNestedInput
-  user_skill?: Prisma.user_skillUpdateManyWithoutUserNestedInput
+  application?: Prisma.ApplicationUpdateManyWithoutUserNestedInput
+  comment?: Prisma.CommentUpdateManyWithoutUserNestedInput
+  company_follower?: Prisma.Company_followerUpdateManyWithoutUserNestedInput
+  connection_connection_user_action_idTouser?: Prisma.ConnectionUpdateManyWithoutUser_connection_user_action_idTouserNestedInput
+  connection_connection_user_receiver_idTouser?: Prisma.ConnectionUpdateManyWithoutUser_connection_user_receiver_idTouserNestedInput
+  employment?: Prisma.EmploymentUpdateManyWithoutUserNestedInput
+  message_message_recipient_idTouser?: Prisma.MessageUpdateManyWithoutUser_message_recipient_idTouserNestedInput
+  message_message_sender_idTouser?: Prisma.MessageUpdateManyWithoutUser_message_sender_idTouserNestedInput
+  publication?: Prisma.PublicationUpdateManyWithoutUserNestedInput
+  role?: Prisma.RoleUpdateOneRequiredWithoutUserNestedInput
+  user_skill?: Prisma.User_skillUpdateManyWithoutUserNestedInput
 }
 
-export type userUncheckedUpdateWithoutNotificationInput = {
+export type UserUncheckedUpdateWithoutNotificationInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   role_id?: Prisma.IntFieldUpdateOperationsInput | number
   first_name?: Prisma.StringFieldUpdateOperationsInput | string
   last_name?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
   password?: Prisma.StringFieldUpdateOperationsInput | string
+  refreshToken?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deleted_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  application?: Prisma.applicationUncheckedUpdateManyWithoutUserNestedInput
-  comment?: Prisma.commentUncheckedUpdateManyWithoutUserNestedInput
-  company_follower?: Prisma.company_followerUncheckedUpdateManyWithoutUserNestedInput
-  connection_connection_user_action_idTouser?: Prisma.connectionUncheckedUpdateManyWithoutUser_connection_user_action_idTouserNestedInput
-  connection_connection_user_receiver_idTouser?: Prisma.connectionUncheckedUpdateManyWithoutUser_connection_user_receiver_idTouserNestedInput
-  employment?: Prisma.employmentUncheckedUpdateManyWithoutUserNestedInput
-  message_message_recipient_idTouser?: Prisma.messageUncheckedUpdateManyWithoutUser_message_recipient_idTouserNestedInput
-  message_message_sender_idTouser?: Prisma.messageUncheckedUpdateManyWithoutUser_message_sender_idTouserNestedInput
-  publication?: Prisma.publicationUncheckedUpdateManyWithoutUserNestedInput
-  user_skill?: Prisma.user_skillUncheckedUpdateManyWithoutUserNestedInput
+  application?: Prisma.ApplicationUncheckedUpdateManyWithoutUserNestedInput
+  comment?: Prisma.CommentUncheckedUpdateManyWithoutUserNestedInput
+  company_follower?: Prisma.Company_followerUncheckedUpdateManyWithoutUserNestedInput
+  connection_connection_user_action_idTouser?: Prisma.ConnectionUncheckedUpdateManyWithoutUser_connection_user_action_idTouserNestedInput
+  connection_connection_user_receiver_idTouser?: Prisma.ConnectionUncheckedUpdateManyWithoutUser_connection_user_receiver_idTouserNestedInput
+  employment?: Prisma.EmploymentUncheckedUpdateManyWithoutUserNestedInput
+  message_message_recipient_idTouser?: Prisma.MessageUncheckedUpdateManyWithoutUser_message_recipient_idTouserNestedInput
+  message_message_sender_idTouser?: Prisma.MessageUncheckedUpdateManyWithoutUser_message_sender_idTouserNestedInput
+  publication?: Prisma.PublicationUncheckedUpdateManyWithoutUserNestedInput
+  user_skill?: Prisma.User_skillUncheckedUpdateManyWithoutUserNestedInput
 }
 
-export type userCreateWithoutPublicationInput = {
+export type UserCreateWithoutPublicationInput = {
   first_name: string
   last_name: string
   email: string
   password: string
+  refreshToken?: string | null
   created_at?: Date | string
   updated_at?: Date | string
   deleted_at?: Date | string | null
-  application?: Prisma.applicationCreateNestedManyWithoutUserInput
-  comment?: Prisma.commentCreateNestedManyWithoutUserInput
-  company_follower?: Prisma.company_followerCreateNestedManyWithoutUserInput
-  connection_connection_user_action_idTouser?: Prisma.connectionCreateNestedManyWithoutUser_connection_user_action_idTouserInput
-  connection_connection_user_receiver_idTouser?: Prisma.connectionCreateNestedManyWithoutUser_connection_user_receiver_idTouserInput
-  employment?: Prisma.employmentCreateNestedManyWithoutUserInput
-  message_message_recipient_idTouser?: Prisma.messageCreateNestedManyWithoutUser_message_recipient_idTouserInput
-  message_message_sender_idTouser?: Prisma.messageCreateNestedManyWithoutUser_message_sender_idTouserInput
-  notification?: Prisma.notificationCreateNestedManyWithoutUserInput
-  role: Prisma.roleCreateNestedOneWithoutUserInput
-  user_skill?: Prisma.user_skillCreateNestedManyWithoutUserInput
+  application?: Prisma.ApplicationCreateNestedManyWithoutUserInput
+  comment?: Prisma.CommentCreateNestedManyWithoutUserInput
+  company_follower?: Prisma.Company_followerCreateNestedManyWithoutUserInput
+  connection_connection_user_action_idTouser?: Prisma.ConnectionCreateNestedManyWithoutUser_connection_user_action_idTouserInput
+  connection_connection_user_receiver_idTouser?: Prisma.ConnectionCreateNestedManyWithoutUser_connection_user_receiver_idTouserInput
+  employment?: Prisma.EmploymentCreateNestedManyWithoutUserInput
+  message_message_recipient_idTouser?: Prisma.MessageCreateNestedManyWithoutUser_message_recipient_idTouserInput
+  message_message_sender_idTouser?: Prisma.MessageCreateNestedManyWithoutUser_message_sender_idTouserInput
+  notification?: Prisma.NotificationCreateNestedManyWithoutUserInput
+  role: Prisma.RoleCreateNestedOneWithoutUserInput
+  user_skill?: Prisma.User_skillCreateNestedManyWithoutUserInput
 }
 
-export type userUncheckedCreateWithoutPublicationInput = {
+export type UserUncheckedCreateWithoutPublicationInput = {
   id?: number
   role_id: number
   first_name: string
   last_name: string
   email: string
   password: string
+  refreshToken?: string | null
   created_at?: Date | string
   updated_at?: Date | string
   deleted_at?: Date | string | null
-  application?: Prisma.applicationUncheckedCreateNestedManyWithoutUserInput
-  comment?: Prisma.commentUncheckedCreateNestedManyWithoutUserInput
-  company_follower?: Prisma.company_followerUncheckedCreateNestedManyWithoutUserInput
-  connection_connection_user_action_idTouser?: Prisma.connectionUncheckedCreateNestedManyWithoutUser_connection_user_action_idTouserInput
-  connection_connection_user_receiver_idTouser?: Prisma.connectionUncheckedCreateNestedManyWithoutUser_connection_user_receiver_idTouserInput
-  employment?: Prisma.employmentUncheckedCreateNestedManyWithoutUserInput
-  message_message_recipient_idTouser?: Prisma.messageUncheckedCreateNestedManyWithoutUser_message_recipient_idTouserInput
-  message_message_sender_idTouser?: Prisma.messageUncheckedCreateNestedManyWithoutUser_message_sender_idTouserInput
-  notification?: Prisma.notificationUncheckedCreateNestedManyWithoutUserInput
-  user_skill?: Prisma.user_skillUncheckedCreateNestedManyWithoutUserInput
+  application?: Prisma.ApplicationUncheckedCreateNestedManyWithoutUserInput
+  comment?: Prisma.CommentUncheckedCreateNestedManyWithoutUserInput
+  company_follower?: Prisma.Company_followerUncheckedCreateNestedManyWithoutUserInput
+  connection_connection_user_action_idTouser?: Prisma.ConnectionUncheckedCreateNestedManyWithoutUser_connection_user_action_idTouserInput
+  connection_connection_user_receiver_idTouser?: Prisma.ConnectionUncheckedCreateNestedManyWithoutUser_connection_user_receiver_idTouserInput
+  employment?: Prisma.EmploymentUncheckedCreateNestedManyWithoutUserInput
+  message_message_recipient_idTouser?: Prisma.MessageUncheckedCreateNestedManyWithoutUser_message_recipient_idTouserInput
+  message_message_sender_idTouser?: Prisma.MessageUncheckedCreateNestedManyWithoutUser_message_sender_idTouserInput
+  notification?: Prisma.NotificationUncheckedCreateNestedManyWithoutUserInput
+  user_skill?: Prisma.User_skillUncheckedCreateNestedManyWithoutUserInput
 }
 
-export type userCreateOrConnectWithoutPublicationInput = {
-  where: Prisma.userWhereUniqueInput
-  create: Prisma.XOR<Prisma.userCreateWithoutPublicationInput, Prisma.userUncheckedCreateWithoutPublicationInput>
+export type UserCreateOrConnectWithoutPublicationInput = {
+  where: Prisma.UserWhereUniqueInput
+  create: Prisma.XOR<Prisma.UserCreateWithoutPublicationInput, Prisma.UserUncheckedCreateWithoutPublicationInput>
 }
 
-export type userUpsertWithoutPublicationInput = {
-  update: Prisma.XOR<Prisma.userUpdateWithoutPublicationInput, Prisma.userUncheckedUpdateWithoutPublicationInput>
-  create: Prisma.XOR<Prisma.userCreateWithoutPublicationInput, Prisma.userUncheckedCreateWithoutPublicationInput>
-  where?: Prisma.userWhereInput
+export type UserUpsertWithoutPublicationInput = {
+  update: Prisma.XOR<Prisma.UserUpdateWithoutPublicationInput, Prisma.UserUncheckedUpdateWithoutPublicationInput>
+  create: Prisma.XOR<Prisma.UserCreateWithoutPublicationInput, Prisma.UserUncheckedCreateWithoutPublicationInput>
+  where?: Prisma.UserWhereInput
 }
 
-export type userUpdateToOneWithWhereWithoutPublicationInput = {
-  where?: Prisma.userWhereInput
-  data: Prisma.XOR<Prisma.userUpdateWithoutPublicationInput, Prisma.userUncheckedUpdateWithoutPublicationInput>
+export type UserUpdateToOneWithWhereWithoutPublicationInput = {
+  where?: Prisma.UserWhereInput
+  data: Prisma.XOR<Prisma.UserUpdateWithoutPublicationInput, Prisma.UserUncheckedUpdateWithoutPublicationInput>
 }
 
-export type userUpdateWithoutPublicationInput = {
+export type UserUpdateWithoutPublicationInput = {
   first_name?: Prisma.StringFieldUpdateOperationsInput | string
   last_name?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
   password?: Prisma.StringFieldUpdateOperationsInput | string
+  refreshToken?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deleted_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  application?: Prisma.applicationUpdateManyWithoutUserNestedInput
-  comment?: Prisma.commentUpdateManyWithoutUserNestedInput
-  company_follower?: Prisma.company_followerUpdateManyWithoutUserNestedInput
-  connection_connection_user_action_idTouser?: Prisma.connectionUpdateManyWithoutUser_connection_user_action_idTouserNestedInput
-  connection_connection_user_receiver_idTouser?: Prisma.connectionUpdateManyWithoutUser_connection_user_receiver_idTouserNestedInput
-  employment?: Prisma.employmentUpdateManyWithoutUserNestedInput
-  message_message_recipient_idTouser?: Prisma.messageUpdateManyWithoutUser_message_recipient_idTouserNestedInput
-  message_message_sender_idTouser?: Prisma.messageUpdateManyWithoutUser_message_sender_idTouserNestedInput
-  notification?: Prisma.notificationUpdateManyWithoutUserNestedInput
-  role?: Prisma.roleUpdateOneRequiredWithoutUserNestedInput
-  user_skill?: Prisma.user_skillUpdateManyWithoutUserNestedInput
+  application?: Prisma.ApplicationUpdateManyWithoutUserNestedInput
+  comment?: Prisma.CommentUpdateManyWithoutUserNestedInput
+  company_follower?: Prisma.Company_followerUpdateManyWithoutUserNestedInput
+  connection_connection_user_action_idTouser?: Prisma.ConnectionUpdateManyWithoutUser_connection_user_action_idTouserNestedInput
+  connection_connection_user_receiver_idTouser?: Prisma.ConnectionUpdateManyWithoutUser_connection_user_receiver_idTouserNestedInput
+  employment?: Prisma.EmploymentUpdateManyWithoutUserNestedInput
+  message_message_recipient_idTouser?: Prisma.MessageUpdateManyWithoutUser_message_recipient_idTouserNestedInput
+  message_message_sender_idTouser?: Prisma.MessageUpdateManyWithoutUser_message_sender_idTouserNestedInput
+  notification?: Prisma.NotificationUpdateManyWithoutUserNestedInput
+  role?: Prisma.RoleUpdateOneRequiredWithoutUserNestedInput
+  user_skill?: Prisma.User_skillUpdateManyWithoutUserNestedInput
 }
 
-export type userUncheckedUpdateWithoutPublicationInput = {
+export type UserUncheckedUpdateWithoutPublicationInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   role_id?: Prisma.IntFieldUpdateOperationsInput | number
   first_name?: Prisma.StringFieldUpdateOperationsInput | string
   last_name?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
   password?: Prisma.StringFieldUpdateOperationsInput | string
+  refreshToken?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deleted_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  application?: Prisma.applicationUncheckedUpdateManyWithoutUserNestedInput
-  comment?: Prisma.commentUncheckedUpdateManyWithoutUserNestedInput
-  company_follower?: Prisma.company_followerUncheckedUpdateManyWithoutUserNestedInput
-  connection_connection_user_action_idTouser?: Prisma.connectionUncheckedUpdateManyWithoutUser_connection_user_action_idTouserNestedInput
-  connection_connection_user_receiver_idTouser?: Prisma.connectionUncheckedUpdateManyWithoutUser_connection_user_receiver_idTouserNestedInput
-  employment?: Prisma.employmentUncheckedUpdateManyWithoutUserNestedInput
-  message_message_recipient_idTouser?: Prisma.messageUncheckedUpdateManyWithoutUser_message_recipient_idTouserNestedInput
-  message_message_sender_idTouser?: Prisma.messageUncheckedUpdateManyWithoutUser_message_sender_idTouserNestedInput
-  notification?: Prisma.notificationUncheckedUpdateManyWithoutUserNestedInput
-  user_skill?: Prisma.user_skillUncheckedUpdateManyWithoutUserNestedInput
+  application?: Prisma.ApplicationUncheckedUpdateManyWithoutUserNestedInput
+  comment?: Prisma.CommentUncheckedUpdateManyWithoutUserNestedInput
+  company_follower?: Prisma.Company_followerUncheckedUpdateManyWithoutUserNestedInput
+  connection_connection_user_action_idTouser?: Prisma.ConnectionUncheckedUpdateManyWithoutUser_connection_user_action_idTouserNestedInput
+  connection_connection_user_receiver_idTouser?: Prisma.ConnectionUncheckedUpdateManyWithoutUser_connection_user_receiver_idTouserNestedInput
+  employment?: Prisma.EmploymentUncheckedUpdateManyWithoutUserNestedInput
+  message_message_recipient_idTouser?: Prisma.MessageUncheckedUpdateManyWithoutUser_message_recipient_idTouserNestedInput
+  message_message_sender_idTouser?: Prisma.MessageUncheckedUpdateManyWithoutUser_message_sender_idTouserNestedInput
+  notification?: Prisma.NotificationUncheckedUpdateManyWithoutUserNestedInput
+  user_skill?: Prisma.User_skillUncheckedUpdateManyWithoutUserNestedInput
 }
 
-export type userCreateWithoutRoleInput = {
+export type UserCreateWithoutRoleInput = {
   first_name: string
   last_name: string
   email: string
   password: string
+  refreshToken?: string | null
   created_at?: Date | string
   updated_at?: Date | string
   deleted_at?: Date | string | null
-  application?: Prisma.applicationCreateNestedManyWithoutUserInput
-  comment?: Prisma.commentCreateNestedManyWithoutUserInput
-  company_follower?: Prisma.company_followerCreateNestedManyWithoutUserInput
-  connection_connection_user_action_idTouser?: Prisma.connectionCreateNestedManyWithoutUser_connection_user_action_idTouserInput
-  connection_connection_user_receiver_idTouser?: Prisma.connectionCreateNestedManyWithoutUser_connection_user_receiver_idTouserInput
-  employment?: Prisma.employmentCreateNestedManyWithoutUserInput
-  message_message_recipient_idTouser?: Prisma.messageCreateNestedManyWithoutUser_message_recipient_idTouserInput
-  message_message_sender_idTouser?: Prisma.messageCreateNestedManyWithoutUser_message_sender_idTouserInput
-  notification?: Prisma.notificationCreateNestedManyWithoutUserInput
-  publication?: Prisma.publicationCreateNestedManyWithoutUserInput
-  user_skill?: Prisma.user_skillCreateNestedManyWithoutUserInput
+  application?: Prisma.ApplicationCreateNestedManyWithoutUserInput
+  comment?: Prisma.CommentCreateNestedManyWithoutUserInput
+  company_follower?: Prisma.Company_followerCreateNestedManyWithoutUserInput
+  connection_connection_user_action_idTouser?: Prisma.ConnectionCreateNestedManyWithoutUser_connection_user_action_idTouserInput
+  connection_connection_user_receiver_idTouser?: Prisma.ConnectionCreateNestedManyWithoutUser_connection_user_receiver_idTouserInput
+  employment?: Prisma.EmploymentCreateNestedManyWithoutUserInput
+  message_message_recipient_idTouser?: Prisma.MessageCreateNestedManyWithoutUser_message_recipient_idTouserInput
+  message_message_sender_idTouser?: Prisma.MessageCreateNestedManyWithoutUser_message_sender_idTouserInput
+  notification?: Prisma.NotificationCreateNestedManyWithoutUserInput
+  publication?: Prisma.PublicationCreateNestedManyWithoutUserInput
+  user_skill?: Prisma.User_skillCreateNestedManyWithoutUserInput
 }
 
-export type userUncheckedCreateWithoutRoleInput = {
+export type UserUncheckedCreateWithoutRoleInput = {
   id?: number
   first_name: string
   last_name: string
   email: string
   password: string
+  refreshToken?: string | null
   created_at?: Date | string
   updated_at?: Date | string
   deleted_at?: Date | string | null
-  application?: Prisma.applicationUncheckedCreateNestedManyWithoutUserInput
-  comment?: Prisma.commentUncheckedCreateNestedManyWithoutUserInput
-  company_follower?: Prisma.company_followerUncheckedCreateNestedManyWithoutUserInput
-  connection_connection_user_action_idTouser?: Prisma.connectionUncheckedCreateNestedManyWithoutUser_connection_user_action_idTouserInput
-  connection_connection_user_receiver_idTouser?: Prisma.connectionUncheckedCreateNestedManyWithoutUser_connection_user_receiver_idTouserInput
-  employment?: Prisma.employmentUncheckedCreateNestedManyWithoutUserInput
-  message_message_recipient_idTouser?: Prisma.messageUncheckedCreateNestedManyWithoutUser_message_recipient_idTouserInput
-  message_message_sender_idTouser?: Prisma.messageUncheckedCreateNestedManyWithoutUser_message_sender_idTouserInput
-  notification?: Prisma.notificationUncheckedCreateNestedManyWithoutUserInput
-  publication?: Prisma.publicationUncheckedCreateNestedManyWithoutUserInput
-  user_skill?: Prisma.user_skillUncheckedCreateNestedManyWithoutUserInput
+  application?: Prisma.ApplicationUncheckedCreateNestedManyWithoutUserInput
+  comment?: Prisma.CommentUncheckedCreateNestedManyWithoutUserInput
+  company_follower?: Prisma.Company_followerUncheckedCreateNestedManyWithoutUserInput
+  connection_connection_user_action_idTouser?: Prisma.ConnectionUncheckedCreateNestedManyWithoutUser_connection_user_action_idTouserInput
+  connection_connection_user_receiver_idTouser?: Prisma.ConnectionUncheckedCreateNestedManyWithoutUser_connection_user_receiver_idTouserInput
+  employment?: Prisma.EmploymentUncheckedCreateNestedManyWithoutUserInput
+  message_message_recipient_idTouser?: Prisma.MessageUncheckedCreateNestedManyWithoutUser_message_recipient_idTouserInput
+  message_message_sender_idTouser?: Prisma.MessageUncheckedCreateNestedManyWithoutUser_message_sender_idTouserInput
+  notification?: Prisma.NotificationUncheckedCreateNestedManyWithoutUserInput
+  publication?: Prisma.PublicationUncheckedCreateNestedManyWithoutUserInput
+  user_skill?: Prisma.User_skillUncheckedCreateNestedManyWithoutUserInput
 }
 
-export type userCreateOrConnectWithoutRoleInput = {
-  where: Prisma.userWhereUniqueInput
-  create: Prisma.XOR<Prisma.userCreateWithoutRoleInput, Prisma.userUncheckedCreateWithoutRoleInput>
+export type UserCreateOrConnectWithoutRoleInput = {
+  where: Prisma.UserWhereUniqueInput
+  create: Prisma.XOR<Prisma.UserCreateWithoutRoleInput, Prisma.UserUncheckedCreateWithoutRoleInput>
 }
 
-export type userCreateManyRoleInputEnvelope = {
-  data: Prisma.userCreateManyRoleInput | Prisma.userCreateManyRoleInput[]
+export type UserCreateManyRoleInputEnvelope = {
+  data: Prisma.UserCreateManyRoleInput | Prisma.UserCreateManyRoleInput[]
   skipDuplicates?: boolean
 }
 
-export type userUpsertWithWhereUniqueWithoutRoleInput = {
-  where: Prisma.userWhereUniqueInput
-  update: Prisma.XOR<Prisma.userUpdateWithoutRoleInput, Prisma.userUncheckedUpdateWithoutRoleInput>
-  create: Prisma.XOR<Prisma.userCreateWithoutRoleInput, Prisma.userUncheckedCreateWithoutRoleInput>
+export type UserUpsertWithWhereUniqueWithoutRoleInput = {
+  where: Prisma.UserWhereUniqueInput
+  update: Prisma.XOR<Prisma.UserUpdateWithoutRoleInput, Prisma.UserUncheckedUpdateWithoutRoleInput>
+  create: Prisma.XOR<Prisma.UserCreateWithoutRoleInput, Prisma.UserUncheckedCreateWithoutRoleInput>
 }
 
-export type userUpdateWithWhereUniqueWithoutRoleInput = {
-  where: Prisma.userWhereUniqueInput
-  data: Prisma.XOR<Prisma.userUpdateWithoutRoleInput, Prisma.userUncheckedUpdateWithoutRoleInput>
+export type UserUpdateWithWhereUniqueWithoutRoleInput = {
+  where: Prisma.UserWhereUniqueInput
+  data: Prisma.XOR<Prisma.UserUpdateWithoutRoleInput, Prisma.UserUncheckedUpdateWithoutRoleInput>
 }
 
-export type userUpdateManyWithWhereWithoutRoleInput = {
-  where: Prisma.userScalarWhereInput
-  data: Prisma.XOR<Prisma.userUpdateManyMutationInput, Prisma.userUncheckedUpdateManyWithoutRoleInput>
+export type UserUpdateManyWithWhereWithoutRoleInput = {
+  where: Prisma.UserScalarWhereInput
+  data: Prisma.XOR<Prisma.UserUpdateManyMutationInput, Prisma.UserUncheckedUpdateManyWithoutRoleInput>
 }
 
-export type userScalarWhereInput = {
-  AND?: Prisma.userScalarWhereInput | Prisma.userScalarWhereInput[]
-  OR?: Prisma.userScalarWhereInput[]
-  NOT?: Prisma.userScalarWhereInput | Prisma.userScalarWhereInput[]
-  id?: Prisma.IntFilter<"user"> | number
-  role_id?: Prisma.IntFilter<"user"> | number
-  first_name?: Prisma.StringFilter<"user"> | string
-  last_name?: Prisma.StringFilter<"user"> | string
-  email?: Prisma.StringFilter<"user"> | string
-  password?: Prisma.StringFilter<"user"> | string
-  created_at?: Prisma.DateTimeFilter<"user"> | Date | string
-  updated_at?: Prisma.DateTimeFilter<"user"> | Date | string
-  deleted_at?: Prisma.DateTimeNullableFilter<"user"> | Date | string | null
+export type UserScalarWhereInput = {
+  AND?: Prisma.UserScalarWhereInput | Prisma.UserScalarWhereInput[]
+  OR?: Prisma.UserScalarWhereInput[]
+  NOT?: Prisma.UserScalarWhereInput | Prisma.UserScalarWhereInput[]
+  id?: Prisma.IntFilter<"User"> | number
+  role_id?: Prisma.IntFilter<"User"> | number
+  first_name?: Prisma.StringFilter<"User"> | string
+  last_name?: Prisma.StringFilter<"User"> | string
+  email?: Prisma.StringFilter<"User"> | string
+  password?: Prisma.StringFilter<"User"> | string
+  refreshToken?: Prisma.StringNullableFilter<"User"> | string | null
+  created_at?: Prisma.DateTimeFilter<"User"> | Date | string
+  updated_at?: Prisma.DateTimeFilter<"User"> | Date | string
+  deleted_at?: Prisma.DateTimeNullableFilter<"User"> | Date | string | null
 }
 
-export type userCreateWithoutUser_skillInput = {
+export type UserCreateWithoutUser_skillInput = {
   first_name: string
   last_name: string
   email: string
   password: string
+  refreshToken?: string | null
   created_at?: Date | string
   updated_at?: Date | string
   deleted_at?: Date | string | null
-  application?: Prisma.applicationCreateNestedManyWithoutUserInput
-  comment?: Prisma.commentCreateNestedManyWithoutUserInput
-  company_follower?: Prisma.company_followerCreateNestedManyWithoutUserInput
-  connection_connection_user_action_idTouser?: Prisma.connectionCreateNestedManyWithoutUser_connection_user_action_idTouserInput
-  connection_connection_user_receiver_idTouser?: Prisma.connectionCreateNestedManyWithoutUser_connection_user_receiver_idTouserInput
-  employment?: Prisma.employmentCreateNestedManyWithoutUserInput
-  message_message_recipient_idTouser?: Prisma.messageCreateNestedManyWithoutUser_message_recipient_idTouserInput
-  message_message_sender_idTouser?: Prisma.messageCreateNestedManyWithoutUser_message_sender_idTouserInput
-  notification?: Prisma.notificationCreateNestedManyWithoutUserInput
-  publication?: Prisma.publicationCreateNestedManyWithoutUserInput
-  role: Prisma.roleCreateNestedOneWithoutUserInput
+  application?: Prisma.ApplicationCreateNestedManyWithoutUserInput
+  comment?: Prisma.CommentCreateNestedManyWithoutUserInput
+  company_follower?: Prisma.Company_followerCreateNestedManyWithoutUserInput
+  connection_connection_user_action_idTouser?: Prisma.ConnectionCreateNestedManyWithoutUser_connection_user_action_idTouserInput
+  connection_connection_user_receiver_idTouser?: Prisma.ConnectionCreateNestedManyWithoutUser_connection_user_receiver_idTouserInput
+  employment?: Prisma.EmploymentCreateNestedManyWithoutUserInput
+  message_message_recipient_idTouser?: Prisma.MessageCreateNestedManyWithoutUser_message_recipient_idTouserInput
+  message_message_sender_idTouser?: Prisma.MessageCreateNestedManyWithoutUser_message_sender_idTouserInput
+  notification?: Prisma.NotificationCreateNestedManyWithoutUserInput
+  publication?: Prisma.PublicationCreateNestedManyWithoutUserInput
+  role: Prisma.RoleCreateNestedOneWithoutUserInput
 }
 
-export type userUncheckedCreateWithoutUser_skillInput = {
+export type UserUncheckedCreateWithoutUser_skillInput = {
   id?: number
   role_id: number
   first_name: string
   last_name: string
   email: string
   password: string
+  refreshToken?: string | null
   created_at?: Date | string
   updated_at?: Date | string
   deleted_at?: Date | string | null
-  application?: Prisma.applicationUncheckedCreateNestedManyWithoutUserInput
-  comment?: Prisma.commentUncheckedCreateNestedManyWithoutUserInput
-  company_follower?: Prisma.company_followerUncheckedCreateNestedManyWithoutUserInput
-  connection_connection_user_action_idTouser?: Prisma.connectionUncheckedCreateNestedManyWithoutUser_connection_user_action_idTouserInput
-  connection_connection_user_receiver_idTouser?: Prisma.connectionUncheckedCreateNestedManyWithoutUser_connection_user_receiver_idTouserInput
-  employment?: Prisma.employmentUncheckedCreateNestedManyWithoutUserInput
-  message_message_recipient_idTouser?: Prisma.messageUncheckedCreateNestedManyWithoutUser_message_recipient_idTouserInput
-  message_message_sender_idTouser?: Prisma.messageUncheckedCreateNestedManyWithoutUser_message_sender_idTouserInput
-  notification?: Prisma.notificationUncheckedCreateNestedManyWithoutUserInput
-  publication?: Prisma.publicationUncheckedCreateNestedManyWithoutUserInput
+  application?: Prisma.ApplicationUncheckedCreateNestedManyWithoutUserInput
+  comment?: Prisma.CommentUncheckedCreateNestedManyWithoutUserInput
+  company_follower?: Prisma.Company_followerUncheckedCreateNestedManyWithoutUserInput
+  connection_connection_user_action_idTouser?: Prisma.ConnectionUncheckedCreateNestedManyWithoutUser_connection_user_action_idTouserInput
+  connection_connection_user_receiver_idTouser?: Prisma.ConnectionUncheckedCreateNestedManyWithoutUser_connection_user_receiver_idTouserInput
+  employment?: Prisma.EmploymentUncheckedCreateNestedManyWithoutUserInput
+  message_message_recipient_idTouser?: Prisma.MessageUncheckedCreateNestedManyWithoutUser_message_recipient_idTouserInput
+  message_message_sender_idTouser?: Prisma.MessageUncheckedCreateNestedManyWithoutUser_message_sender_idTouserInput
+  notification?: Prisma.NotificationUncheckedCreateNestedManyWithoutUserInput
+  publication?: Prisma.PublicationUncheckedCreateNestedManyWithoutUserInput
 }
 
-export type userCreateOrConnectWithoutUser_skillInput = {
-  where: Prisma.userWhereUniqueInput
-  create: Prisma.XOR<Prisma.userCreateWithoutUser_skillInput, Prisma.userUncheckedCreateWithoutUser_skillInput>
+export type UserCreateOrConnectWithoutUser_skillInput = {
+  where: Prisma.UserWhereUniqueInput
+  create: Prisma.XOR<Prisma.UserCreateWithoutUser_skillInput, Prisma.UserUncheckedCreateWithoutUser_skillInput>
 }
 
-export type userUpsertWithoutUser_skillInput = {
-  update: Prisma.XOR<Prisma.userUpdateWithoutUser_skillInput, Prisma.userUncheckedUpdateWithoutUser_skillInput>
-  create: Prisma.XOR<Prisma.userCreateWithoutUser_skillInput, Prisma.userUncheckedCreateWithoutUser_skillInput>
-  where?: Prisma.userWhereInput
+export type UserUpsertWithoutUser_skillInput = {
+  update: Prisma.XOR<Prisma.UserUpdateWithoutUser_skillInput, Prisma.UserUncheckedUpdateWithoutUser_skillInput>
+  create: Prisma.XOR<Prisma.UserCreateWithoutUser_skillInput, Prisma.UserUncheckedCreateWithoutUser_skillInput>
+  where?: Prisma.UserWhereInput
 }
 
-export type userUpdateToOneWithWhereWithoutUser_skillInput = {
-  where?: Prisma.userWhereInput
-  data: Prisma.XOR<Prisma.userUpdateWithoutUser_skillInput, Prisma.userUncheckedUpdateWithoutUser_skillInput>
+export type UserUpdateToOneWithWhereWithoutUser_skillInput = {
+  where?: Prisma.UserWhereInput
+  data: Prisma.XOR<Prisma.UserUpdateWithoutUser_skillInput, Prisma.UserUncheckedUpdateWithoutUser_skillInput>
 }
 
-export type userUpdateWithoutUser_skillInput = {
+export type UserUpdateWithoutUser_skillInput = {
   first_name?: Prisma.StringFieldUpdateOperationsInput | string
   last_name?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
   password?: Prisma.StringFieldUpdateOperationsInput | string
+  refreshToken?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deleted_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  application?: Prisma.applicationUpdateManyWithoutUserNestedInput
-  comment?: Prisma.commentUpdateManyWithoutUserNestedInput
-  company_follower?: Prisma.company_followerUpdateManyWithoutUserNestedInput
-  connection_connection_user_action_idTouser?: Prisma.connectionUpdateManyWithoutUser_connection_user_action_idTouserNestedInput
-  connection_connection_user_receiver_idTouser?: Prisma.connectionUpdateManyWithoutUser_connection_user_receiver_idTouserNestedInput
-  employment?: Prisma.employmentUpdateManyWithoutUserNestedInput
-  message_message_recipient_idTouser?: Prisma.messageUpdateManyWithoutUser_message_recipient_idTouserNestedInput
-  message_message_sender_idTouser?: Prisma.messageUpdateManyWithoutUser_message_sender_idTouserNestedInput
-  notification?: Prisma.notificationUpdateManyWithoutUserNestedInput
-  publication?: Prisma.publicationUpdateManyWithoutUserNestedInput
-  role?: Prisma.roleUpdateOneRequiredWithoutUserNestedInput
+  application?: Prisma.ApplicationUpdateManyWithoutUserNestedInput
+  comment?: Prisma.CommentUpdateManyWithoutUserNestedInput
+  company_follower?: Prisma.Company_followerUpdateManyWithoutUserNestedInput
+  connection_connection_user_action_idTouser?: Prisma.ConnectionUpdateManyWithoutUser_connection_user_action_idTouserNestedInput
+  connection_connection_user_receiver_idTouser?: Prisma.ConnectionUpdateManyWithoutUser_connection_user_receiver_idTouserNestedInput
+  employment?: Prisma.EmploymentUpdateManyWithoutUserNestedInput
+  message_message_recipient_idTouser?: Prisma.MessageUpdateManyWithoutUser_message_recipient_idTouserNestedInput
+  message_message_sender_idTouser?: Prisma.MessageUpdateManyWithoutUser_message_sender_idTouserNestedInput
+  notification?: Prisma.NotificationUpdateManyWithoutUserNestedInput
+  publication?: Prisma.PublicationUpdateManyWithoutUserNestedInput
+  role?: Prisma.RoleUpdateOneRequiredWithoutUserNestedInput
 }
 
-export type userUncheckedUpdateWithoutUser_skillInput = {
+export type UserUncheckedUpdateWithoutUser_skillInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   role_id?: Prisma.IntFieldUpdateOperationsInput | number
   first_name?: Prisma.StringFieldUpdateOperationsInput | string
   last_name?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
   password?: Prisma.StringFieldUpdateOperationsInput | string
+  refreshToken?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deleted_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  application?: Prisma.applicationUncheckedUpdateManyWithoutUserNestedInput
-  comment?: Prisma.commentUncheckedUpdateManyWithoutUserNestedInput
-  company_follower?: Prisma.company_followerUncheckedUpdateManyWithoutUserNestedInput
-  connection_connection_user_action_idTouser?: Prisma.connectionUncheckedUpdateManyWithoutUser_connection_user_action_idTouserNestedInput
-  connection_connection_user_receiver_idTouser?: Prisma.connectionUncheckedUpdateManyWithoutUser_connection_user_receiver_idTouserNestedInput
-  employment?: Prisma.employmentUncheckedUpdateManyWithoutUserNestedInput
-  message_message_recipient_idTouser?: Prisma.messageUncheckedUpdateManyWithoutUser_message_recipient_idTouserNestedInput
-  message_message_sender_idTouser?: Prisma.messageUncheckedUpdateManyWithoutUser_message_sender_idTouserNestedInput
-  notification?: Prisma.notificationUncheckedUpdateManyWithoutUserNestedInput
-  publication?: Prisma.publicationUncheckedUpdateManyWithoutUserNestedInput
+  application?: Prisma.ApplicationUncheckedUpdateManyWithoutUserNestedInput
+  comment?: Prisma.CommentUncheckedUpdateManyWithoutUserNestedInput
+  company_follower?: Prisma.Company_followerUncheckedUpdateManyWithoutUserNestedInput
+  connection_connection_user_action_idTouser?: Prisma.ConnectionUncheckedUpdateManyWithoutUser_connection_user_action_idTouserNestedInput
+  connection_connection_user_receiver_idTouser?: Prisma.ConnectionUncheckedUpdateManyWithoutUser_connection_user_receiver_idTouserNestedInput
+  employment?: Prisma.EmploymentUncheckedUpdateManyWithoutUserNestedInput
+  message_message_recipient_idTouser?: Prisma.MessageUncheckedUpdateManyWithoutUser_message_recipient_idTouserNestedInput
+  message_message_sender_idTouser?: Prisma.MessageUncheckedUpdateManyWithoutUser_message_sender_idTouserNestedInput
+  notification?: Prisma.NotificationUncheckedUpdateManyWithoutUserNestedInput
+  publication?: Prisma.PublicationUncheckedUpdateManyWithoutUserNestedInput
 }
 
-export type userCreateManyRoleInput = {
+export type UserCreateManyRoleInput = {
   id?: number
   first_name: string
   last_name: string
   email: string
   password: string
+  refreshToken?: string | null
   created_at?: Date | string
   updated_at?: Date | string
   deleted_at?: Date | string | null
 }
 
-export type userUpdateWithoutRoleInput = {
+export type UserUpdateWithoutRoleInput = {
   first_name?: Prisma.StringFieldUpdateOperationsInput | string
   last_name?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
   password?: Prisma.StringFieldUpdateOperationsInput | string
+  refreshToken?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deleted_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  application?: Prisma.applicationUpdateManyWithoutUserNestedInput
-  comment?: Prisma.commentUpdateManyWithoutUserNestedInput
-  company_follower?: Prisma.company_followerUpdateManyWithoutUserNestedInput
-  connection_connection_user_action_idTouser?: Prisma.connectionUpdateManyWithoutUser_connection_user_action_idTouserNestedInput
-  connection_connection_user_receiver_idTouser?: Prisma.connectionUpdateManyWithoutUser_connection_user_receiver_idTouserNestedInput
-  employment?: Prisma.employmentUpdateManyWithoutUserNestedInput
-  message_message_recipient_idTouser?: Prisma.messageUpdateManyWithoutUser_message_recipient_idTouserNestedInput
-  message_message_sender_idTouser?: Prisma.messageUpdateManyWithoutUser_message_sender_idTouserNestedInput
-  notification?: Prisma.notificationUpdateManyWithoutUserNestedInput
-  publication?: Prisma.publicationUpdateManyWithoutUserNestedInput
-  user_skill?: Prisma.user_skillUpdateManyWithoutUserNestedInput
+  application?: Prisma.ApplicationUpdateManyWithoutUserNestedInput
+  comment?: Prisma.CommentUpdateManyWithoutUserNestedInput
+  company_follower?: Prisma.Company_followerUpdateManyWithoutUserNestedInput
+  connection_connection_user_action_idTouser?: Prisma.ConnectionUpdateManyWithoutUser_connection_user_action_idTouserNestedInput
+  connection_connection_user_receiver_idTouser?: Prisma.ConnectionUpdateManyWithoutUser_connection_user_receiver_idTouserNestedInput
+  employment?: Prisma.EmploymentUpdateManyWithoutUserNestedInput
+  message_message_recipient_idTouser?: Prisma.MessageUpdateManyWithoutUser_message_recipient_idTouserNestedInput
+  message_message_sender_idTouser?: Prisma.MessageUpdateManyWithoutUser_message_sender_idTouserNestedInput
+  notification?: Prisma.NotificationUpdateManyWithoutUserNestedInput
+  publication?: Prisma.PublicationUpdateManyWithoutUserNestedInput
+  user_skill?: Prisma.User_skillUpdateManyWithoutUserNestedInput
 }
 
-export type userUncheckedUpdateWithoutRoleInput = {
+export type UserUncheckedUpdateWithoutRoleInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   first_name?: Prisma.StringFieldUpdateOperationsInput | string
   last_name?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
   password?: Prisma.StringFieldUpdateOperationsInput | string
+  refreshToken?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deleted_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  application?: Prisma.applicationUncheckedUpdateManyWithoutUserNestedInput
-  comment?: Prisma.commentUncheckedUpdateManyWithoutUserNestedInput
-  company_follower?: Prisma.company_followerUncheckedUpdateManyWithoutUserNestedInput
-  connection_connection_user_action_idTouser?: Prisma.connectionUncheckedUpdateManyWithoutUser_connection_user_action_idTouserNestedInput
-  connection_connection_user_receiver_idTouser?: Prisma.connectionUncheckedUpdateManyWithoutUser_connection_user_receiver_idTouserNestedInput
-  employment?: Prisma.employmentUncheckedUpdateManyWithoutUserNestedInput
-  message_message_recipient_idTouser?: Prisma.messageUncheckedUpdateManyWithoutUser_message_recipient_idTouserNestedInput
-  message_message_sender_idTouser?: Prisma.messageUncheckedUpdateManyWithoutUser_message_sender_idTouserNestedInput
-  notification?: Prisma.notificationUncheckedUpdateManyWithoutUserNestedInput
-  publication?: Prisma.publicationUncheckedUpdateManyWithoutUserNestedInput
-  user_skill?: Prisma.user_skillUncheckedUpdateManyWithoutUserNestedInput
+  application?: Prisma.ApplicationUncheckedUpdateManyWithoutUserNestedInput
+  comment?: Prisma.CommentUncheckedUpdateManyWithoutUserNestedInput
+  company_follower?: Prisma.Company_followerUncheckedUpdateManyWithoutUserNestedInput
+  connection_connection_user_action_idTouser?: Prisma.ConnectionUncheckedUpdateManyWithoutUser_connection_user_action_idTouserNestedInput
+  connection_connection_user_receiver_idTouser?: Prisma.ConnectionUncheckedUpdateManyWithoutUser_connection_user_receiver_idTouserNestedInput
+  employment?: Prisma.EmploymentUncheckedUpdateManyWithoutUserNestedInput
+  message_message_recipient_idTouser?: Prisma.MessageUncheckedUpdateManyWithoutUser_message_recipient_idTouserNestedInput
+  message_message_sender_idTouser?: Prisma.MessageUncheckedUpdateManyWithoutUser_message_sender_idTouserNestedInput
+  notification?: Prisma.NotificationUncheckedUpdateManyWithoutUserNestedInput
+  publication?: Prisma.PublicationUncheckedUpdateManyWithoutUserNestedInput
+  user_skill?: Prisma.User_skillUncheckedUpdateManyWithoutUserNestedInput
 }
 
-export type userUncheckedUpdateManyWithoutRoleInput = {
+export type UserUncheckedUpdateManyWithoutRoleInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   first_name?: Prisma.StringFieldUpdateOperationsInput | string
   last_name?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
   password?: Prisma.StringFieldUpdateOperationsInput | string
+  refreshToken?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deleted_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -2055,151 +2128,153 @@ export type UserCountOutputTypeDefaultArgs<ExtArgs extends runtime.Types.Extensi
  * UserCountOutputType without action
  */
 export type UserCountOutputTypeCountApplicationArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  where?: Prisma.applicationWhereInput
+  where?: Prisma.ApplicationWhereInput
 }
 
 /**
  * UserCountOutputType without action
  */
 export type UserCountOutputTypeCountCommentArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  where?: Prisma.commentWhereInput
+  where?: Prisma.CommentWhereInput
 }
 
 /**
  * UserCountOutputType without action
  */
 export type UserCountOutputTypeCountCompany_followerArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  where?: Prisma.company_followerWhereInput
+  where?: Prisma.Company_followerWhereInput
 }
 
 /**
  * UserCountOutputType without action
  */
 export type UserCountOutputTypeCountConnection_connection_user_action_idTouserArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  where?: Prisma.connectionWhereInput
+  where?: Prisma.ConnectionWhereInput
 }
 
 /**
  * UserCountOutputType without action
  */
 export type UserCountOutputTypeCountConnection_connection_user_receiver_idTouserArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  where?: Prisma.connectionWhereInput
+  where?: Prisma.ConnectionWhereInput
 }
 
 /**
  * UserCountOutputType without action
  */
 export type UserCountOutputTypeCountEmploymentArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  where?: Prisma.employmentWhereInput
+  where?: Prisma.EmploymentWhereInput
 }
 
 /**
  * UserCountOutputType without action
  */
 export type UserCountOutputTypeCountMessage_message_recipient_idTouserArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  where?: Prisma.messageWhereInput
+  where?: Prisma.MessageWhereInput
 }
 
 /**
  * UserCountOutputType without action
  */
 export type UserCountOutputTypeCountMessage_message_sender_idTouserArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  where?: Prisma.messageWhereInput
+  where?: Prisma.MessageWhereInput
 }
 
 /**
  * UserCountOutputType without action
  */
 export type UserCountOutputTypeCountNotificationArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  where?: Prisma.notificationWhereInput
+  where?: Prisma.NotificationWhereInput
 }
 
 /**
  * UserCountOutputType without action
  */
 export type UserCountOutputTypeCountPublicationArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  where?: Prisma.publicationWhereInput
+  where?: Prisma.PublicationWhereInput
 }
 
 /**
  * UserCountOutputType without action
  */
 export type UserCountOutputTypeCountUser_skillArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  where?: Prisma.user_skillWhereInput
+  where?: Prisma.User_skillWhereInput
 }
 
 
-export type userSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
+export type UserSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   role_id?: boolean
   first_name?: boolean
   last_name?: boolean
   email?: boolean
   password?: boolean
+  refreshToken?: boolean
   created_at?: boolean
   updated_at?: boolean
   deleted_at?: boolean
-  application?: boolean | Prisma.user$applicationArgs<ExtArgs>
-  comment?: boolean | Prisma.user$commentArgs<ExtArgs>
-  company_follower?: boolean | Prisma.user$company_followerArgs<ExtArgs>
-  connection_connection_user_action_idTouser?: boolean | Prisma.user$connection_connection_user_action_idTouserArgs<ExtArgs>
-  connection_connection_user_receiver_idTouser?: boolean | Prisma.user$connection_connection_user_receiver_idTouserArgs<ExtArgs>
-  employment?: boolean | Prisma.user$employmentArgs<ExtArgs>
-  message_message_recipient_idTouser?: boolean | Prisma.user$message_message_recipient_idTouserArgs<ExtArgs>
-  message_message_sender_idTouser?: boolean | Prisma.user$message_message_sender_idTouserArgs<ExtArgs>
-  notification?: boolean | Prisma.user$notificationArgs<ExtArgs>
-  publication?: boolean | Prisma.user$publicationArgs<ExtArgs>
-  role?: boolean | Prisma.roleDefaultArgs<ExtArgs>
-  user_skill?: boolean | Prisma.user$user_skillArgs<ExtArgs>
+  application?: boolean | Prisma.User$applicationArgs<ExtArgs>
+  comment?: boolean | Prisma.User$commentArgs<ExtArgs>
+  company_follower?: boolean | Prisma.User$company_followerArgs<ExtArgs>
+  connection_connection_user_action_idTouser?: boolean | Prisma.User$connection_connection_user_action_idTouserArgs<ExtArgs>
+  connection_connection_user_receiver_idTouser?: boolean | Prisma.User$connection_connection_user_receiver_idTouserArgs<ExtArgs>
+  employment?: boolean | Prisma.User$employmentArgs<ExtArgs>
+  message_message_recipient_idTouser?: boolean | Prisma.User$message_message_recipient_idTouserArgs<ExtArgs>
+  message_message_sender_idTouser?: boolean | Prisma.User$message_message_sender_idTouserArgs<ExtArgs>
+  notification?: boolean | Prisma.User$notificationArgs<ExtArgs>
+  publication?: boolean | Prisma.User$publicationArgs<ExtArgs>
+  role?: boolean | Prisma.RoleDefaultArgs<ExtArgs>
+  user_skill?: boolean | Prisma.User$user_skillArgs<ExtArgs>
   _count?: boolean | Prisma.UserCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["user"]>
 
 
 
-export type userSelectScalar = {
+export type UserSelectScalar = {
   id?: boolean
   role_id?: boolean
   first_name?: boolean
   last_name?: boolean
   email?: boolean
   password?: boolean
+  refreshToken?: boolean
   created_at?: boolean
   updated_at?: boolean
   deleted_at?: boolean
 }
 
-export type userOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "role_id" | "first_name" | "last_name" | "email" | "password" | "created_at" | "updated_at" | "deleted_at", ExtArgs["result"]["user"]>
-export type userInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  application?: boolean | Prisma.user$applicationArgs<ExtArgs>
-  comment?: boolean | Prisma.user$commentArgs<ExtArgs>
-  company_follower?: boolean | Prisma.user$company_followerArgs<ExtArgs>
-  connection_connection_user_action_idTouser?: boolean | Prisma.user$connection_connection_user_action_idTouserArgs<ExtArgs>
-  connection_connection_user_receiver_idTouser?: boolean | Prisma.user$connection_connection_user_receiver_idTouserArgs<ExtArgs>
-  employment?: boolean | Prisma.user$employmentArgs<ExtArgs>
-  message_message_recipient_idTouser?: boolean | Prisma.user$message_message_recipient_idTouserArgs<ExtArgs>
-  message_message_sender_idTouser?: boolean | Prisma.user$message_message_sender_idTouserArgs<ExtArgs>
-  notification?: boolean | Prisma.user$notificationArgs<ExtArgs>
-  publication?: boolean | Prisma.user$publicationArgs<ExtArgs>
-  role?: boolean | Prisma.roleDefaultArgs<ExtArgs>
-  user_skill?: boolean | Prisma.user$user_skillArgs<ExtArgs>
+export type UserOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "role_id" | "first_name" | "last_name" | "email" | "password" | "refreshToken" | "created_at" | "updated_at" | "deleted_at", ExtArgs["result"]["user"]>
+export type UserInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  application?: boolean | Prisma.User$applicationArgs<ExtArgs>
+  comment?: boolean | Prisma.User$commentArgs<ExtArgs>
+  company_follower?: boolean | Prisma.User$company_followerArgs<ExtArgs>
+  connection_connection_user_action_idTouser?: boolean | Prisma.User$connection_connection_user_action_idTouserArgs<ExtArgs>
+  connection_connection_user_receiver_idTouser?: boolean | Prisma.User$connection_connection_user_receiver_idTouserArgs<ExtArgs>
+  employment?: boolean | Prisma.User$employmentArgs<ExtArgs>
+  message_message_recipient_idTouser?: boolean | Prisma.User$message_message_recipient_idTouserArgs<ExtArgs>
+  message_message_sender_idTouser?: boolean | Prisma.User$message_message_sender_idTouserArgs<ExtArgs>
+  notification?: boolean | Prisma.User$notificationArgs<ExtArgs>
+  publication?: boolean | Prisma.User$publicationArgs<ExtArgs>
+  role?: boolean | Prisma.RoleDefaultArgs<ExtArgs>
+  user_skill?: boolean | Prisma.User$user_skillArgs<ExtArgs>
   _count?: boolean | Prisma.UserCountOutputTypeDefaultArgs<ExtArgs>
 }
 
-export type $userPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  name: "user"
+export type $UserPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  name: "User"
   objects: {
-    application: Prisma.$applicationPayload<ExtArgs>[]
-    comment: Prisma.$commentPayload<ExtArgs>[]
-    company_follower: Prisma.$company_followerPayload<ExtArgs>[]
-    connection_connection_user_action_idTouser: Prisma.$connectionPayload<ExtArgs>[]
-    connection_connection_user_receiver_idTouser: Prisma.$connectionPayload<ExtArgs>[]
-    employment: Prisma.$employmentPayload<ExtArgs>[]
-    message_message_recipient_idTouser: Prisma.$messagePayload<ExtArgs>[]
-    message_message_sender_idTouser: Prisma.$messagePayload<ExtArgs>[]
-    notification: Prisma.$notificationPayload<ExtArgs>[]
-    publication: Prisma.$publicationPayload<ExtArgs>[]
-    role: Prisma.$rolePayload<ExtArgs>
-    user_skill: Prisma.$user_skillPayload<ExtArgs>[]
+    application: Prisma.$ApplicationPayload<ExtArgs>[]
+    comment: Prisma.$CommentPayload<ExtArgs>[]
+    company_follower: Prisma.$Company_followerPayload<ExtArgs>[]
+    connection_connection_user_action_idTouser: Prisma.$ConnectionPayload<ExtArgs>[]
+    connection_connection_user_receiver_idTouser: Prisma.$ConnectionPayload<ExtArgs>[]
+    employment: Prisma.$EmploymentPayload<ExtArgs>[]
+    message_message_recipient_idTouser: Prisma.$MessagePayload<ExtArgs>[]
+    message_message_sender_idTouser: Prisma.$MessagePayload<ExtArgs>[]
+    notification: Prisma.$NotificationPayload<ExtArgs>[]
+    publication: Prisma.$PublicationPayload<ExtArgs>[]
+    role: Prisma.$RolePayload<ExtArgs>
+    user_skill: Prisma.$User_skillPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: number
@@ -2208,6 +2283,7 @@ export type $userPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs =
     last_name: string
     email: string
     password: string
+    refreshToken: string | null
     created_at: Date
     updated_at: Date
     deleted_at: Date | null
@@ -2215,18 +2291,18 @@ export type $userPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs =
   composites: {}
 }
 
-export type userGetPayload<S extends boolean | null | undefined | userDefaultArgs> = runtime.Types.Result.GetResult<Prisma.$userPayload, S>
+export type UserGetPayload<S extends boolean | null | undefined | UserDefaultArgs> = runtime.Types.Result.GetResult<Prisma.$UserPayload, S>
 
-export type userCountArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> =
-  Omit<userFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+export type UserCountArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> =
+  Omit<UserFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
     select?: UserCountAggregateInputType | true
   }
 
-export interface userDelegate<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> {
-  [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['user'], meta: { name: 'user' } }
+export interface UserDelegate<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+  [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['User'], meta: { name: 'User' } }
   /**
    * Find zero or one User that matches the filter.
-   * @param {userFindUniqueArgs} args - Arguments to find a User
+   * @param {UserFindUniqueArgs} args - Arguments to find a User
    * @example
    * // Get one User
    * const user = await prisma.user.findUnique({
@@ -2235,12 +2311,12 @@ export interface userDelegate<ExtArgs extends runtime.Types.Extensions.InternalA
    *   }
    * })
    */
-  findUnique<T extends userFindUniqueArgs>(args: Prisma.SelectSubset<T, userFindUniqueArgs<ExtArgs>>): Prisma.Prisma__userClient<runtime.Types.Result.GetResult<Prisma.$userPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+  findUnique<T extends UserFindUniqueArgs>(args: Prisma.SelectSubset<T, UserFindUniqueArgs<ExtArgs>>): Prisma.Prisma__UserClient<runtime.Types.Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
   /**
    * Find one User that matches the filter or throw an error with `error.code='P2025'`
    * if no matches were found.
-   * @param {userFindUniqueOrThrowArgs} args - Arguments to find a User
+   * @param {UserFindUniqueOrThrowArgs} args - Arguments to find a User
    * @example
    * // Get one User
    * const user = await prisma.user.findUniqueOrThrow({
@@ -2249,13 +2325,13 @@ export interface userDelegate<ExtArgs extends runtime.Types.Extensions.InternalA
    *   }
    * })
    */
-  findUniqueOrThrow<T extends userFindUniqueOrThrowArgs>(args: Prisma.SelectSubset<T, userFindUniqueOrThrowArgs<ExtArgs>>): Prisma.Prisma__userClient<runtime.Types.Result.GetResult<Prisma.$userPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+  findUniqueOrThrow<T extends UserFindUniqueOrThrowArgs>(args: Prisma.SelectSubset<T, UserFindUniqueOrThrowArgs<ExtArgs>>): Prisma.Prisma__UserClient<runtime.Types.Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
   /**
    * Find the first User that matches the filter.
    * Note, that providing `undefined` is treated as the value not being there.
    * Read more here: https://pris.ly/d/null-undefined
-   * @param {userFindFirstArgs} args - Arguments to find a User
+   * @param {UserFindFirstArgs} args - Arguments to find a User
    * @example
    * // Get one User
    * const user = await prisma.user.findFirst({
@@ -2264,14 +2340,14 @@ export interface userDelegate<ExtArgs extends runtime.Types.Extensions.InternalA
    *   }
    * })
    */
-  findFirst<T extends userFindFirstArgs>(args?: Prisma.SelectSubset<T, userFindFirstArgs<ExtArgs>>): Prisma.Prisma__userClient<runtime.Types.Result.GetResult<Prisma.$userPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+  findFirst<T extends UserFindFirstArgs>(args?: Prisma.SelectSubset<T, UserFindFirstArgs<ExtArgs>>): Prisma.Prisma__UserClient<runtime.Types.Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
   /**
    * Find the first User that matches the filter or
    * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
    * Note, that providing `undefined` is treated as the value not being there.
    * Read more here: https://pris.ly/d/null-undefined
-   * @param {userFindFirstOrThrowArgs} args - Arguments to find a User
+   * @param {UserFindFirstOrThrowArgs} args - Arguments to find a User
    * @example
    * // Get one User
    * const user = await prisma.user.findFirstOrThrow({
@@ -2280,13 +2356,13 @@ export interface userDelegate<ExtArgs extends runtime.Types.Extensions.InternalA
    *   }
    * })
    */
-  findFirstOrThrow<T extends userFindFirstOrThrowArgs>(args?: Prisma.SelectSubset<T, userFindFirstOrThrowArgs<ExtArgs>>): Prisma.Prisma__userClient<runtime.Types.Result.GetResult<Prisma.$userPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+  findFirstOrThrow<T extends UserFindFirstOrThrowArgs>(args?: Prisma.SelectSubset<T, UserFindFirstOrThrowArgs<ExtArgs>>): Prisma.Prisma__UserClient<runtime.Types.Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
   /**
    * Find zero or more Users that matches the filter.
    * Note, that providing `undefined` is treated as the value not being there.
    * Read more here: https://pris.ly/d/null-undefined
-   * @param {userFindManyArgs} args - Arguments to filter and select certain fields only.
+   * @param {UserFindManyArgs} args - Arguments to filter and select certain fields only.
    * @example
    * // Get all Users
    * const users = await prisma.user.findMany()
@@ -2298,11 +2374,11 @@ export interface userDelegate<ExtArgs extends runtime.Types.Extensions.InternalA
    * const userWithIdOnly = await prisma.user.findMany({ select: { id: true } })
    * 
    */
-  findMany<T extends userFindManyArgs>(args?: Prisma.SelectSubset<T, userFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$userPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+  findMany<T extends UserFindManyArgs>(args?: Prisma.SelectSubset<T, UserFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
 
   /**
    * Create a User.
-   * @param {userCreateArgs} args - Arguments to create a User.
+   * @param {UserCreateArgs} args - Arguments to create a User.
    * @example
    * // Create one User
    * const User = await prisma.user.create({
@@ -2312,11 +2388,11 @@ export interface userDelegate<ExtArgs extends runtime.Types.Extensions.InternalA
    * })
    * 
    */
-  create<T extends userCreateArgs>(args: Prisma.SelectSubset<T, userCreateArgs<ExtArgs>>): Prisma.Prisma__userClient<runtime.Types.Result.GetResult<Prisma.$userPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+  create<T extends UserCreateArgs>(args: Prisma.SelectSubset<T, UserCreateArgs<ExtArgs>>): Prisma.Prisma__UserClient<runtime.Types.Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
   /**
    * Create many Users.
-   * @param {userCreateManyArgs} args - Arguments to create many Users.
+   * @param {UserCreateManyArgs} args - Arguments to create many Users.
    * @example
    * // Create many Users
    * const user = await prisma.user.createMany({
@@ -2326,11 +2402,11 @@ export interface userDelegate<ExtArgs extends runtime.Types.Extensions.InternalA
    * })
    *     
    */
-  createMany<T extends userCreateManyArgs>(args?: Prisma.SelectSubset<T, userCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>
+  createMany<T extends UserCreateManyArgs>(args?: Prisma.SelectSubset<T, UserCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>
 
   /**
    * Delete a User.
-   * @param {userDeleteArgs} args - Arguments to delete one User.
+   * @param {UserDeleteArgs} args - Arguments to delete one User.
    * @example
    * // Delete one User
    * const User = await prisma.user.delete({
@@ -2340,11 +2416,11 @@ export interface userDelegate<ExtArgs extends runtime.Types.Extensions.InternalA
    * })
    * 
    */
-  delete<T extends userDeleteArgs>(args: Prisma.SelectSubset<T, userDeleteArgs<ExtArgs>>): Prisma.Prisma__userClient<runtime.Types.Result.GetResult<Prisma.$userPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+  delete<T extends UserDeleteArgs>(args: Prisma.SelectSubset<T, UserDeleteArgs<ExtArgs>>): Prisma.Prisma__UserClient<runtime.Types.Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
   /**
    * Update one User.
-   * @param {userUpdateArgs} args - Arguments to update one User.
+   * @param {UserUpdateArgs} args - Arguments to update one User.
    * @example
    * // Update one User
    * const user = await prisma.user.update({
@@ -2357,11 +2433,11 @@ export interface userDelegate<ExtArgs extends runtime.Types.Extensions.InternalA
    * })
    * 
    */
-  update<T extends userUpdateArgs>(args: Prisma.SelectSubset<T, userUpdateArgs<ExtArgs>>): Prisma.Prisma__userClient<runtime.Types.Result.GetResult<Prisma.$userPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+  update<T extends UserUpdateArgs>(args: Prisma.SelectSubset<T, UserUpdateArgs<ExtArgs>>): Prisma.Prisma__UserClient<runtime.Types.Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
   /**
    * Delete zero or more Users.
-   * @param {userDeleteManyArgs} args - Arguments to filter Users to delete.
+   * @param {UserDeleteManyArgs} args - Arguments to filter Users to delete.
    * @example
    * // Delete a few Users
    * const { count } = await prisma.user.deleteMany({
@@ -2371,13 +2447,13 @@ export interface userDelegate<ExtArgs extends runtime.Types.Extensions.InternalA
    * })
    * 
    */
-  deleteMany<T extends userDeleteManyArgs>(args?: Prisma.SelectSubset<T, userDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>
+  deleteMany<T extends UserDeleteManyArgs>(args?: Prisma.SelectSubset<T, UserDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>
 
   /**
    * Update zero or more Users.
    * Note, that providing `undefined` is treated as the value not being there.
    * Read more here: https://pris.ly/d/null-undefined
-   * @param {userUpdateManyArgs} args - Arguments to update one or more rows.
+   * @param {UserUpdateManyArgs} args - Arguments to update one or more rows.
    * @example
    * // Update many Users
    * const user = await prisma.user.updateMany({
@@ -2390,11 +2466,11 @@ export interface userDelegate<ExtArgs extends runtime.Types.Extensions.InternalA
    * })
    * 
    */
-  updateMany<T extends userUpdateManyArgs>(args: Prisma.SelectSubset<T, userUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>
+  updateMany<T extends UserUpdateManyArgs>(args: Prisma.SelectSubset<T, UserUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>
 
   /**
    * Create or update one User.
-   * @param {userUpsertArgs} args - Arguments to update or create a User.
+   * @param {UserUpsertArgs} args - Arguments to update or create a User.
    * @example
    * // Update or create a User
    * const user = await prisma.user.upsert({
@@ -2409,14 +2485,14 @@ export interface userDelegate<ExtArgs extends runtime.Types.Extensions.InternalA
    *   }
    * })
    */
-  upsert<T extends userUpsertArgs>(args: Prisma.SelectSubset<T, userUpsertArgs<ExtArgs>>): Prisma.Prisma__userClient<runtime.Types.Result.GetResult<Prisma.$userPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+  upsert<T extends UserUpsertArgs>(args: Prisma.SelectSubset<T, UserUpsertArgs<ExtArgs>>): Prisma.Prisma__UserClient<runtime.Types.Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
 
   /**
    * Count the number of Users.
    * Note, that providing `undefined` is treated as the value not being there.
    * Read more here: https://pris.ly/d/null-undefined
-   * @param {userCountArgs} args - Arguments to filter Users to count.
+   * @param {UserCountArgs} args - Arguments to filter Users to count.
    * @example
    * // Count the number of Users
    * const count = await prisma.user.count({
@@ -2425,8 +2501,8 @@ export interface userDelegate<ExtArgs extends runtime.Types.Extensions.InternalA
    *   }
    * })
   **/
-  count<T extends userCountArgs>(
-    args?: Prisma.Subset<T, userCountArgs>,
+  count<T extends UserCountArgs>(
+    args?: Prisma.Subset<T, UserCountArgs>,
   ): Prisma.PrismaPromise<
     T extends runtime.Types.Utils.Record<'select', any>
       ? T['select'] extends true
@@ -2465,7 +2541,7 @@ export interface userDelegate<ExtArgs extends runtime.Types.Extensions.InternalA
    * Group by User.
    * Note, that providing `undefined` is treated as the value not being there.
    * Read more here: https://pris.ly/d/null-undefined
-   * @param {userGroupByArgs} args - Group by arguments.
+   * @param {UserGroupByArgs} args - Group by arguments.
    * @example
    * // Group by city, order by createdAt, get count
    * const result = await prisma.user.groupBy({
@@ -2480,14 +2556,14 @@ export interface userDelegate<ExtArgs extends runtime.Types.Extensions.InternalA
    * 
   **/
   groupBy<
-    T extends userGroupByArgs,
+    T extends UserGroupByArgs,
     HasSelectOrTake extends Prisma.Or<
       Prisma.Extends<'skip', Prisma.Keys<T>>,
       Prisma.Extends<'take', Prisma.Keys<T>>
     >,
     OrderByArg extends Prisma.True extends HasSelectOrTake
-      ? { orderBy: userGroupByArgs['orderBy'] }
-      : { orderBy?: userGroupByArgs['orderBy'] },
+      ? { orderBy: UserGroupByArgs['orderBy'] }
+      : { orderBy?: UserGroupByArgs['orderBy'] },
     OrderFields extends Prisma.ExcludeUnderscoreKeys<Prisma.Keys<Prisma.MaybeTupleToUnion<T['orderBy']>>>,
     ByFields extends Prisma.MaybeTupleToUnion<T['by']>,
     ByValid extends Prisma.Has<ByFields, OrderFields>,
@@ -2536,33 +2612,33 @@ export interface userDelegate<ExtArgs extends runtime.Types.Extensions.InternalA
           ? never
           : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
       }[OrderFields]
-  >(args: Prisma.SubsetIntersection<T, userGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetUserGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  >(args: Prisma.SubsetIntersection<T, UserGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetUserGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
 /**
- * Fields of the user model
+ * Fields of the User model
  */
-readonly fields: userFieldRefs;
+readonly fields: UserFieldRefs;
 }
 
 /**
- * The delegate class that acts as a "Promise-like" for user.
+ * The delegate class that acts as a "Promise-like" for User.
  * Why is this prefixed with `Prisma__`?
  * Because we want to prevent naming conflicts as mentioned in
  * https://github.com/prisma/prisma-client-js/issues/707
  */
-export interface Prisma__userClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+export interface Prisma__UserClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
-  application<T extends Prisma.user$applicationArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.user$applicationArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$applicationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-  comment<T extends Prisma.user$commentArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.user$commentArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$commentPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-  company_follower<T extends Prisma.user$company_followerArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.user$company_followerArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$company_followerPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-  connection_connection_user_action_idTouser<T extends Prisma.user$connection_connection_user_action_idTouserArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.user$connection_connection_user_action_idTouserArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$connectionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-  connection_connection_user_receiver_idTouser<T extends Prisma.user$connection_connection_user_receiver_idTouserArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.user$connection_connection_user_receiver_idTouserArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$connectionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-  employment<T extends Prisma.user$employmentArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.user$employmentArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$employmentPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-  message_message_recipient_idTouser<T extends Prisma.user$message_message_recipient_idTouserArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.user$message_message_recipient_idTouserArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$messagePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-  message_message_sender_idTouser<T extends Prisma.user$message_message_sender_idTouserArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.user$message_message_sender_idTouserArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$messagePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-  notification<T extends Prisma.user$notificationArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.user$notificationArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$notificationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-  publication<T extends Prisma.user$publicationArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.user$publicationArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$publicationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-  role<T extends Prisma.roleDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.roleDefaultArgs<ExtArgs>>): Prisma.Prisma__roleClient<runtime.Types.Result.GetResult<Prisma.$rolePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
-  user_skill<T extends Prisma.user$user_skillArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.user$user_skillArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$user_skillPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  application<T extends Prisma.User$applicationArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$applicationArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ApplicationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  comment<T extends Prisma.User$commentArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$commentArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$CommentPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  company_follower<T extends Prisma.User$company_followerArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$company_followerArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$Company_followerPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  connection_connection_user_action_idTouser<T extends Prisma.User$connection_connection_user_action_idTouserArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$connection_connection_user_action_idTouserArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ConnectionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  connection_connection_user_receiver_idTouser<T extends Prisma.User$connection_connection_user_receiver_idTouserArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$connection_connection_user_receiver_idTouserArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ConnectionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  employment<T extends Prisma.User$employmentArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$employmentArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$EmploymentPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  message_message_recipient_idTouser<T extends Prisma.User$message_message_recipient_idTouserArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$message_message_recipient_idTouserArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$MessagePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  message_message_sender_idTouser<T extends Prisma.User$message_message_sender_idTouserArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$message_message_sender_idTouserArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$MessagePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  notification<T extends Prisma.User$notificationArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$notificationArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$NotificationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  publication<T extends Prisma.User$publicationArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$publicationArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$PublicationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  role<T extends Prisma.RoleDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.RoleDefaultArgs<ExtArgs>>): Prisma.Prisma__RoleClient<runtime.Types.Result.GetResult<Prisma.$RolePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+  user_skill<T extends Prisma.User$user_skillArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$user_skillArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$User_skillPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -2589,643 +2665,644 @@ export interface Prisma__userClient<T, Null = never, ExtArgs extends runtime.Typ
 
 
 /**
- * Fields of the user model
+ * Fields of the User model
  */
-export interface userFieldRefs {
-  readonly id: Prisma.FieldRef<"user", 'Int'>
-  readonly role_id: Prisma.FieldRef<"user", 'Int'>
-  readonly first_name: Prisma.FieldRef<"user", 'String'>
-  readonly last_name: Prisma.FieldRef<"user", 'String'>
-  readonly email: Prisma.FieldRef<"user", 'String'>
-  readonly password: Prisma.FieldRef<"user", 'String'>
-  readonly created_at: Prisma.FieldRef<"user", 'DateTime'>
-  readonly updated_at: Prisma.FieldRef<"user", 'DateTime'>
-  readonly deleted_at: Prisma.FieldRef<"user", 'DateTime'>
+export interface UserFieldRefs {
+  readonly id: Prisma.FieldRef<"User", 'Int'>
+  readonly role_id: Prisma.FieldRef<"User", 'Int'>
+  readonly first_name: Prisma.FieldRef<"User", 'String'>
+  readonly last_name: Prisma.FieldRef<"User", 'String'>
+  readonly email: Prisma.FieldRef<"User", 'String'>
+  readonly password: Prisma.FieldRef<"User", 'String'>
+  readonly refreshToken: Prisma.FieldRef<"User", 'String'>
+  readonly created_at: Prisma.FieldRef<"User", 'DateTime'>
+  readonly updated_at: Prisma.FieldRef<"User", 'DateTime'>
+  readonly deleted_at: Prisma.FieldRef<"User", 'DateTime'>
 }
     
 
 // Custom InputTypes
 /**
- * user findUnique
+ * User findUnique
  */
-export type userFindUniqueArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type UserFindUniqueArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the user
+   * Select specific fields to fetch from the User
    */
-  select?: Prisma.userSelect<ExtArgs> | null
+  select?: Prisma.UserSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the user
+   * Omit specific fields from the User
    */
-  omit?: Prisma.userOmit<ExtArgs> | null
+  omit?: Prisma.UserOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.userInclude<ExtArgs> | null
+  include?: Prisma.UserInclude<ExtArgs> | null
   /**
-   * Filter, which user to fetch.
+   * Filter, which User to fetch.
    */
-  where: Prisma.userWhereUniqueInput
+  where: Prisma.UserWhereUniqueInput
 }
 
 /**
- * user findUniqueOrThrow
+ * User findUniqueOrThrow
  */
-export type userFindUniqueOrThrowArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type UserFindUniqueOrThrowArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the user
+   * Select specific fields to fetch from the User
    */
-  select?: Prisma.userSelect<ExtArgs> | null
+  select?: Prisma.UserSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the user
+   * Omit specific fields from the User
    */
-  omit?: Prisma.userOmit<ExtArgs> | null
+  omit?: Prisma.UserOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.userInclude<ExtArgs> | null
+  include?: Prisma.UserInclude<ExtArgs> | null
   /**
-   * Filter, which user to fetch.
+   * Filter, which User to fetch.
    */
-  where: Prisma.userWhereUniqueInput
+  where: Prisma.UserWhereUniqueInput
 }
 
 /**
- * user findFirst
+ * User findFirst
  */
-export type userFindFirstArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type UserFindFirstArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the user
+   * Select specific fields to fetch from the User
    */
-  select?: Prisma.userSelect<ExtArgs> | null
+  select?: Prisma.UserSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the user
+   * Omit specific fields from the User
    */
-  omit?: Prisma.userOmit<ExtArgs> | null
+  omit?: Prisma.UserOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.userInclude<ExtArgs> | null
+  include?: Prisma.UserInclude<ExtArgs> | null
   /**
-   * Filter, which user to fetch.
+   * Filter, which User to fetch.
    */
-  where?: Prisma.userWhereInput
+  where?: Prisma.UserWhereInput
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
    * 
-   * Determine the order of users to fetch.
+   * Determine the order of Users to fetch.
    */
-  orderBy?: Prisma.userOrderByWithRelationInput | Prisma.userOrderByWithRelationInput[]
+  orderBy?: Prisma.UserOrderByWithRelationInput | Prisma.UserOrderByWithRelationInput[]
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
    * 
-   * Sets the position for searching for users.
+   * Sets the position for searching for Users.
    */
-  cursor?: Prisma.userWhereUniqueInput
+  cursor?: Prisma.UserWhereUniqueInput
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
    * 
-   * Take `±n` users from the position of the cursor.
+   * Take `±n` Users from the position of the cursor.
    */
   take?: number
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
    * 
-   * Skip the first `n` users.
+   * Skip the first `n` Users.
    */
   skip?: number
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
    * 
-   * Filter by unique combinations of users.
+   * Filter by unique combinations of Users.
    */
   distinct?: Prisma.UserScalarFieldEnum | Prisma.UserScalarFieldEnum[]
 }
 
 /**
- * user findFirstOrThrow
+ * User findFirstOrThrow
  */
-export type userFindFirstOrThrowArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type UserFindFirstOrThrowArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the user
+   * Select specific fields to fetch from the User
    */
-  select?: Prisma.userSelect<ExtArgs> | null
+  select?: Prisma.UserSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the user
+   * Omit specific fields from the User
    */
-  omit?: Prisma.userOmit<ExtArgs> | null
+  omit?: Prisma.UserOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.userInclude<ExtArgs> | null
+  include?: Prisma.UserInclude<ExtArgs> | null
   /**
-   * Filter, which user to fetch.
+   * Filter, which User to fetch.
    */
-  where?: Prisma.userWhereInput
+  where?: Prisma.UserWhereInput
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
    * 
-   * Determine the order of users to fetch.
+   * Determine the order of Users to fetch.
    */
-  orderBy?: Prisma.userOrderByWithRelationInput | Prisma.userOrderByWithRelationInput[]
+  orderBy?: Prisma.UserOrderByWithRelationInput | Prisma.UserOrderByWithRelationInput[]
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
    * 
-   * Sets the position for searching for users.
+   * Sets the position for searching for Users.
    */
-  cursor?: Prisma.userWhereUniqueInput
+  cursor?: Prisma.UserWhereUniqueInput
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
    * 
-   * Take `±n` users from the position of the cursor.
+   * Take `±n` Users from the position of the cursor.
    */
   take?: number
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
    * 
-   * Skip the first `n` users.
+   * Skip the first `n` Users.
    */
   skip?: number
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
    * 
-   * Filter by unique combinations of users.
+   * Filter by unique combinations of Users.
    */
   distinct?: Prisma.UserScalarFieldEnum | Prisma.UserScalarFieldEnum[]
 }
 
 /**
- * user findMany
+ * User findMany
  */
-export type userFindManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type UserFindManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the user
+   * Select specific fields to fetch from the User
    */
-  select?: Prisma.userSelect<ExtArgs> | null
+  select?: Prisma.UserSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the user
+   * Omit specific fields from the User
    */
-  omit?: Prisma.userOmit<ExtArgs> | null
+  omit?: Prisma.UserOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.userInclude<ExtArgs> | null
+  include?: Prisma.UserInclude<ExtArgs> | null
   /**
-   * Filter, which users to fetch.
+   * Filter, which Users to fetch.
    */
-  where?: Prisma.userWhereInput
+  where?: Prisma.UserWhereInput
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
    * 
-   * Determine the order of users to fetch.
+   * Determine the order of Users to fetch.
    */
-  orderBy?: Prisma.userOrderByWithRelationInput | Prisma.userOrderByWithRelationInput[]
+  orderBy?: Prisma.UserOrderByWithRelationInput | Prisma.UserOrderByWithRelationInput[]
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
    * 
-   * Sets the position for listing users.
+   * Sets the position for listing Users.
    */
-  cursor?: Prisma.userWhereUniqueInput
+  cursor?: Prisma.UserWhereUniqueInput
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
    * 
-   * Take `±n` users from the position of the cursor.
+   * Take `±n` Users from the position of the cursor.
    */
   take?: number
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
    * 
-   * Skip the first `n` users.
+   * Skip the first `n` Users.
    */
   skip?: number
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
    * 
-   * Filter by unique combinations of users.
+   * Filter by unique combinations of Users.
    */
   distinct?: Prisma.UserScalarFieldEnum | Prisma.UserScalarFieldEnum[]
 }
 
 /**
- * user create
+ * User create
  */
-export type userCreateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type UserCreateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the user
+   * Select specific fields to fetch from the User
    */
-  select?: Prisma.userSelect<ExtArgs> | null
+  select?: Prisma.UserSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the user
+   * Omit specific fields from the User
    */
-  omit?: Prisma.userOmit<ExtArgs> | null
+  omit?: Prisma.UserOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.userInclude<ExtArgs> | null
+  include?: Prisma.UserInclude<ExtArgs> | null
   /**
-   * The data needed to create a user.
+   * The data needed to create a User.
    */
-  data: Prisma.XOR<Prisma.userCreateInput, Prisma.userUncheckedCreateInput>
+  data: Prisma.XOR<Prisma.UserCreateInput, Prisma.UserUncheckedCreateInput>
 }
 
 /**
- * user createMany
+ * User createMany
  */
-export type userCreateManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type UserCreateManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * The data used to create many users.
+   * The data used to create many Users.
    */
-  data: Prisma.userCreateManyInput | Prisma.userCreateManyInput[]
+  data: Prisma.UserCreateManyInput | Prisma.UserCreateManyInput[]
   skipDuplicates?: boolean
 }
 
 /**
- * user update
+ * User update
  */
-export type userUpdateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type UserUpdateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the user
+   * Select specific fields to fetch from the User
    */
-  select?: Prisma.userSelect<ExtArgs> | null
+  select?: Prisma.UserSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the user
+   * Omit specific fields from the User
    */
-  omit?: Prisma.userOmit<ExtArgs> | null
+  omit?: Prisma.UserOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.userInclude<ExtArgs> | null
+  include?: Prisma.UserInclude<ExtArgs> | null
   /**
-   * The data needed to update a user.
+   * The data needed to update a User.
    */
-  data: Prisma.XOR<Prisma.userUpdateInput, Prisma.userUncheckedUpdateInput>
+  data: Prisma.XOR<Prisma.UserUpdateInput, Prisma.UserUncheckedUpdateInput>
   /**
-   * Choose, which user to update.
+   * Choose, which User to update.
    */
-  where: Prisma.userWhereUniqueInput
+  where: Prisma.UserWhereUniqueInput
 }
 
 /**
- * user updateMany
+ * User updateMany
  */
-export type userUpdateManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type UserUpdateManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * The data used to update users.
+   * The data used to update Users.
    */
-  data: Prisma.XOR<Prisma.userUpdateManyMutationInput, Prisma.userUncheckedUpdateManyInput>
+  data: Prisma.XOR<Prisma.UserUpdateManyMutationInput, Prisma.UserUncheckedUpdateManyInput>
   /**
-   * Filter which users to update
+   * Filter which Users to update
    */
-  where?: Prisma.userWhereInput
+  where?: Prisma.UserWhereInput
   /**
-   * Limit how many users to update.
+   * Limit how many Users to update.
    */
   limit?: number
 }
 
 /**
- * user upsert
+ * User upsert
  */
-export type userUpsertArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type UserUpsertArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the user
+   * Select specific fields to fetch from the User
    */
-  select?: Prisma.userSelect<ExtArgs> | null
+  select?: Prisma.UserSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the user
+   * Omit specific fields from the User
    */
-  omit?: Prisma.userOmit<ExtArgs> | null
+  omit?: Prisma.UserOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.userInclude<ExtArgs> | null
+  include?: Prisma.UserInclude<ExtArgs> | null
   /**
-   * The filter to search for the user to update in case it exists.
+   * The filter to search for the User to update in case it exists.
    */
-  where: Prisma.userWhereUniqueInput
+  where: Prisma.UserWhereUniqueInput
   /**
-   * In case the user found by the `where` argument doesn't exist, create a new user with this data.
+   * In case the User found by the `where` argument doesn't exist, create a new User with this data.
    */
-  create: Prisma.XOR<Prisma.userCreateInput, Prisma.userUncheckedCreateInput>
+  create: Prisma.XOR<Prisma.UserCreateInput, Prisma.UserUncheckedCreateInput>
   /**
-   * In case the user was found with the provided `where` argument, update it with this data.
+   * In case the User was found with the provided `where` argument, update it with this data.
    */
-  update: Prisma.XOR<Prisma.userUpdateInput, Prisma.userUncheckedUpdateInput>
+  update: Prisma.XOR<Prisma.UserUpdateInput, Prisma.UserUncheckedUpdateInput>
 }
 
 /**
- * user delete
+ * User delete
  */
-export type userDeleteArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type UserDeleteArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the user
+   * Select specific fields to fetch from the User
    */
-  select?: Prisma.userSelect<ExtArgs> | null
+  select?: Prisma.UserSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the user
+   * Omit specific fields from the User
    */
-  omit?: Prisma.userOmit<ExtArgs> | null
+  omit?: Prisma.UserOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.userInclude<ExtArgs> | null
+  include?: Prisma.UserInclude<ExtArgs> | null
   /**
-   * Filter which user to delete.
+   * Filter which User to delete.
    */
-  where: Prisma.userWhereUniqueInput
+  where: Prisma.UserWhereUniqueInput
 }
 
 /**
- * user deleteMany
+ * User deleteMany
  */
-export type userDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type UserDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Filter which users to delete
+   * Filter which Users to delete
    */
-  where?: Prisma.userWhereInput
+  where?: Prisma.UserWhereInput
   /**
-   * Limit how many users to delete.
+   * Limit how many Users to delete.
    */
   limit?: number
 }
 
 /**
- * user.application
+ * User.application
  */
-export type user$applicationArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type User$applicationArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the application
+   * Select specific fields to fetch from the Application
    */
-  select?: Prisma.applicationSelect<ExtArgs> | null
+  select?: Prisma.ApplicationSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the application
+   * Omit specific fields from the Application
    */
-  omit?: Prisma.applicationOmit<ExtArgs> | null
+  omit?: Prisma.ApplicationOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.applicationInclude<ExtArgs> | null
-  where?: Prisma.applicationWhereInput
-  orderBy?: Prisma.applicationOrderByWithRelationInput | Prisma.applicationOrderByWithRelationInput[]
-  cursor?: Prisma.applicationWhereUniqueInput
+  include?: Prisma.ApplicationInclude<ExtArgs> | null
+  where?: Prisma.ApplicationWhereInput
+  orderBy?: Prisma.ApplicationOrderByWithRelationInput | Prisma.ApplicationOrderByWithRelationInput[]
+  cursor?: Prisma.ApplicationWhereUniqueInput
   take?: number
   skip?: number
   distinct?: Prisma.ApplicationScalarFieldEnum | Prisma.ApplicationScalarFieldEnum[]
 }
 
 /**
- * user.comment
+ * User.comment
  */
-export type user$commentArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type User$commentArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the comment
+   * Select specific fields to fetch from the Comment
    */
-  select?: Prisma.commentSelect<ExtArgs> | null
+  select?: Prisma.CommentSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the comment
+   * Omit specific fields from the Comment
    */
-  omit?: Prisma.commentOmit<ExtArgs> | null
+  omit?: Prisma.CommentOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.commentInclude<ExtArgs> | null
-  where?: Prisma.commentWhereInput
-  orderBy?: Prisma.commentOrderByWithRelationInput | Prisma.commentOrderByWithRelationInput[]
-  cursor?: Prisma.commentWhereUniqueInput
+  include?: Prisma.CommentInclude<ExtArgs> | null
+  where?: Prisma.CommentWhereInput
+  orderBy?: Prisma.CommentOrderByWithRelationInput | Prisma.CommentOrderByWithRelationInput[]
+  cursor?: Prisma.CommentWhereUniqueInput
   take?: number
   skip?: number
   distinct?: Prisma.CommentScalarFieldEnum | Prisma.CommentScalarFieldEnum[]
 }
 
 /**
- * user.company_follower
+ * User.company_follower
  */
-export type user$company_followerArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type User$company_followerArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the company_follower
+   * Select specific fields to fetch from the Company_follower
    */
-  select?: Prisma.company_followerSelect<ExtArgs> | null
+  select?: Prisma.Company_followerSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the company_follower
+   * Omit specific fields from the Company_follower
    */
-  omit?: Prisma.company_followerOmit<ExtArgs> | null
+  omit?: Prisma.Company_followerOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.company_followerInclude<ExtArgs> | null
-  where?: Prisma.company_followerWhereInput
-  orderBy?: Prisma.company_followerOrderByWithRelationInput | Prisma.company_followerOrderByWithRelationInput[]
-  cursor?: Prisma.company_followerWhereUniqueInput
+  include?: Prisma.Company_followerInclude<ExtArgs> | null
+  where?: Prisma.Company_followerWhereInput
+  orderBy?: Prisma.Company_followerOrderByWithRelationInput | Prisma.Company_followerOrderByWithRelationInput[]
+  cursor?: Prisma.Company_followerWhereUniqueInput
   take?: number
   skip?: number
   distinct?: Prisma.Company_followerScalarFieldEnum | Prisma.Company_followerScalarFieldEnum[]
 }
 
 /**
- * user.connection_connection_user_action_idTouser
+ * User.connection_connection_user_action_idTouser
  */
-export type user$connection_connection_user_action_idTouserArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type User$connection_connection_user_action_idTouserArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the connection
+   * Select specific fields to fetch from the Connection
    */
-  select?: Prisma.connectionSelect<ExtArgs> | null
+  select?: Prisma.ConnectionSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the connection
+   * Omit specific fields from the Connection
    */
-  omit?: Prisma.connectionOmit<ExtArgs> | null
+  omit?: Prisma.ConnectionOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.connectionInclude<ExtArgs> | null
-  where?: Prisma.connectionWhereInput
-  orderBy?: Prisma.connectionOrderByWithRelationInput | Prisma.connectionOrderByWithRelationInput[]
-  cursor?: Prisma.connectionWhereUniqueInput
+  include?: Prisma.ConnectionInclude<ExtArgs> | null
+  where?: Prisma.ConnectionWhereInput
+  orderBy?: Prisma.ConnectionOrderByWithRelationInput | Prisma.ConnectionOrderByWithRelationInput[]
+  cursor?: Prisma.ConnectionWhereUniqueInput
   take?: number
   skip?: number
   distinct?: Prisma.ConnectionScalarFieldEnum | Prisma.ConnectionScalarFieldEnum[]
 }
 
 /**
- * user.connection_connection_user_receiver_idTouser
+ * User.connection_connection_user_receiver_idTouser
  */
-export type user$connection_connection_user_receiver_idTouserArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type User$connection_connection_user_receiver_idTouserArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the connection
+   * Select specific fields to fetch from the Connection
    */
-  select?: Prisma.connectionSelect<ExtArgs> | null
+  select?: Prisma.ConnectionSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the connection
+   * Omit specific fields from the Connection
    */
-  omit?: Prisma.connectionOmit<ExtArgs> | null
+  omit?: Prisma.ConnectionOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.connectionInclude<ExtArgs> | null
-  where?: Prisma.connectionWhereInput
-  orderBy?: Prisma.connectionOrderByWithRelationInput | Prisma.connectionOrderByWithRelationInput[]
-  cursor?: Prisma.connectionWhereUniqueInput
+  include?: Prisma.ConnectionInclude<ExtArgs> | null
+  where?: Prisma.ConnectionWhereInput
+  orderBy?: Prisma.ConnectionOrderByWithRelationInput | Prisma.ConnectionOrderByWithRelationInput[]
+  cursor?: Prisma.ConnectionWhereUniqueInput
   take?: number
   skip?: number
   distinct?: Prisma.ConnectionScalarFieldEnum | Prisma.ConnectionScalarFieldEnum[]
 }
 
 /**
- * user.employment
+ * User.employment
  */
-export type user$employmentArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type User$employmentArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the employment
+   * Select specific fields to fetch from the Employment
    */
-  select?: Prisma.employmentSelect<ExtArgs> | null
+  select?: Prisma.EmploymentSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the employment
+   * Omit specific fields from the Employment
    */
-  omit?: Prisma.employmentOmit<ExtArgs> | null
+  omit?: Prisma.EmploymentOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.employmentInclude<ExtArgs> | null
-  where?: Prisma.employmentWhereInput
-  orderBy?: Prisma.employmentOrderByWithRelationInput | Prisma.employmentOrderByWithRelationInput[]
-  cursor?: Prisma.employmentWhereUniqueInput
+  include?: Prisma.EmploymentInclude<ExtArgs> | null
+  where?: Prisma.EmploymentWhereInput
+  orderBy?: Prisma.EmploymentOrderByWithRelationInput | Prisma.EmploymentOrderByWithRelationInput[]
+  cursor?: Prisma.EmploymentWhereUniqueInput
   take?: number
   skip?: number
   distinct?: Prisma.EmploymentScalarFieldEnum | Prisma.EmploymentScalarFieldEnum[]
 }
 
 /**
- * user.message_message_recipient_idTouser
+ * User.message_message_recipient_idTouser
  */
-export type user$message_message_recipient_idTouserArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type User$message_message_recipient_idTouserArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the message
+   * Select specific fields to fetch from the Message
    */
-  select?: Prisma.messageSelect<ExtArgs> | null
+  select?: Prisma.MessageSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the message
+   * Omit specific fields from the Message
    */
-  omit?: Prisma.messageOmit<ExtArgs> | null
+  omit?: Prisma.MessageOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.messageInclude<ExtArgs> | null
-  where?: Prisma.messageWhereInput
-  orderBy?: Prisma.messageOrderByWithRelationInput | Prisma.messageOrderByWithRelationInput[]
-  cursor?: Prisma.messageWhereUniqueInput
+  include?: Prisma.MessageInclude<ExtArgs> | null
+  where?: Prisma.MessageWhereInput
+  orderBy?: Prisma.MessageOrderByWithRelationInput | Prisma.MessageOrderByWithRelationInput[]
+  cursor?: Prisma.MessageWhereUniqueInput
   take?: number
   skip?: number
   distinct?: Prisma.MessageScalarFieldEnum | Prisma.MessageScalarFieldEnum[]
 }
 
 /**
- * user.message_message_sender_idTouser
+ * User.message_message_sender_idTouser
  */
-export type user$message_message_sender_idTouserArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type User$message_message_sender_idTouserArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the message
+   * Select specific fields to fetch from the Message
    */
-  select?: Prisma.messageSelect<ExtArgs> | null
+  select?: Prisma.MessageSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the message
+   * Omit specific fields from the Message
    */
-  omit?: Prisma.messageOmit<ExtArgs> | null
+  omit?: Prisma.MessageOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.messageInclude<ExtArgs> | null
-  where?: Prisma.messageWhereInput
-  orderBy?: Prisma.messageOrderByWithRelationInput | Prisma.messageOrderByWithRelationInput[]
-  cursor?: Prisma.messageWhereUniqueInput
+  include?: Prisma.MessageInclude<ExtArgs> | null
+  where?: Prisma.MessageWhereInput
+  orderBy?: Prisma.MessageOrderByWithRelationInput | Prisma.MessageOrderByWithRelationInput[]
+  cursor?: Prisma.MessageWhereUniqueInput
   take?: number
   skip?: number
   distinct?: Prisma.MessageScalarFieldEnum | Prisma.MessageScalarFieldEnum[]
 }
 
 /**
- * user.notification
+ * User.notification
  */
-export type user$notificationArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type User$notificationArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the notification
+   * Select specific fields to fetch from the Notification
    */
-  select?: Prisma.notificationSelect<ExtArgs> | null
+  select?: Prisma.NotificationSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the notification
+   * Omit specific fields from the Notification
    */
-  omit?: Prisma.notificationOmit<ExtArgs> | null
+  omit?: Prisma.NotificationOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.notificationInclude<ExtArgs> | null
-  where?: Prisma.notificationWhereInput
-  orderBy?: Prisma.notificationOrderByWithRelationInput | Prisma.notificationOrderByWithRelationInput[]
-  cursor?: Prisma.notificationWhereUniqueInput
+  include?: Prisma.NotificationInclude<ExtArgs> | null
+  where?: Prisma.NotificationWhereInput
+  orderBy?: Prisma.NotificationOrderByWithRelationInput | Prisma.NotificationOrderByWithRelationInput[]
+  cursor?: Prisma.NotificationWhereUniqueInput
   take?: number
   skip?: number
   distinct?: Prisma.NotificationScalarFieldEnum | Prisma.NotificationScalarFieldEnum[]
 }
 
 /**
- * user.publication
+ * User.publication
  */
-export type user$publicationArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type User$publicationArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the publication
+   * Select specific fields to fetch from the Publication
    */
-  select?: Prisma.publicationSelect<ExtArgs> | null
+  select?: Prisma.PublicationSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the publication
+   * Omit specific fields from the Publication
    */
-  omit?: Prisma.publicationOmit<ExtArgs> | null
+  omit?: Prisma.PublicationOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.publicationInclude<ExtArgs> | null
-  where?: Prisma.publicationWhereInput
-  orderBy?: Prisma.publicationOrderByWithRelationInput | Prisma.publicationOrderByWithRelationInput[]
-  cursor?: Prisma.publicationWhereUniqueInput
+  include?: Prisma.PublicationInclude<ExtArgs> | null
+  where?: Prisma.PublicationWhereInput
+  orderBy?: Prisma.PublicationOrderByWithRelationInput | Prisma.PublicationOrderByWithRelationInput[]
+  cursor?: Prisma.PublicationWhereUniqueInput
   take?: number
   skip?: number
   distinct?: Prisma.PublicationScalarFieldEnum | Prisma.PublicationScalarFieldEnum[]
 }
 
 /**
- * user.user_skill
+ * User.user_skill
  */
-export type user$user_skillArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type User$user_skillArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the user_skill
+   * Select specific fields to fetch from the User_skill
    */
-  select?: Prisma.user_skillSelect<ExtArgs> | null
+  select?: Prisma.User_skillSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the user_skill
+   * Omit specific fields from the User_skill
    */
-  omit?: Prisma.user_skillOmit<ExtArgs> | null
+  omit?: Prisma.User_skillOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.user_skillInclude<ExtArgs> | null
-  where?: Prisma.user_skillWhereInput
-  orderBy?: Prisma.user_skillOrderByWithRelationInput | Prisma.user_skillOrderByWithRelationInput[]
-  cursor?: Prisma.user_skillWhereUniqueInput
+  include?: Prisma.User_skillInclude<ExtArgs> | null
+  where?: Prisma.User_skillWhereInput
+  orderBy?: Prisma.User_skillOrderByWithRelationInput | Prisma.User_skillOrderByWithRelationInput[]
+  cursor?: Prisma.User_skillWhereUniqueInput
   take?: number
   skip?: number
   distinct?: Prisma.User_skillScalarFieldEnum | Prisma.User_skillScalarFieldEnum[]
 }
 
 /**
- * user without action
+ * User without action
  */
-export type userDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type UserDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the user
+   * Select specific fields to fetch from the User
    */
-  select?: Prisma.userSelect<ExtArgs> | null
+  select?: Prisma.UserSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the user
+   * Omit specific fields from the User
    */
-  omit?: Prisma.userOmit<ExtArgs> | null
+  omit?: Prisma.UserOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.userInclude<ExtArgs> | null
+  include?: Prisma.UserInclude<ExtArgs> | null
 }

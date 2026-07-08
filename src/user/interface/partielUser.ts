@@ -1,4 +1,3 @@
-export interface IPartialUser<T> {
-    data: T;
-    message: string
-}
+import { User } from "prisma/generated/prisma/client";
+
+export type UserWithoutPass = Omit<User, "password">

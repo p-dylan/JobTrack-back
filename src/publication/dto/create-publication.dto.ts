@@ -1,5 +1,5 @@
 import { IsBoolean, IsEnum, IsNotEmpty, IsNumber, IsString, MaxLength } from "class-validator";
-import { publication_type } from "prisma/generated/prisma/enums";
+import { Publication_type } from "prisma/generated/prisma/enums";
 
 export class CreatePublicationDto {
 
@@ -12,8 +12,8 @@ export class CreatePublicationDto {
     content: string;
 
     @IsNotEmpty()
-    @IsEnum(publication_type)
-    type: publication_type;
+    @IsEnum(Publication_type)
+    type: Publication_type;
 
     @IsNotEmpty()
     @IsBoolean()

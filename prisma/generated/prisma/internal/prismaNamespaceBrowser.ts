@@ -51,24 +51,24 @@ export const AnyNull = runtime.AnyNull
 
 
 export const ModelName = {
-  application: 'application',
-  application_document: 'application_document',
-  comment: 'comment',
-  company: 'company',
-  company_follower: 'company_follower',
-  connection: 'connection',
-  contact: 'contact',
-  document: 'document',
-  employment: 'employment',
-  interview: 'interview',
-  job_offering: 'job_offering',
-  message: 'message',
-  notification: 'notification',
-  publication: 'publication',
-  role: 'role',
-  skill: 'skill',
-  user: 'user',
-  user_skill: 'user_skill'
+  Application: 'Application',
+  Application_document: 'Application_document',
+  Comment: 'Comment',
+  Company: 'Company',
+  Company_follower: 'Company_follower',
+  Connection: 'Connection',
+  Contact: 'Contact',
+  Document: 'Document',
+  Employment: 'Employment',
+  Interview: 'Interview',
+  Job_offering: 'Job_offering',
+  Message: 'Message',
+  Notification: 'Notification',
+  Publication: 'Publication',
+  Role: 'Role',
+  Skill: 'Skill',
+  User: 'User',
+  User_skill: 'User_skill'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -293,6 +293,7 @@ export const UserScalarFieldEnum = {
   last_name: 'last_name',
   email: 'email',
   password: 'password',
+  refreshToken: 'refreshToken',
   created_at: 'created_at',
   updated_at: 'updated_at',
   deleted_at: 'deleted_at'
@@ -327,99 +328,100 @@ export const NullsOrder = {
 export type NullsOrder = (typeof NullsOrder)[keyof typeof NullsOrder]
 
 
-export const commentOrderByRelevanceFieldEnum = {
+export const CommentOrderByRelevanceFieldEnum = {
   content: 'content'
 } as const
 
-export type commentOrderByRelevanceFieldEnum = (typeof commentOrderByRelevanceFieldEnum)[keyof typeof commentOrderByRelevanceFieldEnum]
+export type CommentOrderByRelevanceFieldEnum = (typeof CommentOrderByRelevanceFieldEnum)[keyof typeof CommentOrderByRelevanceFieldEnum]
 
 
-export const companyOrderByRelevanceFieldEnum = {
+export const CompanyOrderByRelevanceFieldEnum = {
   name: 'name',
   business_sector: 'business_sector',
   website: 'website',
   address: 'address'
 } as const
 
-export type companyOrderByRelevanceFieldEnum = (typeof companyOrderByRelevanceFieldEnum)[keyof typeof companyOrderByRelevanceFieldEnum]
+export type CompanyOrderByRelevanceFieldEnum = (typeof CompanyOrderByRelevanceFieldEnum)[keyof typeof CompanyOrderByRelevanceFieldEnum]
 
 
-export const contactOrderByRelevanceFieldEnum = {
+export const ContactOrderByRelevanceFieldEnum = {
   contact_name: 'contact_name',
   job_title: 'job_title',
   contact_email: 'contact_email',
   phone_number: 'phone_number'
 } as const
 
-export type contactOrderByRelevanceFieldEnum = (typeof contactOrderByRelevanceFieldEnum)[keyof typeof contactOrderByRelevanceFieldEnum]
+export type ContactOrderByRelevanceFieldEnum = (typeof ContactOrderByRelevanceFieldEnum)[keyof typeof ContactOrderByRelevanceFieldEnum]
 
 
-export const documentOrderByRelevanceFieldEnum = {
+export const DocumentOrderByRelevanceFieldEnum = {
   title: 'title',
   file_url: 'file_url'
 } as const
 
-export type documentOrderByRelevanceFieldEnum = (typeof documentOrderByRelevanceFieldEnum)[keyof typeof documentOrderByRelevanceFieldEnum]
+export type DocumentOrderByRelevanceFieldEnum = (typeof DocumentOrderByRelevanceFieldEnum)[keyof typeof DocumentOrderByRelevanceFieldEnum]
 
 
-export const employmentOrderByRelevanceFieldEnum = {
+export const EmploymentOrderByRelevanceFieldEnum = {
   job_title: 'job_title'
 } as const
 
-export type employmentOrderByRelevanceFieldEnum = (typeof employmentOrderByRelevanceFieldEnum)[keyof typeof employmentOrderByRelevanceFieldEnum]
+export type EmploymentOrderByRelevanceFieldEnum = (typeof EmploymentOrderByRelevanceFieldEnum)[keyof typeof EmploymentOrderByRelevanceFieldEnum]
 
 
-export const interviewOrderByRelevanceFieldEnum = {
+export const InterviewOrderByRelevanceFieldEnum = {
   notes: 'notes'
 } as const
 
-export type interviewOrderByRelevanceFieldEnum = (typeof interviewOrderByRelevanceFieldEnum)[keyof typeof interviewOrderByRelevanceFieldEnum]
+export type InterviewOrderByRelevanceFieldEnum = (typeof InterviewOrderByRelevanceFieldEnum)[keyof typeof InterviewOrderByRelevanceFieldEnum]
 
 
-export const job_offeringOrderByRelevanceFieldEnum = {
+export const Job_offeringOrderByRelevanceFieldEnum = {
   title: 'title',
   description: 'description'
 } as const
 
-export type job_offeringOrderByRelevanceFieldEnum = (typeof job_offeringOrderByRelevanceFieldEnum)[keyof typeof job_offeringOrderByRelevanceFieldEnum]
+export type Job_offeringOrderByRelevanceFieldEnum = (typeof Job_offeringOrderByRelevanceFieldEnum)[keyof typeof Job_offeringOrderByRelevanceFieldEnum]
 
 
-export const messageOrderByRelevanceFieldEnum = {
+export const MessageOrderByRelevanceFieldEnum = {
   content: 'content'
 } as const
 
-export type messageOrderByRelevanceFieldEnum = (typeof messageOrderByRelevanceFieldEnum)[keyof typeof messageOrderByRelevanceFieldEnum]
+export type MessageOrderByRelevanceFieldEnum = (typeof MessageOrderByRelevanceFieldEnum)[keyof typeof MessageOrderByRelevanceFieldEnum]
 
 
-export const publicationOrderByRelevanceFieldEnum = {
+export const PublicationOrderByRelevanceFieldEnum = {
   title: 'title',
   content: 'content'
 } as const
 
-export type publicationOrderByRelevanceFieldEnum = (typeof publicationOrderByRelevanceFieldEnum)[keyof typeof publicationOrderByRelevanceFieldEnum]
+export type PublicationOrderByRelevanceFieldEnum = (typeof PublicationOrderByRelevanceFieldEnum)[keyof typeof PublicationOrderByRelevanceFieldEnum]
 
 
-export const roleOrderByRelevanceFieldEnum = {
+export const RoleOrderByRelevanceFieldEnum = {
   name: 'name',
   description: 'description'
 } as const
 
-export type roleOrderByRelevanceFieldEnum = (typeof roleOrderByRelevanceFieldEnum)[keyof typeof roleOrderByRelevanceFieldEnum]
+export type RoleOrderByRelevanceFieldEnum = (typeof RoleOrderByRelevanceFieldEnum)[keyof typeof RoleOrderByRelevanceFieldEnum]
 
 
-export const skillOrderByRelevanceFieldEnum = {
+export const SkillOrderByRelevanceFieldEnum = {
   name: 'name'
 } as const
 
-export type skillOrderByRelevanceFieldEnum = (typeof skillOrderByRelevanceFieldEnum)[keyof typeof skillOrderByRelevanceFieldEnum]
+export type SkillOrderByRelevanceFieldEnum = (typeof SkillOrderByRelevanceFieldEnum)[keyof typeof SkillOrderByRelevanceFieldEnum]
 
 
-export const userOrderByRelevanceFieldEnum = {
+export const UserOrderByRelevanceFieldEnum = {
   first_name: 'first_name',
   last_name: 'last_name',
   email: 'email',
-  password: 'password'
+  password: 'password',
+  refreshToken: 'refreshToken'
 } as const
 
-export type userOrderByRelevanceFieldEnum = (typeof userOrderByRelevanceFieldEnum)[keyof typeof userOrderByRelevanceFieldEnum]
+export type UserOrderByRelevanceFieldEnum = (typeof UserOrderByRelevanceFieldEnum)[keyof typeof UserOrderByRelevanceFieldEnum]
 

@@ -1,38 +1,70 @@
-import { Injectable, UnauthorizedException } from '@nestjs/common';
-import { RegisterDto } from './dto/register.dto';
-import { PrismaService } from 'prisma/prisma.service';
-import { LoginDto } from './dto/Login.dto';
-import { user } from 'prisma/generated/prisma/client';
+import { Injectable } from '@nestjs/common';
 import * as argon2 from 'argon2'
+import {JwtService} from '@nestjs/jwt'
+import { User } from 'prisma/generated/prisma/client'
+import { IPayload } from './interface';
+import { request, type Response } from 'express';
+
+
 
 @Injectable()
 export class AuthService {
-  constructor(private readonly prisma: PrismaService) {}
 
-  async signUp(dto: RegisterDto): Promise<Omit<user, 'password'>>{
-    const hashedPassword = await argon2.hash(dto.password);
-
-    return this.prisma.user.create({
-      data: { ...dto, password: hashedPassword},
-      omit: { password: true}
-    });
+  constructor(private readonly jwtService: JwtService) {}
+//hachage password with argon2
+  async hash(toHash: string): Promise<string> {
+    return await argon2.hash(toHash)
+  }
+//compare password
+  async compare(notHashed: string, hashed: string): Promise<boolean> {
+    return await argon2.verify(hashed, notHashed)
   }
 
-
-  async signIn(dto: LoginDto ): Promise<user> {
-    const user = await this.prisma.user.findUnique({
-      where: { email: dto.email},
+  async generateJwts(user: User): Promise<{ accessToken: string, refreshToken: string }> {
+    
+    const payload: IPayload = {
+      id: user.id,
+      first_name: user.first_name,
+      last_name: user.last_name,
+      email: user.email,
+    }
+    const accessToken =  await this.jwtService.signAsync(payload, {
+      expiresIn: process.env.ACCESS_JWT_EXPIRE as any, 
+      secret: process.env.ACCESS_SECRET_KEY as any
     });
 
-    if(!user) throw new UnauthorizedException('Identifiants invalides');
-
-    const isValid = await argon2.verify(user.password, dto.password);
-    if (!isValid) throw new UnauthorizedException('Identifiant invalide')
-      return user
-
-
+    const refreshToken =  await this.jwtService.signAsync(payload, {
+      expiresIn: process.env.REFRESH_JWT_EXPIRE as any, 
+      secret: process.env.REFRESH_SECRET_KEY as any
+    });
+    
+    return {accessToken, refreshToken}
+    
+  }
+  
+  async verifyToken(token: string, type: string = "access"): Promise<IPayload>{
+    const payload = await this.jwtService.verifyAsync(token, {
+        algorithms : ['HS512'], 
+        secret: type == "access" ? process.env.ACCESS_SECRET_KEY as any : process.env.REFRESH_SECRET_KEY as any
+    });
+    return payload
   }
 
+  insertTokenCookie(response: Response, refreshToken: string): void{
+    response.cookie("refreshToken", refreshToken, {
+      httpOnly : process.env.PROD as any, 
+      sameSite : "strict",
+      path: "/auth/refresh",
+      
+    })
+  }
+
+  extractTokenFromCookie(cookie: string): string | undefined {
+    const [key, token] = cookie?.split('=') ?? [];
+    return key === 'refreshToken' ? token : undefined;
+  }
+
+  
   
 
   

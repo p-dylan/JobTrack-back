@@ -9,54 +9,54 @@
 * 🟢 You can import this file directly.
 */
 
-export const connection_status = {
+export const Connection_status = {
   PENDING: 'PENDING',
   ACCEPTED: 'ACCEPTED',
   REJECTED: 'REJECTED'
 } as const
 
-export type connection_status = (typeof connection_status)[keyof typeof connection_status]
+export type Connection_status = (typeof Connection_status)[keyof typeof Connection_status]
 
 
-export const document_type = {
+export const Document_type = {
   CV: 'CV',
   LETTRE: 'LETTRE',
   DIPLOME: 'DIPLOME'
 } as const
 
-export type document_type = (typeof document_type)[keyof typeof document_type]
+export type Document_type = (typeof Document_type)[keyof typeof Document_type]
 
 
-export const interview_interview_type = {
+export const Interview_interview_type = {
   TELEPHONE: 'TELEPHONE',
   VISIO: 'VISIO',
   PRESENTIEL: 'PRESENTIEL'
 } as const
 
-export type interview_interview_type = (typeof interview_interview_type)[keyof typeof interview_interview_type]
+export type Interview_interview_type = (typeof Interview_interview_type)[keyof typeof Interview_interview_type]
 
 
-export const application_status = {
+export const Application_status = {
   PENDING: 'PENDING',
   ACCEPTED: 'ACCEPTED',
   REJECTED: 'REJECTED',
   WITHDRAWN: 'WITHDRAWN'
 } as const
 
-export type application_status = (typeof application_status)[keyof typeof application_status]
+export type Application_status = (typeof Application_status)[keyof typeof Application_status]
 
 
-export const job_offering_contract_type = {
+export const Job_offering_contract_type = {
   CDI: 'CDI',
   CDD: 'CDD',
   Freelance: 'Freelance',
   Stage: 'Stage'
 } as const
 
-export type job_offering_contract_type = (typeof job_offering_contract_type)[keyof typeof job_offering_contract_type]
+export type Job_offering_contract_type = (typeof Job_offering_contract_type)[keyof typeof Job_offering_contract_type]
 
 
-export const notification_event_type = {
+export const Notification_event_type = {
   NEW_APPLICATION: 'NEW_APPLICATION',
   APPLICATION_ACCEPTED: 'APPLICATION_ACCEPTED',
   APPLICATION_REJECTED: 'APPLICATION_REJECTED',
@@ -65,13 +65,13 @@ export const notification_event_type = {
   INTERVIEW_REMINDER: 'INTERVIEW_REMINDER'
 } as const
 
-export type notification_event_type = (typeof notification_event_type)[keyof typeof notification_event_type]
+export type Notification_event_type = (typeof Notification_event_type)[keyof typeof Notification_event_type]
 
 
-export const publication_type = {
+export const Publication_type = {
   ARTICLE: 'ARTICLE',
   ANNONCE: 'ANNONCE',
   ACTU: 'ACTU'
 } as const
 
-export type publication_type = (typeof publication_type)[keyof typeof publication_type]
+export type Publication_type = (typeof Publication_type)[keyof typeof Publication_type]

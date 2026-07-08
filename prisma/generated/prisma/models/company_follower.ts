@@ -4,7 +4,7 @@
 // biome-ignore-all lint: generated file
 // @ts-nocheck 
 /*
- * This file exports the `company_follower` model and its related types.
+ * This file exports the `Company_follower` model and its related types.
  *
  * 🟢 You can import this file directly.
  */
@@ -13,10 +13,10 @@ import type * as $Enums from "../enums.js"
 import type * as Prisma from "../internal/prismaNamespace.js"
 
 /**
- * Model company_follower
+ * Model Company_follower
  * 
  */
-export type company_followerModel = runtime.Types.Result.DefaultSelection<Prisma.$company_followerPayload>
+export type Company_followerModel = runtime.Types.Result.DefaultSelection<Prisma.$Company_followerPayload>
 
 export type AggregateCompany_follower = {
   _count: Company_followerCountAggregateOutputType | null
@@ -87,37 +87,37 @@ export type Company_followerCountAggregateInputType = {
 
 export type Company_followerAggregateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Filter which company_follower to aggregate.
+   * Filter which Company_follower to aggregate.
    */
-  where?: Prisma.company_followerWhereInput
+  where?: Prisma.Company_followerWhereInput
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
    * 
-   * Determine the order of company_followers to fetch.
+   * Determine the order of Company_followers to fetch.
    */
-  orderBy?: Prisma.company_followerOrderByWithRelationInput | Prisma.company_followerOrderByWithRelationInput[]
+  orderBy?: Prisma.Company_followerOrderByWithRelationInput | Prisma.Company_followerOrderByWithRelationInput[]
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
    * 
    * Sets the start position
    */
-  cursor?: Prisma.company_followerWhereUniqueInput
+  cursor?: Prisma.Company_followerWhereUniqueInput
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
    * 
-   * Take `±n` company_followers from the position of the cursor.
+   * Take `±n` Company_followers from the position of the cursor.
    */
   take?: number
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
    * 
-   * Skip the first `n` company_followers.
+   * Skip the first `n` Company_followers.
    */
   skip?: number
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
    * 
-   * Count returned company_followers
+   * Count returned Company_followers
   **/
   _count?: true | Company_followerCountAggregateInputType
   /**
@@ -157,11 +157,11 @@ export type GetCompany_followerAggregateType<T extends Company_followerAggregate
 
 
 
-export type company_followerGroupByArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  where?: Prisma.company_followerWhereInput
-  orderBy?: Prisma.company_followerOrderByWithAggregationInput | Prisma.company_followerOrderByWithAggregationInput[]
+export type Company_followerGroupByArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.Company_followerWhereInput
+  orderBy?: Prisma.Company_followerOrderByWithAggregationInput | Prisma.Company_followerOrderByWithAggregationInput[]
   by: Prisma.Company_followerScalarFieldEnum[] | Prisma.Company_followerScalarFieldEnum
-  having?: Prisma.company_followerScalarWhereWithAggregatesInput
+  having?: Prisma.Company_followerScalarWhereWithAggregatesInput
   take?: number
   skip?: number
   _count?: Company_followerCountAggregateInputType | true
@@ -182,7 +182,7 @@ export type Company_followerGroupByOutputType = {
   _max: Company_followerMaxAggregateOutputType | null
 }
 
-export type GetCompany_followerGroupByPayload<T extends company_followerGroupByArgs> = Prisma.PrismaPromise<
+export type GetCompany_followerGroupByPayload<T extends Company_followerGroupByArgs> = Prisma.PrismaPromise<
   Array<
     Prisma.PickEnumerable<Company_followerGroupByOutputType, T['by']> &
       {
@@ -197,374 +197,374 @@ export type GetCompany_followerGroupByPayload<T extends company_followerGroupByA
 
 
 
-export type company_followerWhereInput = {
-  AND?: Prisma.company_followerWhereInput | Prisma.company_followerWhereInput[]
-  OR?: Prisma.company_followerWhereInput[]
-  NOT?: Prisma.company_followerWhereInput | Prisma.company_followerWhereInput[]
-  user_id?: Prisma.IntFilter<"company_follower"> | number
-  company_id?: Prisma.IntFilter<"company_follower"> | number
-  created_at?: Prisma.DateTimeFilter<"company_follower"> | Date | string
-  company?: Prisma.XOR<Prisma.CompanyScalarRelationFilter, Prisma.companyWhereInput>
-  user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.userWhereInput>
+export type Company_followerWhereInput = {
+  AND?: Prisma.Company_followerWhereInput | Prisma.Company_followerWhereInput[]
+  OR?: Prisma.Company_followerWhereInput[]
+  NOT?: Prisma.Company_followerWhereInput | Prisma.Company_followerWhereInput[]
+  user_id?: Prisma.IntFilter<"Company_follower"> | number
+  company_id?: Prisma.IntFilter<"Company_follower"> | number
+  created_at?: Prisma.DateTimeFilter<"Company_follower"> | Date | string
+  company?: Prisma.XOR<Prisma.CompanyScalarRelationFilter, Prisma.CompanyWhereInput>
+  user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
 }
 
-export type company_followerOrderByWithRelationInput = {
+export type Company_followerOrderByWithRelationInput = {
   user_id?: Prisma.SortOrder
   company_id?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
-  company?: Prisma.companyOrderByWithRelationInput
-  user?: Prisma.userOrderByWithRelationInput
+  company?: Prisma.CompanyOrderByWithRelationInput
+  user?: Prisma.UserOrderByWithRelationInput
 }
 
-export type company_followerWhereUniqueInput = Prisma.AtLeast<{
-  user_id_company_id?: Prisma.company_followerUser_idCompany_idCompoundUniqueInput
-  AND?: Prisma.company_followerWhereInput | Prisma.company_followerWhereInput[]
-  OR?: Prisma.company_followerWhereInput[]
-  NOT?: Prisma.company_followerWhereInput | Prisma.company_followerWhereInput[]
-  user_id?: Prisma.IntFilter<"company_follower"> | number
-  company_id?: Prisma.IntFilter<"company_follower"> | number
-  created_at?: Prisma.DateTimeFilter<"company_follower"> | Date | string
-  company?: Prisma.XOR<Prisma.CompanyScalarRelationFilter, Prisma.companyWhereInput>
-  user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.userWhereInput>
+export type Company_followerWhereUniqueInput = Prisma.AtLeast<{
+  user_id_company_id?: Prisma.Company_followerUser_idCompany_idCompoundUniqueInput
+  AND?: Prisma.Company_followerWhereInput | Prisma.Company_followerWhereInput[]
+  OR?: Prisma.Company_followerWhereInput[]
+  NOT?: Prisma.Company_followerWhereInput | Prisma.Company_followerWhereInput[]
+  user_id?: Prisma.IntFilter<"Company_follower"> | number
+  company_id?: Prisma.IntFilter<"Company_follower"> | number
+  created_at?: Prisma.DateTimeFilter<"Company_follower"> | Date | string
+  company?: Prisma.XOR<Prisma.CompanyScalarRelationFilter, Prisma.CompanyWhereInput>
+  user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
 }, "user_id_company_id">
 
-export type company_followerOrderByWithAggregationInput = {
+export type Company_followerOrderByWithAggregationInput = {
   user_id?: Prisma.SortOrder
   company_id?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
-  _count?: Prisma.company_followerCountOrderByAggregateInput
-  _avg?: Prisma.company_followerAvgOrderByAggregateInput
-  _max?: Prisma.company_followerMaxOrderByAggregateInput
-  _min?: Prisma.company_followerMinOrderByAggregateInput
-  _sum?: Prisma.company_followerSumOrderByAggregateInput
+  _count?: Prisma.Company_followerCountOrderByAggregateInput
+  _avg?: Prisma.Company_followerAvgOrderByAggregateInput
+  _max?: Prisma.Company_followerMaxOrderByAggregateInput
+  _min?: Prisma.Company_followerMinOrderByAggregateInput
+  _sum?: Prisma.Company_followerSumOrderByAggregateInput
 }
 
-export type company_followerScalarWhereWithAggregatesInput = {
-  AND?: Prisma.company_followerScalarWhereWithAggregatesInput | Prisma.company_followerScalarWhereWithAggregatesInput[]
-  OR?: Prisma.company_followerScalarWhereWithAggregatesInput[]
-  NOT?: Prisma.company_followerScalarWhereWithAggregatesInput | Prisma.company_followerScalarWhereWithAggregatesInput[]
-  user_id?: Prisma.IntWithAggregatesFilter<"company_follower"> | number
-  company_id?: Prisma.IntWithAggregatesFilter<"company_follower"> | number
-  created_at?: Prisma.DateTimeWithAggregatesFilter<"company_follower"> | Date | string
+export type Company_followerScalarWhereWithAggregatesInput = {
+  AND?: Prisma.Company_followerScalarWhereWithAggregatesInput | Prisma.Company_followerScalarWhereWithAggregatesInput[]
+  OR?: Prisma.Company_followerScalarWhereWithAggregatesInput[]
+  NOT?: Prisma.Company_followerScalarWhereWithAggregatesInput | Prisma.Company_followerScalarWhereWithAggregatesInput[]
+  user_id?: Prisma.IntWithAggregatesFilter<"Company_follower"> | number
+  company_id?: Prisma.IntWithAggregatesFilter<"Company_follower"> | number
+  created_at?: Prisma.DateTimeWithAggregatesFilter<"Company_follower"> | Date | string
 }
 
-export type company_followerCreateInput = {
+export type Company_followerCreateInput = {
   created_at?: Date | string
-  company: Prisma.companyCreateNestedOneWithoutCompany_followerInput
-  user: Prisma.userCreateNestedOneWithoutCompany_followerInput
+  company: Prisma.CompanyCreateNestedOneWithoutCompany_followerInput
+  user: Prisma.UserCreateNestedOneWithoutCompany_followerInput
 }
 
-export type company_followerUncheckedCreateInput = {
+export type Company_followerUncheckedCreateInput = {
   user_id: number
   company_id: number
   created_at?: Date | string
 }
 
-export type company_followerUpdateInput = {
+export type Company_followerUpdateInput = {
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  company?: Prisma.companyUpdateOneRequiredWithoutCompany_followerNestedInput
-  user?: Prisma.userUpdateOneRequiredWithoutCompany_followerNestedInput
+  company?: Prisma.CompanyUpdateOneRequiredWithoutCompany_followerNestedInput
+  user?: Prisma.UserUpdateOneRequiredWithoutCompany_followerNestedInput
 }
 
-export type company_followerUncheckedUpdateInput = {
+export type Company_followerUncheckedUpdateInput = {
   user_id?: Prisma.IntFieldUpdateOperationsInput | number
   company_id?: Prisma.IntFieldUpdateOperationsInput | number
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
-export type company_followerCreateManyInput = {
+export type Company_followerCreateManyInput = {
   user_id: number
   company_id: number
   created_at?: Date | string
 }
 
-export type company_followerUpdateManyMutationInput = {
+export type Company_followerUpdateManyMutationInput = {
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
-export type company_followerUncheckedUpdateManyInput = {
+export type Company_followerUncheckedUpdateManyInput = {
   user_id?: Prisma.IntFieldUpdateOperationsInput | number
   company_id?: Prisma.IntFieldUpdateOperationsInput | number
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type Company_followerListRelationFilter = {
-  every?: Prisma.company_followerWhereInput
-  some?: Prisma.company_followerWhereInput
-  none?: Prisma.company_followerWhereInput
+  every?: Prisma.Company_followerWhereInput
+  some?: Prisma.Company_followerWhereInput
+  none?: Prisma.Company_followerWhereInput
 }
 
-export type company_followerOrderByRelationAggregateInput = {
+export type Company_followerOrderByRelationAggregateInput = {
   _count?: Prisma.SortOrder
 }
 
-export type company_followerUser_idCompany_idCompoundUniqueInput = {
+export type Company_followerUser_idCompany_idCompoundUniqueInput = {
   user_id: number
   company_id: number
 }
 
-export type company_followerCountOrderByAggregateInput = {
+export type Company_followerCountOrderByAggregateInput = {
   user_id?: Prisma.SortOrder
   company_id?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
 }
 
-export type company_followerAvgOrderByAggregateInput = {
+export type Company_followerAvgOrderByAggregateInput = {
   user_id?: Prisma.SortOrder
   company_id?: Prisma.SortOrder
 }
 
-export type company_followerMaxOrderByAggregateInput = {
-  user_id?: Prisma.SortOrder
-  company_id?: Prisma.SortOrder
-  created_at?: Prisma.SortOrder
-}
-
-export type company_followerMinOrderByAggregateInput = {
+export type Company_followerMaxOrderByAggregateInput = {
   user_id?: Prisma.SortOrder
   company_id?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
 }
 
-export type company_followerSumOrderByAggregateInput = {
+export type Company_followerMinOrderByAggregateInput = {
+  user_id?: Prisma.SortOrder
+  company_id?: Prisma.SortOrder
+  created_at?: Prisma.SortOrder
+}
+
+export type Company_followerSumOrderByAggregateInput = {
   user_id?: Prisma.SortOrder
   company_id?: Prisma.SortOrder
 }
 
-export type company_followerCreateNestedManyWithoutCompanyInput = {
-  create?: Prisma.XOR<Prisma.company_followerCreateWithoutCompanyInput, Prisma.company_followerUncheckedCreateWithoutCompanyInput> | Prisma.company_followerCreateWithoutCompanyInput[] | Prisma.company_followerUncheckedCreateWithoutCompanyInput[]
-  connectOrCreate?: Prisma.company_followerCreateOrConnectWithoutCompanyInput | Prisma.company_followerCreateOrConnectWithoutCompanyInput[]
-  createMany?: Prisma.company_followerCreateManyCompanyInputEnvelope
-  connect?: Prisma.company_followerWhereUniqueInput | Prisma.company_followerWhereUniqueInput[]
+export type Company_followerCreateNestedManyWithoutCompanyInput = {
+  create?: Prisma.XOR<Prisma.Company_followerCreateWithoutCompanyInput, Prisma.Company_followerUncheckedCreateWithoutCompanyInput> | Prisma.Company_followerCreateWithoutCompanyInput[] | Prisma.Company_followerUncheckedCreateWithoutCompanyInput[]
+  connectOrCreate?: Prisma.Company_followerCreateOrConnectWithoutCompanyInput | Prisma.Company_followerCreateOrConnectWithoutCompanyInput[]
+  createMany?: Prisma.Company_followerCreateManyCompanyInputEnvelope
+  connect?: Prisma.Company_followerWhereUniqueInput | Prisma.Company_followerWhereUniqueInput[]
 }
 
-export type company_followerUncheckedCreateNestedManyWithoutCompanyInput = {
-  create?: Prisma.XOR<Prisma.company_followerCreateWithoutCompanyInput, Prisma.company_followerUncheckedCreateWithoutCompanyInput> | Prisma.company_followerCreateWithoutCompanyInput[] | Prisma.company_followerUncheckedCreateWithoutCompanyInput[]
-  connectOrCreate?: Prisma.company_followerCreateOrConnectWithoutCompanyInput | Prisma.company_followerCreateOrConnectWithoutCompanyInput[]
-  createMany?: Prisma.company_followerCreateManyCompanyInputEnvelope
-  connect?: Prisma.company_followerWhereUniqueInput | Prisma.company_followerWhereUniqueInput[]
+export type Company_followerUncheckedCreateNestedManyWithoutCompanyInput = {
+  create?: Prisma.XOR<Prisma.Company_followerCreateWithoutCompanyInput, Prisma.Company_followerUncheckedCreateWithoutCompanyInput> | Prisma.Company_followerCreateWithoutCompanyInput[] | Prisma.Company_followerUncheckedCreateWithoutCompanyInput[]
+  connectOrCreate?: Prisma.Company_followerCreateOrConnectWithoutCompanyInput | Prisma.Company_followerCreateOrConnectWithoutCompanyInput[]
+  createMany?: Prisma.Company_followerCreateManyCompanyInputEnvelope
+  connect?: Prisma.Company_followerWhereUniqueInput | Prisma.Company_followerWhereUniqueInput[]
 }
 
-export type company_followerUpdateManyWithoutCompanyNestedInput = {
-  create?: Prisma.XOR<Prisma.company_followerCreateWithoutCompanyInput, Prisma.company_followerUncheckedCreateWithoutCompanyInput> | Prisma.company_followerCreateWithoutCompanyInput[] | Prisma.company_followerUncheckedCreateWithoutCompanyInput[]
-  connectOrCreate?: Prisma.company_followerCreateOrConnectWithoutCompanyInput | Prisma.company_followerCreateOrConnectWithoutCompanyInput[]
-  upsert?: Prisma.company_followerUpsertWithWhereUniqueWithoutCompanyInput | Prisma.company_followerUpsertWithWhereUniqueWithoutCompanyInput[]
-  createMany?: Prisma.company_followerCreateManyCompanyInputEnvelope
-  set?: Prisma.company_followerWhereUniqueInput | Prisma.company_followerWhereUniqueInput[]
-  disconnect?: Prisma.company_followerWhereUniqueInput | Prisma.company_followerWhereUniqueInput[]
-  delete?: Prisma.company_followerWhereUniqueInput | Prisma.company_followerWhereUniqueInput[]
-  connect?: Prisma.company_followerWhereUniqueInput | Prisma.company_followerWhereUniqueInput[]
-  update?: Prisma.company_followerUpdateWithWhereUniqueWithoutCompanyInput | Prisma.company_followerUpdateWithWhereUniqueWithoutCompanyInput[]
-  updateMany?: Prisma.company_followerUpdateManyWithWhereWithoutCompanyInput | Prisma.company_followerUpdateManyWithWhereWithoutCompanyInput[]
-  deleteMany?: Prisma.company_followerScalarWhereInput | Prisma.company_followerScalarWhereInput[]
+export type Company_followerUpdateManyWithoutCompanyNestedInput = {
+  create?: Prisma.XOR<Prisma.Company_followerCreateWithoutCompanyInput, Prisma.Company_followerUncheckedCreateWithoutCompanyInput> | Prisma.Company_followerCreateWithoutCompanyInput[] | Prisma.Company_followerUncheckedCreateWithoutCompanyInput[]
+  connectOrCreate?: Prisma.Company_followerCreateOrConnectWithoutCompanyInput | Prisma.Company_followerCreateOrConnectWithoutCompanyInput[]
+  upsert?: Prisma.Company_followerUpsertWithWhereUniqueWithoutCompanyInput | Prisma.Company_followerUpsertWithWhereUniqueWithoutCompanyInput[]
+  createMany?: Prisma.Company_followerCreateManyCompanyInputEnvelope
+  set?: Prisma.Company_followerWhereUniqueInput | Prisma.Company_followerWhereUniqueInput[]
+  disconnect?: Prisma.Company_followerWhereUniqueInput | Prisma.Company_followerWhereUniqueInput[]
+  delete?: Prisma.Company_followerWhereUniqueInput | Prisma.Company_followerWhereUniqueInput[]
+  connect?: Prisma.Company_followerWhereUniqueInput | Prisma.Company_followerWhereUniqueInput[]
+  update?: Prisma.Company_followerUpdateWithWhereUniqueWithoutCompanyInput | Prisma.Company_followerUpdateWithWhereUniqueWithoutCompanyInput[]
+  updateMany?: Prisma.Company_followerUpdateManyWithWhereWithoutCompanyInput | Prisma.Company_followerUpdateManyWithWhereWithoutCompanyInput[]
+  deleteMany?: Prisma.Company_followerScalarWhereInput | Prisma.Company_followerScalarWhereInput[]
 }
 
-export type company_followerUncheckedUpdateManyWithoutCompanyNestedInput = {
-  create?: Prisma.XOR<Prisma.company_followerCreateWithoutCompanyInput, Prisma.company_followerUncheckedCreateWithoutCompanyInput> | Prisma.company_followerCreateWithoutCompanyInput[] | Prisma.company_followerUncheckedCreateWithoutCompanyInput[]
-  connectOrCreate?: Prisma.company_followerCreateOrConnectWithoutCompanyInput | Prisma.company_followerCreateOrConnectWithoutCompanyInput[]
-  upsert?: Prisma.company_followerUpsertWithWhereUniqueWithoutCompanyInput | Prisma.company_followerUpsertWithWhereUniqueWithoutCompanyInput[]
-  createMany?: Prisma.company_followerCreateManyCompanyInputEnvelope
-  set?: Prisma.company_followerWhereUniqueInput | Prisma.company_followerWhereUniqueInput[]
-  disconnect?: Prisma.company_followerWhereUniqueInput | Prisma.company_followerWhereUniqueInput[]
-  delete?: Prisma.company_followerWhereUniqueInput | Prisma.company_followerWhereUniqueInput[]
-  connect?: Prisma.company_followerWhereUniqueInput | Prisma.company_followerWhereUniqueInput[]
-  update?: Prisma.company_followerUpdateWithWhereUniqueWithoutCompanyInput | Prisma.company_followerUpdateWithWhereUniqueWithoutCompanyInput[]
-  updateMany?: Prisma.company_followerUpdateManyWithWhereWithoutCompanyInput | Prisma.company_followerUpdateManyWithWhereWithoutCompanyInput[]
-  deleteMany?: Prisma.company_followerScalarWhereInput | Prisma.company_followerScalarWhereInput[]
+export type Company_followerUncheckedUpdateManyWithoutCompanyNestedInput = {
+  create?: Prisma.XOR<Prisma.Company_followerCreateWithoutCompanyInput, Prisma.Company_followerUncheckedCreateWithoutCompanyInput> | Prisma.Company_followerCreateWithoutCompanyInput[] | Prisma.Company_followerUncheckedCreateWithoutCompanyInput[]
+  connectOrCreate?: Prisma.Company_followerCreateOrConnectWithoutCompanyInput | Prisma.Company_followerCreateOrConnectWithoutCompanyInput[]
+  upsert?: Prisma.Company_followerUpsertWithWhereUniqueWithoutCompanyInput | Prisma.Company_followerUpsertWithWhereUniqueWithoutCompanyInput[]
+  createMany?: Prisma.Company_followerCreateManyCompanyInputEnvelope
+  set?: Prisma.Company_followerWhereUniqueInput | Prisma.Company_followerWhereUniqueInput[]
+  disconnect?: Prisma.Company_followerWhereUniqueInput | Prisma.Company_followerWhereUniqueInput[]
+  delete?: Prisma.Company_followerWhereUniqueInput | Prisma.Company_followerWhereUniqueInput[]
+  connect?: Prisma.Company_followerWhereUniqueInput | Prisma.Company_followerWhereUniqueInput[]
+  update?: Prisma.Company_followerUpdateWithWhereUniqueWithoutCompanyInput | Prisma.Company_followerUpdateWithWhereUniqueWithoutCompanyInput[]
+  updateMany?: Prisma.Company_followerUpdateManyWithWhereWithoutCompanyInput | Prisma.Company_followerUpdateManyWithWhereWithoutCompanyInput[]
+  deleteMany?: Prisma.Company_followerScalarWhereInput | Prisma.Company_followerScalarWhereInput[]
 }
 
-export type company_followerCreateNestedManyWithoutUserInput = {
-  create?: Prisma.XOR<Prisma.company_followerCreateWithoutUserInput, Prisma.company_followerUncheckedCreateWithoutUserInput> | Prisma.company_followerCreateWithoutUserInput[] | Prisma.company_followerUncheckedCreateWithoutUserInput[]
-  connectOrCreate?: Prisma.company_followerCreateOrConnectWithoutUserInput | Prisma.company_followerCreateOrConnectWithoutUserInput[]
-  createMany?: Prisma.company_followerCreateManyUserInputEnvelope
-  connect?: Prisma.company_followerWhereUniqueInput | Prisma.company_followerWhereUniqueInput[]
+export type Company_followerCreateNestedManyWithoutUserInput = {
+  create?: Prisma.XOR<Prisma.Company_followerCreateWithoutUserInput, Prisma.Company_followerUncheckedCreateWithoutUserInput> | Prisma.Company_followerCreateWithoutUserInput[] | Prisma.Company_followerUncheckedCreateWithoutUserInput[]
+  connectOrCreate?: Prisma.Company_followerCreateOrConnectWithoutUserInput | Prisma.Company_followerCreateOrConnectWithoutUserInput[]
+  createMany?: Prisma.Company_followerCreateManyUserInputEnvelope
+  connect?: Prisma.Company_followerWhereUniqueInput | Prisma.Company_followerWhereUniqueInput[]
 }
 
-export type company_followerUncheckedCreateNestedManyWithoutUserInput = {
-  create?: Prisma.XOR<Prisma.company_followerCreateWithoutUserInput, Prisma.company_followerUncheckedCreateWithoutUserInput> | Prisma.company_followerCreateWithoutUserInput[] | Prisma.company_followerUncheckedCreateWithoutUserInput[]
-  connectOrCreate?: Prisma.company_followerCreateOrConnectWithoutUserInput | Prisma.company_followerCreateOrConnectWithoutUserInput[]
-  createMany?: Prisma.company_followerCreateManyUserInputEnvelope
-  connect?: Prisma.company_followerWhereUniqueInput | Prisma.company_followerWhereUniqueInput[]
+export type Company_followerUncheckedCreateNestedManyWithoutUserInput = {
+  create?: Prisma.XOR<Prisma.Company_followerCreateWithoutUserInput, Prisma.Company_followerUncheckedCreateWithoutUserInput> | Prisma.Company_followerCreateWithoutUserInput[] | Prisma.Company_followerUncheckedCreateWithoutUserInput[]
+  connectOrCreate?: Prisma.Company_followerCreateOrConnectWithoutUserInput | Prisma.Company_followerCreateOrConnectWithoutUserInput[]
+  createMany?: Prisma.Company_followerCreateManyUserInputEnvelope
+  connect?: Prisma.Company_followerWhereUniqueInput | Prisma.Company_followerWhereUniqueInput[]
 }
 
-export type company_followerUpdateManyWithoutUserNestedInput = {
-  create?: Prisma.XOR<Prisma.company_followerCreateWithoutUserInput, Prisma.company_followerUncheckedCreateWithoutUserInput> | Prisma.company_followerCreateWithoutUserInput[] | Prisma.company_followerUncheckedCreateWithoutUserInput[]
-  connectOrCreate?: Prisma.company_followerCreateOrConnectWithoutUserInput | Prisma.company_followerCreateOrConnectWithoutUserInput[]
-  upsert?: Prisma.company_followerUpsertWithWhereUniqueWithoutUserInput | Prisma.company_followerUpsertWithWhereUniqueWithoutUserInput[]
-  createMany?: Prisma.company_followerCreateManyUserInputEnvelope
-  set?: Prisma.company_followerWhereUniqueInput | Prisma.company_followerWhereUniqueInput[]
-  disconnect?: Prisma.company_followerWhereUniqueInput | Prisma.company_followerWhereUniqueInput[]
-  delete?: Prisma.company_followerWhereUniqueInput | Prisma.company_followerWhereUniqueInput[]
-  connect?: Prisma.company_followerWhereUniqueInput | Prisma.company_followerWhereUniqueInput[]
-  update?: Prisma.company_followerUpdateWithWhereUniqueWithoutUserInput | Prisma.company_followerUpdateWithWhereUniqueWithoutUserInput[]
-  updateMany?: Prisma.company_followerUpdateManyWithWhereWithoutUserInput | Prisma.company_followerUpdateManyWithWhereWithoutUserInput[]
-  deleteMany?: Prisma.company_followerScalarWhereInput | Prisma.company_followerScalarWhereInput[]
+export type Company_followerUpdateManyWithoutUserNestedInput = {
+  create?: Prisma.XOR<Prisma.Company_followerCreateWithoutUserInput, Prisma.Company_followerUncheckedCreateWithoutUserInput> | Prisma.Company_followerCreateWithoutUserInput[] | Prisma.Company_followerUncheckedCreateWithoutUserInput[]
+  connectOrCreate?: Prisma.Company_followerCreateOrConnectWithoutUserInput | Prisma.Company_followerCreateOrConnectWithoutUserInput[]
+  upsert?: Prisma.Company_followerUpsertWithWhereUniqueWithoutUserInput | Prisma.Company_followerUpsertWithWhereUniqueWithoutUserInput[]
+  createMany?: Prisma.Company_followerCreateManyUserInputEnvelope
+  set?: Prisma.Company_followerWhereUniqueInput | Prisma.Company_followerWhereUniqueInput[]
+  disconnect?: Prisma.Company_followerWhereUniqueInput | Prisma.Company_followerWhereUniqueInput[]
+  delete?: Prisma.Company_followerWhereUniqueInput | Prisma.Company_followerWhereUniqueInput[]
+  connect?: Prisma.Company_followerWhereUniqueInput | Prisma.Company_followerWhereUniqueInput[]
+  update?: Prisma.Company_followerUpdateWithWhereUniqueWithoutUserInput | Prisma.Company_followerUpdateWithWhereUniqueWithoutUserInput[]
+  updateMany?: Prisma.Company_followerUpdateManyWithWhereWithoutUserInput | Prisma.Company_followerUpdateManyWithWhereWithoutUserInput[]
+  deleteMany?: Prisma.Company_followerScalarWhereInput | Prisma.Company_followerScalarWhereInput[]
 }
 
-export type company_followerUncheckedUpdateManyWithoutUserNestedInput = {
-  create?: Prisma.XOR<Prisma.company_followerCreateWithoutUserInput, Prisma.company_followerUncheckedCreateWithoutUserInput> | Prisma.company_followerCreateWithoutUserInput[] | Prisma.company_followerUncheckedCreateWithoutUserInput[]
-  connectOrCreate?: Prisma.company_followerCreateOrConnectWithoutUserInput | Prisma.company_followerCreateOrConnectWithoutUserInput[]
-  upsert?: Prisma.company_followerUpsertWithWhereUniqueWithoutUserInput | Prisma.company_followerUpsertWithWhereUniqueWithoutUserInput[]
-  createMany?: Prisma.company_followerCreateManyUserInputEnvelope
-  set?: Prisma.company_followerWhereUniqueInput | Prisma.company_followerWhereUniqueInput[]
-  disconnect?: Prisma.company_followerWhereUniqueInput | Prisma.company_followerWhereUniqueInput[]
-  delete?: Prisma.company_followerWhereUniqueInput | Prisma.company_followerWhereUniqueInput[]
-  connect?: Prisma.company_followerWhereUniqueInput | Prisma.company_followerWhereUniqueInput[]
-  update?: Prisma.company_followerUpdateWithWhereUniqueWithoutUserInput | Prisma.company_followerUpdateWithWhereUniqueWithoutUserInput[]
-  updateMany?: Prisma.company_followerUpdateManyWithWhereWithoutUserInput | Prisma.company_followerUpdateManyWithWhereWithoutUserInput[]
-  deleteMany?: Prisma.company_followerScalarWhereInput | Prisma.company_followerScalarWhereInput[]
+export type Company_followerUncheckedUpdateManyWithoutUserNestedInput = {
+  create?: Prisma.XOR<Prisma.Company_followerCreateWithoutUserInput, Prisma.Company_followerUncheckedCreateWithoutUserInput> | Prisma.Company_followerCreateWithoutUserInput[] | Prisma.Company_followerUncheckedCreateWithoutUserInput[]
+  connectOrCreate?: Prisma.Company_followerCreateOrConnectWithoutUserInput | Prisma.Company_followerCreateOrConnectWithoutUserInput[]
+  upsert?: Prisma.Company_followerUpsertWithWhereUniqueWithoutUserInput | Prisma.Company_followerUpsertWithWhereUniqueWithoutUserInput[]
+  createMany?: Prisma.Company_followerCreateManyUserInputEnvelope
+  set?: Prisma.Company_followerWhereUniqueInput | Prisma.Company_followerWhereUniqueInput[]
+  disconnect?: Prisma.Company_followerWhereUniqueInput | Prisma.Company_followerWhereUniqueInput[]
+  delete?: Prisma.Company_followerWhereUniqueInput | Prisma.Company_followerWhereUniqueInput[]
+  connect?: Prisma.Company_followerWhereUniqueInput | Prisma.Company_followerWhereUniqueInput[]
+  update?: Prisma.Company_followerUpdateWithWhereUniqueWithoutUserInput | Prisma.Company_followerUpdateWithWhereUniqueWithoutUserInput[]
+  updateMany?: Prisma.Company_followerUpdateManyWithWhereWithoutUserInput | Prisma.Company_followerUpdateManyWithWhereWithoutUserInput[]
+  deleteMany?: Prisma.Company_followerScalarWhereInput | Prisma.Company_followerScalarWhereInput[]
 }
 
-export type company_followerCreateWithoutCompanyInput = {
+export type Company_followerCreateWithoutCompanyInput = {
   created_at?: Date | string
-  user: Prisma.userCreateNestedOneWithoutCompany_followerInput
+  user: Prisma.UserCreateNestedOneWithoutCompany_followerInput
 }
 
-export type company_followerUncheckedCreateWithoutCompanyInput = {
+export type Company_followerUncheckedCreateWithoutCompanyInput = {
   user_id: number
   created_at?: Date | string
 }
 
-export type company_followerCreateOrConnectWithoutCompanyInput = {
-  where: Prisma.company_followerWhereUniqueInput
-  create: Prisma.XOR<Prisma.company_followerCreateWithoutCompanyInput, Prisma.company_followerUncheckedCreateWithoutCompanyInput>
+export type Company_followerCreateOrConnectWithoutCompanyInput = {
+  where: Prisma.Company_followerWhereUniqueInput
+  create: Prisma.XOR<Prisma.Company_followerCreateWithoutCompanyInput, Prisma.Company_followerUncheckedCreateWithoutCompanyInput>
 }
 
-export type company_followerCreateManyCompanyInputEnvelope = {
-  data: Prisma.company_followerCreateManyCompanyInput | Prisma.company_followerCreateManyCompanyInput[]
+export type Company_followerCreateManyCompanyInputEnvelope = {
+  data: Prisma.Company_followerCreateManyCompanyInput | Prisma.Company_followerCreateManyCompanyInput[]
   skipDuplicates?: boolean
 }
 
-export type company_followerUpsertWithWhereUniqueWithoutCompanyInput = {
-  where: Prisma.company_followerWhereUniqueInput
-  update: Prisma.XOR<Prisma.company_followerUpdateWithoutCompanyInput, Prisma.company_followerUncheckedUpdateWithoutCompanyInput>
-  create: Prisma.XOR<Prisma.company_followerCreateWithoutCompanyInput, Prisma.company_followerUncheckedCreateWithoutCompanyInput>
+export type Company_followerUpsertWithWhereUniqueWithoutCompanyInput = {
+  where: Prisma.Company_followerWhereUniqueInput
+  update: Prisma.XOR<Prisma.Company_followerUpdateWithoutCompanyInput, Prisma.Company_followerUncheckedUpdateWithoutCompanyInput>
+  create: Prisma.XOR<Prisma.Company_followerCreateWithoutCompanyInput, Prisma.Company_followerUncheckedCreateWithoutCompanyInput>
 }
 
-export type company_followerUpdateWithWhereUniqueWithoutCompanyInput = {
-  where: Prisma.company_followerWhereUniqueInput
-  data: Prisma.XOR<Prisma.company_followerUpdateWithoutCompanyInput, Prisma.company_followerUncheckedUpdateWithoutCompanyInput>
+export type Company_followerUpdateWithWhereUniqueWithoutCompanyInput = {
+  where: Prisma.Company_followerWhereUniqueInput
+  data: Prisma.XOR<Prisma.Company_followerUpdateWithoutCompanyInput, Prisma.Company_followerUncheckedUpdateWithoutCompanyInput>
 }
 
-export type company_followerUpdateManyWithWhereWithoutCompanyInput = {
-  where: Prisma.company_followerScalarWhereInput
-  data: Prisma.XOR<Prisma.company_followerUpdateManyMutationInput, Prisma.company_followerUncheckedUpdateManyWithoutCompanyInput>
+export type Company_followerUpdateManyWithWhereWithoutCompanyInput = {
+  where: Prisma.Company_followerScalarWhereInput
+  data: Prisma.XOR<Prisma.Company_followerUpdateManyMutationInput, Prisma.Company_followerUncheckedUpdateManyWithoutCompanyInput>
 }
 
-export type company_followerScalarWhereInput = {
-  AND?: Prisma.company_followerScalarWhereInput | Prisma.company_followerScalarWhereInput[]
-  OR?: Prisma.company_followerScalarWhereInput[]
-  NOT?: Prisma.company_followerScalarWhereInput | Prisma.company_followerScalarWhereInput[]
-  user_id?: Prisma.IntFilter<"company_follower"> | number
-  company_id?: Prisma.IntFilter<"company_follower"> | number
-  created_at?: Prisma.DateTimeFilter<"company_follower"> | Date | string
+export type Company_followerScalarWhereInput = {
+  AND?: Prisma.Company_followerScalarWhereInput | Prisma.Company_followerScalarWhereInput[]
+  OR?: Prisma.Company_followerScalarWhereInput[]
+  NOT?: Prisma.Company_followerScalarWhereInput | Prisma.Company_followerScalarWhereInput[]
+  user_id?: Prisma.IntFilter<"Company_follower"> | number
+  company_id?: Prisma.IntFilter<"Company_follower"> | number
+  created_at?: Prisma.DateTimeFilter<"Company_follower"> | Date | string
 }
 
-export type company_followerCreateWithoutUserInput = {
+export type Company_followerCreateWithoutUserInput = {
   created_at?: Date | string
-  company: Prisma.companyCreateNestedOneWithoutCompany_followerInput
+  company: Prisma.CompanyCreateNestedOneWithoutCompany_followerInput
 }
 
-export type company_followerUncheckedCreateWithoutUserInput = {
+export type Company_followerUncheckedCreateWithoutUserInput = {
   company_id: number
   created_at?: Date | string
 }
 
-export type company_followerCreateOrConnectWithoutUserInput = {
-  where: Prisma.company_followerWhereUniqueInput
-  create: Prisma.XOR<Prisma.company_followerCreateWithoutUserInput, Prisma.company_followerUncheckedCreateWithoutUserInput>
+export type Company_followerCreateOrConnectWithoutUserInput = {
+  where: Prisma.Company_followerWhereUniqueInput
+  create: Prisma.XOR<Prisma.Company_followerCreateWithoutUserInput, Prisma.Company_followerUncheckedCreateWithoutUserInput>
 }
 
-export type company_followerCreateManyUserInputEnvelope = {
-  data: Prisma.company_followerCreateManyUserInput | Prisma.company_followerCreateManyUserInput[]
+export type Company_followerCreateManyUserInputEnvelope = {
+  data: Prisma.Company_followerCreateManyUserInput | Prisma.Company_followerCreateManyUserInput[]
   skipDuplicates?: boolean
 }
 
-export type company_followerUpsertWithWhereUniqueWithoutUserInput = {
-  where: Prisma.company_followerWhereUniqueInput
-  update: Prisma.XOR<Prisma.company_followerUpdateWithoutUserInput, Prisma.company_followerUncheckedUpdateWithoutUserInput>
-  create: Prisma.XOR<Prisma.company_followerCreateWithoutUserInput, Prisma.company_followerUncheckedCreateWithoutUserInput>
+export type Company_followerUpsertWithWhereUniqueWithoutUserInput = {
+  where: Prisma.Company_followerWhereUniqueInput
+  update: Prisma.XOR<Prisma.Company_followerUpdateWithoutUserInput, Prisma.Company_followerUncheckedUpdateWithoutUserInput>
+  create: Prisma.XOR<Prisma.Company_followerCreateWithoutUserInput, Prisma.Company_followerUncheckedCreateWithoutUserInput>
 }
 
-export type company_followerUpdateWithWhereUniqueWithoutUserInput = {
-  where: Prisma.company_followerWhereUniqueInput
-  data: Prisma.XOR<Prisma.company_followerUpdateWithoutUserInput, Prisma.company_followerUncheckedUpdateWithoutUserInput>
+export type Company_followerUpdateWithWhereUniqueWithoutUserInput = {
+  where: Prisma.Company_followerWhereUniqueInput
+  data: Prisma.XOR<Prisma.Company_followerUpdateWithoutUserInput, Prisma.Company_followerUncheckedUpdateWithoutUserInput>
 }
 
-export type company_followerUpdateManyWithWhereWithoutUserInput = {
-  where: Prisma.company_followerScalarWhereInput
-  data: Prisma.XOR<Prisma.company_followerUpdateManyMutationInput, Prisma.company_followerUncheckedUpdateManyWithoutUserInput>
+export type Company_followerUpdateManyWithWhereWithoutUserInput = {
+  where: Prisma.Company_followerScalarWhereInput
+  data: Prisma.XOR<Prisma.Company_followerUpdateManyMutationInput, Prisma.Company_followerUncheckedUpdateManyWithoutUserInput>
 }
 
-export type company_followerCreateManyCompanyInput = {
+export type Company_followerCreateManyCompanyInput = {
   user_id: number
   created_at?: Date | string
 }
 
-export type company_followerUpdateWithoutCompanyInput = {
+export type Company_followerUpdateWithoutCompanyInput = {
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  user?: Prisma.userUpdateOneRequiredWithoutCompany_followerNestedInput
+  user?: Prisma.UserUpdateOneRequiredWithoutCompany_followerNestedInput
 }
 
-export type company_followerUncheckedUpdateWithoutCompanyInput = {
+export type Company_followerUncheckedUpdateWithoutCompanyInput = {
   user_id?: Prisma.IntFieldUpdateOperationsInput | number
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
-export type company_followerUncheckedUpdateManyWithoutCompanyInput = {
+export type Company_followerUncheckedUpdateManyWithoutCompanyInput = {
   user_id?: Prisma.IntFieldUpdateOperationsInput | number
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
-export type company_followerCreateManyUserInput = {
+export type Company_followerCreateManyUserInput = {
   company_id: number
   created_at?: Date | string
 }
 
-export type company_followerUpdateWithoutUserInput = {
+export type Company_followerUpdateWithoutUserInput = {
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  company?: Prisma.companyUpdateOneRequiredWithoutCompany_followerNestedInput
+  company?: Prisma.CompanyUpdateOneRequiredWithoutCompany_followerNestedInput
 }
 
-export type company_followerUncheckedUpdateWithoutUserInput = {
+export type Company_followerUncheckedUpdateWithoutUserInput = {
   company_id?: Prisma.IntFieldUpdateOperationsInput | number
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
-export type company_followerUncheckedUpdateManyWithoutUserInput = {
+export type Company_followerUncheckedUpdateManyWithoutUserInput = {
   company_id?: Prisma.IntFieldUpdateOperationsInput | number
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 
 
-export type company_followerSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
+export type Company_followerSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   user_id?: boolean
   company_id?: boolean
   created_at?: boolean
-  company?: boolean | Prisma.companyDefaultArgs<ExtArgs>
-  user?: boolean | Prisma.userDefaultArgs<ExtArgs>
+  company?: boolean | Prisma.CompanyDefaultArgs<ExtArgs>
+  user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["company_follower"]>
 
 
 
-export type company_followerSelectScalar = {
+export type Company_followerSelectScalar = {
   user_id?: boolean
   company_id?: boolean
   created_at?: boolean
 }
 
-export type company_followerOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"user_id" | "company_id" | "created_at", ExtArgs["result"]["company_follower"]>
-export type company_followerInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  company?: boolean | Prisma.companyDefaultArgs<ExtArgs>
-  user?: boolean | Prisma.userDefaultArgs<ExtArgs>
+export type Company_followerOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"user_id" | "company_id" | "created_at", ExtArgs["result"]["company_follower"]>
+export type Company_followerInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  company?: boolean | Prisma.CompanyDefaultArgs<ExtArgs>
+  user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
 }
 
-export type $company_followerPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  name: "company_follower"
+export type $Company_followerPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  name: "Company_follower"
   objects: {
-    company: Prisma.$companyPayload<ExtArgs>
-    user: Prisma.$userPayload<ExtArgs>
+    company: Prisma.$CompanyPayload<ExtArgs>
+    user: Prisma.$UserPayload<ExtArgs>
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     user_id: number
@@ -574,18 +574,18 @@ export type $company_followerPayload<ExtArgs extends runtime.Types.Extensions.In
   composites: {}
 }
 
-export type company_followerGetPayload<S extends boolean | null | undefined | company_followerDefaultArgs> = runtime.Types.Result.GetResult<Prisma.$company_followerPayload, S>
+export type Company_followerGetPayload<S extends boolean | null | undefined | Company_followerDefaultArgs> = runtime.Types.Result.GetResult<Prisma.$Company_followerPayload, S>
 
-export type company_followerCountArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> =
-  Omit<company_followerFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+export type Company_followerCountArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> =
+  Omit<Company_followerFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
     select?: Company_followerCountAggregateInputType | true
   }
 
-export interface company_followerDelegate<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> {
-  [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['company_follower'], meta: { name: 'company_follower' } }
+export interface Company_followerDelegate<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+  [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Company_follower'], meta: { name: 'Company_follower' } }
   /**
    * Find zero or one Company_follower that matches the filter.
-   * @param {company_followerFindUniqueArgs} args - Arguments to find a Company_follower
+   * @param {Company_followerFindUniqueArgs} args - Arguments to find a Company_follower
    * @example
    * // Get one Company_follower
    * const company_follower = await prisma.company_follower.findUnique({
@@ -594,12 +594,12 @@ export interface company_followerDelegate<ExtArgs extends runtime.Types.Extensio
    *   }
    * })
    */
-  findUnique<T extends company_followerFindUniqueArgs>(args: Prisma.SelectSubset<T, company_followerFindUniqueArgs<ExtArgs>>): Prisma.Prisma__company_followerClient<runtime.Types.Result.GetResult<Prisma.$company_followerPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+  findUnique<T extends Company_followerFindUniqueArgs>(args: Prisma.SelectSubset<T, Company_followerFindUniqueArgs<ExtArgs>>): Prisma.Prisma__Company_followerClient<runtime.Types.Result.GetResult<Prisma.$Company_followerPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
   /**
    * Find one Company_follower that matches the filter or throw an error with `error.code='P2025'`
    * if no matches were found.
-   * @param {company_followerFindUniqueOrThrowArgs} args - Arguments to find a Company_follower
+   * @param {Company_followerFindUniqueOrThrowArgs} args - Arguments to find a Company_follower
    * @example
    * // Get one Company_follower
    * const company_follower = await prisma.company_follower.findUniqueOrThrow({
@@ -608,13 +608,13 @@ export interface company_followerDelegate<ExtArgs extends runtime.Types.Extensio
    *   }
    * })
    */
-  findUniqueOrThrow<T extends company_followerFindUniqueOrThrowArgs>(args: Prisma.SelectSubset<T, company_followerFindUniqueOrThrowArgs<ExtArgs>>): Prisma.Prisma__company_followerClient<runtime.Types.Result.GetResult<Prisma.$company_followerPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+  findUniqueOrThrow<T extends Company_followerFindUniqueOrThrowArgs>(args: Prisma.SelectSubset<T, Company_followerFindUniqueOrThrowArgs<ExtArgs>>): Prisma.Prisma__Company_followerClient<runtime.Types.Result.GetResult<Prisma.$Company_followerPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
   /**
    * Find the first Company_follower that matches the filter.
    * Note, that providing `undefined` is treated as the value not being there.
    * Read more here: https://pris.ly/d/null-undefined
-   * @param {company_followerFindFirstArgs} args - Arguments to find a Company_follower
+   * @param {Company_followerFindFirstArgs} args - Arguments to find a Company_follower
    * @example
    * // Get one Company_follower
    * const company_follower = await prisma.company_follower.findFirst({
@@ -623,14 +623,14 @@ export interface company_followerDelegate<ExtArgs extends runtime.Types.Extensio
    *   }
    * })
    */
-  findFirst<T extends company_followerFindFirstArgs>(args?: Prisma.SelectSubset<T, company_followerFindFirstArgs<ExtArgs>>): Prisma.Prisma__company_followerClient<runtime.Types.Result.GetResult<Prisma.$company_followerPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+  findFirst<T extends Company_followerFindFirstArgs>(args?: Prisma.SelectSubset<T, Company_followerFindFirstArgs<ExtArgs>>): Prisma.Prisma__Company_followerClient<runtime.Types.Result.GetResult<Prisma.$Company_followerPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
   /**
    * Find the first Company_follower that matches the filter or
    * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
    * Note, that providing `undefined` is treated as the value not being there.
    * Read more here: https://pris.ly/d/null-undefined
-   * @param {company_followerFindFirstOrThrowArgs} args - Arguments to find a Company_follower
+   * @param {Company_followerFindFirstOrThrowArgs} args - Arguments to find a Company_follower
    * @example
    * // Get one Company_follower
    * const company_follower = await prisma.company_follower.findFirstOrThrow({
@@ -639,13 +639,13 @@ export interface company_followerDelegate<ExtArgs extends runtime.Types.Extensio
    *   }
    * })
    */
-  findFirstOrThrow<T extends company_followerFindFirstOrThrowArgs>(args?: Prisma.SelectSubset<T, company_followerFindFirstOrThrowArgs<ExtArgs>>): Prisma.Prisma__company_followerClient<runtime.Types.Result.GetResult<Prisma.$company_followerPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+  findFirstOrThrow<T extends Company_followerFindFirstOrThrowArgs>(args?: Prisma.SelectSubset<T, Company_followerFindFirstOrThrowArgs<ExtArgs>>): Prisma.Prisma__Company_followerClient<runtime.Types.Result.GetResult<Prisma.$Company_followerPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
   /**
    * Find zero or more Company_followers that matches the filter.
    * Note, that providing `undefined` is treated as the value not being there.
    * Read more here: https://pris.ly/d/null-undefined
-   * @param {company_followerFindManyArgs} args - Arguments to filter and select certain fields only.
+   * @param {Company_followerFindManyArgs} args - Arguments to filter and select certain fields only.
    * @example
    * // Get all Company_followers
    * const company_followers = await prisma.company_follower.findMany()
@@ -657,11 +657,11 @@ export interface company_followerDelegate<ExtArgs extends runtime.Types.Extensio
    * const company_followerWithUser_idOnly = await prisma.company_follower.findMany({ select: { user_id: true } })
    * 
    */
-  findMany<T extends company_followerFindManyArgs>(args?: Prisma.SelectSubset<T, company_followerFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$company_followerPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+  findMany<T extends Company_followerFindManyArgs>(args?: Prisma.SelectSubset<T, Company_followerFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$Company_followerPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
 
   /**
    * Create a Company_follower.
-   * @param {company_followerCreateArgs} args - Arguments to create a Company_follower.
+   * @param {Company_followerCreateArgs} args - Arguments to create a Company_follower.
    * @example
    * // Create one Company_follower
    * const Company_follower = await prisma.company_follower.create({
@@ -671,11 +671,11 @@ export interface company_followerDelegate<ExtArgs extends runtime.Types.Extensio
    * })
    * 
    */
-  create<T extends company_followerCreateArgs>(args: Prisma.SelectSubset<T, company_followerCreateArgs<ExtArgs>>): Prisma.Prisma__company_followerClient<runtime.Types.Result.GetResult<Prisma.$company_followerPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+  create<T extends Company_followerCreateArgs>(args: Prisma.SelectSubset<T, Company_followerCreateArgs<ExtArgs>>): Prisma.Prisma__Company_followerClient<runtime.Types.Result.GetResult<Prisma.$Company_followerPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
   /**
    * Create many Company_followers.
-   * @param {company_followerCreateManyArgs} args - Arguments to create many Company_followers.
+   * @param {Company_followerCreateManyArgs} args - Arguments to create many Company_followers.
    * @example
    * // Create many Company_followers
    * const company_follower = await prisma.company_follower.createMany({
@@ -685,11 +685,11 @@ export interface company_followerDelegate<ExtArgs extends runtime.Types.Extensio
    * })
    *     
    */
-  createMany<T extends company_followerCreateManyArgs>(args?: Prisma.SelectSubset<T, company_followerCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>
+  createMany<T extends Company_followerCreateManyArgs>(args?: Prisma.SelectSubset<T, Company_followerCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>
 
   /**
    * Delete a Company_follower.
-   * @param {company_followerDeleteArgs} args - Arguments to delete one Company_follower.
+   * @param {Company_followerDeleteArgs} args - Arguments to delete one Company_follower.
    * @example
    * // Delete one Company_follower
    * const Company_follower = await prisma.company_follower.delete({
@@ -699,11 +699,11 @@ export interface company_followerDelegate<ExtArgs extends runtime.Types.Extensio
    * })
    * 
    */
-  delete<T extends company_followerDeleteArgs>(args: Prisma.SelectSubset<T, company_followerDeleteArgs<ExtArgs>>): Prisma.Prisma__company_followerClient<runtime.Types.Result.GetResult<Prisma.$company_followerPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+  delete<T extends Company_followerDeleteArgs>(args: Prisma.SelectSubset<T, Company_followerDeleteArgs<ExtArgs>>): Prisma.Prisma__Company_followerClient<runtime.Types.Result.GetResult<Prisma.$Company_followerPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
   /**
    * Update one Company_follower.
-   * @param {company_followerUpdateArgs} args - Arguments to update one Company_follower.
+   * @param {Company_followerUpdateArgs} args - Arguments to update one Company_follower.
    * @example
    * // Update one Company_follower
    * const company_follower = await prisma.company_follower.update({
@@ -716,11 +716,11 @@ export interface company_followerDelegate<ExtArgs extends runtime.Types.Extensio
    * })
    * 
    */
-  update<T extends company_followerUpdateArgs>(args: Prisma.SelectSubset<T, company_followerUpdateArgs<ExtArgs>>): Prisma.Prisma__company_followerClient<runtime.Types.Result.GetResult<Prisma.$company_followerPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+  update<T extends Company_followerUpdateArgs>(args: Prisma.SelectSubset<T, Company_followerUpdateArgs<ExtArgs>>): Prisma.Prisma__Company_followerClient<runtime.Types.Result.GetResult<Prisma.$Company_followerPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
   /**
    * Delete zero or more Company_followers.
-   * @param {company_followerDeleteManyArgs} args - Arguments to filter Company_followers to delete.
+   * @param {Company_followerDeleteManyArgs} args - Arguments to filter Company_followers to delete.
    * @example
    * // Delete a few Company_followers
    * const { count } = await prisma.company_follower.deleteMany({
@@ -730,13 +730,13 @@ export interface company_followerDelegate<ExtArgs extends runtime.Types.Extensio
    * })
    * 
    */
-  deleteMany<T extends company_followerDeleteManyArgs>(args?: Prisma.SelectSubset<T, company_followerDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>
+  deleteMany<T extends Company_followerDeleteManyArgs>(args?: Prisma.SelectSubset<T, Company_followerDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>
 
   /**
    * Update zero or more Company_followers.
    * Note, that providing `undefined` is treated as the value not being there.
    * Read more here: https://pris.ly/d/null-undefined
-   * @param {company_followerUpdateManyArgs} args - Arguments to update one or more rows.
+   * @param {Company_followerUpdateManyArgs} args - Arguments to update one or more rows.
    * @example
    * // Update many Company_followers
    * const company_follower = await prisma.company_follower.updateMany({
@@ -749,11 +749,11 @@ export interface company_followerDelegate<ExtArgs extends runtime.Types.Extensio
    * })
    * 
    */
-  updateMany<T extends company_followerUpdateManyArgs>(args: Prisma.SelectSubset<T, company_followerUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>
+  updateMany<T extends Company_followerUpdateManyArgs>(args: Prisma.SelectSubset<T, Company_followerUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>
 
   /**
    * Create or update one Company_follower.
-   * @param {company_followerUpsertArgs} args - Arguments to update or create a Company_follower.
+   * @param {Company_followerUpsertArgs} args - Arguments to update or create a Company_follower.
    * @example
    * // Update or create a Company_follower
    * const company_follower = await prisma.company_follower.upsert({
@@ -768,14 +768,14 @@ export interface company_followerDelegate<ExtArgs extends runtime.Types.Extensio
    *   }
    * })
    */
-  upsert<T extends company_followerUpsertArgs>(args: Prisma.SelectSubset<T, company_followerUpsertArgs<ExtArgs>>): Prisma.Prisma__company_followerClient<runtime.Types.Result.GetResult<Prisma.$company_followerPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+  upsert<T extends Company_followerUpsertArgs>(args: Prisma.SelectSubset<T, Company_followerUpsertArgs<ExtArgs>>): Prisma.Prisma__Company_followerClient<runtime.Types.Result.GetResult<Prisma.$Company_followerPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
 
   /**
    * Count the number of Company_followers.
    * Note, that providing `undefined` is treated as the value not being there.
    * Read more here: https://pris.ly/d/null-undefined
-   * @param {company_followerCountArgs} args - Arguments to filter Company_followers to count.
+   * @param {Company_followerCountArgs} args - Arguments to filter Company_followers to count.
    * @example
    * // Count the number of Company_followers
    * const count = await prisma.company_follower.count({
@@ -784,8 +784,8 @@ export interface company_followerDelegate<ExtArgs extends runtime.Types.Extensio
    *   }
    * })
   **/
-  count<T extends company_followerCountArgs>(
-    args?: Prisma.Subset<T, company_followerCountArgs>,
+  count<T extends Company_followerCountArgs>(
+    args?: Prisma.Subset<T, Company_followerCountArgs>,
   ): Prisma.PrismaPromise<
     T extends runtime.Types.Utils.Record<'select', any>
       ? T['select'] extends true
@@ -824,7 +824,7 @@ export interface company_followerDelegate<ExtArgs extends runtime.Types.Extensio
    * Group by Company_follower.
    * Note, that providing `undefined` is treated as the value not being there.
    * Read more here: https://pris.ly/d/null-undefined
-   * @param {company_followerGroupByArgs} args - Group by arguments.
+   * @param {Company_followerGroupByArgs} args - Group by arguments.
    * @example
    * // Group by city, order by createdAt, get count
    * const result = await prisma.user.groupBy({
@@ -839,14 +839,14 @@ export interface company_followerDelegate<ExtArgs extends runtime.Types.Extensio
    * 
   **/
   groupBy<
-    T extends company_followerGroupByArgs,
+    T extends Company_followerGroupByArgs,
     HasSelectOrTake extends Prisma.Or<
       Prisma.Extends<'skip', Prisma.Keys<T>>,
       Prisma.Extends<'take', Prisma.Keys<T>>
     >,
     OrderByArg extends Prisma.True extends HasSelectOrTake
-      ? { orderBy: company_followerGroupByArgs['orderBy'] }
-      : { orderBy?: company_followerGroupByArgs['orderBy'] },
+      ? { orderBy: Company_followerGroupByArgs['orderBy'] }
+      : { orderBy?: Company_followerGroupByArgs['orderBy'] },
     OrderFields extends Prisma.ExcludeUnderscoreKeys<Prisma.Keys<Prisma.MaybeTupleToUnion<T['orderBy']>>>,
     ByFields extends Prisma.MaybeTupleToUnion<T['by']>,
     ByValid extends Prisma.Has<ByFields, OrderFields>,
@@ -895,23 +895,23 @@ export interface company_followerDelegate<ExtArgs extends runtime.Types.Extensio
           ? never
           : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
       }[OrderFields]
-  >(args: Prisma.SubsetIntersection<T, company_followerGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetCompany_followerGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  >(args: Prisma.SubsetIntersection<T, Company_followerGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetCompany_followerGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
 /**
- * Fields of the company_follower model
+ * Fields of the Company_follower model
  */
-readonly fields: company_followerFieldRefs;
+readonly fields: Company_followerFieldRefs;
 }
 
 /**
- * The delegate class that acts as a "Promise-like" for company_follower.
+ * The delegate class that acts as a "Promise-like" for Company_follower.
  * Why is this prefixed with `Prisma__`?
  * Because we want to prevent naming conflicts as mentioned in
  * https://github.com/prisma/prisma-client-js/issues/707
  */
-export interface Prisma__company_followerClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+export interface Prisma__Company_followerClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
-  company<T extends Prisma.companyDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.companyDefaultArgs<ExtArgs>>): Prisma.Prisma__companyClient<runtime.Types.Result.GetResult<Prisma.$companyPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
-  user<T extends Prisma.userDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.userDefaultArgs<ExtArgs>>): Prisma.Prisma__userClient<runtime.Types.Result.GetResult<Prisma.$userPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+  company<T extends Prisma.CompanyDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.CompanyDefaultArgs<ExtArgs>>): Prisma.Prisma__CompanyClient<runtime.Types.Result.GetResult<Prisma.$CompanyPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+  user<T extends Prisma.UserDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.UserDefaultArgs<ExtArgs>>): Prisma.Prisma__UserClient<runtime.Types.Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -938,373 +938,373 @@ export interface Prisma__company_followerClient<T, Null = never, ExtArgs extends
 
 
 /**
- * Fields of the company_follower model
+ * Fields of the Company_follower model
  */
-export interface company_followerFieldRefs {
-  readonly user_id: Prisma.FieldRef<"company_follower", 'Int'>
-  readonly company_id: Prisma.FieldRef<"company_follower", 'Int'>
-  readonly created_at: Prisma.FieldRef<"company_follower", 'DateTime'>
+export interface Company_followerFieldRefs {
+  readonly user_id: Prisma.FieldRef<"Company_follower", 'Int'>
+  readonly company_id: Prisma.FieldRef<"Company_follower", 'Int'>
+  readonly created_at: Prisma.FieldRef<"Company_follower", 'DateTime'>
 }
     
 
 // Custom InputTypes
 /**
- * company_follower findUnique
+ * Company_follower findUnique
  */
-export type company_followerFindUniqueArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type Company_followerFindUniqueArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the company_follower
+   * Select specific fields to fetch from the Company_follower
    */
-  select?: Prisma.company_followerSelect<ExtArgs> | null
+  select?: Prisma.Company_followerSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the company_follower
+   * Omit specific fields from the Company_follower
    */
-  omit?: Prisma.company_followerOmit<ExtArgs> | null
+  omit?: Prisma.Company_followerOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.company_followerInclude<ExtArgs> | null
+  include?: Prisma.Company_followerInclude<ExtArgs> | null
   /**
-   * Filter, which company_follower to fetch.
+   * Filter, which Company_follower to fetch.
    */
-  where: Prisma.company_followerWhereUniqueInput
+  where: Prisma.Company_followerWhereUniqueInput
 }
 
 /**
- * company_follower findUniqueOrThrow
+ * Company_follower findUniqueOrThrow
  */
-export type company_followerFindUniqueOrThrowArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type Company_followerFindUniqueOrThrowArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the company_follower
+   * Select specific fields to fetch from the Company_follower
    */
-  select?: Prisma.company_followerSelect<ExtArgs> | null
+  select?: Prisma.Company_followerSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the company_follower
+   * Omit specific fields from the Company_follower
    */
-  omit?: Prisma.company_followerOmit<ExtArgs> | null
+  omit?: Prisma.Company_followerOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.company_followerInclude<ExtArgs> | null
+  include?: Prisma.Company_followerInclude<ExtArgs> | null
   /**
-   * Filter, which company_follower to fetch.
+   * Filter, which Company_follower to fetch.
    */
-  where: Prisma.company_followerWhereUniqueInput
+  where: Prisma.Company_followerWhereUniqueInput
 }
 
 /**
- * company_follower findFirst
+ * Company_follower findFirst
  */
-export type company_followerFindFirstArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type Company_followerFindFirstArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the company_follower
+   * Select specific fields to fetch from the Company_follower
    */
-  select?: Prisma.company_followerSelect<ExtArgs> | null
+  select?: Prisma.Company_followerSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the company_follower
+   * Omit specific fields from the Company_follower
    */
-  omit?: Prisma.company_followerOmit<ExtArgs> | null
+  omit?: Prisma.Company_followerOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.company_followerInclude<ExtArgs> | null
+  include?: Prisma.Company_followerInclude<ExtArgs> | null
   /**
-   * Filter, which company_follower to fetch.
+   * Filter, which Company_follower to fetch.
    */
-  where?: Prisma.company_followerWhereInput
+  where?: Prisma.Company_followerWhereInput
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
    * 
-   * Determine the order of company_followers to fetch.
+   * Determine the order of Company_followers to fetch.
    */
-  orderBy?: Prisma.company_followerOrderByWithRelationInput | Prisma.company_followerOrderByWithRelationInput[]
+  orderBy?: Prisma.Company_followerOrderByWithRelationInput | Prisma.Company_followerOrderByWithRelationInput[]
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
    * 
-   * Sets the position for searching for company_followers.
+   * Sets the position for searching for Company_followers.
    */
-  cursor?: Prisma.company_followerWhereUniqueInput
+  cursor?: Prisma.Company_followerWhereUniqueInput
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
    * 
-   * Take `±n` company_followers from the position of the cursor.
+   * Take `±n` Company_followers from the position of the cursor.
    */
   take?: number
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
    * 
-   * Skip the first `n` company_followers.
+   * Skip the first `n` Company_followers.
    */
   skip?: number
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
    * 
-   * Filter by unique combinations of company_followers.
+   * Filter by unique combinations of Company_followers.
    */
   distinct?: Prisma.Company_followerScalarFieldEnum | Prisma.Company_followerScalarFieldEnum[]
 }
 
 /**
- * company_follower findFirstOrThrow
+ * Company_follower findFirstOrThrow
  */
-export type company_followerFindFirstOrThrowArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type Company_followerFindFirstOrThrowArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the company_follower
+   * Select specific fields to fetch from the Company_follower
    */
-  select?: Prisma.company_followerSelect<ExtArgs> | null
+  select?: Prisma.Company_followerSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the company_follower
+   * Omit specific fields from the Company_follower
    */
-  omit?: Prisma.company_followerOmit<ExtArgs> | null
+  omit?: Prisma.Company_followerOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.company_followerInclude<ExtArgs> | null
+  include?: Prisma.Company_followerInclude<ExtArgs> | null
   /**
-   * Filter, which company_follower to fetch.
+   * Filter, which Company_follower to fetch.
    */
-  where?: Prisma.company_followerWhereInput
+  where?: Prisma.Company_followerWhereInput
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
    * 
-   * Determine the order of company_followers to fetch.
+   * Determine the order of Company_followers to fetch.
    */
-  orderBy?: Prisma.company_followerOrderByWithRelationInput | Prisma.company_followerOrderByWithRelationInput[]
+  orderBy?: Prisma.Company_followerOrderByWithRelationInput | Prisma.Company_followerOrderByWithRelationInput[]
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
    * 
-   * Sets the position for searching for company_followers.
+   * Sets the position for searching for Company_followers.
    */
-  cursor?: Prisma.company_followerWhereUniqueInput
+  cursor?: Prisma.Company_followerWhereUniqueInput
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
    * 
-   * Take `±n` company_followers from the position of the cursor.
+   * Take `±n` Company_followers from the position of the cursor.
    */
   take?: number
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
    * 
-   * Skip the first `n` company_followers.
+   * Skip the first `n` Company_followers.
    */
   skip?: number
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
    * 
-   * Filter by unique combinations of company_followers.
+   * Filter by unique combinations of Company_followers.
    */
   distinct?: Prisma.Company_followerScalarFieldEnum | Prisma.Company_followerScalarFieldEnum[]
 }
 
 /**
- * company_follower findMany
+ * Company_follower findMany
  */
-export type company_followerFindManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type Company_followerFindManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the company_follower
+   * Select specific fields to fetch from the Company_follower
    */
-  select?: Prisma.company_followerSelect<ExtArgs> | null
+  select?: Prisma.Company_followerSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the company_follower
+   * Omit specific fields from the Company_follower
    */
-  omit?: Prisma.company_followerOmit<ExtArgs> | null
+  omit?: Prisma.Company_followerOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.company_followerInclude<ExtArgs> | null
+  include?: Prisma.Company_followerInclude<ExtArgs> | null
   /**
-   * Filter, which company_followers to fetch.
+   * Filter, which Company_followers to fetch.
    */
-  where?: Prisma.company_followerWhereInput
+  where?: Prisma.Company_followerWhereInput
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
    * 
-   * Determine the order of company_followers to fetch.
+   * Determine the order of Company_followers to fetch.
    */
-  orderBy?: Prisma.company_followerOrderByWithRelationInput | Prisma.company_followerOrderByWithRelationInput[]
+  orderBy?: Prisma.Company_followerOrderByWithRelationInput | Prisma.Company_followerOrderByWithRelationInput[]
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
    * 
-   * Sets the position for listing company_followers.
+   * Sets the position for listing Company_followers.
    */
-  cursor?: Prisma.company_followerWhereUniqueInput
+  cursor?: Prisma.Company_followerWhereUniqueInput
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
    * 
-   * Take `±n` company_followers from the position of the cursor.
+   * Take `±n` Company_followers from the position of the cursor.
    */
   take?: number
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
    * 
-   * Skip the first `n` company_followers.
+   * Skip the first `n` Company_followers.
    */
   skip?: number
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
    * 
-   * Filter by unique combinations of company_followers.
+   * Filter by unique combinations of Company_followers.
    */
   distinct?: Prisma.Company_followerScalarFieldEnum | Prisma.Company_followerScalarFieldEnum[]
 }
 
 /**
- * company_follower create
+ * Company_follower create
  */
-export type company_followerCreateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type Company_followerCreateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the company_follower
+   * Select specific fields to fetch from the Company_follower
    */
-  select?: Prisma.company_followerSelect<ExtArgs> | null
+  select?: Prisma.Company_followerSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the company_follower
+   * Omit specific fields from the Company_follower
    */
-  omit?: Prisma.company_followerOmit<ExtArgs> | null
+  omit?: Prisma.Company_followerOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.company_followerInclude<ExtArgs> | null
+  include?: Prisma.Company_followerInclude<ExtArgs> | null
   /**
-   * The data needed to create a company_follower.
+   * The data needed to create a Company_follower.
    */
-  data: Prisma.XOR<Prisma.company_followerCreateInput, Prisma.company_followerUncheckedCreateInput>
+  data: Prisma.XOR<Prisma.Company_followerCreateInput, Prisma.Company_followerUncheckedCreateInput>
 }
 
 /**
- * company_follower createMany
+ * Company_follower createMany
  */
-export type company_followerCreateManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type Company_followerCreateManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * The data used to create many company_followers.
+   * The data used to create many Company_followers.
    */
-  data: Prisma.company_followerCreateManyInput | Prisma.company_followerCreateManyInput[]
+  data: Prisma.Company_followerCreateManyInput | Prisma.Company_followerCreateManyInput[]
   skipDuplicates?: boolean
 }
 
 /**
- * company_follower update
+ * Company_follower update
  */
-export type company_followerUpdateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type Company_followerUpdateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the company_follower
+   * Select specific fields to fetch from the Company_follower
    */
-  select?: Prisma.company_followerSelect<ExtArgs> | null
+  select?: Prisma.Company_followerSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the company_follower
+   * Omit specific fields from the Company_follower
    */
-  omit?: Prisma.company_followerOmit<ExtArgs> | null
+  omit?: Prisma.Company_followerOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.company_followerInclude<ExtArgs> | null
+  include?: Prisma.Company_followerInclude<ExtArgs> | null
   /**
-   * The data needed to update a company_follower.
+   * The data needed to update a Company_follower.
    */
-  data: Prisma.XOR<Prisma.company_followerUpdateInput, Prisma.company_followerUncheckedUpdateInput>
+  data: Prisma.XOR<Prisma.Company_followerUpdateInput, Prisma.Company_followerUncheckedUpdateInput>
   /**
-   * Choose, which company_follower to update.
+   * Choose, which Company_follower to update.
    */
-  where: Prisma.company_followerWhereUniqueInput
+  where: Prisma.Company_followerWhereUniqueInput
 }
 
 /**
- * company_follower updateMany
+ * Company_follower updateMany
  */
-export type company_followerUpdateManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type Company_followerUpdateManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * The data used to update company_followers.
+   * The data used to update Company_followers.
    */
-  data: Prisma.XOR<Prisma.company_followerUpdateManyMutationInput, Prisma.company_followerUncheckedUpdateManyInput>
+  data: Prisma.XOR<Prisma.Company_followerUpdateManyMutationInput, Prisma.Company_followerUncheckedUpdateManyInput>
   /**
-   * Filter which company_followers to update
+   * Filter which Company_followers to update
    */
-  where?: Prisma.company_followerWhereInput
+  where?: Prisma.Company_followerWhereInput
   /**
-   * Limit how many company_followers to update.
+   * Limit how many Company_followers to update.
    */
   limit?: number
 }
 
 /**
- * company_follower upsert
+ * Company_follower upsert
  */
-export type company_followerUpsertArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type Company_followerUpsertArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the company_follower
+   * Select specific fields to fetch from the Company_follower
    */
-  select?: Prisma.company_followerSelect<ExtArgs> | null
+  select?: Prisma.Company_followerSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the company_follower
+   * Omit specific fields from the Company_follower
    */
-  omit?: Prisma.company_followerOmit<ExtArgs> | null
+  omit?: Prisma.Company_followerOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.company_followerInclude<ExtArgs> | null
+  include?: Prisma.Company_followerInclude<ExtArgs> | null
   /**
-   * The filter to search for the company_follower to update in case it exists.
+   * The filter to search for the Company_follower to update in case it exists.
    */
-  where: Prisma.company_followerWhereUniqueInput
+  where: Prisma.Company_followerWhereUniqueInput
   /**
-   * In case the company_follower found by the `where` argument doesn't exist, create a new company_follower with this data.
+   * In case the Company_follower found by the `where` argument doesn't exist, create a new Company_follower with this data.
    */
-  create: Prisma.XOR<Prisma.company_followerCreateInput, Prisma.company_followerUncheckedCreateInput>
+  create: Prisma.XOR<Prisma.Company_followerCreateInput, Prisma.Company_followerUncheckedCreateInput>
   /**
-   * In case the company_follower was found with the provided `where` argument, update it with this data.
+   * In case the Company_follower was found with the provided `where` argument, update it with this data.
    */
-  update: Prisma.XOR<Prisma.company_followerUpdateInput, Prisma.company_followerUncheckedUpdateInput>
+  update: Prisma.XOR<Prisma.Company_followerUpdateInput, Prisma.Company_followerUncheckedUpdateInput>
 }
 
 /**
- * company_follower delete
+ * Company_follower delete
  */
-export type company_followerDeleteArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type Company_followerDeleteArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the company_follower
+   * Select specific fields to fetch from the Company_follower
    */
-  select?: Prisma.company_followerSelect<ExtArgs> | null
+  select?: Prisma.Company_followerSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the company_follower
+   * Omit specific fields from the Company_follower
    */
-  omit?: Prisma.company_followerOmit<ExtArgs> | null
+  omit?: Prisma.Company_followerOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.company_followerInclude<ExtArgs> | null
+  include?: Prisma.Company_followerInclude<ExtArgs> | null
   /**
-   * Filter which company_follower to delete.
+   * Filter which Company_follower to delete.
    */
-  where: Prisma.company_followerWhereUniqueInput
+  where: Prisma.Company_followerWhereUniqueInput
 }
 
 /**
- * company_follower deleteMany
+ * Company_follower deleteMany
  */
-export type company_followerDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type Company_followerDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Filter which company_followers to delete
+   * Filter which Company_followers to delete
    */
-  where?: Prisma.company_followerWhereInput
+  where?: Prisma.Company_followerWhereInput
   /**
-   * Limit how many company_followers to delete.
+   * Limit how many Company_followers to delete.
    */
   limit?: number
 }
 
 /**
- * company_follower without action
+ * Company_follower without action
  */
-export type company_followerDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type Company_followerDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the company_follower
+   * Select specific fields to fetch from the Company_follower
    */
-  select?: Prisma.company_followerSelect<ExtArgs> | null
+  select?: Prisma.Company_followerSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the company_follower
+   * Omit specific fields from the Company_follower
    */
-  omit?: Prisma.company_followerOmit<ExtArgs> | null
+  omit?: Prisma.Company_followerOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.company_followerInclude<ExtArgs> | null
+  include?: Prisma.Company_followerInclude<ExtArgs> | null
 }

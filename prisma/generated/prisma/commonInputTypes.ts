@@ -25,11 +25,11 @@ export type IntFilter<$PrismaModel = never> = {
   not?: Prisma.NestedIntFilter<$PrismaModel> | number
 }
 
-export type Enumapplication_statusFilter<$PrismaModel = never> = {
-  equals?: $Enums.application_status | Prisma.Enumapplication_statusFieldRefInput<$PrismaModel>
-  in?: $Enums.application_status[]
-  notIn?: $Enums.application_status[]
-  not?: Prisma.NestedEnumapplication_statusFilter<$PrismaModel> | $Enums.application_status
+export type EnumApplication_statusFilter<$PrismaModel = never> = {
+  equals?: $Enums.Application_status | Prisma.EnumApplication_statusFieldRefInput<$PrismaModel>
+  in?: $Enums.Application_status[]
+  notIn?: $Enums.Application_status[]
+  not?: Prisma.NestedEnumApplication_statusFilter<$PrismaModel> | $Enums.Application_status
 }
 
 export type DateTimeFilter<$PrismaModel = never> = {
@@ -59,14 +59,14 @@ export type IntWithAggregatesFilter<$PrismaModel = never> = {
   _max?: Prisma.NestedIntFilter<$PrismaModel>
 }
 
-export type Enumapplication_statusWithAggregatesFilter<$PrismaModel = never> = {
-  equals?: $Enums.application_status | Prisma.Enumapplication_statusFieldRefInput<$PrismaModel>
-  in?: $Enums.application_status[]
-  notIn?: $Enums.application_status[]
-  not?: Prisma.NestedEnumapplication_statusWithAggregatesFilter<$PrismaModel> | $Enums.application_status
+export type EnumApplication_statusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.Application_status | Prisma.EnumApplication_statusFieldRefInput<$PrismaModel>
+  in?: $Enums.Application_status[]
+  notIn?: $Enums.Application_status[]
+  not?: Prisma.NestedEnumApplication_statusWithAggregatesFilter<$PrismaModel> | $Enums.Application_status
   _count?: Prisma.NestedIntFilter<$PrismaModel>
-  _min?: Prisma.NestedEnumapplication_statusFilter<$PrismaModel>
-  _max?: Prisma.NestedEnumapplication_statusFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumApplication_statusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumApplication_statusFilter<$PrismaModel>
 }
 
 export type DateTimeWithAggregatesFilter<$PrismaModel = never> = {
@@ -194,38 +194,38 @@ export type BoolWithAggregatesFilter<$PrismaModel = never> = {
   _max?: Prisma.NestedBoolFilter<$PrismaModel>
 }
 
-export type Enumconnection_statusFilter<$PrismaModel = never> = {
-  equals?: $Enums.connection_status | Prisma.Enumconnection_statusFieldRefInput<$PrismaModel>
-  in?: $Enums.connection_status[]
-  notIn?: $Enums.connection_status[]
-  not?: Prisma.NestedEnumconnection_statusFilter<$PrismaModel> | $Enums.connection_status
+export type EnumConnection_statusFilter<$PrismaModel = never> = {
+  equals?: $Enums.Connection_status | Prisma.EnumConnection_statusFieldRefInput<$PrismaModel>
+  in?: $Enums.Connection_status[]
+  notIn?: $Enums.Connection_status[]
+  not?: Prisma.NestedEnumConnection_statusFilter<$PrismaModel> | $Enums.Connection_status
 }
 
-export type Enumconnection_statusWithAggregatesFilter<$PrismaModel = never> = {
-  equals?: $Enums.connection_status | Prisma.Enumconnection_statusFieldRefInput<$PrismaModel>
-  in?: $Enums.connection_status[]
-  notIn?: $Enums.connection_status[]
-  not?: Prisma.NestedEnumconnection_statusWithAggregatesFilter<$PrismaModel> | $Enums.connection_status
+export type EnumConnection_statusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.Connection_status | Prisma.EnumConnection_statusFieldRefInput<$PrismaModel>
+  in?: $Enums.Connection_status[]
+  notIn?: $Enums.Connection_status[]
+  not?: Prisma.NestedEnumConnection_statusWithAggregatesFilter<$PrismaModel> | $Enums.Connection_status
   _count?: Prisma.NestedIntFilter<$PrismaModel>
-  _min?: Prisma.NestedEnumconnection_statusFilter<$PrismaModel>
-  _max?: Prisma.NestedEnumconnection_statusFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumConnection_statusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumConnection_statusFilter<$PrismaModel>
 }
 
-export type Enumdocument_typeFilter<$PrismaModel = never> = {
-  equals?: $Enums.document_type | Prisma.Enumdocument_typeFieldRefInput<$PrismaModel>
-  in?: $Enums.document_type[]
-  notIn?: $Enums.document_type[]
-  not?: Prisma.NestedEnumdocument_typeFilter<$PrismaModel> | $Enums.document_type
+export type EnumDocument_typeFilter<$PrismaModel = never> = {
+  equals?: $Enums.Document_type | Prisma.EnumDocument_typeFieldRefInput<$PrismaModel>
+  in?: $Enums.Document_type[]
+  notIn?: $Enums.Document_type[]
+  not?: Prisma.NestedEnumDocument_typeFilter<$PrismaModel> | $Enums.Document_type
 }
 
-export type Enumdocument_typeWithAggregatesFilter<$PrismaModel = never> = {
-  equals?: $Enums.document_type | Prisma.Enumdocument_typeFieldRefInput<$PrismaModel>
-  in?: $Enums.document_type[]
-  notIn?: $Enums.document_type[]
-  not?: Prisma.NestedEnumdocument_typeWithAggregatesFilter<$PrismaModel> | $Enums.document_type
+export type EnumDocument_typeWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.Document_type | Prisma.EnumDocument_typeFieldRefInput<$PrismaModel>
+  in?: $Enums.Document_type[]
+  notIn?: $Enums.Document_type[]
+  not?: Prisma.NestedEnumDocument_typeWithAggregatesFilter<$PrismaModel> | $Enums.Document_type
   _count?: Prisma.NestedIntFilter<$PrismaModel>
-  _min?: Prisma.NestedEnumdocument_typeFilter<$PrismaModel>
-  _max?: Prisma.NestedEnumdocument_typeFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumDocument_typeFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumDocument_typeFilter<$PrismaModel>
 }
 
 export type DateTimeNullableFilter<$PrismaModel = never> = {
@@ -253,72 +253,72 @@ export type DateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
   _max?: Prisma.NestedDateTimeNullableFilter<$PrismaModel>
 }
 
-export type Enuminterview_interview_typeFilter<$PrismaModel = never> = {
-  equals?: $Enums.interview_interview_type | Prisma.Enuminterview_interview_typeFieldRefInput<$PrismaModel>
-  in?: $Enums.interview_interview_type[]
-  notIn?: $Enums.interview_interview_type[]
-  not?: Prisma.NestedEnuminterview_interview_typeFilter<$PrismaModel> | $Enums.interview_interview_type
+export type EnumInterview_interview_typeFilter<$PrismaModel = never> = {
+  equals?: $Enums.Interview_interview_type | Prisma.EnumInterview_interview_typeFieldRefInput<$PrismaModel>
+  in?: $Enums.Interview_interview_type[]
+  notIn?: $Enums.Interview_interview_type[]
+  not?: Prisma.NestedEnumInterview_interview_typeFilter<$PrismaModel> | $Enums.Interview_interview_type
 }
 
-export type Enuminterview_interview_typeWithAggregatesFilter<$PrismaModel = never> = {
-  equals?: $Enums.interview_interview_type | Prisma.Enuminterview_interview_typeFieldRefInput<$PrismaModel>
-  in?: $Enums.interview_interview_type[]
-  notIn?: $Enums.interview_interview_type[]
-  not?: Prisma.NestedEnuminterview_interview_typeWithAggregatesFilter<$PrismaModel> | $Enums.interview_interview_type
+export type EnumInterview_interview_typeWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.Interview_interview_type | Prisma.EnumInterview_interview_typeFieldRefInput<$PrismaModel>
+  in?: $Enums.Interview_interview_type[]
+  notIn?: $Enums.Interview_interview_type[]
+  not?: Prisma.NestedEnumInterview_interview_typeWithAggregatesFilter<$PrismaModel> | $Enums.Interview_interview_type
   _count?: Prisma.NestedIntFilter<$PrismaModel>
-  _min?: Prisma.NestedEnuminterview_interview_typeFilter<$PrismaModel>
-  _max?: Prisma.NestedEnuminterview_interview_typeFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumInterview_interview_typeFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumInterview_interview_typeFilter<$PrismaModel>
 }
 
-export type Enumjob_offering_contract_typeFilter<$PrismaModel = never> = {
-  equals?: $Enums.job_offering_contract_type | Prisma.Enumjob_offering_contract_typeFieldRefInput<$PrismaModel>
-  in?: $Enums.job_offering_contract_type[]
-  notIn?: $Enums.job_offering_contract_type[]
-  not?: Prisma.NestedEnumjob_offering_contract_typeFilter<$PrismaModel> | $Enums.job_offering_contract_type
+export type EnumJob_offering_contract_typeFilter<$PrismaModel = never> = {
+  equals?: $Enums.Job_offering_contract_type | Prisma.EnumJob_offering_contract_typeFieldRefInput<$PrismaModel>
+  in?: $Enums.Job_offering_contract_type[]
+  notIn?: $Enums.Job_offering_contract_type[]
+  not?: Prisma.NestedEnumJob_offering_contract_typeFilter<$PrismaModel> | $Enums.Job_offering_contract_type
 }
 
-export type Enumjob_offering_contract_typeWithAggregatesFilter<$PrismaModel = never> = {
-  equals?: $Enums.job_offering_contract_type | Prisma.Enumjob_offering_contract_typeFieldRefInput<$PrismaModel>
-  in?: $Enums.job_offering_contract_type[]
-  notIn?: $Enums.job_offering_contract_type[]
-  not?: Prisma.NestedEnumjob_offering_contract_typeWithAggregatesFilter<$PrismaModel> | $Enums.job_offering_contract_type
+export type EnumJob_offering_contract_typeWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.Job_offering_contract_type | Prisma.EnumJob_offering_contract_typeFieldRefInput<$PrismaModel>
+  in?: $Enums.Job_offering_contract_type[]
+  notIn?: $Enums.Job_offering_contract_type[]
+  not?: Prisma.NestedEnumJob_offering_contract_typeWithAggregatesFilter<$PrismaModel> | $Enums.Job_offering_contract_type
   _count?: Prisma.NestedIntFilter<$PrismaModel>
-  _min?: Prisma.NestedEnumjob_offering_contract_typeFilter<$PrismaModel>
-  _max?: Prisma.NestedEnumjob_offering_contract_typeFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumJob_offering_contract_typeFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumJob_offering_contract_typeFilter<$PrismaModel>
 }
 
-export type Enumnotification_event_typeFilter<$PrismaModel = never> = {
-  equals?: $Enums.notification_event_type | Prisma.Enumnotification_event_typeFieldRefInput<$PrismaModel>
-  in?: $Enums.notification_event_type[]
-  notIn?: $Enums.notification_event_type[]
-  not?: Prisma.NestedEnumnotification_event_typeFilter<$PrismaModel> | $Enums.notification_event_type
+export type EnumNotification_event_typeFilter<$PrismaModel = never> = {
+  equals?: $Enums.Notification_event_type | Prisma.EnumNotification_event_typeFieldRefInput<$PrismaModel>
+  in?: $Enums.Notification_event_type[]
+  notIn?: $Enums.Notification_event_type[]
+  not?: Prisma.NestedEnumNotification_event_typeFilter<$PrismaModel> | $Enums.Notification_event_type
 }
 
-export type Enumnotification_event_typeWithAggregatesFilter<$PrismaModel = never> = {
-  equals?: $Enums.notification_event_type | Prisma.Enumnotification_event_typeFieldRefInput<$PrismaModel>
-  in?: $Enums.notification_event_type[]
-  notIn?: $Enums.notification_event_type[]
-  not?: Prisma.NestedEnumnotification_event_typeWithAggregatesFilter<$PrismaModel> | $Enums.notification_event_type
+export type EnumNotification_event_typeWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.Notification_event_type | Prisma.EnumNotification_event_typeFieldRefInput<$PrismaModel>
+  in?: $Enums.Notification_event_type[]
+  notIn?: $Enums.Notification_event_type[]
+  not?: Prisma.NestedEnumNotification_event_typeWithAggregatesFilter<$PrismaModel> | $Enums.Notification_event_type
   _count?: Prisma.NestedIntFilter<$PrismaModel>
-  _min?: Prisma.NestedEnumnotification_event_typeFilter<$PrismaModel>
-  _max?: Prisma.NestedEnumnotification_event_typeFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumNotification_event_typeFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumNotification_event_typeFilter<$PrismaModel>
 }
 
-export type Enumpublication_typeFilter<$PrismaModel = never> = {
-  equals?: $Enums.publication_type | Prisma.Enumpublication_typeFieldRefInput<$PrismaModel>
-  in?: $Enums.publication_type[]
-  notIn?: $Enums.publication_type[]
-  not?: Prisma.NestedEnumpublication_typeFilter<$PrismaModel> | $Enums.publication_type
+export type EnumPublication_typeFilter<$PrismaModel = never> = {
+  equals?: $Enums.Publication_type | Prisma.EnumPublication_typeFieldRefInput<$PrismaModel>
+  in?: $Enums.Publication_type[]
+  notIn?: $Enums.Publication_type[]
+  not?: Prisma.NestedEnumPublication_typeFilter<$PrismaModel> | $Enums.Publication_type
 }
 
-export type Enumpublication_typeWithAggregatesFilter<$PrismaModel = never> = {
-  equals?: $Enums.publication_type | Prisma.Enumpublication_typeFieldRefInput<$PrismaModel>
-  in?: $Enums.publication_type[]
-  notIn?: $Enums.publication_type[]
-  not?: Prisma.NestedEnumpublication_typeWithAggregatesFilter<$PrismaModel> | $Enums.publication_type
+export type EnumPublication_typeWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.Publication_type | Prisma.EnumPublication_typeFieldRefInput<$PrismaModel>
+  in?: $Enums.Publication_type[]
+  notIn?: $Enums.Publication_type[]
+  not?: Prisma.NestedEnumPublication_typeWithAggregatesFilter<$PrismaModel> | $Enums.Publication_type
   _count?: Prisma.NestedIntFilter<$PrismaModel>
-  _min?: Prisma.NestedEnumpublication_typeFilter<$PrismaModel>
-  _max?: Prisma.NestedEnumpublication_typeFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumPublication_typeFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumPublication_typeFilter<$PrismaModel>
 }
 
 export type NestedIntFilter<$PrismaModel = never> = {
@@ -332,11 +332,11 @@ export type NestedIntFilter<$PrismaModel = never> = {
   not?: Prisma.NestedIntFilter<$PrismaModel> | number
 }
 
-export type NestedEnumapplication_statusFilter<$PrismaModel = never> = {
-  equals?: $Enums.application_status | Prisma.Enumapplication_statusFieldRefInput<$PrismaModel>
-  in?: $Enums.application_status[]
-  notIn?: $Enums.application_status[]
-  not?: Prisma.NestedEnumapplication_statusFilter<$PrismaModel> | $Enums.application_status
+export type NestedEnumApplication_statusFilter<$PrismaModel = never> = {
+  equals?: $Enums.Application_status | Prisma.EnumApplication_statusFieldRefInput<$PrismaModel>
+  in?: $Enums.Application_status[]
+  notIn?: $Enums.Application_status[]
+  not?: Prisma.NestedEnumApplication_statusFilter<$PrismaModel> | $Enums.Application_status
 }
 
 export type NestedDateTimeFilter<$PrismaModel = never> = {
@@ -377,14 +377,14 @@ export type NestedFloatFilter<$PrismaModel = never> = {
   not?: Prisma.NestedFloatFilter<$PrismaModel> | number
 }
 
-export type NestedEnumapplication_statusWithAggregatesFilter<$PrismaModel = never> = {
-  equals?: $Enums.application_status | Prisma.Enumapplication_statusFieldRefInput<$PrismaModel>
-  in?: $Enums.application_status[]
-  notIn?: $Enums.application_status[]
-  not?: Prisma.NestedEnumapplication_statusWithAggregatesFilter<$PrismaModel> | $Enums.application_status
+export type NestedEnumApplication_statusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.Application_status | Prisma.EnumApplication_statusFieldRefInput<$PrismaModel>
+  in?: $Enums.Application_status[]
+  notIn?: $Enums.Application_status[]
+  not?: Prisma.NestedEnumApplication_statusWithAggregatesFilter<$PrismaModel> | $Enums.Application_status
   _count?: Prisma.NestedIntFilter<$PrismaModel>
-  _min?: Prisma.NestedEnumapplication_statusFilter<$PrismaModel>
-  _max?: Prisma.NestedEnumapplication_statusFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumApplication_statusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumApplication_statusFilter<$PrismaModel>
 }
 
 export type NestedDateTimeWithAggregatesFilter<$PrismaModel = never> = {
@@ -518,38 +518,38 @@ export type NestedBoolWithAggregatesFilter<$PrismaModel = never> = {
   _max?: Prisma.NestedBoolFilter<$PrismaModel>
 }
 
-export type NestedEnumconnection_statusFilter<$PrismaModel = never> = {
-  equals?: $Enums.connection_status | Prisma.Enumconnection_statusFieldRefInput<$PrismaModel>
-  in?: $Enums.connection_status[]
-  notIn?: $Enums.connection_status[]
-  not?: Prisma.NestedEnumconnection_statusFilter<$PrismaModel> | $Enums.connection_status
+export type NestedEnumConnection_statusFilter<$PrismaModel = never> = {
+  equals?: $Enums.Connection_status | Prisma.EnumConnection_statusFieldRefInput<$PrismaModel>
+  in?: $Enums.Connection_status[]
+  notIn?: $Enums.Connection_status[]
+  not?: Prisma.NestedEnumConnection_statusFilter<$PrismaModel> | $Enums.Connection_status
 }
 
-export type NestedEnumconnection_statusWithAggregatesFilter<$PrismaModel = never> = {
-  equals?: $Enums.connection_status | Prisma.Enumconnection_statusFieldRefInput<$PrismaModel>
-  in?: $Enums.connection_status[]
-  notIn?: $Enums.connection_status[]
-  not?: Prisma.NestedEnumconnection_statusWithAggregatesFilter<$PrismaModel> | $Enums.connection_status
+export type NestedEnumConnection_statusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.Connection_status | Prisma.EnumConnection_statusFieldRefInput<$PrismaModel>
+  in?: $Enums.Connection_status[]
+  notIn?: $Enums.Connection_status[]
+  not?: Prisma.NestedEnumConnection_statusWithAggregatesFilter<$PrismaModel> | $Enums.Connection_status
   _count?: Prisma.NestedIntFilter<$PrismaModel>
-  _min?: Prisma.NestedEnumconnection_statusFilter<$PrismaModel>
-  _max?: Prisma.NestedEnumconnection_statusFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumConnection_statusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumConnection_statusFilter<$PrismaModel>
 }
 
-export type NestedEnumdocument_typeFilter<$PrismaModel = never> = {
-  equals?: $Enums.document_type | Prisma.Enumdocument_typeFieldRefInput<$PrismaModel>
-  in?: $Enums.document_type[]
-  notIn?: $Enums.document_type[]
-  not?: Prisma.NestedEnumdocument_typeFilter<$PrismaModel> | $Enums.document_type
+export type NestedEnumDocument_typeFilter<$PrismaModel = never> = {
+  equals?: $Enums.Document_type | Prisma.EnumDocument_typeFieldRefInput<$PrismaModel>
+  in?: $Enums.Document_type[]
+  notIn?: $Enums.Document_type[]
+  not?: Prisma.NestedEnumDocument_typeFilter<$PrismaModel> | $Enums.Document_type
 }
 
-export type NestedEnumdocument_typeWithAggregatesFilter<$PrismaModel = never> = {
-  equals?: $Enums.document_type | Prisma.Enumdocument_typeFieldRefInput<$PrismaModel>
-  in?: $Enums.document_type[]
-  notIn?: $Enums.document_type[]
-  not?: Prisma.NestedEnumdocument_typeWithAggregatesFilter<$PrismaModel> | $Enums.document_type
+export type NestedEnumDocument_typeWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.Document_type | Prisma.EnumDocument_typeFieldRefInput<$PrismaModel>
+  in?: $Enums.Document_type[]
+  notIn?: $Enums.Document_type[]
+  not?: Prisma.NestedEnumDocument_typeWithAggregatesFilter<$PrismaModel> | $Enums.Document_type
   _count?: Prisma.NestedIntFilter<$PrismaModel>
-  _min?: Prisma.NestedEnumdocument_typeFilter<$PrismaModel>
-  _max?: Prisma.NestedEnumdocument_typeFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumDocument_typeFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumDocument_typeFilter<$PrismaModel>
 }
 
 export type NestedDateTimeNullableFilter<$PrismaModel = never> = {
@@ -577,72 +577,72 @@ export type NestedDateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
   _max?: Prisma.NestedDateTimeNullableFilter<$PrismaModel>
 }
 
-export type NestedEnuminterview_interview_typeFilter<$PrismaModel = never> = {
-  equals?: $Enums.interview_interview_type | Prisma.Enuminterview_interview_typeFieldRefInput<$PrismaModel>
-  in?: $Enums.interview_interview_type[]
-  notIn?: $Enums.interview_interview_type[]
-  not?: Prisma.NestedEnuminterview_interview_typeFilter<$PrismaModel> | $Enums.interview_interview_type
+export type NestedEnumInterview_interview_typeFilter<$PrismaModel = never> = {
+  equals?: $Enums.Interview_interview_type | Prisma.EnumInterview_interview_typeFieldRefInput<$PrismaModel>
+  in?: $Enums.Interview_interview_type[]
+  notIn?: $Enums.Interview_interview_type[]
+  not?: Prisma.NestedEnumInterview_interview_typeFilter<$PrismaModel> | $Enums.Interview_interview_type
 }
 
-export type NestedEnuminterview_interview_typeWithAggregatesFilter<$PrismaModel = never> = {
-  equals?: $Enums.interview_interview_type | Prisma.Enuminterview_interview_typeFieldRefInput<$PrismaModel>
-  in?: $Enums.interview_interview_type[]
-  notIn?: $Enums.interview_interview_type[]
-  not?: Prisma.NestedEnuminterview_interview_typeWithAggregatesFilter<$PrismaModel> | $Enums.interview_interview_type
+export type NestedEnumInterview_interview_typeWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.Interview_interview_type | Prisma.EnumInterview_interview_typeFieldRefInput<$PrismaModel>
+  in?: $Enums.Interview_interview_type[]
+  notIn?: $Enums.Interview_interview_type[]
+  not?: Prisma.NestedEnumInterview_interview_typeWithAggregatesFilter<$PrismaModel> | $Enums.Interview_interview_type
   _count?: Prisma.NestedIntFilter<$PrismaModel>
-  _min?: Prisma.NestedEnuminterview_interview_typeFilter<$PrismaModel>
-  _max?: Prisma.NestedEnuminterview_interview_typeFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumInterview_interview_typeFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumInterview_interview_typeFilter<$PrismaModel>
 }
 
-export type NestedEnumjob_offering_contract_typeFilter<$PrismaModel = never> = {
-  equals?: $Enums.job_offering_contract_type | Prisma.Enumjob_offering_contract_typeFieldRefInput<$PrismaModel>
-  in?: $Enums.job_offering_contract_type[]
-  notIn?: $Enums.job_offering_contract_type[]
-  not?: Prisma.NestedEnumjob_offering_contract_typeFilter<$PrismaModel> | $Enums.job_offering_contract_type
+export type NestedEnumJob_offering_contract_typeFilter<$PrismaModel = never> = {
+  equals?: $Enums.Job_offering_contract_type | Prisma.EnumJob_offering_contract_typeFieldRefInput<$PrismaModel>
+  in?: $Enums.Job_offering_contract_type[]
+  notIn?: $Enums.Job_offering_contract_type[]
+  not?: Prisma.NestedEnumJob_offering_contract_typeFilter<$PrismaModel> | $Enums.Job_offering_contract_type
 }
 
-export type NestedEnumjob_offering_contract_typeWithAggregatesFilter<$PrismaModel = never> = {
-  equals?: $Enums.job_offering_contract_type | Prisma.Enumjob_offering_contract_typeFieldRefInput<$PrismaModel>
-  in?: $Enums.job_offering_contract_type[]
-  notIn?: $Enums.job_offering_contract_type[]
-  not?: Prisma.NestedEnumjob_offering_contract_typeWithAggregatesFilter<$PrismaModel> | $Enums.job_offering_contract_type
+export type NestedEnumJob_offering_contract_typeWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.Job_offering_contract_type | Prisma.EnumJob_offering_contract_typeFieldRefInput<$PrismaModel>
+  in?: $Enums.Job_offering_contract_type[]
+  notIn?: $Enums.Job_offering_contract_type[]
+  not?: Prisma.NestedEnumJob_offering_contract_typeWithAggregatesFilter<$PrismaModel> | $Enums.Job_offering_contract_type
   _count?: Prisma.NestedIntFilter<$PrismaModel>
-  _min?: Prisma.NestedEnumjob_offering_contract_typeFilter<$PrismaModel>
-  _max?: Prisma.NestedEnumjob_offering_contract_typeFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumJob_offering_contract_typeFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumJob_offering_contract_typeFilter<$PrismaModel>
 }
 
-export type NestedEnumnotification_event_typeFilter<$PrismaModel = never> = {
-  equals?: $Enums.notification_event_type | Prisma.Enumnotification_event_typeFieldRefInput<$PrismaModel>
-  in?: $Enums.notification_event_type[]
-  notIn?: $Enums.notification_event_type[]
-  not?: Prisma.NestedEnumnotification_event_typeFilter<$PrismaModel> | $Enums.notification_event_type
+export type NestedEnumNotification_event_typeFilter<$PrismaModel = never> = {
+  equals?: $Enums.Notification_event_type | Prisma.EnumNotification_event_typeFieldRefInput<$PrismaModel>
+  in?: $Enums.Notification_event_type[]
+  notIn?: $Enums.Notification_event_type[]
+  not?: Prisma.NestedEnumNotification_event_typeFilter<$PrismaModel> | $Enums.Notification_event_type
 }
 
-export type NestedEnumnotification_event_typeWithAggregatesFilter<$PrismaModel = never> = {
-  equals?: $Enums.notification_event_type | Prisma.Enumnotification_event_typeFieldRefInput<$PrismaModel>
-  in?: $Enums.notification_event_type[]
-  notIn?: $Enums.notification_event_type[]
-  not?: Prisma.NestedEnumnotification_event_typeWithAggregatesFilter<$PrismaModel> | $Enums.notification_event_type
+export type NestedEnumNotification_event_typeWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.Notification_event_type | Prisma.EnumNotification_event_typeFieldRefInput<$PrismaModel>
+  in?: $Enums.Notification_event_type[]
+  notIn?: $Enums.Notification_event_type[]
+  not?: Prisma.NestedEnumNotification_event_typeWithAggregatesFilter<$PrismaModel> | $Enums.Notification_event_type
   _count?: Prisma.NestedIntFilter<$PrismaModel>
-  _min?: Prisma.NestedEnumnotification_event_typeFilter<$PrismaModel>
-  _max?: Prisma.NestedEnumnotification_event_typeFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumNotification_event_typeFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumNotification_event_typeFilter<$PrismaModel>
 }
 
-export type NestedEnumpublication_typeFilter<$PrismaModel = never> = {
-  equals?: $Enums.publication_type | Prisma.Enumpublication_typeFieldRefInput<$PrismaModel>
-  in?: $Enums.publication_type[]
-  notIn?: $Enums.publication_type[]
-  not?: Prisma.NestedEnumpublication_typeFilter<$PrismaModel> | $Enums.publication_type
+export type NestedEnumPublication_typeFilter<$PrismaModel = never> = {
+  equals?: $Enums.Publication_type | Prisma.EnumPublication_typeFieldRefInput<$PrismaModel>
+  in?: $Enums.Publication_type[]
+  notIn?: $Enums.Publication_type[]
+  not?: Prisma.NestedEnumPublication_typeFilter<$PrismaModel> | $Enums.Publication_type
 }
 
-export type NestedEnumpublication_typeWithAggregatesFilter<$PrismaModel = never> = {
-  equals?: $Enums.publication_type | Prisma.Enumpublication_typeFieldRefInput<$PrismaModel>
-  in?: $Enums.publication_type[]
-  notIn?: $Enums.publication_type[]
-  not?: Prisma.NestedEnumpublication_typeWithAggregatesFilter<$PrismaModel> | $Enums.publication_type
+export type NestedEnumPublication_typeWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.Publication_type | Prisma.EnumPublication_typeFieldRefInput<$PrismaModel>
+  in?: $Enums.Publication_type[]
+  notIn?: $Enums.Publication_type[]
+  not?: Prisma.NestedEnumPublication_typeWithAggregatesFilter<$PrismaModel> | $Enums.Publication_type
   _count?: Prisma.NestedIntFilter<$PrismaModel>
-  _min?: Prisma.NestedEnumpublication_typeFilter<$PrismaModel>
-  _max?: Prisma.NestedEnumpublication_typeFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumPublication_typeFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumPublication_typeFilter<$PrismaModel>
 }
 
 

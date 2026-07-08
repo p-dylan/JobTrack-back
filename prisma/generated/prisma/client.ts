@@ -40,92 +40,92 @@ export type PrismaClient<LogOpts extends Prisma.LogLevel = never, OmitOpts exten
 export { Prisma }
 
 /**
- * Model application
+ * Model Application
  * 
  */
-export type application = Prisma.applicationModel
+export type Application = Prisma.ApplicationModel
 /**
- * Model application_document
+ * Model Application_document
  * 
  */
-export type application_document = Prisma.application_documentModel
+export type Application_document = Prisma.Application_documentModel
 /**
- * Model comment
+ * Model Comment
  * 
  */
-export type comment = Prisma.commentModel
+export type Comment = Prisma.CommentModel
 /**
- * Model company
+ * Model Company
  * 
  */
-export type company = Prisma.companyModel
+export type Company = Prisma.CompanyModel
 /**
- * Model company_follower
+ * Model Company_follower
  * 
  */
-export type company_follower = Prisma.company_followerModel
+export type Company_follower = Prisma.Company_followerModel
 /**
- * Model connection
+ * Model Connection
  * 
  */
-export type connection = Prisma.connectionModel
+export type Connection = Prisma.ConnectionModel
 /**
- * Model contact
+ * Model Contact
  * 
  */
-export type contact = Prisma.contactModel
+export type Contact = Prisma.ContactModel
 /**
- * Model document
+ * Model Document
  * 
  */
-export type document = Prisma.documentModel
+export type Document = Prisma.DocumentModel
 /**
- * Model employment
+ * Model Employment
  * 
  */
-export type employment = Prisma.employmentModel
+export type Employment = Prisma.EmploymentModel
 /**
- * Model interview
+ * Model Interview
  * 
  */
-export type interview = Prisma.interviewModel
+export type Interview = Prisma.InterviewModel
 /**
- * Model job_offering
+ * Model Job_offering
  * 
  */
-export type job_offering = Prisma.job_offeringModel
+export type Job_offering = Prisma.Job_offeringModel
 /**
- * Model message
+ * Model Message
  * 
  */
-export type message = Prisma.messageModel
+export type Message = Prisma.MessageModel
 /**
- * Model notification
+ * Model Notification
  * 
  */
-export type notification = Prisma.notificationModel
+export type Notification = Prisma.NotificationModel
 /**
- * Model publication
+ * Model Publication
  * 
  */
-export type publication = Prisma.publicationModel
+export type Publication = Prisma.PublicationModel
 /**
- * Model role
+ * Model Role
  * 
  */
-export type role = Prisma.roleModel
+export type Role = Prisma.RoleModel
 /**
- * Model skill
+ * Model Skill
  * 
  */
-export type skill = Prisma.skillModel
+export type Skill = Prisma.SkillModel
 /**
- * Model user
+ * Model User
  * 
  */
-export type user = Prisma.userModel
+export type User = Prisma.UserModel
 /**
- * Model user_skill
+ * Model User_skill
  * 
  */
-export type user_skill = Prisma.user_skillModel
+export type User_skill = Prisma.User_skillModel

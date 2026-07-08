@@ -1,49 +1,48 @@
 
-import { Body, Controller, Post, Get, Put, Delete, Param, ParseIntPipe } from '@nestjs/common';
+import { Body, Controller, Post, Get, Put, Delete, Param, ParseIntPipe, UseGuards, Req } from '@nestjs/common';
 import { UserService } from './user.service';
-import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
-import { IPartialUser} from './interface/partielUser';
-import { Prisma, user } from 'prisma/generated/prisma/client';
+import { Prisma, User } from 'prisma/generated/prisma/client';
+import { UserWithoutPass } from './interface/partielUser';
+import { PrismaService } from 'prisma/prisma.service';
+import { AuthGuard } from 'src/auth/guards/auth.guard';
+import type { IRequestWithPayload } from 'src/auth/interface';
+import type { Request } from 'express';
 
+
+@UseGuards(AuthGuard)
 @Controller('user')
 export class UserController {
-  constructor(private readonly userService: UserService) {}
+  constructor(private readonly userService: UserService, private readonly prismaService: PrismaService) {}
 
-  @Post()
-  async create(@Body() body: CreateUserDto): Promise<{data: {user: user}; message: string}> {
-    const user = await this.userService.create(body);
-    return {data: {user}, message: 'user create successfull'};
-  }
+  // @Post()
+  // async create(@Body() body: CreateUserDto): Promise<{data: {user: user}; message: string}> {
+  //   const user = await this.userService.create(body);
+  //   return {data: {user}, message: 'user create successfull'};
+  // }
 
   @Get(':id')
-  async findOne(@Param('id', ParseIntPipe) id: number): Promise<IPartialUser<{ user : user}>> {
-    const user = await this.userService.findOne(id);
-    return {data : {user}, message: `User with id: ${id} found.`};
-    
+  async findOne(@Param('id', ParseIntPipe) id: number): Promise<UserWithoutPass> {
+    return this.userService.findOneOrThrow(id);
+  }
+
+  @Get('profil')
+  async getMyProfil(@Req() request: IRequestWithPayload): Promise<UserWithoutPass> {
+    return await this.userService.findOneOrThrow(request.user.id);
   }
 
   @Get()
-  async findAll(): Promise<IPartialUser<user[]>> {
-    const users = await this.userService.findAll();
-    return {
-      data: users,
-      message: users.length === 0
-        ? `Aucun user n'a été trouvé.`
-        : `${users.length} users trouvé(s).`,
-    };
+   async findAll(): Promise<UserWithoutPass[]> {
+    return await this.userService.findAll();
   }
 
 
-
- 
 
   @Put(':id')
   async updateUser(
     @Param('id', ParseIntPipe) id: number, 
-    @Body() body: UpdateUserDto): Promise<IPartialUser<{ user: user }>> {
-      const user = await this.userService.update(id, body);
-      return { data: { user }, message: `le user avec l'id ${id} a été mis a jour avec succès.` };
+    @Body() body: UpdateUserDto): Promise<UserWithoutPass> {
+      return await this.userService.update(id, body);
   }
 
   @Delete(':id')

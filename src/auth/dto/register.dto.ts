@@ -1,14 +1,5 @@
-import { IsEmail, MaxLength, IsNotEmpty, IsString, IsStrongPassword } from "class-validator";
+import { CreateUserDto } from "src/user/dto/create-user.dto";
 
-export class RegisterDto {
+export class RegisterDto extends CreateUserDto {
 
-  @IsEmail()
-  @MaxLength(255)
-  email: string;
-
-  @IsNotEmpty()
-  @IsString()
-  @IsStrongPassword({minLength:8, minUppercase:1, minNumbers:1, minSymbols:1})
-  @MaxLength(255)
-  password: string;
 }
