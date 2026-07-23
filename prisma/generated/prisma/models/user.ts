@@ -43,6 +43,8 @@ export type UserMinAggregateOutputType = {
   last_name: string | null
   email: string | null
   password: string | null
+  notificationsEnabled: boolean | null
+  language: string | null
   refreshToken: string | null
   created_at: Date | null
   updated_at: Date | null
@@ -56,6 +58,8 @@ export type UserMaxAggregateOutputType = {
   last_name: string | null
   email: string | null
   password: string | null
+  notificationsEnabled: boolean | null
+  language: string | null
   refreshToken: string | null
   created_at: Date | null
   updated_at: Date | null
@@ -69,6 +73,8 @@ export type UserCountAggregateOutputType = {
   last_name: number
   email: number
   password: number
+  notificationsEnabled: number
+  language: number
   refreshToken: number
   created_at: number
   updated_at: number
@@ -94,6 +100,8 @@ export type UserMinAggregateInputType = {
   last_name?: true
   email?: true
   password?: true
+  notificationsEnabled?: true
+  language?: true
   refreshToken?: true
   created_at?: true
   updated_at?: true
@@ -107,6 +115,8 @@ export type UserMaxAggregateInputType = {
   last_name?: true
   email?: true
   password?: true
+  notificationsEnabled?: true
+  language?: true
   refreshToken?: true
   created_at?: true
   updated_at?: true
@@ -120,6 +130,8 @@ export type UserCountAggregateInputType = {
   last_name?: true
   email?: true
   password?: true
+  notificationsEnabled?: true
+  language?: true
   refreshToken?: true
   created_at?: true
   updated_at?: true
@@ -220,6 +232,8 @@ export type UserGroupByOutputType = {
   last_name: string
   email: string
   password: string
+  notificationsEnabled: boolean
+  language: string
   refreshToken: string | null
   created_at: Date
   updated_at: Date
@@ -256,6 +270,8 @@ export type UserWhereInput = {
   last_name?: Prisma.StringFilter<"User"> | string
   email?: Prisma.StringFilter<"User"> | string
   password?: Prisma.StringFilter<"User"> | string
+  notificationsEnabled?: Prisma.BoolFilter<"User"> | boolean
+  language?: Prisma.StringFilter<"User"> | string
   refreshToken?: Prisma.StringNullableFilter<"User"> | string | null
   created_at?: Prisma.DateTimeFilter<"User"> | Date | string
   updated_at?: Prisma.DateTimeFilter<"User"> | Date | string
@@ -281,6 +297,8 @@ export type UserOrderByWithRelationInput = {
   last_name?: Prisma.SortOrder
   email?: Prisma.SortOrder
   password?: Prisma.SortOrder
+  notificationsEnabled?: Prisma.SortOrder
+  language?: Prisma.SortOrder
   refreshToken?: Prisma.SortOrderInput | Prisma.SortOrder
   created_at?: Prisma.SortOrder
   updated_at?: Prisma.SortOrder
@@ -310,6 +328,8 @@ export type UserWhereUniqueInput = Prisma.AtLeast<{
   first_name?: Prisma.StringFilter<"User"> | string
   last_name?: Prisma.StringFilter<"User"> | string
   password?: Prisma.StringFilter<"User"> | string
+  notificationsEnabled?: Prisma.BoolFilter<"User"> | boolean
+  language?: Prisma.StringFilter<"User"> | string
   refreshToken?: Prisma.StringNullableFilter<"User"> | string | null
   created_at?: Prisma.DateTimeFilter<"User"> | Date | string
   updated_at?: Prisma.DateTimeFilter<"User"> | Date | string
@@ -335,6 +355,8 @@ export type UserOrderByWithAggregationInput = {
   last_name?: Prisma.SortOrder
   email?: Prisma.SortOrder
   password?: Prisma.SortOrder
+  notificationsEnabled?: Prisma.SortOrder
+  language?: Prisma.SortOrder
   refreshToken?: Prisma.SortOrderInput | Prisma.SortOrder
   created_at?: Prisma.SortOrder
   updated_at?: Prisma.SortOrder
@@ -356,6 +378,8 @@ export type UserScalarWhereWithAggregatesInput = {
   last_name?: Prisma.StringWithAggregatesFilter<"User"> | string
   email?: Prisma.StringWithAggregatesFilter<"User"> | string
   password?: Prisma.StringWithAggregatesFilter<"User"> | string
+  notificationsEnabled?: Prisma.BoolWithAggregatesFilter<"User"> | boolean
+  language?: Prisma.StringWithAggregatesFilter<"User"> | string
   refreshToken?: Prisma.StringNullableWithAggregatesFilter<"User"> | string | null
   created_at?: Prisma.DateTimeWithAggregatesFilter<"User"> | Date | string
   updated_at?: Prisma.DateTimeWithAggregatesFilter<"User"> | Date | string
@@ -367,6 +391,8 @@ export type UserCreateInput = {
   last_name: string
   email: string
   password: string
+  notificationsEnabled?: boolean
+  language?: string
   refreshToken?: string | null
   created_at?: Date | string
   updated_at?: Date | string
@@ -392,6 +418,8 @@ export type UserUncheckedCreateInput = {
   last_name: string
   email: string
   password: string
+  notificationsEnabled?: boolean
+  language?: string
   refreshToken?: string | null
   created_at?: Date | string
   updated_at?: Date | string
@@ -414,6 +442,8 @@ export type UserUpdateInput = {
   last_name?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
   password?: Prisma.StringFieldUpdateOperationsInput | string
+  notificationsEnabled?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  language?: Prisma.StringFieldUpdateOperationsInput | string
   refreshToken?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -439,6 +469,8 @@ export type UserUncheckedUpdateInput = {
   last_name?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
   password?: Prisma.StringFieldUpdateOperationsInput | string
+  notificationsEnabled?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  language?: Prisma.StringFieldUpdateOperationsInput | string
   refreshToken?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -463,6 +495,8 @@ export type UserCreateManyInput = {
   last_name: string
   email: string
   password: string
+  notificationsEnabled?: boolean
+  language?: string
   refreshToken?: string | null
   created_at?: Date | string
   updated_at?: Date | string
@@ -474,6 +508,8 @@ export type UserUpdateManyMutationInput = {
   last_name?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
   password?: Prisma.StringFieldUpdateOperationsInput | string
+  notificationsEnabled?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  language?: Prisma.StringFieldUpdateOperationsInput | string
   refreshToken?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -487,6 +523,8 @@ export type UserUncheckedUpdateManyInput = {
   last_name?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
   password?: Prisma.StringFieldUpdateOperationsInput | string
+  notificationsEnabled?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  language?: Prisma.StringFieldUpdateOperationsInput | string
   refreshToken?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -521,6 +559,8 @@ export type UserCountOrderByAggregateInput = {
   last_name?: Prisma.SortOrder
   email?: Prisma.SortOrder
   password?: Prisma.SortOrder
+  notificationsEnabled?: Prisma.SortOrder
+  language?: Prisma.SortOrder
   refreshToken?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
   updated_at?: Prisma.SortOrder
@@ -539,6 +579,8 @@ export type UserMaxOrderByAggregateInput = {
   last_name?: Prisma.SortOrder
   email?: Prisma.SortOrder
   password?: Prisma.SortOrder
+  notificationsEnabled?: Prisma.SortOrder
+  language?: Prisma.SortOrder
   refreshToken?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
   updated_at?: Prisma.SortOrder
@@ -552,6 +594,8 @@ export type UserMinOrderByAggregateInput = {
   last_name?: Prisma.SortOrder
   email?: Prisma.SortOrder
   password?: Prisma.SortOrder
+  notificationsEnabled?: Prisma.SortOrder
+  language?: Prisma.SortOrder
   refreshToken?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
   updated_at?: Prisma.SortOrder
@@ -764,6 +808,8 @@ export type UserCreateWithoutApplicationInput = {
   last_name: string
   email: string
   password: string
+  notificationsEnabled?: boolean
+  language?: string
   refreshToken?: string | null
   created_at?: Date | string
   updated_at?: Date | string
@@ -788,6 +834,8 @@ export type UserUncheckedCreateWithoutApplicationInput = {
   last_name: string
   email: string
   password: string
+  notificationsEnabled?: boolean
+  language?: string
   refreshToken?: string | null
   created_at?: Date | string
   updated_at?: Date | string
@@ -825,6 +873,8 @@ export type UserUpdateWithoutApplicationInput = {
   last_name?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
   password?: Prisma.StringFieldUpdateOperationsInput | string
+  notificationsEnabled?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  language?: Prisma.StringFieldUpdateOperationsInput | string
   refreshToken?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -849,6 +899,8 @@ export type UserUncheckedUpdateWithoutApplicationInput = {
   last_name?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
   password?: Prisma.StringFieldUpdateOperationsInput | string
+  notificationsEnabled?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  language?: Prisma.StringFieldUpdateOperationsInput | string
   refreshToken?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -870,6 +922,8 @@ export type UserCreateWithoutCommentInput = {
   last_name: string
   email: string
   password: string
+  notificationsEnabled?: boolean
+  language?: string
   refreshToken?: string | null
   created_at?: Date | string
   updated_at?: Date | string
@@ -894,6 +948,8 @@ export type UserUncheckedCreateWithoutCommentInput = {
   last_name: string
   email: string
   password: string
+  notificationsEnabled?: boolean
+  language?: string
   refreshToken?: string | null
   created_at?: Date | string
   updated_at?: Date | string
@@ -931,6 +987,8 @@ export type UserUpdateWithoutCommentInput = {
   last_name?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
   password?: Prisma.StringFieldUpdateOperationsInput | string
+  notificationsEnabled?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  language?: Prisma.StringFieldUpdateOperationsInput | string
   refreshToken?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -955,6 +1013,8 @@ export type UserUncheckedUpdateWithoutCommentInput = {
   last_name?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
   password?: Prisma.StringFieldUpdateOperationsInput | string
+  notificationsEnabled?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  language?: Prisma.StringFieldUpdateOperationsInput | string
   refreshToken?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -976,6 +1036,8 @@ export type UserCreateWithoutCompany_followerInput = {
   last_name: string
   email: string
   password: string
+  notificationsEnabled?: boolean
+  language?: string
   refreshToken?: string | null
   created_at?: Date | string
   updated_at?: Date | string
@@ -1000,6 +1062,8 @@ export type UserUncheckedCreateWithoutCompany_followerInput = {
   last_name: string
   email: string
   password: string
+  notificationsEnabled?: boolean
+  language?: string
   refreshToken?: string | null
   created_at?: Date | string
   updated_at?: Date | string
@@ -1037,6 +1101,8 @@ export type UserUpdateWithoutCompany_followerInput = {
   last_name?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
   password?: Prisma.StringFieldUpdateOperationsInput | string
+  notificationsEnabled?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  language?: Prisma.StringFieldUpdateOperationsInput | string
   refreshToken?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -1061,6 +1127,8 @@ export type UserUncheckedUpdateWithoutCompany_followerInput = {
   last_name?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
   password?: Prisma.StringFieldUpdateOperationsInput | string
+  notificationsEnabled?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  language?: Prisma.StringFieldUpdateOperationsInput | string
   refreshToken?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -1082,6 +1150,8 @@ export type UserCreateWithoutConnection_connection_user_action_idTouserInput = {
   last_name: string
   email: string
   password: string
+  notificationsEnabled?: boolean
+  language?: string
   refreshToken?: string | null
   created_at?: Date | string
   updated_at?: Date | string
@@ -1106,6 +1176,8 @@ export type UserUncheckedCreateWithoutConnection_connection_user_action_idTouser
   last_name: string
   email: string
   password: string
+  notificationsEnabled?: boolean
+  language?: string
   refreshToken?: string | null
   created_at?: Date | string
   updated_at?: Date | string
@@ -1132,6 +1204,8 @@ export type UserCreateWithoutConnection_connection_user_receiver_idTouserInput =
   last_name: string
   email: string
   password: string
+  notificationsEnabled?: boolean
+  language?: string
   refreshToken?: string | null
   created_at?: Date | string
   updated_at?: Date | string
@@ -1156,6 +1230,8 @@ export type UserUncheckedCreateWithoutConnection_connection_user_receiver_idTous
   last_name: string
   email: string
   password: string
+  notificationsEnabled?: boolean
+  language?: string
   refreshToken?: string | null
   created_at?: Date | string
   updated_at?: Date | string
@@ -1193,6 +1269,8 @@ export type UserUpdateWithoutConnection_connection_user_action_idTouserInput = {
   last_name?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
   password?: Prisma.StringFieldUpdateOperationsInput | string
+  notificationsEnabled?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  language?: Prisma.StringFieldUpdateOperationsInput | string
   refreshToken?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -1217,6 +1295,8 @@ export type UserUncheckedUpdateWithoutConnection_connection_user_action_idTouser
   last_name?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
   password?: Prisma.StringFieldUpdateOperationsInput | string
+  notificationsEnabled?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  language?: Prisma.StringFieldUpdateOperationsInput | string
   refreshToken?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -1249,6 +1329,8 @@ export type UserUpdateWithoutConnection_connection_user_receiver_idTouserInput =
   last_name?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
   password?: Prisma.StringFieldUpdateOperationsInput | string
+  notificationsEnabled?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  language?: Prisma.StringFieldUpdateOperationsInput | string
   refreshToken?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -1273,6 +1355,8 @@ export type UserUncheckedUpdateWithoutConnection_connection_user_receiver_idTous
   last_name?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
   password?: Prisma.StringFieldUpdateOperationsInput | string
+  notificationsEnabled?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  language?: Prisma.StringFieldUpdateOperationsInput | string
   refreshToken?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -1294,6 +1378,8 @@ export type UserCreateWithoutEmploymentInput = {
   last_name: string
   email: string
   password: string
+  notificationsEnabled?: boolean
+  language?: string
   refreshToken?: string | null
   created_at?: Date | string
   updated_at?: Date | string
@@ -1318,6 +1404,8 @@ export type UserUncheckedCreateWithoutEmploymentInput = {
   last_name: string
   email: string
   password: string
+  notificationsEnabled?: boolean
+  language?: string
   refreshToken?: string | null
   created_at?: Date | string
   updated_at?: Date | string
@@ -1355,6 +1443,8 @@ export type UserUpdateWithoutEmploymentInput = {
   last_name?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
   password?: Prisma.StringFieldUpdateOperationsInput | string
+  notificationsEnabled?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  language?: Prisma.StringFieldUpdateOperationsInput | string
   refreshToken?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -1379,6 +1469,8 @@ export type UserUncheckedUpdateWithoutEmploymentInput = {
   last_name?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
   password?: Prisma.StringFieldUpdateOperationsInput | string
+  notificationsEnabled?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  language?: Prisma.StringFieldUpdateOperationsInput | string
   refreshToken?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -1400,6 +1492,8 @@ export type UserCreateWithoutMessage_message_recipient_idTouserInput = {
   last_name: string
   email: string
   password: string
+  notificationsEnabled?: boolean
+  language?: string
   refreshToken?: string | null
   created_at?: Date | string
   updated_at?: Date | string
@@ -1424,6 +1518,8 @@ export type UserUncheckedCreateWithoutMessage_message_recipient_idTouserInput = 
   last_name: string
   email: string
   password: string
+  notificationsEnabled?: boolean
+  language?: string
   refreshToken?: string | null
   created_at?: Date | string
   updated_at?: Date | string
@@ -1450,6 +1546,8 @@ export type UserCreateWithoutMessage_message_sender_idTouserInput = {
   last_name: string
   email: string
   password: string
+  notificationsEnabled?: boolean
+  language?: string
   refreshToken?: string | null
   created_at?: Date | string
   updated_at?: Date | string
@@ -1474,6 +1572,8 @@ export type UserUncheckedCreateWithoutMessage_message_sender_idTouserInput = {
   last_name: string
   email: string
   password: string
+  notificationsEnabled?: boolean
+  language?: string
   refreshToken?: string | null
   created_at?: Date | string
   updated_at?: Date | string
@@ -1511,6 +1611,8 @@ export type UserUpdateWithoutMessage_message_recipient_idTouserInput = {
   last_name?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
   password?: Prisma.StringFieldUpdateOperationsInput | string
+  notificationsEnabled?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  language?: Prisma.StringFieldUpdateOperationsInput | string
   refreshToken?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -1535,6 +1637,8 @@ export type UserUncheckedUpdateWithoutMessage_message_recipient_idTouserInput = 
   last_name?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
   password?: Prisma.StringFieldUpdateOperationsInput | string
+  notificationsEnabled?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  language?: Prisma.StringFieldUpdateOperationsInput | string
   refreshToken?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -1567,6 +1671,8 @@ export type UserUpdateWithoutMessage_message_sender_idTouserInput = {
   last_name?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
   password?: Prisma.StringFieldUpdateOperationsInput | string
+  notificationsEnabled?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  language?: Prisma.StringFieldUpdateOperationsInput | string
   refreshToken?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -1591,6 +1697,8 @@ export type UserUncheckedUpdateWithoutMessage_message_sender_idTouserInput = {
   last_name?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
   password?: Prisma.StringFieldUpdateOperationsInput | string
+  notificationsEnabled?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  language?: Prisma.StringFieldUpdateOperationsInput | string
   refreshToken?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -1612,6 +1720,8 @@ export type UserCreateWithoutNotificationInput = {
   last_name: string
   email: string
   password: string
+  notificationsEnabled?: boolean
+  language?: string
   refreshToken?: string | null
   created_at?: Date | string
   updated_at?: Date | string
@@ -1636,6 +1746,8 @@ export type UserUncheckedCreateWithoutNotificationInput = {
   last_name: string
   email: string
   password: string
+  notificationsEnabled?: boolean
+  language?: string
   refreshToken?: string | null
   created_at?: Date | string
   updated_at?: Date | string
@@ -1673,6 +1785,8 @@ export type UserUpdateWithoutNotificationInput = {
   last_name?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
   password?: Prisma.StringFieldUpdateOperationsInput | string
+  notificationsEnabled?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  language?: Prisma.StringFieldUpdateOperationsInput | string
   refreshToken?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -1697,6 +1811,8 @@ export type UserUncheckedUpdateWithoutNotificationInput = {
   last_name?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
   password?: Prisma.StringFieldUpdateOperationsInput | string
+  notificationsEnabled?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  language?: Prisma.StringFieldUpdateOperationsInput | string
   refreshToken?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -1718,6 +1834,8 @@ export type UserCreateWithoutPublicationInput = {
   last_name: string
   email: string
   password: string
+  notificationsEnabled?: boolean
+  language?: string
   refreshToken?: string | null
   created_at?: Date | string
   updated_at?: Date | string
@@ -1742,6 +1860,8 @@ export type UserUncheckedCreateWithoutPublicationInput = {
   last_name: string
   email: string
   password: string
+  notificationsEnabled?: boolean
+  language?: string
   refreshToken?: string | null
   created_at?: Date | string
   updated_at?: Date | string
@@ -1779,6 +1899,8 @@ export type UserUpdateWithoutPublicationInput = {
   last_name?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
   password?: Prisma.StringFieldUpdateOperationsInput | string
+  notificationsEnabled?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  language?: Prisma.StringFieldUpdateOperationsInput | string
   refreshToken?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -1803,6 +1925,8 @@ export type UserUncheckedUpdateWithoutPublicationInput = {
   last_name?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
   password?: Prisma.StringFieldUpdateOperationsInput | string
+  notificationsEnabled?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  language?: Prisma.StringFieldUpdateOperationsInput | string
   refreshToken?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -1824,6 +1948,8 @@ export type UserCreateWithoutRoleInput = {
   last_name: string
   email: string
   password: string
+  notificationsEnabled?: boolean
+  language?: string
   refreshToken?: string | null
   created_at?: Date | string
   updated_at?: Date | string
@@ -1847,6 +1973,8 @@ export type UserUncheckedCreateWithoutRoleInput = {
   last_name: string
   email: string
   password: string
+  notificationsEnabled?: boolean
+  language?: string
   refreshToken?: string | null
   created_at?: Date | string
   updated_at?: Date | string
@@ -1900,6 +2028,8 @@ export type UserScalarWhereInput = {
   last_name?: Prisma.StringFilter<"User"> | string
   email?: Prisma.StringFilter<"User"> | string
   password?: Prisma.StringFilter<"User"> | string
+  notificationsEnabled?: Prisma.BoolFilter<"User"> | boolean
+  language?: Prisma.StringFilter<"User"> | string
   refreshToken?: Prisma.StringNullableFilter<"User"> | string | null
   created_at?: Prisma.DateTimeFilter<"User"> | Date | string
   updated_at?: Prisma.DateTimeFilter<"User"> | Date | string
@@ -1911,6 +2041,8 @@ export type UserCreateWithoutUser_skillInput = {
   last_name: string
   email: string
   password: string
+  notificationsEnabled?: boolean
+  language?: string
   refreshToken?: string | null
   created_at?: Date | string
   updated_at?: Date | string
@@ -1935,6 +2067,8 @@ export type UserUncheckedCreateWithoutUser_skillInput = {
   last_name: string
   email: string
   password: string
+  notificationsEnabled?: boolean
+  language?: string
   refreshToken?: string | null
   created_at?: Date | string
   updated_at?: Date | string
@@ -1972,6 +2106,8 @@ export type UserUpdateWithoutUser_skillInput = {
   last_name?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
   password?: Prisma.StringFieldUpdateOperationsInput | string
+  notificationsEnabled?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  language?: Prisma.StringFieldUpdateOperationsInput | string
   refreshToken?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -1996,6 +2132,8 @@ export type UserUncheckedUpdateWithoutUser_skillInput = {
   last_name?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
   password?: Prisma.StringFieldUpdateOperationsInput | string
+  notificationsEnabled?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  language?: Prisma.StringFieldUpdateOperationsInput | string
   refreshToken?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -2018,6 +2156,8 @@ export type UserCreateManyRoleInput = {
   last_name: string
   email: string
   password: string
+  notificationsEnabled?: boolean
+  language?: string
   refreshToken?: string | null
   created_at?: Date | string
   updated_at?: Date | string
@@ -2029,6 +2169,8 @@ export type UserUpdateWithoutRoleInput = {
   last_name?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
   password?: Prisma.StringFieldUpdateOperationsInput | string
+  notificationsEnabled?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  language?: Prisma.StringFieldUpdateOperationsInput | string
   refreshToken?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -2052,6 +2194,8 @@ export type UserUncheckedUpdateWithoutRoleInput = {
   last_name?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
   password?: Prisma.StringFieldUpdateOperationsInput | string
+  notificationsEnabled?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  language?: Prisma.StringFieldUpdateOperationsInput | string
   refreshToken?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -2075,6 +2219,8 @@ export type UserUncheckedUpdateManyWithoutRoleInput = {
   last_name?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
   password?: Prisma.StringFieldUpdateOperationsInput | string
+  notificationsEnabled?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  language?: Prisma.StringFieldUpdateOperationsInput | string
   refreshToken?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -2209,6 +2355,8 @@ export type UserSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = r
   last_name?: boolean
   email?: boolean
   password?: boolean
+  notificationsEnabled?: boolean
+  language?: boolean
   refreshToken?: boolean
   created_at?: boolean
   updated_at?: boolean
@@ -2237,13 +2385,15 @@ export type UserSelectScalar = {
   last_name?: boolean
   email?: boolean
   password?: boolean
+  notificationsEnabled?: boolean
+  language?: boolean
   refreshToken?: boolean
   created_at?: boolean
   updated_at?: boolean
   deleted_at?: boolean
 }
 
-export type UserOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "role_id" | "first_name" | "last_name" | "email" | "password" | "refreshToken" | "created_at" | "updated_at" | "deleted_at", ExtArgs["result"]["user"]>
+export type UserOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "role_id" | "first_name" | "last_name" | "email" | "password" | "notificationsEnabled" | "language" | "refreshToken" | "created_at" | "updated_at" | "deleted_at", ExtArgs["result"]["user"]>
 export type UserInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   application?: boolean | Prisma.User$applicationArgs<ExtArgs>
   comment?: boolean | Prisma.User$commentArgs<ExtArgs>
@@ -2283,6 +2433,8 @@ export type $UserPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs =
     last_name: string
     email: string
     password: string
+    notificationsEnabled: boolean
+    language: string
     refreshToken: string | null
     created_at: Date
     updated_at: Date
@@ -2674,6 +2826,8 @@ export interface UserFieldRefs {
   readonly last_name: Prisma.FieldRef<"User", 'String'>
   readonly email: Prisma.FieldRef<"User", 'String'>
   readonly password: Prisma.FieldRef<"User", 'String'>
+  readonly notificationsEnabled: Prisma.FieldRef<"User", 'Boolean'>
+  readonly language: Prisma.FieldRef<"User", 'String'>
   readonly refreshToken: Prisma.FieldRef<"User", 'String'>
   readonly created_at: Prisma.FieldRef<"User", 'DateTime'>
   readonly updated_at: Prisma.FieldRef<"User", 'DateTime'>

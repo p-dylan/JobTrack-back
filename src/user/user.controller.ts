@@ -1,5 +1,5 @@
 
-import { Body, Controller, Post, Get, Put, Delete, Param, ParseIntPipe, UseGuards, Req } from '@nestjs/common';
+import { Body, Controller, Post, Get, Put, Delete, Param, ParseIntPipe, UseGuards, Req, Patch } from '@nestjs/common';
 import { UserService } from './user.service';
 import { UpdateUserDto } from './dto/update-user.dto';
 import { Prisma, User } from 'prisma/generated/prisma/client';
@@ -8,6 +8,8 @@ import { PrismaService } from 'prisma/prisma.service';
 import { AuthGuard } from 'src/auth/guards/auth.guard';
 import type { IRequestWithPayload } from 'src/auth/interface';
 import type { Request } from 'express';
+import { UpdateNotificationsDto } from './dto/update-notifications.dto';
+import { UpdateLanguageDto } from './dto/update-language.dto';
 
 
 @UseGuards(AuthGuard)
@@ -15,27 +17,22 @@ import type { Request } from 'express';
 export class UserController {
   constructor(private readonly userService: UserService, private readonly prismaService: PrismaService) {}
 
-  // @Post()
-  // async create(@Body() body: CreateUserDto): Promise<{data: {user: user}; message: string}> {
-  //   const user = await this.userService.create(body);
-  //   return {data: {user}, message: 'user create successfull'};
-  // }
-
-  @Get(':id')
-  async findOne(@Param('id', ParseIntPipe) id: number): Promise<UserWithoutPass> {
-    return this.userService.findOneOrThrow(id);
-  }
 
   @Get('profil')
   async getMyProfil(@Req() request: IRequestWithPayload): Promise<UserWithoutPass> {
     return await this.userService.findOneOrThrow(request.user.id);
   }
 
+  @Get(':id')
+  async findOne(@Param('id', ParseIntPipe) id: number): Promise<UserWithoutPass> {
+    return this.userService.findOneOrThrow(id);
+  }
+
+
   @Get()
    async findAll(): Promise<UserWithoutPass[]> {
     return await this.userService.findAll();
   }
-
 
 
   @Put(':id')
@@ -44,6 +41,29 @@ export class UserController {
     @Body() body: UpdateUserDto): Promise<UserWithoutPass> {
       return await this.userService.update(id, body);
   }
+
+  @Patch('settings/notifications')
+  async updateNotifications(
+    @Req() request: IRequestWithPayload,
+    @Body() body: UpdateNotificationsDto
+  ): Promise<UserWithoutPass> {
+    return await this.userService.update(request.user.id, body);
+  }
+
+  @Patch('settings/language')
+  async updateLanguage(
+    @Req() request: IRequestWithPayload,
+    @Body() body: UpdateLanguageDto,
+  ): Promise<UserWithoutPass> {
+    return await this.userService.update(request.user.id, body);
+  }
+
+  @Delete('account')
+  async deleteMyAccount(@Req() request: IRequestWithPayload): Promise<{data: null; message: string}> {
+    await this.userService.delete(request.user.id);
+    return { data: null, message: 'Votre compte a été supprimé avec succès.' };
+  }
+  
 
   @Delete(':id')
   async deleteUser(@Param('id', ParseIntPipe) id: number): Promise<{data : null; message: string}> {
