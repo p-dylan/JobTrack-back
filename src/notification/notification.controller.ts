@@ -1,31 +1,33 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import { Controller, Get, Patch, Param, Delete, UseGuards, Req, ParseIntPipe } from '@nestjs/common';
 import { NotificationService } from './notification.service';
-import { CreateNotificationDto } from './dto/create-notification.dto';
-import { UpdateNotificationDto } from './dto/update-notification.dto';
+import { AuthGuard } from 'src/auth/guards/auth.guard';
+import type { IRequestWithPayload } from 'src/auth/interface';
+import { Notification } from 'prisma/generated/prisma/client';
 
-@Controller('notification')
+@UseGuards(AuthGuard)
+@Controller('notifications')
 export class NotificationController {
   constructor(private readonly notificationService: NotificationService) {}
 
-  @Post()
-  create(@Body() createNotificationDto: CreateNotificationDto) {
-    return this.notificationService.create(createNotificationDto);
-  }
 
   @Get()
-  findAll() {
-    return this.notificationService.findAll();
+  async findAll(@Req()request: IRequestWithPayload): Promise<Notification[]> {
+    return this.notificationService.findAllForUser(request.user.id);
   }
 
   @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.notificationService.findOne(+id);
+  findOne(@Param('id') id: string): Promise<Notification> {
+    return this.notificationService.findOneOrThrow(+id);
   }
 
-  @Patch(':id')
-  update(@Param('id') id: string, @Body() updateNotificationDto: UpdateNotificationDto) {
-    return this.notificationService.update(+id, updateNotificationDto);
+  @Patch(':id/read')
+  async markAsRead(
+    @Param('id', ParseIntPipe) id: number,
+    @Req() request: IRequestWithPayload
+  ): Promise<Notification> {
+    return this.notificationService.markAsRead(id, request.user.id);
   }
+    
 
   @Delete(':id')
   remove(@Param('id') id: string) {
