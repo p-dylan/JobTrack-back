@@ -239,6 +239,8 @@ model User {
   last_name                                    String             @db.VarChar(100)
   email                                        String             @unique(map: "email") @db.VarChar(255)
   password                                     String             @db.VarChar(255)
+  notificationsEnabled                         Boolean            @default(true)
+  language                                     String             @default("fr")
   refreshToken                                 String?            @db.LongText          
   created_at                                   DateTime           @default(now()) @db.Timestamp(0)
   updated_at                                   DateTime           @default(now()) @db.Timestamp(0)

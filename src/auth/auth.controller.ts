@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body, ConflictException, BadRequestException, Res, Logger, Req, UnauthorizedException} from '@nestjs/common';
+import { Controller, Get, Post, Body, ConflictException, BadRequestException, Res, Logger, Req, UnauthorizedException, Patch, UseGuards} from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { RegisterDto } from './dto/register.dto';
 import { LoginDto } from './dto/Login.dto';
@@ -6,6 +6,9 @@ import { UserService } from 'src/user/user.service';
 import type { Response } from 'express';
 import type { Request } from 'express';
 import { User } from 'prisma/generated/prisma/client';
+import { AuthGuard } from './guards/auth.guard';
+import { ChangePasswordDto } from './dto/changePassword.dto';
+import type { IRequestWithPayload } from './interface';
 
 
 
@@ -93,5 +96,29 @@ export class AuthController {
 
     return accessToken;
   }
+
+  @Patch('password')
+  @UseGuards(AuthGuard)
+  async changePassword(
+    @Req() request: IRequestWithPayload,
+    @Body() body: ChangePasswordDto,
+  ): Promise<{ message: string }> {
+    try {
+      const user = await this.userService.findOneOrThrow(request.user.id);
+  
+      if (!(await this.authService.compare(body.currentPassword, user.password))) {
+        throw new Error('Mot de passe actuel incorrect');
+      }
+  
+      const hashedPassword = await this.authService.hash(body.newPassword);
+      await this.userService.update(user.id, { password: hashedPassword });
+  
+      return { message: 'Mot de passe mis à jour avec succès' };
+    } catch (error) {
+      Logger.warn(error);
+      throw new BadRequestException();
+    }
+}
+  
 
 }
