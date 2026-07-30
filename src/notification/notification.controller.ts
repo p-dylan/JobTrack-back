@@ -1,4 +1,13 @@
-import { Controller, Get, Patch, Param, Delete, UseGuards, Req, ParseIntPipe } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Patch,
+  Param,
+  Delete,
+  UseGuards,
+  Req,
+  ParseIntPipe,
+} from '@nestjs/common';
 import { NotificationService } from './notification.service';
 import { AuthGuard } from 'src/auth/guards/auth.guard';
 import type { IRequestWithPayload } from 'src/auth/interface';
@@ -9,9 +18,8 @@ import { Notification } from 'prisma/generated/prisma/client';
 export class NotificationController {
   constructor(private readonly notificationService: NotificationService) {}
 
-
   @Get()
-  async findAll(@Req()request: IRequestWithPayload): Promise<Notification[]> {
+  async findAll(@Req() request: IRequestWithPayload): Promise<Notification[]> {
     return this.notificationService.findAllForUser(request.user.id);
   }
 
@@ -23,11 +31,10 @@ export class NotificationController {
   @Patch(':id/read')
   async markAsRead(
     @Param('id', ParseIntPipe) id: number,
-    @Req() request: IRequestWithPayload
+    @Req() request: IRequestWithPayload,
   ): Promise<Notification> {
     return this.notificationService.markAsRead(id, request.user.id);
   }
-    
 
   @Delete(':id')
   remove(@Param('id') id: string) {
