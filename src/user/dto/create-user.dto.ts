@@ -1,6 +1,10 @@
-import { IsString, IsEmail,IsNotEmpty, IsStrongPassword, MaxLength, IsEnum } from 'class-validator';
-export enum UserRole { CANDIDATE = 'candidate', RECRUITER = 'recruiter'}
-
+import {
+  IsString,
+  IsEmail,
+  IsNotEmpty,
+  IsStrongPassword,
+  MaxLength,
+} from 'class-validator';
 
 export class CreateUserDto {
   @IsNotEmpty()
@@ -17,12 +21,12 @@ export class CreateUserDto {
   @MaxLength(255)
   email: string;
 
-  @IsStrongPassword({minLength:8, minUppercase:1, minNumbers:1, minSymbols:1})
+  @IsStrongPassword({
+    minLength: 8,
+    minUppercase: 1,
+    minNumbers: 1,
+    minSymbols: 1,
+  })
   @MaxLength(255)
   password: string;
-
-  @IsEnum(UserRole)
-  @IsString()
-  role: UserRole
-
 }

@@ -1,10 +1,4 @@
-import {
-  ConflictException,
-  Injectable,
-  NotFoundException,
-} from '@nestjs/common';
-import { CreateUserDto, UserRole } from './dto/create-user.dto';
-import { UpdateUserDto } from './dto/update-user.dto';
+import { ConflictException, Injectable } from '@nestjs/common';
 import { Prisma, User } from 'prisma/generated/prisma/client';
 import { PrismaService } from 'prisma/prisma.service';
 import { UserWithoutPass } from './interface/partielUser';
@@ -15,21 +9,14 @@ export class UserService {
   constructor(private readonly prisma: PrismaService) {}
 
   async create(dto: RegisterDto): Promise<User> {
-    //Extract the role from the DTO; store the rest of the DTO in a `rest` object (the role is handled differently)
-    const { role, ...rest } = dto;
-
     try {
       return await this.prisma.user.create({
-        //réinject l'objet reste directement dans objet data
         data: {
-          ...rest,
-          role: {
-            connect: { name: role }, // connect à la table relationnelle
-          },
+          ...dto,
         },
       });
-    } catch (error) {
-      throw new NotFoundException('role name not found');
+    } catch {
+      throw new ConflictException('Email is already used');
     }
   }
   async countByEmail(email: string): Promise<number> {
@@ -50,17 +37,14 @@ export class UserService {
 
   async update(
     id: number,
-    data: Prisma.UserUpdateInput & { role?: UserRole },
+    data: Prisma.UserUpdateInput,
   ): Promise<UserWithoutPass> {
     await this.findOneOrThrow(id);
-
-    const { role, ...rest } = data;
 
     return this.prisma.user.update({
       where: { id },
       data: {
-        ...rest,
-        ...(role && { role: { connect: { name: role } } }),
+        ...data,
       },
       omit: { password: true },
     });

@@ -1,30 +1,35 @@
-import { IsBoolean, IsEmail, IsNotEmpty, IsOptional, IsString, IsUrl, MaxLength } from "class-validator";
-
+import {
+  IsBoolean,
+  IsEmail,
+  IsNotEmpty,
+  IsOptional,
+  IsString,
+  IsUrl,
+  MaxLength,
+} from 'class-validator';
 
 export class CreateCompanyDto {
+  @IsNotEmpty()
+  @IsString()
+  name: string;
 
-    @IsNotEmpty()
-    @IsString()
-    name: string;
+  @IsNotEmpty()
+  @IsString()
+  @MaxLength(150)
+  business_sector: string;
 
-    @IsNotEmpty()
-    @IsString()
-    @MaxLength(150)
-    business_sector: string;
+  @IsOptional()
+  @IsUrl({}, { message: 'URL invalid' })
+  @IsString()
+  @MaxLength(255)
+  website?: string;
 
-    @IsOptional()
-    @IsUrl({}, {message: 'URL invalid'})
-    @IsString()
-    @MaxLength(255)
-    website?: string;
+  @IsOptional()
+  @IsNotEmpty()
+  @IsString()
+  address?: string;
 
-    @IsOptional()
-    @IsNotEmpty()
-    @IsString()
-    address?: string;
-    
-    @IsNotEmpty()
-    @IsBoolean()
-    isPublic: boolean;
-
+  @IsNotEmpty()
+  @IsBoolean()
+  isPublic: boolean;
 }

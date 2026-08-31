@@ -32,15 +32,12 @@ export class AuthController {
   ) {}
 
   @Post('register')
-  async signUp(@Body() body: RegisterDto): Promise<User> {
-    //verif if email is already used
-    // if(await this.userService.countByEmail(body.email)) throw new ConflictException("Email is already used")
-
+  async signUp(@Body() body: RegisterDto): Promise<SafeUser> {
     //hash password
     body.password = await this.authService.hash(body.password);
-
     //create user in db
-    return await this.userService.create(body);
+    const user = await this.userService.create(body);
+    return toSafeUser(user);
   }
 
   @Post('login')
@@ -70,7 +67,7 @@ export class AuthController {
   async refreshToken(
     @Req() request: Request,
     @Res({ passthrough: true }) response: Response,
-  ): Promise<{ accessToken: string, user: SafeUser }> {
+  ): Promise<{ accessToken: string; user: SafeUser }> {
     console.log('Req.headers.cookie', request.headers.cookie);
 
     try {
