@@ -13,9 +13,11 @@ export class NotificationService {
   ) {}
 
   async create(dto: CreateNotificationDto): Promise<Notification | null> {
-    const targetUser = await this.userService.findOneOrThrow(dto.target_user_id);
+    const targetUser = await this.userService.findOneOrThrow(
+      dto.target_user_id,
+    );
 
-    if(!targetUser.notificationsEnabled) {
+    if (!targetUser.notificationsEnabled) {
       return null; // User has disabled notifications, do not create a notification
     }
 
