@@ -234,12 +234,12 @@ model Skill {
 
 model User {
   id                                           Int                @id @default(autoincrement())
-  role_id                                      Int
+  role_id                                      Int?
   first_name                                   String             @db.VarChar(100)
   last_name                                    String             @db.VarChar(100)
   email                                        String             @unique(map: "email") @db.VarChar(255)
   password                                     String             @db.VarChar(255)
-  notificationsEnabled                         Boolean            @default(true)
+  notifications_enabled                        Boolean            @default(true)
   language                                     String             @default("fr")
   refreshToken                                 String?            @db.LongText          
   created_at                                   DateTime           @default(now()) @db.Timestamp(0)
@@ -255,7 +255,7 @@ model User {
   message_message_sender_idTouser              Message[]          @relation("message_sender_idTouser")
   notification                                 Notification[]
   publication                                  Publication[]
-  role                                         Role               @relation(fields: [role_id], references: [id], map: "fk_user_role")
+  role                                         Role?              @relation(fields: [role_id], references: [id], map: "fk_user_role")
   user_skill                                   User_skill[]
 
   @@index([role_id], map: "fk_user_role")

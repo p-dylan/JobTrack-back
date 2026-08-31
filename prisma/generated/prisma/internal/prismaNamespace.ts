@@ -1854,7 +1854,7 @@ export const UserScalarFieldEnum = {
   last_name: 'last_name',
   email: 'email',
   password: 'password',
-  notificationsEnabled: 'notificationsEnabled',
+  notifications_enabled: 'notifications_enabled',
   language: 'language',
   refreshToken: 'refreshToken',
   created_at: 'created_at',

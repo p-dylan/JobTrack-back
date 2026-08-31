@@ -22,12 +22,28 @@ import { PublicationModule } from './publication/publication.module';
 import { RoleModule } from './role/role.module';
 import { AuthModule } from './auth/auth.module';
 
-
-
 @Module({
   controllers: [AppController],
   providers: [AppService],
-  imports: [ConfigModule.forRoot({isGlobal: true}), PrismaModule, UserModule, CompanyModule, ApplicationModule, CommentModule, ContactModule, EmploymentModule, InterviewModule, JobOfferingModule, MessageModule, NotificationModule, SkillModule, ConnectionModule, DocumentModule, PublicationModule, RoleModule, AuthModule]
-
+  imports: [
+    ConfigModule.forRoot({ isGlobal: true }),
+    PrismaModule,
+    UserModule,
+    CompanyModule,
+    ApplicationModule,
+    CommentModule,
+    ContactModule,
+    EmploymentModule,
+    InterviewModule,
+    JobOfferingModule,
+    MessageModule,
+    NotificationModule,
+    SkillModule,
+    ConnectionModule,
+    DocumentModule,
+    PublicationModule,
+    RoleModule,
+    AuthModule,
+  ],
 })
 export class AppModule {}
