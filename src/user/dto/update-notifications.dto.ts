@@ -1,7 +1,6 @@
 import { IsBoolean } from 'class-validator';
 
 export class UpdateNotificationsDto {
-    
   @IsBoolean()
-  notificationsEnabled: boolean;
+  notifications_enabled: boolean;
 }

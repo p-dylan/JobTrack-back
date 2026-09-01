@@ -9,6 +9,7 @@ import {
   UseGuards,
   Req,
   Patch,
+  HttpCode,
 } from '@nestjs/common';
 import { UserService } from './user.service';
 import { UpdateUserDto } from './dto/update-user.dto';
@@ -73,11 +74,9 @@ export class UserController {
   }
 
   @Delete('account')
-  async deleteMyAccount(
-    @Req() request: IRequestWithPayload,
-  ): Promise<{ data: null; message: string }> {
+  @HttpCode(204)
+  async deleteMyAccount(@Req() request: IRequestWithPayload): Promise<void> {
     await this.userService.delete(request.user.id);
-    return { data: null, message: 'Votre compte a été supprimé avec succès.' };
   }
 
   @Delete(':id')
