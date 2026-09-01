@@ -17,7 +17,7 @@ export class NotificationService {
       dto.target_user_id,
     );
 
-    if (!targetUser.notificationsEnabled) {
+    if (!targetUser.notifications_enabled) {
       return null; // User has disabled notifications, do not create a notification
     }
 
